@@ -629,7 +629,7 @@ export default function Home() {
                     <ProjectCard
                         title="Trydit"
                         description="엔지니어링 솔루션 리뷰 및 경험 공유 플랫폼. 단순한 도구 평가를 넘어, 엔지니어들이 정의한 문제와 해결 과정을 공유하여 서로의 성장을 돕는 'Milestone for others'를 지향합니다."
-                        link="https://triedit.dojiung.com"
+                        link="https://trydit.dojiung.com"
                         tags={["Community", "Review Platform", "Collective Intelligence"]}
                     />
                     <ProjectCard
