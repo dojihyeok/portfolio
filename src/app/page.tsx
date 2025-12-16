@@ -34,7 +34,7 @@ export default function Home() {
                         </div>
                     </div>
 
-                    <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-400 mb-6 tracking-tight">
+                    <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-400 mb-6 tracking-tight">
                         이윤혁
                     </h1>
                     <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-300 mb-8 max-w-2xl mx-auto font-light">
@@ -117,12 +117,12 @@ export default function Home() {
                             브랜딩을 추구하는 기업은 단순히 서비스를 운영하는 조직이 아닙니다.<br className="hidden md:block" />
                             우리는 <span className="font-semibold text-indigo-600 dark:text-indigo-400">목표가 있는 스포츠 팀</span>에 가깝습니다.
                         </p>
-                        <ul className="list-disc list-inside space-y-2 md:space-y-3 ml-2 md:ml-4 bg-slate-50 dark:bg-slate-800/50 p-4 md:p-6 rounded-xl">
+                        <ul className="list-disc list-inside space-y-2 md:space-y-3 ml-1 md:ml-4 bg-slate-50 dark:bg-slate-800/50 p-4 md:p-6 rounded-xl">
                             <li>단기 성과가 아닌 <span className="font-bold text-slate-800 dark:text-slate-100">지속적인 우승</span></li>
                             <li>기능 완성이 아닌 <span className="font-bold text-slate-800 dark:text-slate-100">신뢰와 정체성</span></li>
                             <li>일회성 성공이 아닌 <span className="font-bold text-slate-800 dark:text-slate-100">시간이 지날수록 강해지는 팀</span></li>
                         </ul>
-                        <p className="mt-4">
+                        <p className="mt-4 break-keep">
                             스포츠 팀이 우승하기 위해 뛰어난 선수, 명확한 전술, 그리고 <strong>팀 전체의 신뢰와 몰입</strong>이 필요하듯,<br className="hidden md:block" />
                             브랜딩을 추구하는 기업에서 정보보안팀은 &#39;있으면 좋은 팀&#39;이 아니라, <span className="font-bold text-blue-600 dark:text-blue-400">우승을 위한 필수 전력</span>입니다.
                         </p>
@@ -542,7 +542,7 @@ export default function Home() {
             {/* Focus Areas */}
             <Section title="Recent Focus" className="py-12 md:py-20">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div className="bg-gradient-to-br from-indigo-500 to-purple-600 p-6 rounded-2xl text-white shadow-lg">
+                    <div className="bg-gradient-to-br from-indigo-500 to-purple-600 p-5 md:p-6 rounded-2xl text-white shadow-lg">
                         <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
                             <Terminal className="text-indigo-200" size={24} />
                             몰입하고 성장하는 환경
@@ -552,7 +552,7 @@ export default function Home() {
                             지식 공유 문화를 만들어 개인와 조직이 함께 성장하는 구조를 만듭니다.
                         </p>
                     </div>
-                    <div className="bg-gradient-to-br from-slate-700 to-slate-900 p-6 rounded-2xl text-white shadow-lg">
+                    <div className="bg-gradient-to-br from-slate-700 to-slate-900 p-5 md:p-6 rounded-2xl text-white shadow-lg">
                         <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
                             <Award className="text-slate-300" size={24} />
                             보안·감사 자동화
@@ -562,7 +562,7 @@ export default function Home() {
                             AuditFlow와 같은 도구를 통해 반복적인 컴플라이언스 업무를 효율화합니다.
                         </p>
                     </div>
-                    <div className="bg-gradient-to-br from-blue-600 to-cyan-600 p-6 rounded-2xl text-white shadow-lg">
+                    <div className="bg-gradient-to-br from-blue-600 to-cyan-600 p-5 md:p-6 rounded-2xl text-white shadow-lg">
                         <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
                             <Users className="text-blue-200" size={24} />
                             브랜딩 기반의 보안팀 구성
