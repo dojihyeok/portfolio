@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Noto_Sans_KR } from "next/font/google"; // Add Noto_Sans_KR
 import "./globals.css";
 
@@ -8,6 +8,13 @@ const notoSansKr = Noto_Sans_KR({
     weight: ["100", "300", "400", "500", "700", "900"],
     variable: "--font-noto-sans-kr",
 });
+
+export const viewport: Viewport = {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+    userScalable: false,
+};
 
 export const metadata: Metadata = {
     title: "이윤혁 포트폴리오 | Security Leadership & Compliance Architecture",

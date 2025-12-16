@@ -10,6 +10,9 @@
   - Implemented `Noto Sans KR` for consistent typography across all operating systems and browsers.
   - Applied global `word-break: keep-all` with `overflow-wrap: break-word` to prevent text overflow issues while maintaining Korean readability.
   - Added `suppressHydrationWarning` and refined CSS rendering strategies to minimize layout shifts (CLS) and "broken" styles.
+  - **Fixed Mobile Layout Breaking**:
+    - Added explicit `viewport` configuration (`width=device-width`, `initial-scale=1`, `maximum-scale=1`) to strict mobile scaling.
+    - Enforced `overflow-x: hidden` and `max-width: 100vw` on `html`, `body`, and `main` elements to prevent any horizontal scrolling or layout breakage.
 
 ## Content Updates
 - **Security Team Plan Section**:

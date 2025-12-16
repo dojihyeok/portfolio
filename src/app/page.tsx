@@ -10,7 +10,7 @@ import { ProjectCard } from "@/components/ProjectCard";
 
 export default function Home() {
     return (
-        <main className="min-h-screen bg-slate-50 dark:bg-slate-950">
+        <main className="min-h-screen bg-slate-50 dark:bg-slate-950 overflow-hidden w-full max-w-[100vw]">
             {/* Hero Section */}
             <section className="h-screen flex flex-col justify-center items-center text-center px-4 relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-b from-blue-50/50 to-transparent dark:from-blue-900/10 pointer-events-none" />
