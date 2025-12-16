@@ -292,9 +292,12 @@ export default function Home() {
                         </h4>
                         <div className="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-6 md:p-8">
                             <p className="text-lg text-slate-700 dark:text-slate-300 font-medium mb-6">
-                                Security Squad는 <span className="text-indigo-600 dark:text-indigo-400 font-bold">독립적인 유닛(Unit)</span> 이면서도,
-                                전사 조직과 긴밀히 연결되는 <span className="text-indigo-600 dark:text-indigo-400 font-bold">허브형 보안 조직</span>입니다.
+                                Security Squad는 <span className="text-indigo-600 dark:text-indigo-400 font-bold">4개의 유닛(Unit)</span>으로 구성되어 있으며, 전사 조직과 긴밀히 연결되는 <span className="text-indigo-600 dark:text-indigo-400 font-bold">허브형 보안 조직</span>입니다.
                             </p>
+                            <div className="mb-8 bg-indigo-50/50 dark:bg-slate-800/50 p-4 rounded-xl border border-indigo-100 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-base">
+                                <span className="font-bold text-indigo-600 dark:text-indigo-400 mr-1">💡 Unit이란?</span>
+                                보안팀 내에서도 유사한 관심사를 가진 사람들이 모여 토론하고 학습할 수 있는 그룹
+                            </div>
                             <div className="bg-white dark:bg-slate-900 rounded-xl p-6 border border-slate-200 dark:border-slate-700">
                                 <div className="font-bold text-xl mb-4 text-slate-800 dark:text-slate-100 border-b pb-2 border-slate-100 dark:border-slate-800">Security Squad</div>
                                 <ul className="space-y-3 pl-4 border-l-2 border-indigo-200 dark:border-indigo-800 ml-2">

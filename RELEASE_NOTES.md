@@ -7,6 +7,7 @@
 ## Content Updates
 - **Security Team Plan Section**:
   - Updated the "Interface" terminology to "OKR" to better reflect the goal-oriented nature of the team structure.
+  - Defined "Unit" as a group of people with shared interests for discussion and learning.
   - Added detailed structure for "Security Squad", explicitly defining Units (Product & Platform, Cloud & Infra, GRC, Enablement & Trust).
   - Updated section headers from questions (e.g., "Why...") to assertive statements (e.g., "Security Team is Essential Power") to convey stronger confidence and clarity.
   - Added a Korean subtitle "(몰입할 수 있는 보안팀)" to the main "Security Team Plan" section title for better context.
