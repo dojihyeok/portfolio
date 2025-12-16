@@ -1,7 +1,7 @@
 # Release Notes - 2025.12.16
 
 ## UI Internal Improvements
-- **About Me Section Layout**: Optimized the spacing above the "About Me" section. Removed the bouncing arrow icon and reduced the top padding of the section container to minimize visual gaps and create a cleaner transition.
+- **About Me Section Layout**: Optimized the spacing above the "About Me" section. Restored the bouncing arrow icon but adjusted the section layout to maintain a balanced look.
 
 ## Content Updates
 - **Security Team Plan Section**:

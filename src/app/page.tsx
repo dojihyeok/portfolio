@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Github, Linkedin, Award, Book, Terminal, Shield, Users } from "lucide-react";
+import { Mail, Github, Linkedin, Award, Book, Terminal, Shield, Users, ArrowDown } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Section } from "@/components/Section";
@@ -45,6 +45,9 @@ export default function Home() {
                     </p>
 
 
+                    <div className="mt-16 animate-bounce text-slate-400 flex justify-center">
+                        <ArrowDown size={32} />
+                    </div>
                 </motion.div>
             </section>
 
