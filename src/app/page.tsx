@@ -278,7 +278,7 @@ export default function Home() {
                     {/* Header */}
                     <div>
                         <h3 className="text-2xl md:text-3xl font-bold mb-3 text-slate-800 dark:text-slate-100">
-                            Unit · Role · Interface
+                            Unit · Role · OKR
                         </h3>
                         <p className="text-slate-500 dark:text-slate-400 text-lg">
                             독립적이면서도 유기적으로 연결된 보안 조직의 구조와 역할 정의
@@ -458,7 +458,7 @@ export default function Home() {
                     {/* 3. Interface Principles */}
                     <div className="space-y-6">
                         <h4 className="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                            <span className="bg-slate-100 dark:bg-slate-800 p-2 rounded-lg text-lg">3️⃣</span> Interface 설계 원칙
+                            <span className="bg-slate-100 dark:bg-slate-800 p-2 rounded-lg text-lg">3️⃣</span> OKR 설계 원칙
                         </h4>
                         <p className="text-slate-600 dark:text-slate-400">Security Squad가 조직과 연결되는 방식</p>
 
