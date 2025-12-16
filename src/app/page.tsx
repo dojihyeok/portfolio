@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Github, Linkedin, Award, Book, Terminal, Shield, ArrowDown, Users } from "lucide-react";
+import { Mail, Github, Linkedin, Award, Book, Terminal, Shield, Users } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Section } from "@/components/Section";
@@ -44,14 +44,12 @@ export default function Home() {
                         개발자·기획자·운영자가 안심하고 도전할 수 있는 환경을 만들어 신뢰받는 회사가 되도록 보안 리더쉽을 실천해 왔습니다.
                     </p>
 
-                    <div className="mt-16 animate-bounce text-slate-400 flex justify-center">
-                        <ArrowDown size={32} />
-                    </div>
+
                 </motion.div>
             </section>
 
             {/* About Me */}
-            <Section title="About Me" className="bg-white dark:bg-slate-900/50 rounded-3xl shadow-sm py-6 md:py-12">
+            <Section title="About Me" className="bg-white dark:bg-slate-900/50 rounded-3xl shadow-sm pt-2 pb-6 md:pt-2 md:pb-12 -mt-8">
                 <p className="text-lg leading-loose text-slate-700 dark:text-slate-300">
                     보안은 규제를 지키는 업무를 넘어 <span className="font-bold text-blue-600 dark:text-blue-400">팀의 몰입도를 높이고</span>,
                     <span className="font-bold text-blue-600 dark:text-blue-400"> 제품의 성장 속도를 지키며</span>,
@@ -111,7 +109,7 @@ export default function Home() {
 
                     {/* Section 1: Intro - Why Essential? */}
                     <div className="space-y-6 md:space-y-8 text-base md:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
-                        <h4 className="text-lg md:text-2xl font-bold text-slate-900 dark:text-white border-l-4 border-indigo-500 pl-4">왜 브랜딩 기업에게 보안팀은 &#39;필수 전력&#39;인가</h4>
+                        <h4 className="text-lg md:text-2xl font-bold text-slate-900 dark:text-white border-l-4 border-indigo-500 pl-4">브랜딩 기업에게 보안팀은 &#39;필수 전력&#39;</h4>
                         <p>
                             브랜딩을 추구하는 기업은 단순히 서비스를 운영하는 조직이 아닙니다.<br className="hidden md:block" />
                             우리는 <span className="font-semibold text-indigo-600 dark:text-indigo-400">목표가 있는 스포츠 팀</span>에 가깝습니다.
@@ -170,7 +168,7 @@ export default function Home() {
 
                     {/* Section 3: Identity - Squad vs Support */}
                     <div className="space-y-6 md:space-y-8">
-                        <h4 className="text-lg md:text-2xl font-bold text-slate-900 dark:text-white border-l-4 border-indigo-500 pl-4">보안팀은 왜 스쿼드이면서 동시에 서포트 조직인가</h4>
+                        <h4 className="text-lg md:text-2xl font-bold text-slate-900 dark:text-white border-l-4 border-indigo-500 pl-4">보안팀은 스쿼드이면서 동시에 서포트 조직</h4>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
                             <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-2xl border border-blue-100 dark:border-blue-800">
                                 <h5 className="font-bold text-lg mb-3 flex items-center gap-2 text-blue-700 dark:text-blue-300">
@@ -272,7 +270,7 @@ export default function Home() {
             </Section>
 
             {/* Security Team Plan (New Section) */}
-            <Section title="Security Team Plan" className="py-6 md:py-12">
+            <Section title="Security Team Plan (몰입할 수 있는 보안팀)" className="py-6 md:py-12">
                 <div className="bg-white dark:bg-slate-900/50 rounded-3xl p-6 md:p-12 shadow-sm border border-slate-100 dark:border-slate-800 space-y-16">
                     {/* Header */}
                     <div>
