@@ -1,4 +1,4 @@
-# Release Notes - 2025.12.16
+# Release Notes - 2025.12.17
 
 ## UI Internal Improvements
 - **About Me Section Layout**: Optimized the spacing above the "About Me" section. Restored the bouncing arrow icon but adjusted the section layout to maintain a balanced look.
