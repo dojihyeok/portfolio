@@ -5,6 +5,10 @@
 - **Mobile Responsiveness**:
   - Improved readability on mobile devices by adjusting typography sizing, table padding, and spacing in the "Security Team Plan" section.
   - Optimized global section padding and title sizes for a better experience on smaller screens.
+- **Cross-Browser Stabilization**:
+  - Implemented `Noto Sans KR` for consistent typography across all operating systems and browsers.
+  - Applied global `word-break: keep-all` with `overflow-wrap: break-word` to prevent text overflow issues while maintaining Korean readability.
+  - Added `suppressHydrationWarning` and refined CSS rendering strategies to minimize layout shifts (CLS) and "broken" styles.
 
 ## Content Updates
 - **Security Team Plan Section**:

@@ -26,6 +26,26 @@ body {
       rgb(var(--background-start-rgb)),
       rgb(var(--background-end-rgb)));
   min-height: 100vh;
+  /* Use the CSS variables defined in layout.tsx */
+  font-family: var(--font-noto-sans-kr), var(--font-inter), sans-serif;
+}
+
+/* Ensure consistent text rendering */
+* {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Better word breaking for Korean content on mobile */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li,
+span {
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }

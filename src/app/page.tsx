@@ -105,7 +105,7 @@ export default function Home() {
                 <div className="bg-white dark:bg-slate-900/50 rounded-3xl p-6 md:p-12 shadow-sm border border-slate-100 dark:border-slate-800 space-y-12 md:space-y-20">
                     {/* Header */}
                     <div>
-                        <h3 className="text-xl md:text-3xl font-bold mb-3 text-slate-800 dark:text-slate-100 break-keep">
+                        <h3 className="text-xl md:text-3xl font-bold mb-3 text-slate-800 dark:text-slate-100">
                             만들고싶은 보안팀 <span className="text-slate-400 font-light mx-2 hidden md:inline">|</span> <br className="md:hidden" /> <span className="text-blue-600 dark:text-blue-400">브랜딩을 추구하는 기업의 정보보안팀</span>
                         </h3>
                     </div>
@@ -164,7 +164,7 @@ export default function Home() {
                                 </tbody>
                             </table>
                         </div>
-                        <p className="text-base md:text-lg text-slate-600 dark:text-slate-300 text-center italic mt-4 px-4 break-keep">
+                        <p className="text-base md:text-lg text-slate-600 dark:text-slate-300 text-center italic mt-4 px-4">
                             &quot;브랜딩 기업의 보안팀은 ‘검진 조직’이 아니라 <span className="font-bold not-italic text-indigo-600 dark:text-indigo-400">‘경기력을 끌어올리는 조직’</span>입니다.&quot;
                         </p>
                     </div>
@@ -196,7 +196,7 @@ export default function Home() {
                                 </ul>
                             </div>
                         </div>
-                        <p className="text-center font-medium text-slate-800 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 p-4 rounded-xl text-sm md:text-base break-keep">
+                        <p className="text-center font-medium text-slate-800 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 p-4 rounded-xl text-sm md:text-base">
                             👉 우리가 지향하는 형태는 <span className="font-bold text-indigo-600 dark:text-indigo-400">Support 성격을 가진 독립적인 Security Squad</span>입니다.
                         </p>
                     </div>

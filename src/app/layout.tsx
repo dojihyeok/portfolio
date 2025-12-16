@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Noto_Sans_KR } from "next/font/google"; // Add Noto_Sans_KR
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const notoSansKr = Noto_Sans_KR({
+    subsets: ["latin"],
+    weight: ["100", "300", "400", "500", "700", "900"],
+    variable: "--font-noto-sans-kr",
+});
 
 export const metadata: Metadata = {
     title: "이윤혁 포트폴리오 | Security Leadership & Compliance Architecture",
@@ -15,8 +20,10 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="ko">
-            <body className={inter.className}>{children}</body>
+        <html lang="ko" suppressHydrationWarning>
+            <body className={`${inter.variable} ${notoSansKr.variable} font-sans antialiased`}>
+                {children}
+            </body>
         </html>
     );
 }
