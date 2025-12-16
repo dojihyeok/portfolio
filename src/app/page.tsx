@@ -34,7 +34,7 @@ export default function Home() {
                         </div>
                     </div>
 
-                    <h1 className="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-400 mb-6 tracking-tight">
+                    <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-400 mb-6 tracking-tight">
                         이윤혁
                     </h1>
                     <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-300 mb-8 max-w-2xl mx-auto font-light">
@@ -135,31 +135,31 @@ export default function Home() {
                             <table className="min-w-full text-left text-sm md:text-base whitespace-nowrap md:whitespace-normal">
                                 <thead className="bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-slate-100 font-semibold">
                                     <tr>
-                                        <th className="px-4 md:px-6 py-4">구분</th>
-                                        <th className="px-4 md:px-6 py-4 text-slate-500 dark:text-slate-400">일반 기업</th>
-                                        <th className="px-4 md:px-6 py-4 text-blue-600 dark:text-blue-400">브랜딩을 추구하는 기업</th>
+                                        <th className="px-3 py-3 md:px-6 md:py-4">구분</th>
+                                        <th className="px-3 py-3 md:px-6 md:py-4 text-slate-500 dark:text-slate-400">일반 기업</th>
+                                        <th className="px-3 py-3 md:px-6 md:py-4 text-blue-600 dark:text-blue-400">브랜딩을 추구하는 기업</th>
                                     </tr>
                                 </thead>
                                 <tbody className="divide-y divide-slate-200 dark:divide-slate-700 bg-white dark:bg-slate-900">
                                     <tr>
-                                        <td className="px-4 md:px-6 py-4 font-medium">보안의 목적</td>
-                                        <td className="px-4 md:px-6 py-4 text-slate-600 dark:text-slate-400">사고 예방, 규제 대응</td>
-                                        <td className="px-4 md:px-6 py-4 font-semibold text-slate-900 dark:text-slate-100">신뢰 축적, 브랜드 보호, 장기 경쟁력</td>
+                                        <td className="px-3 py-3 md:px-6 md:py-4 font-medium">보안의 목적</td>
+                                        <td className="px-3 py-3 md:px-6 md:py-4 text-slate-600 dark:text-slate-400">사고 예방, 규제 대응</td>
+                                        <td className="px-3 py-3 md:px-6 md:py-4 font-semibold text-slate-900 dark:text-slate-100">신뢰 축적, 브랜드 보호, 장기 경쟁력</td>
                                     </tr>
                                     <tr>
-                                        <td className="px-4 md:px-6 py-4 font-medium">보안 수준</td>
-                                        <td className="px-4 md:px-6 py-4 text-slate-600 dark:text-slate-400">건강검진 수준</td>
-                                        <td className="px-4 md:px-6 py-4 font-semibold text-slate-900 dark:text-slate-100">컨디션 관리 + 한계 돌파 훈련</td>
+                                        <td className="px-3 py-3 md:px-6 md:py-4 font-medium">보안 수준</td>
+                                        <td className="px-3 py-3 md:px-6 md:py-4 text-slate-600 dark:text-slate-400">건강검진 수준</td>
+                                        <td className="px-3 py-3 md:px-6 md:py-4 font-semibold text-slate-900 dark:text-slate-100">컨디션 관리 + 한계 돌파 훈련</td>
                                     </tr>
                                     <tr>
-                                        <td className="px-4 md:px-6 py-4 font-medium">보안팀 역할</td>
-                                        <td className="px-4 md:px-6 py-4 text-slate-600 dark:text-slate-400">사후 대응 중심</td>
-                                        <td className="px-4 md:px-6 py-4 font-semibold text-slate-900 dark:text-slate-100">스쿼드와 서포트를 모두 수행</td>
+                                        <td className="px-3 py-3 md:px-6 md:py-4 font-medium">보안팀 역할</td>
+                                        <td className="px-3 py-3 md:px-6 md:py-4 text-slate-600 dark:text-slate-400">사후 대응 중심</td>
+                                        <td className="px-3 py-3 md:px-6 md:py-4 font-semibold text-slate-900 dark:text-slate-100">스쿼드와 서포트를 모두 수행</td>
                                     </tr>
                                     <tr>
-                                        <td className="px-4 md:px-6 py-4 font-medium">보안 문화</td>
-                                        <td className="px-4 md:px-6 py-4 text-slate-600 dark:text-slate-400">규칙과 통제</td>
-                                        <td className="px-4 md:px-6 py-4 font-semibold text-slate-900 dark:text-slate-100">신뢰, 협업, 투명성</td>
+                                        <td className="px-3 py-3 md:px-6 md:py-4 font-medium">보안 문화</td>
+                                        <td className="px-3 py-3 md:px-6 md:py-4 text-slate-600 dark:text-slate-400">규칙과 통제</td>
+                                        <td className="px-3 py-3 md:px-6 md:py-4 font-semibold text-slate-900 dark:text-slate-100">신뢰, 협업, 투명성</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -173,7 +173,7 @@ export default function Home() {
                     <div className="space-y-6 md:space-y-8">
                         <h4 className="text-lg md:text-2xl font-bold text-slate-900 dark:text-white border-l-4 border-indigo-500 pl-4">보안팀은 스쿼드이면서 동시에 서포트 조직</h4>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
-                            <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-2xl border border-blue-100 dark:border-blue-800">
+                            <div className="bg-blue-50 dark:bg-blue-900/20 p-5 md:p-6 rounded-2xl border border-blue-100 dark:border-blue-800">
                                 <h5 className="font-bold text-lg mb-3 flex items-center gap-2 text-blue-700 dark:text-blue-300">
                                     🏃 Squad로서의 보안팀
                                 </h5>
@@ -184,7 +184,7 @@ export default function Home() {
                                     <li>• 함께 경기장에서 뛰는 팀원</li>
                                 </ul>
                             </div>
-                            <div className="bg-indigo-50 dark:bg-indigo-900/20 p-6 rounded-2xl border border-indigo-100 dark:border-indigo-800">
+                            <div className="bg-indigo-50 dark:bg-indigo-900/20 p-5 md:p-6 rounded-2xl border border-indigo-100 dark:border-indigo-800">
                                 <h5 className="font-bold text-lg mb-3 flex items-center gap-2 text-indigo-700 dark:text-indigo-300">
                                     🛡️ Support로서의 보안팀
                                 </h5>
@@ -274,7 +274,7 @@ export default function Home() {
 
             {/* Security Team Plan (New Section) */}
             <Section title="Security Team Plan (몰입할 수 있는 보안팀)" className="py-6 md:py-12">
-                <div className="bg-white dark:bg-slate-900/50 rounded-3xl p-6 md:p-12 shadow-sm border border-slate-100 dark:border-slate-800 space-y-16">
+                <div className="bg-white dark:bg-slate-900/50 rounded-3xl p-5 md:p-12 shadow-sm border border-slate-100 dark:border-slate-800 space-y-12 md:space-y-16">
                     {/* Header */}
                     <div>
                         <h3 className="text-2xl md:text-3xl font-bold mb-3 text-slate-800 dark:text-slate-100">
