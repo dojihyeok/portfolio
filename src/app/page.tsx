@@ -21,7 +21,7 @@ export default function Home() {
                     transition={{ duration: 0.8 }}
                     className="z-10 w-full max-w-4xl mx-auto flex flex-col items-center justify-center h-full pb-20"
                 >
-                    <div className="mb-8 relative w-64 h-64 md:w-72 md:h-72 group">
+                    <div className="mb-8 relative w-[80vw] h-[80vw] max-w-[350px] max-h-[350px] md:w-72 md:h-72 mx-auto group">
                         <div className="absolute inset-0 bg-blue-500 rounded-full blur-xl opacity-20 group-hover:opacity-30 transition-opacity"></div>
                         <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white dark:border-slate-800 shadow-2xl">
                             <Image
@@ -34,10 +34,10 @@ export default function Home() {
                         </div>
                     </div>
 
-                    <h1 className="text-6xl md:text-8xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-400 mb-6 tracking-tight">
+                    <h1 className="text-[12vw] md:text-8xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-400 mb-4 tracking-tight leading-none">
                         이윤혁
                     </h1>
-                    <p className="text-xl md:text-3xl text-slate-600 dark:text-slate-300 mb-6 max-w-2xl mx-auto font-light leading-snug">
+                    <p className="text-xl md:text-3xl text-slate-600 dark:text-slate-300 mb-6 max-w-2xl mx-auto font-light leading-snug px-4">
                         Security Leadership & <br className="block md:hidden" />Compliance Architecture
                     </p>
                     <p className="text-base md:text-lg text-slate-500 dark:text-slate-400 max-w-lg mx-auto leading-relaxed px-4 break-keep">
