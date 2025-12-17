@@ -13,6 +13,9 @@
   - **Fixed Mobile Layout Breaking**:
     - Added explicit `viewport` configuration (`width=device-width`, `initial-scale=1`, `maximum-scale=1`) to strict mobile scaling.
     - Enforced `overflow-x: hidden` and `max-width: 100vw` on `html`, `body`, and `main` elements to prevent any horizontal scrolling or layout breakage.
+  - **Hero Section Visual Impact**:
+    - Significantly increased profile image size (`w-64 h-64`) and name typography (`text-6xl`) on mobile to fill the screen as requested.
+    - Adjusted layout to center content vertically with the arrow fixed at the bottom.
 
 ## Content Updates
 - **Security Team Plan Section**:
