@@ -1,0 +1,37 @@
+#!/usr/bin/expect
+set timeout 600
+spawn ssh -o StrictHostKeyChecking=no root@49.50.139.88
+expect "*?assword:*"
+send "R4+r525MP5DiBi\r"
+expect "*?root@*"
+
+# Stop PM2 to avoid noise
+send "pm2 stop portfolio\r"
+expect "*?root@*"
+
+send "cd /root/portfolio\r"
+expect "*?portfolio*"
+
+# Check if build exists
+send "ls -la .next\r"
+expect "*?root@*"
+
+# Try forcing a rebuild again, printing output
+send "npm run build\r"
+expect {
+    "Creating an optimized production build *" { exp_continue }
+    "Compiled successfully" { send_user "Build Done\n" }
+    "*?root@*" { send_user "Prompt returned\n" }
+}
+
+# Try starting manually for 10 seconds to seeing if it crashes
+set timeout 20
+send "npm run start -- -p 3002\r"
+expect {
+    "ready" { send_user "\nServer started successfully on port 3002\n"; send "\x03" }
+    "Error" { send_user "\nServer failed to start\n" }
+    "*?root@*"
+}
+
+send "exit\r"
+expect eof

@@ -1,0 +1,17 @@
+#!/usr/bin/expect
+set timeout 300
+spawn ssh -o StrictHostKeyChecking=no root@49.50.139.88
+expect "*?assword:*"
+send "R4+r525MP5DiBi\r"
+expect "*?root@*"
+
+# Check if port 3002 is listening
+send "netstat -nlp | grep 3002\r"
+expect "*?root@*"
+
+# Check PM2 logs for errors
+send "pm2 logs portfolio --lines 50 --nostream\r"
+expect "*?root@*"
+
+send "exit\r"
+expect eof

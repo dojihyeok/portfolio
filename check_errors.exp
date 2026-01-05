@@ -1,0 +1,22 @@
+#!/usr/bin/expect
+set timeout 60
+spawn ssh -o StrictHostKeyChecking=no root@49.50.139.88
+expect "*?assword:*"
+send "R4+r525MP5DiBi\r"
+expect "*?root@*"
+
+send "pm2 list\r"
+expect "*?root@*"
+
+# Check logs for the errored services
+send "pm2 logs trydit --lines 20 --nostream\r"
+expect "*?root@*"
+
+send "pm2 logs auditflow --lines 20 --nostream\r"
+expect "*?root@*"
+
+send "pm2 logs portfolio --lines 20 --nostream\r"
+expect "*?root@*"
+
+send "exit\r"
+expect eof

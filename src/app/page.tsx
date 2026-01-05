@@ -334,7 +334,7 @@ export default function Home() {
                                     <span className="text-2xl">🧩</span>
                                     <div>
                                         <h5 className="font-bold text-lg text-slate-800 dark:text-slate-100">Product & Platform Security Unit</h5>
-                                        <p className="text-sm text-indigo-600 dark:text-indigo-400 font-medium">"제품과 함께 설계되는 보안"</p>
+                                        <p className="text-sm text-indigo-600 dark:text-indigo-400 font-medium">&quot;제품과 함께 설계되는 보안&quot;</p>
                                     </div>
                                 </div>
                                 <div className="space-y-4 text-sm text-slate-600 dark:text-slate-400">
@@ -366,7 +366,7 @@ export default function Home() {
                                     <span className="text-2xl">☁️</span>
                                     <div>
                                         <h5 className="font-bold text-lg text-slate-800 dark:text-slate-100">Cloud & Infrastructure Security Unit</h5>
-                                        <p className="text-sm text-indigo-600 dark:text-indigo-400 font-medium">"플랫폼의 안정성과 확장성을 지키는 보안"</p>
+                                        <p className="text-sm text-indigo-600 dark:text-indigo-400 font-medium">&quot;플랫폼의 안정성과 확장성을 지키는 보안&quot;</p>
                                     </div>
                                 </div>
                                 <div className="space-y-4 text-sm text-slate-600 dark:text-slate-400">
@@ -398,7 +398,7 @@ export default function Home() {
                                     <span className="text-2xl">📑</span>
                                     <div>
                                         <h5 className="font-bold text-lg text-slate-800 dark:text-slate-100">Governance · Risk · Compliance (GRC) Unit</h5>
-                                        <p className="text-sm text-indigo-600 dark:text-indigo-400 font-medium">"조직이 안전하게 성장할 수 있는 기준을 만드는 보안"</p>
+                                        <p className="text-sm text-indigo-600 dark:text-indigo-400 font-medium">&quot;조직이 안전하게 성장할 수 있는 기준을 만드는 보안&quot;</p>
                                     </div>
                                 </div>
                                 <div className="space-y-4 text-sm text-slate-600 dark:text-slate-400">
@@ -430,7 +430,7 @@ export default function Home() {
                                     <span className="text-2xl">🤝</span>
                                     <div>
                                         <h5 className="font-bold text-lg text-slate-800 dark:text-slate-100">Security Enablement & Trust Unit</h5>
-                                        <p className="text-sm text-indigo-600 dark:text-indigo-400 font-medium">"신뢰와 몰입을 만드는 보안"</p>
+                                        <p className="text-sm text-indigo-600 dark:text-indigo-400 font-medium">&quot;신뢰와 몰입을 만드는 보안&quot;</p>
                                     </div>
                                 </div>
                                 <div className="space-y-4 text-sm text-slate-600 dark:text-slate-400">
@@ -469,7 +469,7 @@ export default function Home() {
                             <div className="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800">
                                 <h5 className="font-bold text-indigo-600 dark:text-indigo-400 mb-2">Squad-to-Squad</h5>
                                 <p className="text-sm text-slate-600 dark:text-slate-400">
-                                    보안팀은 "승인 조직"이 아니라 함께 문제를 푸는 <span className="font-bold text-slate-900 dark:text-slate-100">파트너</span>. 제품/플랫폼 Squad와 동일한 리듬으로 협업.
+                                    보안팀은 &quot;승인 조직&quot;이 아니라 함께 문제를 푸는 <span className="font-bold text-slate-900 dark:text-slate-100">파트너</span>. 제품/플랫폼 Squad와 동일한 리듬으로 협업.
                                 </p>
                             </div>
                             <div className="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800">

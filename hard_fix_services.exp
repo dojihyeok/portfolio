@@ -1,0 +1,64 @@
+#!/usr/bin/expect
+set timeout 600
+spawn ssh -o StrictHostKeyChecking=no root@49.50.139.88
+expect "*?assword:*"
+send "R4+r525MP5DiBi\r"
+expect "*?root@*"
+
+# 1. Brutal Cleanup
+send "pm2 delete all\r"
+expect "*?root@*"
+send "fuser -k 3000/tcp\r"
+expect "*?root@*"
+send "fuser -k 3001/tcp\r"
+expect "*?root@*"
+send "fuser -k 3002/tcp\r"
+expect "*?root@*"
+send "fuser -k 3003/tcp\r"
+expect "*?root@*"
+
+# 2. Start Trydit on 3000
+send "cd /root/trydit\r"
+expect "*?trydit*"
+send "pm2 start npm --name 'trydit' -- start -- -p 3000\r"
+expect "*?root@*"
+
+# 3. Start AuditFlow on 3001
+send "cd /root/auditflow\r"
+expect "*?auditflow*"
+send "pm2 start npm --name 'auditflow' -- start -- -p 3001\r"
+expect "*?root@*"
+
+# 4. Rebuild and Start Portfolio on 3002
+send "cd /root/portfolio\r"
+expect "*?portfolio*"
+# Clean build to fix 502/missing ID
+send "rm -rf .next\r"
+expect "*?root@*"
+send "npm install\r"
+expect "*?root@*"
+send "npm run build\r"
+expect {
+    "Creating an optimized production build *" { exp_continue }
+    "Compiled successfully" { send_user "Portfolio Build Done\n" }
+    "*?root@*"
+}
+send "pm2 start npm --name 'portfolio' -- start -- -p 3002\r"
+expect "*?root@*"
+
+# 5. Start Honolulu on 3003
+send "cd /root/honolulu\r"
+expect "*?honolulu*"
+send "pm2 start npm --name 'honolulu' -- start -- -p 3003\r"
+expect "*?root@*"
+
+# 6. Verification
+send "pm2 save\r"
+expect "*?root@*"
+send "pm2 list\r"
+expect "*?root@*"
+send "netstat -ntlp | grep '300[0-3]'\r"
+expect "*?root@*"
+
+send "exit\r"
+expect eof

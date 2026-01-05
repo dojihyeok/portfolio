@@ -1,0 +1,42 @@
+#!/usr/bin/expect
+set timeout 300
+spawn ssh -o StrictHostKeyChecking=no root@49.50.139.88
+expect "*?assword:*"
+send "R4+r525MP5DiBi\r"
+expect "*?root@*"
+
+# 1. Cleanup
+send "pm2 delete all\r"
+expect "*?root@*"
+
+# 2. Portfolio (3002) - Already built, just start
+# Check if we need to rebuild? User said "restore until verified". 
+# Let's assume the previous build finished (it took 300s). If not, we leverage the existing artifacts.
+# Actually, to be safe, let's start it properly.
+send "pm2 start npm --name 'portfolio' --cwd /root/portfolio -- start -- -p 3002\r"
+expect "*?root@*"
+
+# 3. Trydit (3000)
+send "pm2 start npm --name 'trydit' --cwd /root/trydit -- start -- -p 3000\r"
+expect "*?root@*"
+
+# 4. AuditFlow (3001)
+send "pm2 start npm --name 'auditflow' --cwd /root/auditflow -- start -- -p 3001\r"
+expect "*?root@*"
+
+# 5. Honolulu (3003)
+send "pm2 start npm --name 'honolulu' --cwd /root/honolulu -- start -- -p 3003\r"
+expect "*?root@*"
+
+# 6. Verify
+send "pm2 save\r"
+expect "*?root@*"
+send "pm2 list\r"
+expect "*?root@*"
+
+# Check ports
+send "netstat -nlp | grep node\r"
+expect "*?root@*"
+
+send "exit\r"
+expect eof

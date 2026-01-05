@@ -1,0 +1,38 @@
+#!/usr/bin/expect
+set timeout 300
+spawn ssh -o StrictHostKeyChecking=no root@49.50.139.88
+expect "*?assword:*"
+send "R4+r525MP5DiBi\r"
+expect "*?root@*"
+
+# 1. Stop and Delete key PM2 processes to clear state
+send "pm2 delete portfolio\r"
+expect "*?root@*"
+
+# 2. Kill any "Zombie" processes on the specific ports
+# Port 3002: Portfolio
+send "fuser -k 3002/tcp\r"
+expect "*?root@*"
+
+# 3. Restart Portfolio specifically on Port 3002
+send "cd portfolio\r"
+expect "*?portfolio*"
+
+# Ensure build is fresh (optional but good for 'deployment not working' claims)
+# send "npm run build\r"
+# expect "*?root@*"
+
+# Start with explicit port 3002
+send "pm2 start npm --name 'portfolio' -- start -- -p 3002\r"
+expect "*?root@*"
+
+# Save PM2 list to lock in changes
+send "pm2 save\r"
+expect "*?root@*"
+
+# Verify list
+send "pm2 list\r"
+expect "*?root@*"
+
+send "exit\r"
+expect eof

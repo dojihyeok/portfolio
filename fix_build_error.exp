@@ -1,0 +1,36 @@
+#!/usr/bin/expect
+set timeout 600
+spawn ssh -o StrictHostKeyChecking=no root@49.50.139.88
+expect "*?assword:*"
+send "R4+r525MP5DiBi\r"
+expect "*?root@*"
+
+send "cd portfolio\r"
+expect "*?portfolio*"
+
+# Clean previous build artifacts
+send "rm -rf .next\r"
+expect "*?root@*"
+
+# Ensure dependencies are installed
+send "npm install\r"
+expect "*?root@*"
+
+# Run build explicitly and wait for it
+send "npm run build\r"
+expect {
+    "Creating an optimized production build *" { exp_continue }
+    "Compiled successfully" { send_user "Build Successful\n" }
+    "*?root@*"
+}
+
+# Restart service after successful build
+send "pm2 restart portfolio\r"
+expect "*?root@*"
+
+# Check logs briefly to ensure it started
+send "pm2 logs portfolio --lines 20 --nostream\r"
+expect "*?root@*"
+
+send "exit\r"
+expect eof

@@ -23,7 +23,7 @@ export default function ZeroTrustPage() {
             },
             background: {
                 title: "프로젝트 배경",
-                desc: <>금융 규제 준수를 위해 도입된 망분리(VDI) 환경은 개발자 생산성을 심각하게 저하시키고 있었습니다. 특히, AWS와 같은 클라우드 리소스 접근 시에도 VDI를 거쳐야 하는 병목 현상이 발생하여, <span className="font-bold text-slate-900 dark:text-slate-200">"보안성을 유지하면서도 로컬 수준의 개발 경험을 제공"</span>하는 것이 핵심 과제였습니다.</>
+                desc: <>금융 규제 준수를 위해 도입된 망분리(VDI) 환경은 개발자 생산성을 심각하게 저하시키고 있었습니다. 특히, AWS와 같은 클라우드 리소스 접근 시에도 VDI를 거쳐야 하는 병목 현상이 발생하여, <span className="font-bold text-slate-900 dark:text-slate-200">&quot;보안성을 유지하면서도 로컬 수준의 개발 경험을 제공&quot;</span>하는 것이 핵심 과제였습니다.</>
             },
             decisions: {
                 title: "핵심 아키텍처 의사결정",
@@ -72,7 +72,7 @@ export default function ZeroTrustPage() {
             },
             background: {
                 title: "Project Background",
-                desc: <>The network separation (VDI) environment introduced for financial compliance was severely degrading developer productivity. In particular, accessing cloud resources like AWS required going through VDI, causing bottlenecks. The key challenge was to <span className="font-bold text-slate-900 dark:text-slate-200">"provide a local-level development experience while maintaining security"</span>.</>
+                desc: <>The network separation (VDI) environment introduced for financial compliance was severely degrading developer productivity. In particular, accessing cloud resources like AWS required going through VDI, causing bottlenecks. The key challenge was to <span className="font-bold text-slate-900 dark:text-slate-200">&quot;provide a local-level development experience while maintaining security&quot;</span>.</>
             },
             decisions: {
                 title: "Key Architecture Decisions",

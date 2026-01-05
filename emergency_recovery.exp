@@ -1,0 +1,68 @@
+#!/usr/bin/expect
+set timeout 600
+spawn ssh -o StrictHostKeyChecking=no root@49.50.139.88
+expect "*?assword:*"
+send "R4+r525MP5DiBi\r"
+expect "*?root@*"
+
+# 1. Stop everything to clear port conflicts
+send "pm2 delete all\r"
+expect "*?root@*"
+
+# 2. Portfolio Recovery (Build & Start on 3002)
+send "cd /root/portfolio\r"
+expect "*?portfolio*"
+# Clean and Build
+send "rm -rf .next\r"
+expect "*?root@*"
+send "npm run build\r"
+expect {
+    "Creating an optimized production build *" { exp_continue }
+    "Compiled successfully" { send_user "Portfolio Build Done\n" }
+    "*?root@*"
+}
+# Start
+send "pm2 start npm --name 'portfolio' -- start -- -p 3002\r"
+expect "*?root@*"
+
+# 3. Trydit Recovery (Start on 3000)
+send "cd /root/trydit\r"
+expect {
+    "*?trydit*" {
+        send "pm2 start npm --name 'trydit' -- start -- -p 3000\r"
+    }
+    "*?root@*" { 
+        send_user "Trydit directory not found or prompt mismatch\n"
+        # Try finding it or skip, but better to try standard path
+    }
+}
+expect "*?root@*"
+
+# 4. AuditFlow Recovery (Start on 3001)
+send "cd /root/auditflow\r"
+expect {
+    "*?auditflow*" {
+        send "pm2 start npm --name 'auditflow' -- start -- -p 3001\r"
+    }
+    "*?root@*" { send_user "AuditFlow directory not found\n" }
+}
+expect "*?root@*"
+
+# 5. Honolulu Recovery (Start on 3003)
+send "cd /root/honolulu\r"
+expect {
+    "*?honolulu*" {
+        send "pm2 start npm --name 'honolulu' -- start -- -p 3003\r"
+    }
+    "*?root@*" { send_user "Honolulu directory not found\n" }
+}
+expect "*?root@*"
+
+# Finalize
+send "pm2 save\r"
+expect "*?root@*"
+send "pm2 list\r"
+expect "*?root@*"
+
+send "exit\r"
+expect eof

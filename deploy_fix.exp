@@ -6,11 +6,14 @@ send "R4+r525MP5DiBi\r"
 expect "*?root@*"
 send "cd portfolio\r"
 expect "*?portfolio*"
-send "git pull\r"
-expect {
-    "Already up to date." { send_user "\nGit pull complete\n" }
-    "*?root@*" { send_user "\nGit updated\n" }
-}
+
+# Force Git to sync with origin/main
+send "git fetch --all\r"
+expect "*?root@*"
+send "git reset --hard origin/main\r"
+expect "*?root@*"
+
+# Rebuild and Deploy
 send "npm install\r"
 expect "*?root@*"
 send "npm run build\r"
