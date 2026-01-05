@@ -1,0 +1,21 @@
+#!/usr/bin/expect
+set timeout 300
+spawn ssh -o StrictHostKeyChecking=no root@49.50.139.88
+expect "*?assword:*"
+send "R4+r525MP5DiBi\r"
+expect "*?root@*"
+send "cd portfolio\r"
+expect "*?portfolio*"
+send "git pull\r"
+expect {
+    "Already up to date." { send_user "\nGit pull complete\n" }
+    "*?root@*" { send_user "\nGit updated\n" }
+}
+send "npm install\r"
+expect "*?root@*"
+send "npm run build\r"
+expect "*?root@*"
+send "pm2 restart portfolio\r"
+expect "*?root@*"
+send "exit\r"
+expect eof

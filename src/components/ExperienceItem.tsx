@@ -6,7 +6,7 @@ interface ExperienceItemProps {
     company: string;
     role: string;
     period: string;
-    description?: string;
+    description?: React.ReactNode;
 }
 
 export function ExperienceItem({ company, role, period, description }: ExperienceItemProps) {
@@ -22,7 +22,7 @@ export function ExperienceItem({ company, role, period, description }: Experienc
                 <span className="text-sm text-slate-500 dark:text-slate-400 font-mono">{period}</span>
             </div>
             <p className="text-md font-medium text-slate-700 dark:text-slate-300 mb-2">{role}</p>
-            {description && <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{description}</p>}
+            {description && <div className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{description}</div>}
         </motion.div>
     );
 }

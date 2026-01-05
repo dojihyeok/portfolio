@@ -1,0 +1,6 @@
+#!/usr/bin/expect
+set timeout 20
+spawn ssh -o StrictHostKeyChecking=no root@49.50.139.88 "ls -F"
+expect "*?assword:*"
+send "R4+r525MP5DiBi\r"
+expect eof

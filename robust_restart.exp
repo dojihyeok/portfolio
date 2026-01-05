@@ -1,0 +1,15 @@
+#!/usr/bin/expect
+set timeout 60
+spawn ssh -o StrictHostKeyChecking=no root@49.50.139.88
+expect "*?assword:*"
+send "R4+r525MP5DiBi\r"
+expect "*?root@*"
+send "pm2 stop portfolio\r"
+expect "*?root@*"
+# Force match command completion before sending next
+send "lsof -i :3003 -t | xargs kill -9\r"
+expect "*?root@*"
+send "pm2 start portfolio\r"
+expect "*?root@*"
+send "exit\r"
+expect eof

@@ -1,0 +1,20 @@
+#!/usr/bin/expect
+set timeout 60
+spawn ssh -o StrictHostKeyChecking=no root@49.50.139.88
+expect "*?assword:*"
+send "R4+r525MP5DiBi\r"
+expect "*?root@*"
+# Stop pm2 process first to prevent auto-restart race condition
+send "pm2 stop portfolio\r"
+expect "*?root@*"
+# Force kill the PID occupying port 3003
+send "lsof -i :3003 -t | xargs kill -9\r"
+expect "*?root@*"
+# Verify port is free
+send "netstat -nlp | grep 3003\r"
+expect "*?root@*"
+# Start pm2 process cleanly
+send "pm2 start portfolio --update-env\r"
+expect "*?root@*"
+send "exit\r"
+expect eof

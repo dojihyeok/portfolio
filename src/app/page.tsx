@@ -575,66 +575,141 @@ export default function Home() {
                 </div>
             </Section>
 
-            {/* Experience */}
             <Section title="Work Experience" id="experience">
-                <div className="space-y-2">
+                <div className="space-y-4">
                     <ExperienceItem
                         company="MOIN"
                         role="보안팀 리더"
                         period="2024.11 ~ Present"
+                        description={
+                            <ul className="list-disc list-inside space-y-1 pl-1">
+                                <li>글로벌 지점 설립을 위한 규제 조사 및 보안 체계 구축</li>
+                                <li>해외 금융 규제 및 전자금융 컴플라이언스 대응</li>
+                                <li>연구 개발망 및 망분리 대체 통제를 위한 ZeroTrust Architecture 설계</li>
+                                <li>ISO27001·SOC2·ISMS-P 준비</li>
+                                <li>정보보호 규정 및 지침 제정</li>
+                                <li>신규 보안팀 구성, 전사 거버넌스 설계 및 팀 문화 기반 마련</li>
+                            </ul>
+                        }
                     />
                     <ExperienceItem
                         company="Levvels"
                         role="CISO/CPO"
                         period="2022.10 ~ 2024.11"
+                        description={
+                            <ul className="list-disc list-inside space-y-1 pl-1">
+                                <li>Web3 기반 신규 서비스 보안 전략 수립</li>
+                                <li>Wallet 보안 아키텍처 설계</li>
+                                <li>보안팀 Team Building</li>
+                                <li>두나무 그룹 보안 감사 대응</li>
+                                <li>개인정보·정보보호 지침 제·개정</li>
+                                <li>관리체계 및 클라우드 보안 기반 마련</li>
+                            </ul>
+                        }
                     />
                     <ExperienceItem
                         company="CLASS101"
                         role="CISO"
                         period="2022.03 ~ 2022.10"
+                        description={
+                            <ul className="list-disc list-inside space-y-1 pl-1">
+                                <li>정보보호 조직 리딩</li>
+                                <li>ISMS 준비 및 보안 운영 체계 정착</li>
+                                <li>Okta·QueryPie·MDM·FW 등 인프라 보안 구성</li>
+                                <li>개발자 중심 보안 UX 개선</li>
+                            </ul>
+                        }
                     />
                     <ExperienceItem
                         company="토스뱅크 (Toss Bank)"
                         role="정보보호 정책 담당자"
                         period="2020.03 ~ 2022.02"
-                        description="인터넷전문은행 본인가 획득 및 초기 보안 체계 구축"
+                        description={
+                            <ul className="list-disc list-inside space-y-1 pl-1">
+                                <li>인터넷은행 본인가 및 심사 대응</li>
+                                <li>보안팀 Team Building</li>
+                                <li>본인확인기관·전자서명인증 사업 마무리</li>
+                                <li>전자금융 보안성 심의 운영</li>
+                                <li><strong>고액송금 체크카드 OTP 적용 (국내 최초)</strong></li>
+                                <li>클라우드 기반 정보보호 운영 체계 설계</li>
+                            </ul>
+                        }
                     />
                     <ExperienceItem
                         company="KB국민은행"
                         role="디지털사업부 차장"
                         period="2019.01 ~ 2020.02"
+                        description={
+                            <ul className="list-disc list-inside space-y-1 pl-1">
+                                <li>금융 DT 플랫폼 보안 설계</li>
+                                <li>Pivotal 기반 금융 MSA·DevSecOps 구조 구축</li>
+                                <li>금보원·금감원 CSP 안전성 평가 대응</li>
+                                <li>대규모 금융권 개발자 경험(DX) 기반 보안 운영</li>
+                            </ul>
+                        }
                     />
                     <ExperienceItem
                         company="하나금융티아이"
                         role="정보보안"
                         period="2017.03 ~ 2018.08"
+                        description={
+                            <ul className="list-disc list-inside space-y-1 pl-1">
+                                <li>그룹 공용 클라우드 보안 아키텍처 구축</li>
+                                <li>금융 망분리 구조 개선 프로젝트</li>
+                                <li>개인정보 비식별화 가이드 수립</li>
+                                <li>데이터센터 ISMS 인증 취득</li>
+                            </ul>
+                        }
                     />
                     <ExperienceItem
                         company="LS글로벌"
                         role="정보보안"
                         period="2015.06 ~ 2017.02"
+                        description={
+                            <ul className="list-disc list-inside space-y-1 pl-1">
+                                <li>그룹 DRM 구축 PM</li>
+                                <li>11개 계열사 통합 보안 아키텍처 설계</li>
+                                <li>APT 대응 솔루션 구축</li>
+                                <li>변화관리·교육·운영까지 총괄</li>
+                            </ul>
+                        }
                     />
                     <ExperienceItem
                         company="롯데닷컴"
                         role="정보보호팀 과장"
                         period="2014.08 ~ 2015.06"
+                        description={
+                            <ul className="list-disc list-inside space-y-1 pl-1">
+                                <li>ISMS 인증 및 개인정보 체계 수립</li>
+                                <li>대규모 보안관제 개선</li>
+                                <li>AWS 전환 보안 아키텍처 구성</li>
+                            </ul>
+                        }
                     />
                     <ExperienceItem
                         company="이글루시큐리티"
                         role="컨설팅/관제"
                         period="2007.11 ~ 2014.08"
+                        description={
+                            <ul className="list-disc list-inside space-y-1 pl-1">
+                                <li>공공/금융/기업 대상 ISMS, ISO27001, 안전진단</li>
+                                <li>사이버안전센터 설계 및 운영</li>
+                                <li>보안관제·솔루션 운영·취약점 점검</li>
+                                <li>정보보호 아이디어 공모전 장려상 수상</li>
+                            </ul>
+                        }
                     />
                 </div>
             </Section>
 
             {/* Projects */}
-            <Section title="Selected Projects">
+            <Section title="Key Projects">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <ProjectCard
-                        title="Trydit"
-                        description="엔지니어링 솔루션 리뷰 및 경험 공유 플랫폼. 단순한 도구 평가를 넘어, 엔지니어들이 정의한 문제와 해결 과정을 공유하여 서로의 성장을 돕는 'Milestone for others'를 지향합니다."
-                        link="https://trydit.dojiung.com"
-                        tags={["Community", "Review Platform", "Collective Intelligence"]}
+                        title="Zero Trust Architecture"
+                        description="사용자 경험을 해치지 않는 강력한 보안 아키텍처. Identity, Access, Compliance를 통합한 3단계 제로 트러스트 모델을 설계하고 구현합니다."
+                        link="/projects/zero-trust"
+                        tags={["Zero Trust", "Okta", "AWS", "Terraform"]}
                     />
                     <ProjectCard
                         title="AuditFlow"

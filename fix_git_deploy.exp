@@ -1,0 +1,27 @@
+#!/usr/bin/expect
+set timeout 300
+spawn ssh -o StrictHostKeyChecking=no root@49.50.139.88
+expect "*?assword:*"
+send "R4+r525MP5DiBi\r"
+expect "*?root@*"
+send "cd portfolio\r"
+expect "*?portfolio*"
+# Re-initialize or ensure git is set up
+send "git init\r"
+expect "*?portfolio*"
+send "git remote remove origin\r"
+expect "*?portfolio*"
+send "git remote add origin https://github.com/dojihyeok/portfolio.git\r"
+expect "*?portfolio*"
+send "git fetch origin\r"
+expect "*?portfolio*"
+send "git reset --hard origin/main\r"
+expect "*?portfolio*"
+send "npm install\r"
+expect "*?portfolio*"
+send "npm run build\r"
+expect "*?portfolio*"
+send "pm2 restart portfolio\r"
+expect "*?portfolio*"
+send "exit\r"
+expect eof

@@ -1,0 +1,12 @@
+#!/usr/bin/expect
+set timeout 60
+spawn ssh -o StrictHostKeyChecking=no root@49.50.139.88
+expect "*?assword:*"
+send "R4+r525MP5DiBi\r"
+expect "*?root@*"
+send "netstat -nlp | grep 3003\r"
+expect "*?root@*"
+send "ss -lptn 'sport = :3003'\r"
+expect "*?root@*"
+send "exit\r"
+expect eof
