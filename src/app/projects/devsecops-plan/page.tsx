@@ -1,216 +1,270 @@
+```javascript
 "use client";
 
-import React from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ArrowLeft, Calendar, User, CheckCircle2, Clock, AlertCircle, XCircle, MoreHorizontal, Users, AlertTriangle } from "lucide-react";
+import { ArrowLeft, CheckCircle2, AlertTriangle, Clock, XCircle, MoreHorizontal } from "lucide-react";
 import Link from "next/link";
 import { TIMELINE_DATA, Task } from "./data";
 
-function getStatusColor(status: Task["status"]) {
-    switch (status) {
-        case "Done":
-        case "Hired":
-            return "bg-green-100 text-green-700 border-green-200 dark:bg-green-900/30 dark:text-green-300 dark:border-green-800";
-        case "In Progress":
-            return "bg-blue-100 text-blue-700 border-blue-200 dark:bg-blue-900/30 dark:text-blue-300 dark:border-blue-800";
-        case "Delayed":
-            return "bg-amber-100 text-amber-700 border-amber-200 dark:bg-amber-900/30 dark:text-amber-300 dark:border-amber-800";
-        case "Failed":
-        case "Hiring Failed":
-            return "bg-red-100 text-red-700 border-red-200 dark:bg-red-900/30 dark:text-red-300 dark:border-red-800";
-        case "Not Started":
-            return "bg-slate-100 text-slate-700 border-slate-200 dark:bg-slate-800 dark:text-slate-400 dark:border-slate-700";
-        default:
-            return "bg-slate-100 text-slate-700 border-slate-200";
-    }
+// --- Date Helpers (No external libs) ---
+const DAY_MS = 1000 * 60 * 60 * 24;
+
+function parseDate(str: string) {
+    return new Date(str + "T00:00:00");
 }
 
-function getStatusIcon(status: Task["status"]) {
-    switch (status) {
-        case "Done":
-        case "Hired":
-            return <CheckCircle2 size={14} />;
-        case "In Progress":
-            return <Clock size={14} />;
-        case "Delayed":
-            return <AlertTriangle size={14} />;
-        case "Failed":
-        case "Hiring Failed":
-            return <XCircle size={14} />;
-        case "Not Started":
-            return <MoreHorizontal size={14} />;
-        default:
-            return <MoreHorizontal size={14} />;
-    }
+function getDaysDiff(start: Date, end: Date) {
+    return Math.round((end.getTime() - start.getTime()) / DAY_MS);
 }
 
-function getTeamBadgeColor(team: string) {
-    switch (team) {
-        case "Security":
-            return "bg-rose-50 text-rose-600 border-rose-100 dark:bg-rose-900/20 dark:text-rose-300 dark:border-rose-800";
-        case "DevOps":
-            return "bg-indigo-50 text-indigo-600 border-indigo-100 dark:bg-indigo-900/20 dark:text-indigo-300 dark:border-indigo-800";
-        case "Developer":
-            return "bg-emerald-50 text-emerald-600 border-emerald-100 dark:bg-emerald-900/20 dark:text-emerald-300 dark:border-emerald-800";
-        case "Audit":
-            return "bg-amber-50 text-amber-600 border-amber-100 dark:bg-amber-900/20 dark:text-amber-300 dark:border-amber-800";
-        default:
-            return "bg-slate-50 text-slate-600 border-slate-100 dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700";
-    }
+function addDays(date: Date, days: number) {
+    const result = new Date(date);
+    result.setDate(result.getDate() + days);
+    return result;
 }
 
-// Group tasks by Month (YYYY-MM)
-function groupTasksByMonth(tasks: Task[]) {
-    const groups: { [key: string]: Task[] } = {};
-    const sortedTasks = [...tasks].sort((a, b) => a.startDate.localeCompare(b.startDate));
+function formatMonth(date: Date) {
+    return date.toLocaleString("ko-KR", { year: "numeric", month: "long" });
+}
 
-    sortedTasks.forEach((task) => {
-        const date = new Date(task.startDate);
-        const key = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}`; // YYYY-MM
-        if (!groups[key]) {
-            groups[key] = [];
-        }
-        groups[key].push(task);
+function getWeekNumber(date: Date) {
+    const d = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+    const dayNum = d.getUTCDay() || 7;
+    d.setUTCDate(d.getUTCDate() + 4 - dayNum);
+    const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+    return Math.ceil((((d.getTime() - yearStart.getTime()) / 86400000) + 1) / 7);
+}
+
+// --- Layout Logic ---
+const DAY_WIDTH = 40; // Pixel width per day
+const ROW_HEIGHT = 48; // Height of each task row
+const HEADER_HEIGHT = 60;
+const SIDEBAR_WIDTH = 0; // No sidebar, full gantt
+
+type GanttTask = Task & {
+    row: number;
+    startObj: Date;
+    endObj: Date;
+    duration: number; // in days
+    offset: number; // in days from global start
+};
+
+function layoutTasks(tasks: Task[]): { layout: GanttTask[]; totalRows: number; globalStart: Date; globalEnd: Date } {
+    if (tasks.length === 0) return { layout: [], totalRows: 0, globalStart: new Date(), globalEnd: new Date() };
+
+    // 1. Convert dates and sort by start date
+    const parsedTasks = tasks.map(t => ({
+        ...t,
+        startObj: parseDate(t.startDate),
+        endObj: parseDate(t.endDate),
+    })).sort((a, b) => a.startObj.getTime() - b.startObj.getTime());
+
+    // 2. Determine global range
+    let minDate = parsedTasks[0].startObj;
+    let maxDate = parsedTasks[0].endObj;
+
+    parsedTasks.forEach(t => {
+        if (t.startObj < minDate) minDate = t.startObj;
+        if (t.endObj > maxDate) maxDate = t.endObj;
     });
 
-    return Object.entries(groups).sort((a, b) => a[0].localeCompare(b[0]));
+    // Pad global range (1 month buffer)
+    const globalStart = new Date(minDate);
+    globalStart.setDate(1); // Start of month
+    
+    // 3. Assign rows (Simple greedy packing)
+    const rows: Date[] = []; // End date of the last task in each row
+    const layout: GanttTask[] = [];
+
+    parsedTasks.forEach(t => {
+        const duration = getDaysDiff(t.startObj, t.endObj) + 1; // Inclusive
+        const offset = getDaysDiff(globalStart, t.startObj);
+        
+        // Find first available row
+        let rowIndex = -1;
+        for (let i = 0; i < rows.length; i++) {
+            // Check if this row is free after the last task (+ gap)
+             // Buffer of 2 days for visual separation
+            if (rows[i].getTime() + (2 * DAY_MS) < t.startObj.getTime()) {
+                rowIndex = i;
+                break;
+            }
+        }
+
+        if (rowIndex === -1) {
+            // New row needed
+            rowIndex = rows.length;
+            rows.push(t.endObj);
+        } else {
+            // Update row end time
+            rows[rowIndex] = t.endObj;
+        }
+
+        layout.push({
+            ...t,
+            row: rowIndex,
+            duration,
+            offset,
+        });
+    });
+
+    return { layout, totalRows: rows.length, globalStart, globalEnd: maxDate }; // Returning maxDate isn't strictly needed if we calculate from header
 }
 
-function formatMonthHeader(key: string) {
-    const [year, month] = key.split("-");
-    const date = new Date(parseInt(year), parseInt(month) - 1);
-    return date.toLocaleDateString("en-US", { year: "numeric", month: "long" });
+// --- Components ---
+
+function StatusBadge({ status }: { status: string }) {
+    let colorClass = "bg-slate-600 text-slate-100";
+    if (status === "Done") colorClass = "bg-green-600/90 text-white";
+    else if (status === "In Progress") colorClass = "bg-blue-600/90 text-white";
+    else if (status.includes("Delayed")) colorClass = "bg-amber-600/90 text-white";
+    else if (status.includes("Failed")) colorClass = "bg-red-600/90 text-white";
+    else if (status === "Not Started") colorClass = "bg-slate-500/90 text-white";
+
+    return (
+        <span className={`text - [10px] px - 1.5 py - 0.5 rounded flex items - center gap - 1 shrink - 0 ${ colorClass } `}>
+            {status}
+        </span>
+    );
 }
 
 export default function DevSecOpsPlanPage() {
-    const groupedTasks = groupTasksByMonth(TIMELINE_DATA);
+    // Client-side only rendering to avoid date mismatches
+    const [mounted, setMounted] = useState(false);
+    useEffect(() => setMounted(true), []);
+
+    const { layout, totalRows, globalStart, globalEnd } = useMemo(() => layoutTasks(TIMELINE_DATA), []);
+
+    if (!mounted) return <div className="min-h-screen bg-[#1e1e1e]" />;
+
+    // Generate Month Headers
+    const months = [];
+    const current = new Date(globalStart);
+    // Extend until end date + buffer
+    const endDate = new Date(globalEnd || new Date());
+    endDate.setMonth(endDate.getMonth() + 2);
+
+    while (current < endDate) {
+        months.push(new Date(current));
+        current.setMonth(current.getMonth() + 1);
+    }
+
+    const totalWidth = getDaysDiff(globalStart, endDate) * DAY_WIDTH;
+    const containerHeight = (totalRows * ROW_HEIGHT) + HEADER_HEIGHT + 100;
 
     return (
-        <main className="min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100">
+        <main className="min-h-screen bg-[#191919] text-white overflow-hidden flex flex-col">
             {/* Header */}
-            <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-100 dark:border-slate-800">
-                <div className="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
-                    <Link
-                        href="/"
-                        className="flex items-center gap-2 text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors"
-                    >
-                        <ArrowLeft size={18} />
-                        <span className="font-medium">Portfolio</span>
+            <header className="flex items-center justify-between px-6 py-4 bg-[#1e1e1e] border-b border-[#333] z-50 shrink-0">
+                <div className="flex items-center gap-4">
+                    <Link href="/" className="text-gray-400 hover:text-white transition-colors">
+                        <ArrowLeft size={20} />
                     </Link>
-                    <h1 className="font-semibold text-sm md:text-base">DevSecOps 2025 Plan</h1>
+                    <h1 className="text-lg font-bold">DevSecOps 2025 Plan</h1>
+                </div>
+                <div className="flex gap-4 text-xs text-gray-400">
+                    <div className="flex items-center gap-2">
+                        <span className="w-3 h-3 rounded bg-[#333333] border border-gray-600"></span>
+                        <span>Task</span>
+                    </div>
                 </div>
             </header>
 
-            <div className="max-w-4xl mx-auto px-4 md:px-8 pt-32 pb-20">
-                <div className="mb-12 text-center">
-                    <motion.h2
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className="text-3xl md:text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-400"
-                    >
-                        2025 인력 및 업무 계획
-                    </motion.h2>
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.1 }}
-                        className="text-slate-500 dark:text-slate-400"
-                    >
-                        DevSecOps 로드맵 및 주요보안 활동 타임라인
-                    </motion.p>
-                </div>
+            {/* Gantt Scroll Area */}
+            <div className="flex-1 overflow-auto relative scrollbar-track-[#191919] scrollbar-thumb-[#333]">
+                <div 
+                    className="relative"
+                    style={{ width: totalWidth, height: containerHeight }}
+                >
+                    {/* 1. Header Row (Months) */}
+                    <div className="absolute top-0 left-0 flex h-[60px] border-b border-[#333] bg-[#1e1e1e] z-20">
+                        {months.map((m, i) => {
+                            const daysInMonth = new Date(m.getFullYear(), m.getMonth() + 1, 0).getDate();
+                            const width = daysInMonth * DAY_WIDTH;
+                            return (
+                                <div 
+                                    key={i} 
+                                    className="flex items-center justify-center border-r border-[#333] text-sm font-medium text-gray-300"
+                                    style={{ width }}
+                                >
+                                    {m.getMonth() === 0 ? m.getFullYear() + "년 " : ""}{m.getMonth() + 1}월
+                                </div>
+                            );
+                        })}
+                    </div>
 
-                <div className="relative border-l-2 border-slate-100 dark:border-slate-800 ml-4 md:ml-12 pl-8 md:pl-12 space-y-16">
-                    {groupedTasks.map(([monthKey, tasks], groupIndex) => (
-                        <div key={monthKey} className="relative">
-                            {/* Month Marker */}
-                            <motion.div
-                                initial={{ opacity: 0, x: -20 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                className="absolute -left-[45px] md:-left-[61px] top-0 flex items-center justify-center w-6 h-6 rounded-full bg-slate-900 dark:bg-white ring-4 ring-white dark:ring-slate-950 z-10"
-                            >
-                                <div className="w-2 h-2 rounded-full bg-white dark:bg-slate-900" />
-                            </motion.div>
+                    {/* 2. Grid Background */}
+                    <div className="absolute top-[60px] left-0 bottom-0 flex z-0">
+                        {months.map((m, i) => {
+                             const daysInMonth = new Date(m.getFullYear(), m.getMonth() + 1, 0).getDate();
+                             // Render day or week lines could be too heavy, just month lines for now
+                             return (
+                                <div 
+                                    key={i}
+                                    className="border-r border-[#2a2a2a] h-full"
+                                    style={{ width: new Date(m.getFullYear(), m.getMonth() + 1, 0).getDate() * DAY_WIDTH }}
+                                />
+                             )
+                        })}
+                    </div>
 
-                            {/* Month Header */}
+                    {/* 3. Tasks */}
+                    <div className="absolute top-[80px] left-0 w-full z-10">
+                        {layout.map((task) => (
                             <motion.div
-                                initial={{ opacity: 0, x: -20 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                className="mb-6 sticky top-20 z-20"
+                                key={task.id}
+                                initial={{ opacity: 0, x: -10 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.3, delay: task.row * 0.02 }}
+                                className="absolute rounded-md bg-[#2d2d2d] border border-[#444] shadow-sm flex items-center px-3 gap-2 overflow-hidden hover:bg-[#3d3d3d] hover:border-gray-500 hover:z-50 transition-colors cursor-default group"
+                                style={{
+                                    left: task.offset * DAY_WIDTH,
+                                    top: task.row * ROW_HEIGHT,
+                                    width: Math.max(task.duration * DAY_WIDTH, 40), // Min width
+                                    height: ROW_HEIGHT - 8, // Gap
+                                }}
                             >
-                                <span className="inline-block px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-semibold shadow-sm border border-slate-200 dark:border-slate-700">
-                                    {formatMonthHeader(monthKey)}
+                                <span className="text-xs font-bold text-gray-200 whitespace-nowrap truncate">
+                                    {task.title}
                                 </span>
+                                <StatusBadge status={task.status} />
+                                
+                                {/* Tooltip on Hover */}
+                                <div className="hidden group-hover:block absolute top-full left-0 mt-2 p-3 bg-black/90 border border-gray-700 rounded shadow-xl z-[100] w-64 whitespace-normal">
+                                    <h4 className="font-bold text-white mb-1">{task.title}</h4>
+                                    <div className="text-xs text-gray-400 space-y-1">
+                                        <p>기간: {task.startDate} ~ {task.endDate}</p>
+                                        <p>상태: <span className="text-white">{task.status}</span></p>
+                                        <p>팀: {task.teams.join(", ")}</p>
+                                        <p>담당자: {task.assignees.join(", ")}</p>
+                                        {task.note && <p className="text-amber-400 mt-2">Note: {task.note}</p>}
+                                    </div>
+                                </div>
                             </motion.div>
+                        ))}
+                    </div>
 
-                            {/* Tasks Grid */}
-                            <div className="space-y-6">
-                                {tasks.map((task, index) => (
-                                    <motion.div
-                                        key={task.id}
-                                        initial={{ opacity: 0, y: 20 }}
-                                        whileInView={{ opacity: 1, y: 0 }}
-                                        viewport={{ once: true }}
-                                        transition={{ delay: index * 0.05 }}
-                                        className="group relative bg-white dark:bg-slate-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-all duration-300"
-                                    >
-                                        <div className="flex flex-col gap-3">
-                                            {/* Header: Status & Teams */}
-                                            <div className="flex flex-wrap items-center gap-2 justify-between">
-                                                <div className="flex flex-wrap gap-2">
-                                                    {task.teams.map((team) => (
-                                                        <span key={team} className={`text-[10px] uppercase tracking-wider font-semibold px-2 py-0.5 rounded border ${getTeamBadgeColor(team)}`}>
-                                                            {team}
-                                                        </span>
-                                                    ))}
-                                                </div>
-                                                <span className={`flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 rounded-full border ${getStatusColor(task.status)}`}>
-                                                    {getStatusIcon(task.status)}
-                                                    {task.status}
-                                                </span>
-                                            </div>
-
-                                            {/* Title */}
-                                            <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                                                {task.title}
-                                            </h3>
-
-                                            {/* Meta Info */}
-                                            <div className="flex flex-col gap-2 pt-2 border-t border-slate-100 dark:border-slate-800">
-                                                <div className="flex items-center gap-4 text-xs text-slate-500 dark:text-slate-400">
-                                                    <div className="flex items-center gap-1.5">
-                                                        <Calendar size={14} className="text-slate-400" />
-                                                        <span>{task.startDate} ~ {task.endDate}</span>
-                                                    </div>
-                                                </div>
-                                                <div className="flex items-start gap-1.5 text-xs text-slate-500 dark:text-slate-400">
-                                                    <Users size={14} className="mt-0.5 shrink-0 text-slate-400" />
-                                                    <span className="leading-snug">{task.assignees.join(", ")}</span>
-                                                </div>
-                                            </div>
-
-                                            {/* Note */}
-                                            {task.note && (
-                                                <div className="mt-1 flex items-start gap-2 text-xs bg-slate-50 dark:bg-slate-800/50 p-3 rounded-lg text-slate-600 dark:text-slate-400 border border-slate-100 dark:border-slate-800">
-                                                    <AlertCircle size={14} className="mt-0.5 shrink-0 text-amber-500" />
-                                                    <p>{task.note}</p>
-                                                </div>
-                                            )}
-                                        </div>
-                                    </motion.div>
-                                ))}
-                            </div>
-                        </div>
-                    ))}
+                    {/* Today Line (if within range) */}
+                    {/* Optional: Add a red line for Today */}
                 </div>
             </div>
-
-            {/* Simple Footer */}
-            <footer className="py-8 text-center text-slate-400 text-xs border-t border-slate-100 dark:border-slate-800">
-                © 2025 DevSecOps Plan. Confidential.
-            </footer>
+            
+            <style jsx global>{`
+                :: -webkit - scrollbar {
+    height: 10px;
+    width: 10px;
+    background: #191919;
+}
+                :: -webkit - scrollbar - thumb {
+    background: #333;
+    border - radius: 5px;
+}
+                :: -webkit - scrollbar - thumb:hover {
+    background: #444;
+}
+`}</style>
         </main>
     );
 }
+```
