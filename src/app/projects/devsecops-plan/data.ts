@@ -16,8 +16,8 @@ export const TIMELINE_DATA: Task[] = [
         title: '전자금융 기반시설 관리체계 자체점검',
         teams: ['Security'],
         status: 'Done',
-        startDate: '2024-04-01',
-        endDate: '2024-04-26',
+        startDate: '2024-12-01',
+        endDate: '2024-12-24',
         assignees: ['백지훈', '서동진', '이윤혁'],
     },
     {
@@ -69,7 +69,7 @@ export const TIMELINE_DATA: Task[] = [
     },
     {
         id: 't-2025-01-27-1',
-        title: '관리체계 개선 조치 수립',
+        title: '전자금융 기반시설 관리체계 자체 점검 후 개선 계획 수립',
         teams: ['Security'],
         status: 'Done',
         startDate: '2025-01-27',

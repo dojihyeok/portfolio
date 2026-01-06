@@ -502,22 +502,22 @@ export default function Home() {
                         </h4>
 
                         <div className="bg-gradient-to-r from-slate-50 to-white dark:from-slate-800 dark:to-slate-900 rounded-2xl p-6 md:p-8 border border-slate-100 dark:border-slate-700">
-                            <ul className="space-y-4 text-lg text-slate-700 dark:text-slate-300">
+                            <ul className="space-y-4 text-base md:text-lg text-slate-700 dark:text-slate-300 break-keep">
                                 <li className="flex items-start gap-3">
-                                    <span className="text-green-500 mt-1">✓</span>
-                                    보안은 속도를 늦추는 역할이 아니라 <span className="font-bold text-slate-900 dark:text-white">방향을 잡아주는 역할</span>이다
+                                    <span className="text-green-500 mt-1 flex-shrink-0">✓</span>
+                                    <span className="leading-relaxed">보안은 속도를 늦추는 역할이 아니라 <span className="font-bold text-slate-900 dark:text-white">방향을 잡아주는 역할</span>이다</span>
                                 </li>
                                 <li className="flex items-start gap-3">
-                                    <span className="text-green-500 mt-1">✓</span>
-                                    통제보다 <span className="font-bold text-slate-900 dark:text-white">설계와 합의</span>를 우선한다
+                                    <span className="text-green-500 mt-1 flex-shrink-0">✓</span>
+                                    <span className="leading-relaxed">통제보다 <span className="font-bold text-slate-900 dark:text-white">설계와 합의</span>를 우선한다</span>
                                 </li>
                                 <li className="flex items-start gap-3">
-                                    <span className="text-green-500 mt-1">✓</span>
-                                    규칙보다 <span className="font-bold text-slate-900 dark:text-white">신뢰와 이해</span>를 중시한다
+                                    <span className="text-green-500 mt-1 flex-shrink-0">✓</span>
+                                    <span className="leading-relaxed">규칙보다 <span className="font-bold text-slate-900 dark:text-white">신뢰와 이해</span>를 중시한다</span>
                                 </li>
                                 <li className="flex items-start gap-3">
-                                    <span className="text-green-500 mt-1">✓</span>
-                                    모든 보안 활동은 <span className="font-bold text-slate-900 dark:text-white">브랜드 신뢰로 귀결</span>되어야 한다
+                                    <span className="text-green-500 mt-1 flex-shrink-0">✓</span>
+                                    <span className="leading-relaxed">모든 보안 활동은 <span className="font-bold text-slate-900 dark:text-white">브랜드 신뢰로 귀결</span>되어야 한다</span>
                                 </li>
                             </ul>
                         </div>
@@ -582,13 +582,19 @@ export default function Home() {
                         role="보안팀 리더"
                         period="2024.11 ~ Present"
                         description={
-                            <ul className="list-disc list-inside space-y-1 pl-1">
-                                <li>글로벌 지점(싱가포르, 라트비아, 일본 등) 설립을 위한 규제 조사 및 보안 체계 구축</li>
+                            <ul className="list-disc space-y-1 pl-5">
+                                <li>글로벌 지점(싱가포르, 라트비아, 일본 등) 설립을 위한 규제 대응</li>
                                 <li>해외 금융 규제(Dora, GDPR 등) 및 전자금융 컴플라이언스 대응</li>
-                                <li>연구 개발망 및 망분리 대체 통제를 위한 ZeroTrust Architecture 설계</li>
                                 <li>
-                                    <Link href="/projects/devsecops-plan" className="hover:text-blue-500 hover:underline transition-colors">
+                                    <Link href="/projects/zero-trust" className="inline-flex items-center gap-2 hover:text-blue-500 hover:underline transition-colors group">
+                                        연구 개발망 및 망분리 대체 통제를 위한 ZeroTrust Architecture 설계
+                                        <ExternalLink size={16} className="text-slate-400 group-hover:text-blue-500 transition-colors" />
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/projects/devsecops-plan" className="inline-flex items-center gap-2 hover:text-blue-500 hover:underline transition-colors group">
                                         전자금융 기반시설 관리체계 자체 점검 후 개선 계획 수립
+                                        <ExternalLink size={16} className="text-slate-400 group-hover:text-blue-500 transition-colors" />
                                     </Link>
                                 </li>
                                 <li>ISO27001 취득, ISMS 및 VASP ISMS 준비</li>

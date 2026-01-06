@@ -16,6 +16,8 @@ expect "*?root@*"
 # Rebuild and Deploy
 send "npm install\r"
 expect "*?root@*"
+send "rm -rf .next\r"
+expect "*?root@*"
 send "npm run build\r"
 expect "*?root@*"
 send "pm2 restart portfolio\r"
