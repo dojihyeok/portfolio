@@ -609,8 +609,7 @@ export default function Home() {
                         period="2022.10 ~ 2024.11"
                         description={
                             <ul className="list-disc list-inside space-y-1 pl-1">
-                                <li>Web3 기반 신규 서비스 보안 전략 수립</li>
-                                <li>Wallet 보안 아키텍처 설계</li>
+                                <li>Web3 Wallet 신규 서비스 보안 아키텍처 수립</li>
                                 <li>보안팀 Team Building</li>
                                 <li>두나무 그룹 보안 감사 대응</li>
                                 <li>개인정보·정보보호 지침 제·개정</li>
