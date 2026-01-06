@@ -1,0 +1,397 @@
+export type Task = {
+    id: string;
+    title: string;
+    teams: string[];
+    status: 'Done' | 'In Progress' | 'Delayed' | 'Failed' | 'Not Started' | 'Hired' | 'Hiring Failed';
+    startDate: string;
+    endDate: string;
+    assignees: string[];
+    note?: string;
+};
+
+export const TIMELINE_DATA: Task[] = [
+    // 2024
+    {
+        id: 't-2024-04-01-1',
+        title: '전자금융 기반시설 관리체계 자체점검',
+        teams: ['Security'],
+        status: 'Done',
+        startDate: '2024-04-01',
+        endDate: '2024-04-26',
+        assignees: ['백지훈', '서동진', '이윤혁'],
+    },
+    {
+        id: 't-2024-12-01-1',
+        title: '전자금융 관리체계 점검',
+        teams: ['Security'],
+        status: 'Done',
+        startDate: '2024-12-01',
+        endDate: '2024-12-24',
+        assignees: ['이윤혁'],
+    },
+
+    // 2025 Jan
+    {
+        id: 't-2025-01-01-1',
+        title: '인프라 비용 모니터링 & 개선',
+        teams: ['DevOps'],
+        status: 'In Progress',
+        startDate: '2025-01-01',
+        endDate: '2025-12-31',
+        assignees: ['서동진'],
+    },
+    {
+        id: 't-2025-01-01-2',
+        title: '인프라 모니터링 & 장애 대응',
+        teams: ['DevOps'],
+        status: 'In Progress',
+        startDate: '2025-01-01',
+        endDate: '2025-12-31',
+        assignees: ['서동진'],
+    },
+    {
+        id: 't-2025-01-01-3',
+        title: 'Kubenetes 마이그레이션',
+        teams: ['DevOps'],
+        status: 'Failed', // 미달성진행 중 -> Failed/In Progress? Using Failed as per '미달성' prefix
+        startDate: '2025-01-01',
+        endDate: '2025-06-30',
+        assignees: ['백지훈', '서동진'],
+    },
+    {
+        id: 't-2025-01-06-1',
+        title: '관리체계 점검 금감원 보고',
+        teams: ['Security'],
+        status: 'Done',
+        startDate: '2025-01-06',
+        endDate: '2025-01-23',
+        assignees: ['이윤혁'],
+    },
+    {
+        id: 't-2025-01-27-1',
+        title: '관리체계 개선 조치 수립',
+        teams: ['Security'],
+        status: 'Done',
+        startDate: '2025-01-27',
+        endDate: '2025-02-21',
+        assignees: ['이윤혁'],
+    },
+
+    // 2025 Feb
+    {
+        id: 't-2025-02-03-1',
+        title: '망분리 개선방안 수립',
+        teams: ['DevOps', 'Security'],
+        status: 'Done',
+        startDate: '2025-02-03',
+        endDate: '2025-03-28',
+        assignees: ['백지훈', '서동진'],
+    },
+    {
+        id: 't-2025-02-14-1',
+        title: '관리체계 개선 조치 정책/지침 제﹒개정 1차',
+        teams: ['Security'],
+        status: 'Done',
+        startDate: '2025-02-14',
+        endDate: '2025-03-14',
+        assignees: ['이윤혁'],
+    },
+    {
+        id: 't-2025-02-17-1',
+        title: '망분리 대체 정보보호 통제 수립',
+        teams: ['DevOps', 'Developer', 'Security'],
+        status: 'Done',
+        startDate: '2025-02-17',
+        endDate: '2025-03-07',
+        assignees: ['백지훈', '서동진', '엔드포인트 보안', '이윤혁'],
+    },
+
+    // 2025 Mar
+    {
+        id: 't-2025-03-03-1',
+        title: '자산 식별',
+        teams: ['DevOps', 'Developer', 'Security'],
+        status: 'Done',
+        startDate: '2025-03-03',
+        endDate: '2025-05-28',
+        assignees: ['백지훈', '보안 분석 담당자', '서동진', '엔드포인트 보안'],
+    },
+    {
+        id: 't-2025-03-03-2',
+        title: '2025년 연간 계획 수립',
+        teams: ['Security'],
+        status: 'Done',
+        startDate: '2025-03-03',
+        endDate: '2025-03-21',
+        assignees: ['이윤혁', '정보보호 정책 담당자'],
+    },
+    {
+        id: 't-2025-03-03-3',
+        title: '관리체계 개선 조치_접근통제(24)_단기',
+        teams: ['DevOps', 'Developer', 'Security'],
+        status: 'Done',
+        startDate: '2025-03-03',
+        endDate: '2025-04-25',
+        assignees: ['백지훈', '서동진', '엔드포인트 보안', '이윤혁'],
+    },
+    {
+        id: 't-2025-03-12-1',
+        title: '망분리 대책 보안 솔루션 도입',
+        teams: ['DevOps', 'Security'],
+        status: 'Done',
+        startDate: '2025-03-12',
+        endDate: '2025-06-29',
+        assignees: ['보안 분석 담당자', '엔드포인트 보안', '이윤혁'],
+    },
+    {
+        id: 't-2025-03-24-1',
+        title: '엔드포인트 보안 담당자 채용',
+        teams: ['DevOps', 'Developer', 'Security'],
+        status: 'Hired',
+        startDate: '2025-03-24',
+        endDate: '2025-04-04',
+        assignees: ['주상욱'],
+        note: '담당자 퇴사',
+    },
+
+    // 2025 Apr
+    {
+        id: 't-2025-04-01-1',
+        title: '통합로그 시스템 구축',
+        teams: ['DevOps', 'Developer', 'Security'],
+        status: 'In Progress', // 지연진행 중 -> In Progress (Delayed)
+        startDate: '2025-04-01',
+        endDate: '2025-07-31',
+        assignees: ['백지훈', '보안 분석 담당자', '서동진', '이윤혁'],
+        note: '이벤트 분석 보안 담당자 채용 중단',
+    },
+    {
+        id: 't-2025-04-01-2',
+        title: '정보보안 정책 담당자 채용',
+        teams: ['Security'],
+        status: 'Hiring Failed',
+        startDate: '2025-04-01',
+        endDate: '2025-04-28',
+        assignees: ['정보보호 정책 담당자'],
+        note: '담당자 퇴사',
+    },
+    {
+        id: 't-2025-04-07-1',
+        title: '관리체계 개선 조치_IT도입,개발(12)_단기',
+        teams: ['Audit', 'Security'],
+        status: 'Delayed',
+        startDate: '2025-04-07',
+        endDate: '2025-04-25',
+        assignees: ['이윤혁'],
+        note: 'IT 투자 및 비용 관리, 감리 지침 등은 보안 팀 외 업무로 수행되어야 함',
+    },
+    {
+        id: 't-2025-04-07-2',
+        title: '이벤트 분석 및 사고 대응 담당자 채용',
+        teams: ['Security'],
+        status: 'Hiring Failed',
+        startDate: '2025-04-07',
+        endDate: '2025-04-25',
+        assignees: ['보안 분석 담당자'],
+        note: '채용 중단',
+    },
+    {
+        id: 't-2025-04-28-1',
+        title: '관리체계 개선 조치_접근통제(25)_중기',
+        teams: ['DevOps', 'Developer', 'Security'],
+        status: 'Done',
+        startDate: '2025-04-28',
+        endDate: '2025-06-27',
+        assignees: ['백지훈', '서동진', '엔드포인트 보안', '이윤혁'],
+    },
+    {
+        id: 't-2025-04-30-1',
+        title: '관리체계 개선 조치 정책/지침 제﹒개정 2차',
+        teams: ['Security'],
+        status: 'Done',
+        startDate: '2025-04-30',
+        endDate: '2025-05-30',
+        assignees: ['이윤혁', '정보보호 정책 담당자'],
+    },
+
+    // 2025 May
+    {
+        id: 't-2025-05-01-1',
+        title: '관리체계 개선 조치_운영관리(51)_단기',
+        teams: ['DevOps', 'Security'],
+        status: 'Done',
+        startDate: '2025-05-01',
+        endDate: '2025-05-30',
+        assignees: ['서동진', '엔드포인트 보안', '이윤혁'],
+    },
+    {
+        id: 't-2025-05-05-1',
+        title: '관리체계 개선 조치_전자금융거래등(17) 조치',
+        teams: ['Audit', 'DevOps', 'Developer', 'Security'],
+        status: 'Delayed',
+        startDate: '2025-05-05',
+        endDate: '2025-05-30',
+        assignees: ['백지훈', '서동진', '오병권', '이윤혁', '정보보호 정책 담당자'],
+        note: '통합로그 시스템 구축 후 SIEM 도입 필요',
+    },
+    {
+        id: 't-2025-05-05-2',
+        title: '상반기 홈페이지 취약점 점검',
+        teams: ['Developer', 'Security'],
+        status: 'Done',
+        startDate: '2025-05-05',
+        endDate: '2025-05-16',
+        assignees: ['백지훈', '이윤혁'],
+    },
+    {
+        id: 't-2025-05-16-1',
+        title: '전자금융 기반시설 인프라 취약점 조치_단기',
+        teams: ['DevOps', 'Developer', 'Security'],
+        status: 'Done',
+        startDate: '2025-05-16',
+        endDate: '2025-06-14',
+        assignees: ['백지훈', '보안 분석 담당자', '서동진', '엔드포인트 보안', '이윤혁'],
+    },
+
+    // 2025 June
+    {
+        id: 't-2025-06-01-1',
+        title: '전자금융 기반시설 인프라 및 홈페이지 취약점 점검',
+        teams: ['DevOps', 'Developer', 'Security'],
+        status: 'Done',
+        startDate: '2025-06-01',
+        endDate: '2025-06-30',
+        assignees: ['백지훈', '보안 분석 담당자', '서동진', '엔드포인트 보안', '이윤혁'],
+    },
+    {
+        id: 't-2025-06-02-1',
+        title: '전자금융 기반시설 인프라 취약점 보안 조치 계획 수립',
+        teams: ['DevOps', 'Developer', 'Security'],
+        status: 'Done',
+        startDate: '2025-06-02',
+        endDate: '2025-06-13',
+        assignees: ['백지훈', '서동진', '이윤혁', '주상욱'],
+    },
+    {
+        id: 't-2025-06-02-2',
+        title: '관리체계 개선 조치_운영관리(51)_중기',
+        teams: ['DevOps', 'Security'],
+        status: 'Done',
+        startDate: '2025-06-02',
+        endDate: '2025-08-29',
+        assignees: ['서동진', '엔트포인트 보안', '이윤혁'],
+    },
+    {
+        id: 't-2025-06-02-3',
+        title: '개인정보 등 중요 정보 모니터링 체계 구축',
+        teams: ['Audit', 'Developer', 'Security'],
+        status: 'In Progress', // 지연진행 중
+        startDate: '2025-06-02',
+        endDate: '2025-08-29',
+        assignees: ['보안 분석 담당자', '오병권', '정보보호 정책 담당자'],
+        note: 'MA/MBP admin 접속기록 모니터링 개발 진행 중',
+    },
+    {
+        id: 't-2025-06-02-4',
+        title: '침해사고 실시간 모니터링 체계 구축',
+        teams: ['DevOps', 'Developer', 'Security'],
+        status: 'Not Started', // 시작 전지연 -> Not Started/Delayed
+        startDate: '2025-06-02',
+        endDate: '2025-07-31',
+        assignees: ['보안 분석 담당자'],
+        note: '이벤트 분석 보안 담당자 채용 중단',
+    },
+    {
+        id: 't-2025-06-13-1',
+        title: '정보보안 위험 평가 수행',
+        teams: ['Security'],
+        status: 'Done',
+        startDate: '2025-06-13',
+        endDate: '2025-07-30',
+        assignees: ['이윤혁', '정보보호 정책 담당자'],
+    },
+    {
+        id: 't-2025-06-16-1',
+        title: '전자금융 기반시설 취약점 이행계획 및 금감원 보고',
+        teams: ['Security'],
+        status: 'Done',
+        startDate: '2025-06-16',
+        endDate: '2025-06-30',
+        assignees: ['이윤혁', '정보보호 정책 담당자'],
+    },
+
+    // 2025 Aug
+    {
+        id: 't-2025-08-17-1',
+        title: 'ISO27001 인증 심사',
+        teams: ['Security'],
+        status: 'Done',
+        startDate: '2025-08-17',
+        endDate: '2025-08-21',
+        assignees: ['이윤혁', '정보보호 정책 담당자'],
+    },
+
+    // 2025 Sep
+    {
+        id: 't-2025-09-04-1',
+        title: 'ISO27001 결함 개선',
+        teams: ['DevOps', 'Developer', 'Security'],
+        status: 'Done',
+        startDate: '2025-09-04',
+        endDate: '2025-11-30',
+        assignees: ['백지훈', '보안 분석 담당자', '서동진', '엔드포인트 보안', '이윤혁', '정보보호 정책 담당자'],
+    },
+    {
+        id: 't-2025-09-15-1',
+        title: '전자금융 기반시설 인프라 취약점 조치_중기',
+        teams: ['DevOps', 'Developer', 'Security'],
+        status: 'Done',
+        startDate: '2025-09-15',
+        endDate: '2025-12-31',
+        assignees: ['백지훈', '보안 분석 담당자', '서동진', '엔드포인트 보안', '이윤혁'],
+    },
+
+    // 2025 Oct
+    {
+        id: 't-2025-10-19-1',
+        title: 'ISO27001 인증 취득',
+        teams: ['DevOps', 'Developer', 'Security'],
+        status: 'In Progress',
+        startDate: '2025-10-19',
+        endDate: '2025-10-30',
+        assignees: ['백지훈', '서동진', '이윤혁', '정보보호 정책 담당자'],
+    },
+
+    // 2025 Nov
+    {
+        id: 't-2025-11-03-1',
+        title: '하반기 홈페이지 취약점 점검 수행 및 금감원 보고',
+        teams: ['Developer', 'Security'],
+        status: 'Done',
+        startDate: '2025-11-03',
+        endDate: '2025-11-28',
+        assignees: ['백지훈', '보안 분석 담당자', '이윤혁'],
+    },
+
+    // 2025 Dec
+    {
+        id: 't-2025-12-28-1',
+        title: 'ISO27001 인증 대비 운영 증적자료 정리',
+        teams: ['DevOps', 'Developer', 'Security'],
+        status: 'Done',
+        startDate: '2025-12-28',
+        endDate: '2026-01-26',
+        assignees: ['백지훈', '서동진', '이윤혁', '정보보호 정책 담당자'],
+    },
+
+    // 2026
+    {
+        id: 't-2026-06-12-1',
+        title: 'SOC2 개선 조치 사항',
+        teams: ['Audit', 'DevOps', 'Developer', 'Security'],
+        status: 'Not Started',
+        startDate: '2026-06-12',
+        endDate: '2026-08-07',
+        assignees: ['백지훈', '보안 분석 담당자', '서동진', '엔드포인트 보안', '오병권', '이윤혁', '정보보호 정책 담당자'],
+    },
+];
