@@ -586,7 +586,7 @@ export default function Home() {
                                 <li>글로벌 지점 설립을 위한 규제 조사 및 보안 체계 구축</li>
                                 <li>해외 금융 규제 및 전자금융 컴플라이언스 대응</li>
                                 <li>연구 개발망 및 망분리 대체 통제를 위한 ZeroTrust Architecture 설계</li>
-                                <li>ISO27001·SOC2·ISMS-P 준비</li>
+                                <li>ISO27001 취득, ISMS 및 VASP ISMS 준비</li>
                                 <li>정보보호 규정 및 지침 제정</li>
                                 <li>신규 보안팀 구성, 전사 거버넌스 설계 및 팀 문화 기반 마련</li>
                             </ul>
