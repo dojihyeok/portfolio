@@ -1,0 +1,720 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>DevSecOps 2025년 인력 및 업무 계획</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="1765807b-4ad6-8061-a9a7-d818204fefc3" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🔐</span></div><h1 class="page-title" dir="auto">DevSecOps 2025년 인력 및 업무 계획</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><ul id="1765807b-4ad6-8061-84b3-f7a1eb07ce2e" class="toggle"><li><details open=""><summary><a href="https://docs.google.com/spreadsheets/d/1bbPzJZ_Y-m2H_HK_RsMhWQhEJeFkdZ7APyalRXbuxfk/edit?gid=0#gid=0">전자금융업 개인정보 및 정보보호 업무 역할</a> 정리</summary><div style="display:contents" dir="auto"><ul id="1765807b-4ad6-8089-8d23-d299d05c79e8" class="bulleted-list"><li style="list-style-type:disc">정보보안 전담 조직(안)<div style="display:contents" dir="ltr"><figure id="3c82e3f0-fa54-4c9e-b47a-8d4e629293f4" class="image"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/image.png"><img style="width:624px" src="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/image.png"/></a></figure></div></li></ul></div><div style="display:contents" dir="auto"><ul id="1775807b-4ad6-8067-b641-f70fc9de8e7f" class="bulleted-list"><li style="list-style-type:disc">담당자 주요 업무<div style="display:contents" dir="ltr"><table id="1775807b-4ad6-80b4-a753-df89dea0772f" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="2d192f67-5f83-48e0-8cc6-3992b683fe28"><th id="ejpu" class="simple-table-header-color simple-table-header" style="width:173px">            담당자</th><th id="Q?WL" class="simple-table-header-color simple-table-header" style="width:387px">                                             업무 내용</th><th id="M{LL" class="simple-table-header-color simple-table-header" style="width:256px">                       채용 시기</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="84fe0876-61ae-4e97-8cb8-89f16a03a33e"><td id="ejpu" class="" style="width:173px">정보보호 정책</td><td id="Q?WL" class="" style="width:387px">- 금감원 요구 보고 업무 (클라우드 이용 보고, 정보처리 위수탁 보고, 보안성 심의 , 전자금융기반시설 등)<br/>- ISO27001등 인증 준비 문서 작업 (인허가 서비스와 같이 인증 기관에 제출하고 심사 준비 문서 작성) , 인증 문서 심사 <br/>- 인증 심사 및 외부 감사 대응</td><td id="M{LL" class="" style="width:256px">- 4월 중 (미흡 보고 완료, 문서 심사 대응)</td></tr></div><div style="display:contents" dir="ltr"><tr id="0d108567-517b-46bf-bae6-d3f8dedc888f"><td id="ejpu" class="" style="width:173px">엔드포인트 보안 </td><td id="Q?WL" class="" style="width:387px"> - 망분리 대체 보안 통제를 위해 단말기 기반의 솔루션 도입, 운영, 개선 업무<br/> - ZeroTrust 기반의 상시 업무가 가능한 환경을 위한 엔지니어링에 집중</td><td id="M{LL" class="" style="width:256px">- 3월 중 (망분리 대체 보안 솔루션 도입)</td></tr></div><div style="display:contents" dir="ltr"><tr id="1775807b-4ad6-800d-9747-fde039402649"><td id="ejpu" class="" style="width:173px">이벤트 분석,사고 대응 </td><td id="Q?WL" class="" style="width:387px">- AWS Security Log, 단말기 정보보호 Log, Firewall/IPS/ WAF/DDos 등 로그 기반으로 상관 분석체계를 구축하여 실시간 모니터링 체계(SIEM) 구축 운영하며,<br/>- 보안사고 발생 시 원인 분석, 대책 방안 수립<br/>- 365일 실시간 분석 요건 준수를 위해 야간 및 공유일 외부 관제 활용 필요.</td><td id="M{LL" class="" style="width:256px">- 5월 중 (통합로그 시스템  및 SIEM 구축)<br/> </td></tr></div><div style="display:contents" dir="ltr"><tr id="1775807b-4ad6-80b1-be48-c361b9cc3c00"><td id="ejpu" class="block-color-gray_background" style="width:173px">네트워크 및 클라우드 보안</td><td id="Q?WL" class="block-color-gray_background" style="width:387px">- 방화벽(UTM), Proxy, SASE / ZTNA, WAF, IPS, DDoS와 같은 네트워크 보안 시스템 구축, 운영 및 보안 인프라 아키텍처 설계<br/>- Cloud (IaaS - AWS, Azure, Openstack 등 / SaaS - Google Workspace, M365 등) 기반의 인프라 및 서비스 구축과 운영, 보안 관리<br/>- 서버 접근제어(SAC), 디비 접근제어(DAC)를 통한 서버 및 데이터 베이스 접근제어 모델 설계 및 구축, 운영</td><td id="M{LL" class="block-color-gray_background" style="width:256px">- DevOps 담당자 업무 부하 발생 시점</td></tr></div><div style="display:contents" dir="ltr"><tr id="1775807b-4ad6-8084-9037-c6386f1b0c60"><td id="ejpu" class="block-color-gray_background" style="width:173px">개인정보보호 </td><td id="Q?WL" class="block-color-gray_background" style="width:387px">• 개인정보보호팀 로드맵 수립, 실행/관리<br/>• 개인정보 및 정보보호 정책·지침의 수립, 운영, 관리<br/>• 서비스 내 개인정보보호 관련 법규 준수 여부 검토 및 관리<br/>• 개인정보 내부관리계획의 수립 및 이행 총괄<br/>• 개인정보 보호 교육 및 인식 제고 활동 기획 및 실행<br/>• ISMS-P, ISO 27701등 개인정보 포함 인증 대응<br/>• 서비스 개인정보 실태 점검 및 안전성 확보 조치 수행<br/>• 개인정보 Life-Cycle에 따른 보안성 검토 및 보호 대책 수립·이행<br/>• 개인정보 수탁업체 관리 (처리 위탁 계약 검토, 수탁업체 및 외주 인력 점검)</td><td id="M{LL" class="block-color-gray_background" style="width:256px">- 개인정보보호법, GDPR 규제 대응 부하 발생 시점<br/>- 개인정보 수탁사 점검등 업무 빈도 증가 시<br/>- 개인정보보호 관련 인증 준비 시점</td></tr></div></tbody></table></div></li></ul></div><div style="display:contents" dir="auto"><p id="1775807b-4ad6-803e-91af-def64648360b" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="1775807b-4ad6-80f4-b857-e3fa88c7b9e3" class="bulleted-list"><li style="list-style-type:disc"><a href="https://docs.google.com/spreadsheets/d/1I8_A5bda2aqpW3dYbf2H77P70hGCY4zW/edit?gid=526352425#gid=526352425">전자금융 기반시설 취약점 점검 항목</a></li></ul></div><div style="display:contents" dir="auto"><ul id="1775807b-4ad6-80aa-b1ee-ffd8d1e902cb" class="bulleted-list"><li style="list-style-type:disc"><a href="https://docs.google.com/spreadsheets/d/1LREJ-HenBnP9kOiNJ7pX9wUfE34CQwO8/edit?gid=936428288#gid=936428288">전자금융 영역별 수집 및 보관해야 하는 로</a>그</li></ul></div><div style="display:contents" dir="auto"><ul id="1765807b-4ad6-80f1-a12f-e09c48c57152" class="toggle"><li><details open=""><summary><a href="https://www.notion.so/1755807b4ad680d5ae10e18712b0a4a4?pvs=21"><span class="icon">🪩</span>전자금융업자 망분리 가이드</a> </summary></details></li></ul></div><div style="display:contents" dir="auto"><h3 id="1a45807b-4ad6-80a9-a760-d47b792867a2" class="">2025년 보안 인증 취득을 위한 보안팀 채용 일정</h3></div><div style="display:contents" dir="auto"><ul id="1a45807b-4ad6-80f5-adc3-e3f2464d3c60" class="bulleted-list"><li style="list-style-type:disc">각 영역별 아키텍처 수립 이후 실행 단계 일정에 따라 채용 시기를 아래와 같이 정함<div style="display:contents" dir="auto"><ul id="1a45807b-4ad6-8085-8715-c356d4db0cc4" class="bulleted-list"><li style="list-style-type:circle">엔드포인트 보안 담당자 : 4월 4일까지 채용 목표</li></ul></div><div style="display:contents" dir="auto"><ul id="1a45807b-4ad6-803f-9cbc-f18428b5527a" class="bulleted-list"><li style="list-style-type:circle">보안 분석 담당자 : 4월 25일까지 채용 목표</li></ul></div><div style="display:contents" dir="auto"><ul id="1a45807b-4ad6-8062-8df1-d62caacc5782" class="bulleted-list"><li style="list-style-type:circle">보안 정책 담당자 : 4월 28일까지 채용 목표</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="1a45807b-4ad6-80d9-b74a-dfd20ad0423f" class="toggle"><li><details open=""><summary>보안 신규 담당자 참여(예정) 프로젝트</summary><div style="display:contents" dir="ltr"><div id="1a45807b-4ad6-800e-86ac-f7c343320f76" class="collection-content"><h4 class="collection-title">DevsSecOps 연간 계획</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>담당자</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/groups_gray.svg" style="width:14px;height:14px;display:block"/></span>팀</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/font_gray.svg" style="width:14px;height:14px;display:block"/></span>프로젝트</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>진행상태</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>기간</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>지연 또는 미달성 사유</th></tr></thead><tbody><tr id="1765807b-4ad6-80c6-b549-cdb11581aa3c"><td class="cell-ikvv"><span class="selected-value select-value-color-purple">이윤혁</span></td><td class="cell-yxgX"><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EC%A0%84%EC%9E%90%EA%B8%88%EC%9C%B5%20%EA%B4%80%EB%A6%AC%EC%B2%B4%EA%B3%84%20%EC%A0%90%EA%B2%80%201765807b4ad680c6b549cdb11581aa3c.html">전자금융 관리체계 점검</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-green">완료</span></td><td class="cell-lmGA"><time>@2024년 12월 1일 → 2024년 12월 24일</time></td><td class="cell-tvdf"></td></tr><tr id="1765807b-4ad6-80ee-a99a-d1e0816e3ec7"><td class="cell-ikvv"><span class="selected-value select-value-color-yellow">백지훈</span><span class="selected-value select-value-color-blue">서동진</span><span class="selected-value select-value-color-gray">엔트포인트 보안</span><span class="selected-value select-value-color-purple">이윤혁</span></td><td class="cell-yxgX"><span class="selected-value select-value-color-default">DevOps</span><span class="selected-value select-value-color-brown">Developer</span><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EB%A7%9D%EB%B6%84%EB%A6%AC%20%EB%8C%80%EC%B2%B4%20%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%20%ED%86%B5%EC%A0%9C%20%EC%88%98%EB%A6%BD%201765807b4ad680eea99ad1e0816e3ec7.html">망분리 대체 정보보호 통제 수립</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-green">완료</span></td><td class="cell-lmGA"><time>@2025년 2월 17일 → 2025년 3월 7일</time></td><td class="cell-tvdf"></td></tr><tr id="1765807b-4ad6-8081-8512-c21c5510ff54"><td class="cell-ikvv"><span class="selected-value select-value-color-brown">보안 분석 담당자</span><span class="selected-value select-value-color-gray">엔트포인트 보안</span><span class="selected-value select-value-color-purple">이윤혁</span></td><td class="cell-yxgX"><span class="selected-value select-value-color-default">DevOps</span><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EB%A7%9D%EB%B6%84%EB%A6%AC%20%EB%8C%80%EC%B1%85%20%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%20%EB%8F%84%EC%9E%85%201765807b4ad680818512c21c5510ff54.html">망분리 대책 보안 솔루션 도입</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-green">완료</span></td><td class="cell-lmGA"><time>@2025년 3월 12일 → 2025년 6월 29일</time></td><td class="cell-tvdf"></td></tr><tr id="1765807b-4ad6-8034-b1a2-d9af6dc0d5a3"><td class="cell-ikvv"><span class="selected-value select-value-color-purple">이윤혁</span></td><td class="cell-yxgX"><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EA%B4%80%EB%A6%AC%EC%B2%B4%EA%B3%84%20%EA%B0%9C%EC%84%A0%20%EC%A1%B0%EC%B9%98%20%EC%A0%95%EC%B1%85%20%EC%A7%80%EC%B9%A8%20%EC%A0%9C%EF%B9%92%EA%B0%9C%EC%A0%95%201%EC%B0%A8%201765807b4ad68034b1a2d9af6dc0d5a3.html">관리체계 개선 조치 정책/지침 제﹒개정 1차</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-green">완료</span></td><td class="cell-lmGA"><time>@2025년 2월 14일 → 2025년 3월 14일</time></td><td class="cell-tvdf"></td></tr><tr id="1765807b-4ad6-8089-8287-dbc5036d76a7"><td class="cell-ikvv"><span class="selected-value select-value-color-yellow">백지훈</span><span class="selected-value select-value-color-blue">서동진</span></td><td class="cell-yxgX"><span class="selected-value select-value-color-default">DevOps</span><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EB%A7%9D%EB%B6%84%EB%A6%AC%20%EA%B0%9C%EC%84%A0%EB%B0%A9%EC%95%88%20%EC%88%98%EB%A6%BD%201765807b4ad680898287dbc5036d76a7.html">망분리 개선방안 수립</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-green">완료</span></td><td class="cell-lmGA"><time>@2025년 2월 3일 → 2025년 3월 28일</time></td><td class="cell-tvdf"></td></tr><tr id="1765807b-4ad6-8035-b7fe-fee1cad45c66"><td class="cell-ikvv"><span class="selected-value select-value-color-yellow">백지훈</span><span class="selected-value select-value-color-brown">보안 분석 담당자</span><span class="selected-value select-value-color-blue">서동진</span><span class="selected-value select-value-color-gray">엔트포인트 보안</span></td><td class="cell-yxgX"><span class="selected-value select-value-color-default">DevOps</span><span class="selected-value select-value-color-brown">Developer</span><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EC%9E%90%EC%82%B0%20%EC%8B%9D%EB%B3%84%201765807b4ad68035b7fefee1cad45c66.html">자산 식별</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-green">완료</span></td><td class="cell-lmGA"><time>@2025년 3월 3일 → 2025년 5월 28일</time></td><td class="cell-tvdf"></td></tr><tr id="1765807b-4ad6-8034-b9a4-ed875a05be6c"><td class="cell-ikvv"><span class="selected-value select-value-color-yellow">백지훈</span><span class="selected-value select-value-color-brown">보안 분석 담당자</span><span class="selected-value select-value-color-blue">서동진</span><span class="selected-value select-value-color-gray">엔트포인트 보안</span><span class="selected-value select-value-color-purple">이윤혁</span></td><td class="cell-yxgX"><span class="selected-value select-value-color-default">DevOps</span><span class="selected-value select-value-color-brown">Developer</span><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EC%A0%84%EC%9E%90%EA%B8%88%EC%9C%B5%20%EA%B8%B0%EB%B0%98%EC%8B%9C%EC%84%A4%20%EC%9D%B8%ED%94%84%EB%9D%BC%20%EB%B0%8F%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80%20%EC%B7%A8%EC%95%BD%EC%A0%90%20%EC%A0%90%EA%B2%80%201765807b4ad68034b9a4ed875a05be6c.html">전자금융 기반시설 인프라 및 홈페이지 취약점 점검</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-green">완료</span></td><td class="cell-lmGA"><time>@2025년 6월 1일 → 2025년 6월 30일</time></td><td class="cell-tvdf"></td></tr><tr id="1765807b-4ad6-804e-9e58-e3d1065c4803"><td class="cell-ikvv"><span class="selected-value select-value-color-yellow">백지훈</span><span class="selected-value select-value-color-blue">서동진</span><span class="selected-value select-value-color-purple">이윤혁</span><span class="selected-value select-value-color-default">주상욱</span></td><td class="cell-yxgX"><span class="selected-value select-value-color-default">DevOps</span><span class="selected-value select-value-color-brown">Developer</span><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EC%A0%84%EC%9E%90%EA%B8%88%EC%9C%B5%20%EA%B8%B0%EB%B0%98%EC%8B%9C%EC%84%A4%20%EC%9D%B8%ED%94%84%EB%9D%BC%20%EC%B7%A8%EC%95%BD%EC%A0%90%20%EB%B3%B4%EC%95%88%20%EC%A1%B0%EC%B9%98%20%EA%B3%84%ED%9A%8D%20%EC%88%98%EB%A6%BD%201765807b4ad6804e9e58e3d1065c4803.html">전자금융 기반시설 인프라 취약점 보안 조치 계획 수립</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-green">완료</span></td><td class="cell-lmGA"><time>@2025년 6월 2일 → 2025년 6월 13일</time></td><td class="cell-tvdf"></td></tr><tr id="1765807b-4ad6-80e6-8502-e51690ee1843"><td class="cell-ikvv"><span class="selected-value select-value-color-purple">이윤혁</span><span class="selected-value select-value-color-pink">정보보호 정책 담당자</span></td><td class="cell-yxgX"><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/2025%EB%85%84%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D%20%EC%88%98%EB%A6%BD%201765807b4ad680e68502e51690ee1843.html">2025년 연간 계획 수립</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-green">완료</span></td><td class="cell-lmGA"><time>@2025년 3월 3일 → 2025년 3월 21일</time></td><td class="cell-tvdf"></td></tr><tr id="1765807b-4ad6-808b-b385-df4eb674f8b5"><td class="cell-ikvv"><span class="selected-value select-value-color-yellow">백지훈</span><span class="selected-value select-value-color-brown">보안 분석 담당자</span><span class="selected-value select-value-color-blue">서동진</span><span class="selected-value select-value-color-gray">엔트포인트 보안</span><span class="selected-value select-value-color-purple">이윤혁</span></td><td class="cell-yxgX"><span class="selected-value select-value-color-default">DevOps</span><span class="selected-value select-value-color-brown">Developer</span><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EC%A0%84%EC%9E%90%EA%B8%88%EC%9C%B5%20%EA%B8%B0%EB%B0%98%EC%8B%9C%EC%84%A4%20%EC%9D%B8%ED%94%84%EB%9D%BC%20%EC%B7%A8%EC%95%BD%EC%A0%90%20%EC%A1%B0%EC%B9%98_%EB%8B%A8%EA%B8%B0%201765807b4ad6808bb385df4eb674f8b5.html">전자금융 기반시설 인프라 취약점 조치_단기</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-green">완료</span></td><td class="cell-lmGA"><time>@2025년 5월 16일 → 2025년 6월 14일</time></td><td class="cell-tvdf"></td></tr><tr id="1765807b-4ad6-804e-adac-c44bebdc3c0b"><td class="cell-ikvv"><span class="selected-value select-value-color-yellow">백지훈</span><span class="selected-value select-value-color-brown">보안 분석 담당자</span><span class="selected-value select-value-color-blue">서동진</span><span class="selected-value select-value-color-gray">엔트포인트 보안</span><span class="selected-value select-value-color-purple">이윤혁</span></td><td class="cell-yxgX"><span class="selected-value select-value-color-default">DevOps</span><span class="selected-value select-value-color-brown">Developer</span><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EC%A0%84%EC%9E%90%EA%B8%88%EC%9C%B5%20%EA%B8%B0%EB%B0%98%EC%8B%9C%EC%84%A4%20%EC%9D%B8%ED%94%84%EB%9D%BC%20%EC%B7%A8%EC%95%BD%EC%A0%90%20%EC%A1%B0%EC%B9%98_%EC%A4%91%EA%B8%B0%201765807b4ad6804eadacc44bebdc3c0b.html">전자금융 기반시설 인프라 취약점 조치_중기</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-green">완료</span></td><td class="cell-lmGA"><time>@2025년 9월 15일 → 2025년 12월 31일</time></td><td class="cell-tvdf"></td></tr><tr id="1765807b-4ad6-8022-a4b1-cc926d57b78c"><td class="cell-ikvv"><span class="selected-value select-value-color-yellow">백지훈</span><span class="selected-value select-value-color-blue">서동진</span><span class="selected-value select-value-color-purple">이윤혁</span><span class="selected-value select-value-color-pink">정보보호 정책 담당자</span></td><td class="cell-yxgX"><span class="selected-value select-value-color-default">DevOps</span><span class="selected-value select-value-color-brown">Developer</span><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/ISO27001%20%EC%9D%B8%EC%A6%9D%20%EB%8C%80%EB%B9%84%20%EC%9A%B4%EC%98%81%20%EC%A6%9D%EC%A0%81%EC%9E%90%EB%A3%8C%20%EC%A0%95%EB%A6%AC%201765807b4ad68022a4b1cc926d57b78c.html">ISO27001 인증 대비 운영 증적자료 정리</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-green">완료</span></td><td class="cell-lmGA"><time>@2025년 12월 28일 → 2026년 1월 26일</time></td><td class="cell-tvdf"></td></tr><tr id="1765807b-4ad6-8030-9dc1-d628a49fe034"><td class="cell-ikvv"><span class="selected-value select-value-color-purple">이윤혁</span><span class="selected-value select-value-color-pink">정보보호 정책 담당자</span></td><td class="cell-yxgX"><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/ISO27001%20%EC%9D%B8%EC%A6%9D%20%EC%8B%AC%EC%82%AC%201765807b4ad680309dc1d628a49fe034.html">ISO27001 인증 심사</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-green">완료</span></td><td class="cell-lmGA"><time>@2025년 8월 17일 → 2025년 8월 21일</time></td><td class="cell-tvdf"></td></tr><tr id="1765807b-4ad6-807b-9040-ed6516d283c7"><td class="cell-ikvv"><span class="selected-value select-value-color-yellow">백지훈</span><span class="selected-value select-value-color-brown">보안 분석 담당자</span><span class="selected-value select-value-color-blue">서동진</span><span class="selected-value select-value-color-gray">엔트포인트 보안</span><span class="selected-value select-value-color-purple">이윤혁</span><span class="selected-value select-value-color-pink">정보보호 정책 담당자</span></td><td class="cell-yxgX"><span class="selected-value select-value-color-default">DevOps</span><span class="selected-value select-value-color-brown">Developer</span><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/ISO27001%20%EA%B2%B0%ED%95%A8%20%EA%B0%9C%EC%84%A0%201765807b4ad6807b9040ed6516d283c7.html">ISO27001 결함 개선 </a></td><td class="cell-{~[h"><span class="selected-value select-value-color-green">완료</span></td><td class="cell-lmGA"><time>@2025년 9월 4일 → 2025년 11월 30일</time></td><td class="cell-tvdf"></td></tr><tr id="1765807b-4ad6-808c-952f-fee1bb0cc723"><td class="cell-ikvv"><span class="selected-value select-value-color-yellow">백지훈</span><span class="selected-value select-value-color-blue">서동진</span><span class="selected-value select-value-color-purple">이윤혁</span><span class="selected-value select-value-color-pink">정보보호 정책 담당자</span></td><td class="cell-yxgX"><span class="selected-value select-value-color-default">DevOps</span><span class="selected-value select-value-color-brown">Developer</span><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/ISO27001%20%EC%9D%B8%EC%A6%9D%20%EC%B7%A8%EB%93%9D%201765807b4ad6808c952ffee1bb0cc723.html">ISO27001 인증 취득</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-blue">진행 중</span></td><td class="cell-lmGA"><time>@2025년 10월 19일 → 2025년 10월 30일</time></td><td class="cell-tvdf"></td></tr><tr id="1765807b-4ad6-8093-9dde-fc10ce9f7c31"><td class="cell-ikvv"><span class="selected-value select-value-color-yellow">백지훈</span><span class="selected-value select-value-color-brown">보안 분석 담당자</span><span class="selected-value select-value-color-blue">서동진</span><span class="selected-value select-value-color-gray">엔트포인트 보안</span><span class="selected-value select-value-color-green">오병권</span><span class="selected-value select-value-color-purple">이윤혁</span><span class="selected-value select-value-color-pink">정보보호 정책 담당자</span></td><td class="cell-yxgX"><span class="selected-value select-value-color-yellow">Audit</span><span class="selected-value select-value-color-default">DevOps</span><span class="selected-value select-value-color-brown">Developer</span><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/SOC2%20%EA%B0%9C%EC%84%A0%20%EC%A1%B0%EC%B9%98%20%EC%82%AC%ED%95%AD%201765807b4ad680939ddefc10ce9f7c31.html">SOC2 개선 조치 사항</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-brown">시작 전</span></td><td class="cell-lmGA"><time>@2026년 6월 12일 → 2026년 8월 7일</time></td><td class="cell-tvdf"></td></tr><tr id="1765807b-4ad6-80ea-93f3-dd8c6c4d6abe"><td class="cell-ikvv"><span class="selected-value select-value-color-yellow">백지훈</span><span class="selected-value select-value-color-purple">이윤혁</span></td><td class="cell-yxgX"><span class="selected-value select-value-color-brown">Developer</span><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EC%83%81%EB%B0%98%EA%B8%B0%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80%20%EC%B7%A8%EC%95%BD%EC%A0%90%20%EC%A0%90%EA%B2%80%201765807b4ad680ea93f3dd8c6c4d6abe.html">상반기 홈페이지 취약점 점검</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-green">완료</span></td><td class="cell-lmGA"><time>@2025년 5월 5일 → 2025년 5월 16일</time></td><td class="cell-tvdf"></td></tr><tr id="1765807b-4ad6-8093-9511-da29732c4d82"><td class="cell-ikvv"><span class="selected-value select-value-color-purple">이윤혁</span><span class="selected-value select-value-color-pink">정보보호 정책 담당자</span></td><td class="cell-yxgX"><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88%20%EC%9C%84%ED%97%98%20%ED%8F%89%EA%B0%80%20%EC%88%98%ED%96%89%201765807b4ad680939511da29732c4d82.html">정보보안 위험 평가 수행</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-green">완료</span></td><td class="cell-lmGA"><time>@2025년 6월 13일 → 2025년 7월 30일</time></td><td class="cell-tvdf"></td></tr><tr id="1765807b-4ad6-80ad-83f1-cf60cf410274"><td class="cell-ikvv"><span class="selected-value select-value-color-yellow">백지훈</span><span class="selected-value select-value-color-brown">보안 분석 담당자</span><span class="selected-value select-value-color-purple">이윤혁</span></td><td class="cell-yxgX"><span class="selected-value select-value-color-brown">Developer</span><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%ED%95%98%EB%B0%98%EA%B8%B0%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80%20%EC%B7%A8%EC%95%BD%EC%A0%90%20%EC%A0%90%EA%B2%80%20%EC%88%98%ED%96%89%20%EB%B0%8F%20%EA%B8%88%EA%B0%90%EC%9B%90%20%EB%B3%B4%EA%B3%A0%201765807b4ad680ad83f1cf60cf410274.html">하반기 홈페이지 취약점 점검 수행 및 금감원 보고</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-green">완료</span></td><td class="cell-lmGA"><time>@2025년 11월 3일 → 2025년 11월 28일</time></td><td class="cell-tvdf"></td></tr><tr id="1765807b-4ad6-804e-af02-c1f991feca98"><td class="cell-ikvv"><span class="selected-value select-value-color-yellow">백지훈</span><span class="selected-value select-value-color-blue">서동진</span><span class="selected-value select-value-color-gray">엔트포인트 보안</span><span class="selected-value select-value-color-purple">이윤혁</span></td><td class="cell-yxgX"><span class="selected-value select-value-color-default">DevOps</span><span class="selected-value select-value-color-brown">Developer</span><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EA%B4%80%EB%A6%AC%EC%B2%B4%EA%B3%84%20%EA%B0%9C%EC%84%A0%20%EC%A1%B0%EC%B9%98_%EC%A0%91%EA%B7%BC%ED%86%B5%EC%A0%9C(24)_%EB%8B%A8%EA%B8%B0%201765807b4ad6804eaf02c1f991feca98.html">관리체계 개선 조치_접근통제(24)_단기</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-green">완료</span></td><td class="cell-lmGA"><time>@2025년 3월 3일 → 2025년 4월 25일</time></td><td class="cell-tvdf"></td></tr><tr id="1765807b-4ad6-80d6-b836-ef10320dd970"><td class="cell-ikvv"><span class="selected-value select-value-color-yellow">백지훈</span><span class="selected-value select-value-color-blue">서동진</span><span class="selected-value select-value-color-gray">엔트포인트 보안</span><span class="selected-value select-value-color-purple">이윤혁</span></td><td class="cell-yxgX"><span class="selected-value select-value-color-default">DevOps</span><span class="selected-value select-value-color-brown">Developer</span><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EA%B4%80%EB%A6%AC%EC%B2%B4%EA%B3%84%20%EA%B0%9C%EC%84%A0%20%EC%A1%B0%EC%B9%98_%EC%A0%91%EA%B7%BC%ED%86%B5%EC%A0%9C(25)_%EC%A4%91%EA%B8%B0%201765807b4ad680d6b836ef10320dd970.html">관리체계 개선 조치_접근통제(25)_중기</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-green">완료</span></td><td class="cell-lmGA"><time>@2025년 4월 28일 → 2025년 6월 27일</time></td><td class="cell-tvdf"></td></tr><tr id="1765807b-4ad6-80aa-949f-c6d11edf095e"><td class="cell-ikvv"><span class="selected-value select-value-color-blue">서동진</span><span class="selected-value select-value-color-gray">엔트포인트 보안</span><span class="selected-value select-value-color-purple">이윤혁</span></td><td class="cell-yxgX"><span class="selected-value select-value-color-default">DevOps</span><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EA%B4%80%EB%A6%AC%EC%B2%B4%EA%B3%84%20%EA%B0%9C%EC%84%A0%20%EC%A1%B0%EC%B9%98_%EC%9A%B4%EC%98%81%EA%B4%80%EB%A6%AC(51)_%EB%8B%A8%EA%B8%B0%201765807b4ad680aa949fc6d11edf095e.html">관리체계 개선 조치_운영관리(51)_단기</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-green">완료</span></td><td class="cell-lmGA"><time>@2025년 5월 1일 → 2025년 5월 30일</time></td><td class="cell-tvdf"></td></tr><tr id="1765807b-4ad6-80d2-bebc-c476dfc92b3b"><td class="cell-ikvv"><span class="selected-value select-value-color-blue">서동진</span><span class="selected-value select-value-color-gray">엔트포인트 보안</span><span class="selected-value select-value-color-purple">이윤혁</span></td><td class="cell-yxgX"><span class="selected-value select-value-color-default">DevOps</span><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EA%B4%80%EB%A6%AC%EC%B2%B4%EA%B3%84%20%EA%B0%9C%EC%84%A0%20%EC%A1%B0%EC%B9%98_%EC%9A%B4%EC%98%81%EA%B4%80%EB%A6%AC(51)_%EC%A4%91%EA%B8%B0%201765807b4ad680d2bebcc476dfc92b3b.html">관리체계 개선 조치_운영관리(51)_중기</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-green">완료</span></td><td class="cell-lmGA"><time>@2025년 6월 2일 → 2025년 8월 29일</time></td><td class="cell-tvdf"></td></tr><tr id="1765807b-4ad6-802c-b62f-e24f1fe9e8e6"><td class="cell-ikvv"><span class="selected-value select-value-color-purple">이윤혁</span></td><td class="cell-yxgX"><span class="selected-value select-value-color-yellow">Audit</span><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EA%B4%80%EB%A6%AC%EC%B2%B4%EA%B3%84%20%EA%B0%9C%EC%84%A0%20%EC%A1%B0%EC%B9%98_IT%EB%8F%84%EC%9E%85,%EA%B0%9C%EB%B0%9C(12)_%EB%8B%A8%EA%B8%B0%201765807b4ad6802cb62fe24f1fe9e8e6.html">관리체계 개선 조치_IT도입,개발(12)_단기</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-default">지연</span><span class="selected-value select-value-color-blue">진행 중</span></td><td class="cell-lmGA"><time>@2025년 4월 7일 → 2025년 4월 25일</time></td><td class="cell-tvdf">IT 투자 및 비용 관리, 감리 지침 등은 보안 팀 외 업무로 수행되어야 함</td></tr><tr id="1775807b-4ad6-807b-83d6-f909f2988a43"><td class="cell-ikvv"><span class="selected-value select-value-color-yellow">백지훈</span><span class="selected-value select-value-color-blue">서동진</span><span class="selected-value select-value-color-green">오병권</span><span class="selected-value select-value-color-purple">이윤혁</span><span class="selected-value select-value-color-pink">정보보호 정책 담당자</span></td><td class="cell-yxgX"><span class="selected-value select-value-color-yellow">Audit</span><span class="selected-value select-value-color-default">DevOps</span><span class="selected-value select-value-color-brown">Developer</span><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EA%B4%80%EB%A6%AC%EC%B2%B4%EA%B3%84%20%EA%B0%9C%EC%84%A0%20%EC%A1%B0%EC%B9%98_%EC%A0%84%EC%9E%90%EA%B8%88%EC%9C%B5%EA%B1%B0%EB%9E%98%EB%93%B1(17)%20%EC%A1%B0%EC%B9%98%201775807b4ad6807b83d6f909f2988a43.html">관리체계 개선 조치_전자금융거래등(17) 조치</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-default">지연</span><span class="selected-value select-value-color-blue">진행 중</span></td><td class="cell-lmGA"><time>@2025년 5월 5일 → 2025년 5월 30일</time></td><td class="cell-tvdf">통합로그 시스템 구축 후 SIEM 도입 필요</td></tr><tr id="1775807b-4ad6-800f-8226-c6fa5f4f3a29"><td class="cell-ikvv"><span class="selected-value select-value-color-purple">이윤혁</span></td><td class="cell-yxgX"><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EA%B4%80%EB%A6%AC%EC%B2%B4%EA%B3%84%20%EA%B0%9C%EC%84%A0%20%EC%A1%B0%EC%B9%98%20%EC%88%98%EB%A6%BD%201775807b4ad6800f8226c6fa5f4f3a29.html">관리체계 개선 조치 수립</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-green">완료</span></td><td class="cell-lmGA"><time>@2025년 1월 27일 → 2025년 2월 21일</time></td><td class="cell-tvdf"></td></tr><tr id="1775807b-4ad6-80de-97e0-d2b90ae81bab"><td class="cell-ikvv"><span class="selected-value select-value-color-purple">이윤혁</span></td><td class="cell-yxgX"><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EA%B4%80%EB%A6%AC%EC%B2%B4%EA%B3%84%20%EC%A0%90%EA%B2%80%20%EA%B8%88%EA%B0%90%EC%9B%90%20%EB%B3%B4%EA%B3%A0%201775807b4ad680de97e0d2b90ae81bab.html">관리체계 점검 금감원 보고</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-green">완료</span></td><td class="cell-lmGA"><time>@2025년 1월 6일 → 2025년 1월 23일</time></td><td class="cell-tvdf"></td></tr><tr id="1775807b-4ad6-8019-9bd1-fee78de4750a"><td class="cell-ikvv"><span class="selected-value select-value-color-brown">보안 분석 담당자</span></td><td class="cell-yxgX"><span class="selected-value select-value-color-default">DevOps</span><span class="selected-value select-value-color-brown">Developer</span><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EC%B9%A8%ED%95%B4%EC%82%AC%EA%B3%A0%20%EC%8B%A4%EC%8B%9C%EA%B0%84%20%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81%20%EC%B2%B4%EA%B3%84%20%EA%B5%AC%EC%B6%95%201775807b4ad680199bd1fee78de4750a.html">침해사고 실시간 모니터링 체계 구축</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-brown">시작 전</span><span class="selected-value select-value-color-default">지연</span></td><td class="cell-lmGA"><time>@2025년 6월 2일 → 2025년 7월 31일</time></td><td class="cell-tvdf">이벤트 분석 보안 담당자 채용 중단</td></tr><tr id="1775807b-4ad6-80ac-9bfc-c00909596329"><td class="cell-ikvv"><span class="selected-value select-value-color-brown">보안 분석 담당자</span><span class="selected-value select-value-color-green">오병권</span><span class="selected-value select-value-color-pink">정보보호 정책 담당자</span></td><td class="cell-yxgX"><span class="selected-value select-value-color-yellow">Audit</span><span class="selected-value select-value-color-brown">Developer</span><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%20%EB%93%B1%20%EC%A4%91%EC%9A%94%20%EC%A0%95%EB%B3%B4%20%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81%20%EC%B2%B4%EA%B3%84%20%EA%B5%AC%EC%B6%95%201775807b4ad680ac9bfcc00909596329.html">개인정보 등 중요 정보 모니터링 체계 구축</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-default">지연</span><span class="selected-value select-value-color-blue">진행 중</span></td><td class="cell-lmGA"><time>@2025년 6월 2일 → 2025년 8월 29일</time></td><td class="cell-tvdf">MA/MBP admin 접속기록 모니터링 개발 진행 중</td></tr><tr id="1775807b-4ad6-8035-a08f-ffef6aa9a316"><td class="cell-ikvv"><span class="selected-value select-value-color-yellow">백지훈</span><span class="selected-value select-value-color-brown">보안 분석 담당자</span><span class="selected-value select-value-color-blue">서동진</span><span class="selected-value select-value-color-purple">이윤혁</span></td><td class="cell-yxgX"><span class="selected-value select-value-color-default">DevOps</span><span class="selected-value select-value-color-brown">Developer</span><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%ED%86%B5%ED%95%A9%EB%A1%9C%EA%B7%B8%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EA%B5%AC%EC%B6%95%201775807b4ad68035a08fffef6aa9a316.html">통합로그 시스템 구축</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-default">지연</span><span class="selected-value select-value-color-blue">진행 중</span></td><td class="cell-lmGA"><time>@2025년 4월 1일 → 2025년 7월 31일</time></td><td class="cell-tvdf">이벤트 분석 보안 담당자 채용 중단</td></tr><tr id="1775807b-4ad6-801e-94fc-d795ff080aaf"><td class="cell-ikvv"><span class="selected-value select-value-color-yellow">백지훈</span><span class="selected-value select-value-color-blue">서동진</span><span class="selected-value select-value-color-purple">이윤혁</span></td><td class="cell-yxgX"><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EC%A0%84%EC%9E%90%EA%B8%88%EC%9C%B5%20%EA%B8%B0%EB%B0%98%EC%8B%9C%EC%84%A4%20%EA%B4%80%EB%A6%AC%EC%B2%B4%EA%B3%84_%EC%9E%90%EC%B2%B4%EC%A0%90%EA%B2%80%201775807b4ad6801e94fcd795ff080aaf.html">전자금융 기반시설 관리체계_자체점검</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-green">완료</span></td><td class="cell-lmGA"><time>@2024년 4월 1일 → 2024년 4월 26일</time></td><td class="cell-tvdf"></td></tr><tr id="1775807b-4ad6-80e0-b8e7-eb749dcebd0c"><td class="cell-ikvv"><span class="selected-value select-value-color-purple">이윤혁</span><span class="selected-value select-value-color-pink">정보보호 정책 담당자</span></td><td class="cell-yxgX"><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EC%A0%84%EC%9E%90%EA%B8%88%EC%9C%B5%20%EA%B8%B0%EB%B0%98%EC%8B%9C%EC%84%A4%20%EC%B7%A8%EC%95%BD%EC%A0%90%20%EC%9D%B4%ED%96%89%EA%B3%84%ED%9A%8D%20%EB%B0%8F%20%EA%B8%88%EA%B0%90%EC%9B%90%20%EB%B3%B4%EA%B3%A0%201775807b4ad680e0b8e7eb749dcebd0c.html">전자금융 기반시설 취약점 이행계획 및 금감원 보고</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-green">완료</span></td><td class="cell-lmGA"><time>@2025년 6월 16일 → 2025년 6월 30일</time></td><td class="cell-tvdf"></td></tr><tr id="1775807b-4ad6-8015-9a5a-ea9391ae2ad0"><td class="cell-ikvv"><span class="selected-value select-value-color-default">주상욱</span></td><td class="cell-yxgX"><span class="selected-value select-value-color-default">DevOps</span><span class="selected-value select-value-color-brown">Developer</span><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EC%97%94%EB%93%9C%ED%8F%AC%EC%9D%B8%ED%8A%B8%20%EB%B3%B4%EC%95%88%20%EB%8B%B4%EB%8B%B9%EC%9E%90%20%EC%B1%84%EC%9A%A9%201775807b4ad680159a5aea9391ae2ad0.html">엔드포인트 보안 담당자 채용</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-red">신규인력채용</span><span class="selected-value select-value-color-green">완료</span></td><td class="cell-lmGA"><time>@2025년 3월 24일 → 2025년 4월 4일</time></td><td class="cell-tvdf">담당자 퇴사</td></tr><tr id="1775807b-4ad6-805f-a326-fb07b9944b62"><td class="cell-ikvv"><span class="selected-value select-value-color-brown">보안 분석 담당자</span></td><td class="cell-yxgX"><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EC%9D%B4%EB%B2%A4%ED%8A%B8%20%EB%B6%84%EC%84%9D%20%EB%B0%8F%20%EC%82%AC%EA%B3%A0%20%EB%8C%80%EC%9D%91%20%EB%8B%B4%EB%8B%B9%EC%9E%90%20%EC%B1%84%EC%9A%A9%201775807b4ad6805fa326fb07b9944b62.html">이벤트 분석 및 사고 대응 담당자 채용</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-orange">미달성</span><span class="selected-value select-value-color-red">신규인력채용</span></td><td class="cell-lmGA"><time>@2025년 4월 7일 → 2025년 4월 25일</time></td><td class="cell-tvdf">채용 중단</td></tr><tr id="1775807b-4ad6-80f8-9249-c463613338df"><td class="cell-ikvv"><span class="selected-value select-value-color-pink">정보보호 정책 담당자</span></td><td class="cell-yxgX"><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88%20%EC%A0%95%EC%B1%85%20%EB%8B%B4%EB%8B%B9%EC%9E%90%20%EC%B1%84%EC%9A%A9%201775807b4ad680f89249c463613338df.html">정보보안 정책 담당자 채용</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-orange">미달성</span><span class="selected-value select-value-color-red">신규인력채용</span></td><td class="cell-lmGA"><time>@2025년 4월 1일 → 2025년 4월 28일</time></td><td class="cell-tvdf">담당자 퇴사</td></tr><tr id="1775807b-4ad6-80ab-b357-d6e21b2f1510"><td class="cell-ikvv"><span class="selected-value select-value-color-yellow">백지훈</span><span class="selected-value select-value-color-blue">서동진</span></td><td class="cell-yxgX"><span class="selected-value select-value-color-default">DevOps</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/Kubenetes%20%EB%A7%88%EC%9D%B4%EA%B7%B8%EB%A0%88%EC%9D%B4%EC%85%98%201775807b4ad680abb357d6e21b2f1510.html">Kubenetes 마이그레이션</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-orange">미달성</span><span class="selected-value select-value-color-blue">진행 중</span></td><td class="cell-lmGA"><time>@2025년 1월 1일 → 2025년 6월 30일</time></td><td class="cell-tvdf"></td></tr><tr id="1775807b-4ad6-8053-86ae-f062b2aabff0"><td class="cell-ikvv"><span class="selected-value select-value-color-blue">서동진</span></td><td class="cell-yxgX"><span class="selected-value select-value-color-default">DevOps</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EC%9D%B8%ED%94%84%EB%9D%BC%20%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81%20&amp;%20%EC%9E%A5%EC%95%A0%20%EB%8C%80%EC%9D%91%201775807b4ad6805386aef062b2aabff0.html">인프라 모니터링 &amp; 장애 대응</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-green">완료</span><span class="selected-value select-value-color-blue">진행 중</span></td><td class="cell-lmGA"><time>@2025년 1월 1일 → 2025년 12월 31일</time></td><td class="cell-tvdf"></td></tr><tr id="1775807b-4ad6-806a-b894-d228963b4250"><td class="cell-ikvv"><span class="selected-value select-value-color-blue">서동진</span></td><td class="cell-yxgX"><span class="selected-value select-value-color-default">DevOps</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EC%9D%B8%ED%94%84%EB%9D%BC%20%EB%B9%84%EC%9A%A9%20%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81%20&amp;%20%EA%B0%9C%EC%84%A0%201775807b4ad6806ab894d228963b4250.html">인프라 비용 모니터링 &amp; 개선</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-green">완료</span><span class="selected-value select-value-color-blue">진행 중</span></td><td class="cell-lmGA"><time>@2025년 1월 1일 → 2025년 12월 31일</time></td><td class="cell-tvdf"></td></tr><tr id="1a45807b-4ad6-80f5-ae28-d6040ecdff51"><td class="cell-ikvv"><span class="selected-value select-value-color-purple">이윤혁</span><span class="selected-value select-value-color-pink">정보보호 정책 담당자</span></td><td class="cell-yxgX"><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EA%B4%80%EB%A6%AC%EC%B2%B4%EA%B3%84%20%EA%B0%9C%EC%84%A0%20%EC%A1%B0%EC%B9%98%20%EC%A0%95%EC%B1%85%20%EC%A7%80%EC%B9%A8%20%EC%A0%9C%EF%B9%92%EA%B0%9C%EC%A0%95%202%EC%B0%A8%201a45807b4ad680f5ae28d6040ecdff51.html">관리체계 개선 조치 정책/지침 제﹒개정 2차</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-green">완료</span></td><td class="cell-lmGA"><time>@2025년 4월 30일 → 2025년 5월 30일</time></td><td class="cell-tvdf"></td></tr></tbody></table><br/><br/></div></div></details></li></ul></div><div style="display:contents" dir="auto"><p id="1a45807b-4ad6-80f1-b682-f722cc8ee549" class="">
+</p></div><div style="display:contents" dir="auto"><p id="1765807b-4ad6-8063-bd49-fda666272c50" class=""><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EA%B4%80%EB%A6%AC%EC%B2%B4%EA%B3%84%20%EA%B0%9C%EC%84%A0%20%EC%A1%B0%EC%B9%98%20%EC%88%98%EB%A6%BD%201775807b4ad6800f8226c6fa5f4f3a29.html">관리체계 개선 조치 수립</a> </p></div><div style="display:contents" dir="auto"><p id="2bd5807b-4ad6-8041-97d3-d68684fef28e" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="2bd5807b-4ad6-8040-8728-e9ecf154c54c" class="">2025년 보안팀 회고</h3></div><div style="display:contents" dir="auto"><p id="2bd5807b-4ad6-80d5-a148-e00bdc2f6ed9" class="">2025년 보안팀 36개 업무 목표 중 </p></div><div style="display:contents" dir="auto"><ul id="2bd5807b-4ad6-80d9-bfe1-e89417d79113" class="bulleted-list"><li style="list-style-type:disc"> 완료 28건</li></ul></div><div style="display:contents" dir="auto"><ul id="2bd5807b-4ad6-80d4-a76d-f74185c0ac51" class="bulleted-list"><li style="list-style-type:disc"> 지연 5건 <div style="display:contents" dir="auto"><ul id="2bd5807b-4ad6-806a-b4f0-f6ea13a2053a" class="bulleted-list"><li style="list-style-type:circle"> IT 투자 감사 업무 등 보안팀 외 개선 활동 필요</li></ul></div><div style="display:contents" dir="auto"><ul id="2bd5807b-4ad6-80df-b241-ca160d35e072" class="bulleted-list"><li style="list-style-type:circle">보안팀원 퇴사 및 채용 중단으로 수행 인력 부족</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2bd5807b-4ad6-80c3-a446-fb5fb3e16b12" class="bulleted-list"><li style="list-style-type:disc"> 미달성 3건, (팀원 퇴사 로 조직 구성 미달성)</li></ul></div><div style="display:contents" dir="auto"><ul id="2bd5807b-4ad6-80ea-bf10-f8b6676903d4" class="bulleted-list"><li style="list-style-type:disc">수행 취소 1건 (SOC 2 우선순위 낮음)</li></ul></div><div style="display:contents" dir="auto"><p id="2be5807b-4ad6-8079-8e08-ff8e0da3881c" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="2be5807b-4ad6-80bc-aa2c-fa4127c72049" class="">2025년 DevOps 회고</h3></div><div style="display:contents" dir="auto"><p id="2be5807b-4ad6-8082-9dd5-c2d80bf30629" class=""><strong>인프라 비용 모니터링 &amp; 개선</strong></p></div><div style="display:contents" dir="auto"><ul id="2be5807b-4ad6-8070-9794-e6e9476ef913" class="bulleted-list"><li style="list-style-type:disc">ECS와 EKS 동시 운영으로 일시적 비용 증가 발생 → EKS 마이그레이션 진행에 따라 점차 감소 중</li></ul></div><div style="display:contents" dir="auto"><ul id="2be5807b-4ad6-802d-84ef-cf6b1ab41a3b" class="bulleted-list"><li style="list-style-type:disc">개발/운영 환경 EKS 전환 완료 시 추가 비용 절감 예상</li></ul></div><div style="display:contents" dir="auto"><p id="2be5807b-4ad6-8043-80c3-c5b1a6afb525" class=""><strong>인프라 모니터링 &amp; 장애 대응</strong></p></div><div style="display:contents" dir="auto"><ul id="2be5807b-4ad6-8059-abe8-e174338a06a3" class="bulleted-list"><li style="list-style-type:disc">EKS 핵심 지표 Grafana 대시보드 구성 완료</li></ul></div><div style="display:contents" dir="auto"><ul id="2be5807b-4ad6-8040-82a0-fad801f1cea5" class="bulleted-list"><li style="list-style-type:disc">애플리케이션 디버깅을 위한 Grafana + Loki + Tempo 스택 구축 완료</li></ul></div><div style="display:contents" dir="auto"><p id="2be5807b-4ad6-8099-912a-d11e1bc91921" class=""><strong>Kubernetes 마이그레이션</strong></p></div><div style="display:contents" dir="auto"><p id="2be5807b-4ad6-800f-8d81-f222689177db" class=""><em>개발 환경</em></p></div><div style="display:contents" dir="auto"><ul id="2be5807b-4ad6-8068-bd8c-d77c41dc36cd" class="bulleted-list"><li style="list-style-type:disc">환경 구성 및 대부분 서비스 이전 완료</li></ul></div><div style="display:contents" dir="auto"><ul id="2be5807b-4ad6-8057-aca2-efbe00cfc930" class="bulleted-list"><li style="list-style-type:disc">core, ma, mbp 전환 완료</li></ul></div><div style="display:contents" dir="auto"><ul id="2be5807b-4ad6-808e-b9f8-da70deb0979b" class="bulleted-list"><li style="list-style-type:disc">global 일부는 기존 환경과 병행 운영 중</li></ul></div><div style="display:contents" dir="auto"><p id="2be5807b-4ad6-8006-bcfd-cbf4b6769f52" class=""><em>운영 환경</em></p></div><div style="display:contents" dir="auto"><ul id="2be5807b-4ad6-802e-a06c-da6c1d3b3479" class="bulleted-list"><li style="list-style-type:disc">환경 구성 완료</li></ul></div><div style="display:contents" dir="auto"><ul id="2be5807b-4ad6-80fa-9cd9-c54f2edaa0a1" class="bulleted-list"><li style="list-style-type:disc">mbp admin-api 외 서비스 이전 예정</li></ul></div><div style="display:contents" dir="auto"><p id="2be5807b-4ad6-8017-85ce-d211b87da06b" class=""><strong>CI/CD 개선</strong></p></div><div style="display:contents" dir="auto"><ul id="2be5807b-4ad6-80cf-8a25-e7a253907d39" class="bulleted-list"><li style="list-style-type:disc">ArgoCD 도입으로 개발자 셀프서비스 배포 환경 구축</li></ul></div><div style="display:contents" dir="auto"><ul id="2be5807b-4ad6-80f2-a4e7-c1dc6ee1e9e1" class="bulleted-list"><li style="list-style-type:disc">서버 추가/삭제 자동화 완료</li></ul></div><div style="display:contents" dir="auto"><p id="2be5807b-4ad6-80df-b5ae-c4f7e09fc67d" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2be5807b-4ad6-8099-96d5-d90aad39e567" class="">
+</p></div><div style="display:contents" dir="ltr"><div id="1765807b-4ad6-8004-aabf-df52bf6f3b9b" class="collection-content"><h4 class="collection-title">DevsSecOps 연간 계획</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><img src="https://www.notion.so/icons/groups_gray.svg" style="width:14px;height:14px;display:block"/></span>팀</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/font_gray.svg" style="width:14px;height:14px;display:block"/></span>프로젝트</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>진행상태</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>담당자</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>기간</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>지연 또는 미달성 사유</th></tr></thead><tbody><tr id="1775807b-4ad6-806a-b894-d228963b4250"><td class="cell-yxgX"><span class="selected-value select-value-color-default">DevOps</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EC%9D%B8%ED%94%84%EB%9D%BC%20%EB%B9%84%EC%9A%A9%20%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81%20&amp;%20%EA%B0%9C%EC%84%A0%201775807b4ad6806ab894d228963b4250.html">인프라 비용 모니터링 &amp; 개선</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-green">완료</span><span class="selected-value select-value-color-blue">진행 중</span></td><td class="cell-ikvv"><span class="selected-value select-value-color-blue">서동진</span></td><td class="cell-lmGA"><time>@2025년 1월 1일 → 2025년 12월 31일</time></td><td class="cell-tvdf"></td></tr><tr id="1775807b-4ad6-8053-86ae-f062b2aabff0"><td class="cell-yxgX"><span class="selected-value select-value-color-default">DevOps</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EC%9D%B8%ED%94%84%EB%9D%BC%20%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81%20&amp;%20%EC%9E%A5%EC%95%A0%20%EB%8C%80%EC%9D%91%201775807b4ad6805386aef062b2aabff0.html">인프라 모니터링 &amp; 장애 대응</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-green">완료</span><span class="selected-value select-value-color-blue">진행 중</span></td><td class="cell-ikvv"><span class="selected-value select-value-color-blue">서동진</span></td><td class="cell-lmGA"><time>@2025년 1월 1일 → 2025년 12월 31일</time></td><td class="cell-tvdf"></td></tr><tr id="1775807b-4ad6-80ab-b357-d6e21b2f1510"><td class="cell-yxgX"><span class="selected-value select-value-color-default">DevOps</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/Kubenetes%20%EB%A7%88%EC%9D%B4%EA%B7%B8%EB%A0%88%EC%9D%B4%EC%85%98%201775807b4ad680abb357d6e21b2f1510.html">Kubenetes 마이그레이션</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-orange">미달성</span><span class="selected-value select-value-color-blue">진행 중</span></td><td class="cell-ikvv"><span class="selected-value select-value-color-yellow">백지훈</span><span class="selected-value select-value-color-blue">서동진</span></td><td class="cell-lmGA"><time>@2025년 1월 1일 → 2025년 6월 30일</time></td><td class="cell-tvdf"></td></tr><tr id="1775807b-4ad6-80f8-9249-c463613338df"><td class="cell-yxgX"><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88%20%EC%A0%95%EC%B1%85%20%EB%8B%B4%EB%8B%B9%EC%9E%90%20%EC%B1%84%EC%9A%A9%201775807b4ad680f89249c463613338df.html">정보보안 정책 담당자 채용</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-orange">미달성</span><span class="selected-value select-value-color-red">신규인력채용</span></td><td class="cell-ikvv"><span class="selected-value select-value-color-pink">정보보호 정책 담당자</span></td><td class="cell-lmGA"><time>@2025년 4월 1일 → 2025년 4월 28일</time></td><td class="cell-tvdf">담당자 퇴사</td></tr><tr id="1775807b-4ad6-805f-a326-fb07b9944b62"><td class="cell-yxgX"><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EC%9D%B4%EB%B2%A4%ED%8A%B8%20%EB%B6%84%EC%84%9D%20%EB%B0%8F%20%EC%82%AC%EA%B3%A0%20%EB%8C%80%EC%9D%91%20%EB%8B%B4%EB%8B%B9%EC%9E%90%20%EC%B1%84%EC%9A%A9%201775807b4ad6805fa326fb07b9944b62.html">이벤트 분석 및 사고 대응 담당자 채용</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-orange">미달성</span><span class="selected-value select-value-color-red">신규인력채용</span></td><td class="cell-ikvv"><span class="selected-value select-value-color-brown">보안 분석 담당자</span></td><td class="cell-lmGA"><time>@2025년 4월 7일 → 2025년 4월 25일</time></td><td class="cell-tvdf">채용 중단</td></tr><tr id="1775807b-4ad6-8015-9a5a-ea9391ae2ad0"><td class="cell-yxgX"><span class="selected-value select-value-color-default">DevOps</span><span class="selected-value select-value-color-brown">Developer</span><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EC%97%94%EB%93%9C%ED%8F%AC%EC%9D%B8%ED%8A%B8%20%EB%B3%B4%EC%95%88%20%EB%8B%B4%EB%8B%B9%EC%9E%90%20%EC%B1%84%EC%9A%A9%201775807b4ad680159a5aea9391ae2ad0.html">엔드포인트 보안 담당자 채용</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-red">신규인력채용</span><span class="selected-value select-value-color-green">완료</span></td><td class="cell-ikvv"><span class="selected-value select-value-color-default">주상욱</span></td><td class="cell-lmGA"><time>@2025년 3월 24일 → 2025년 4월 4일</time></td><td class="cell-tvdf">담당자 퇴사</td></tr><tr id="1775807b-4ad6-80e0-b8e7-eb749dcebd0c"><td class="cell-yxgX"><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EC%A0%84%EC%9E%90%EA%B8%88%EC%9C%B5%20%EA%B8%B0%EB%B0%98%EC%8B%9C%EC%84%A4%20%EC%B7%A8%EC%95%BD%EC%A0%90%20%EC%9D%B4%ED%96%89%EA%B3%84%ED%9A%8D%20%EB%B0%8F%20%EA%B8%88%EA%B0%90%EC%9B%90%20%EB%B3%B4%EA%B3%A0%201775807b4ad680e0b8e7eb749dcebd0c.html">전자금융 기반시설 취약점 이행계획 및 금감원 보고</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-green">완료</span></td><td class="cell-ikvv"><span class="selected-value select-value-color-purple">이윤혁</span><span class="selected-value select-value-color-pink">정보보호 정책 담당자</span></td><td class="cell-lmGA"><time>@2025년 6월 16일 → 2025년 6월 30일</time></td><td class="cell-tvdf"></td></tr><tr id="1775807b-4ad6-801e-94fc-d795ff080aaf"><td class="cell-yxgX"><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EC%A0%84%EC%9E%90%EA%B8%88%EC%9C%B5%20%EA%B8%B0%EB%B0%98%EC%8B%9C%EC%84%A4%20%EA%B4%80%EB%A6%AC%EC%B2%B4%EA%B3%84_%EC%9E%90%EC%B2%B4%EC%A0%90%EA%B2%80%201775807b4ad6801e94fcd795ff080aaf.html">전자금융 기반시설 관리체계_자체점검</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-green">완료</span></td><td class="cell-ikvv"><span class="selected-value select-value-color-yellow">백지훈</span><span class="selected-value select-value-color-blue">서동진</span><span class="selected-value select-value-color-purple">이윤혁</span></td><td class="cell-lmGA"><time>@2024년 4월 1일 → 2024년 4월 26일</time></td><td class="cell-tvdf"></td></tr><tr id="1775807b-4ad6-8035-a08f-ffef6aa9a316"><td class="cell-yxgX"><span class="selected-value select-value-color-default">DevOps</span><span class="selected-value select-value-color-brown">Developer</span><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%ED%86%B5%ED%95%A9%EB%A1%9C%EA%B7%B8%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EA%B5%AC%EC%B6%95%201775807b4ad68035a08fffef6aa9a316.html">통합로그 시스템 구축</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-default">지연</span><span class="selected-value select-value-color-blue">진행 중</span></td><td class="cell-ikvv"><span class="selected-value select-value-color-yellow">백지훈</span><span class="selected-value select-value-color-brown">보안 분석 담당자</span><span class="selected-value select-value-color-blue">서동진</span><span class="selected-value select-value-color-purple">이윤혁</span></td><td class="cell-lmGA"><time>@2025년 4월 1일 → 2025년 7월 31일</time></td><td class="cell-tvdf">이벤트 분석 보안 담당자 채용 중단</td></tr><tr id="1775807b-4ad6-80ac-9bfc-c00909596329"><td class="cell-yxgX"><span class="selected-value select-value-color-yellow">Audit</span><span class="selected-value select-value-color-brown">Developer</span><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%20%EB%93%B1%20%EC%A4%91%EC%9A%94%20%EC%A0%95%EB%B3%B4%20%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81%20%EC%B2%B4%EA%B3%84%20%EA%B5%AC%EC%B6%95%201775807b4ad680ac9bfcc00909596329.html">개인정보 등 중요 정보 모니터링 체계 구축</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-default">지연</span><span class="selected-value select-value-color-blue">진행 중</span></td><td class="cell-ikvv"><span class="selected-value select-value-color-brown">보안 분석 담당자</span><span class="selected-value select-value-color-green">오병권</span><span class="selected-value select-value-color-pink">정보보호 정책 담당자</span></td><td class="cell-lmGA"><time>@2025년 6월 2일 → 2025년 8월 29일</time></td><td class="cell-tvdf">MA/MBP admin 접속기록 모니터링 개발 진행 중</td></tr><tr id="1775807b-4ad6-8019-9bd1-fee78de4750a"><td class="cell-yxgX"><span class="selected-value select-value-color-default">DevOps</span><span class="selected-value select-value-color-brown">Developer</span><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EC%B9%A8%ED%95%B4%EC%82%AC%EA%B3%A0%20%EC%8B%A4%EC%8B%9C%EA%B0%84%20%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81%20%EC%B2%B4%EA%B3%84%20%EA%B5%AC%EC%B6%95%201775807b4ad680199bd1fee78de4750a.html">침해사고 실시간 모니터링 체계 구축</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-brown">시작 전</span><span class="selected-value select-value-color-default">지연</span></td><td class="cell-ikvv"><span class="selected-value select-value-color-brown">보안 분석 담당자</span></td><td class="cell-lmGA"><time>@2025년 6월 2일 → 2025년 7월 31일</time></td><td class="cell-tvdf">이벤트 분석 보안 담당자 채용 중단</td></tr><tr id="1775807b-4ad6-80de-97e0-d2b90ae81bab"><td class="cell-yxgX"><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EA%B4%80%EB%A6%AC%EC%B2%B4%EA%B3%84%20%EC%A0%90%EA%B2%80%20%EA%B8%88%EA%B0%90%EC%9B%90%20%EB%B3%B4%EA%B3%A0%201775807b4ad680de97e0d2b90ae81bab.html">관리체계 점검 금감원 보고</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-green">완료</span></td><td class="cell-ikvv"><span class="selected-value select-value-color-purple">이윤혁</span></td><td class="cell-lmGA"><time>@2025년 1월 6일 → 2025년 1월 23일</time></td><td class="cell-tvdf"></td></tr><tr id="1775807b-4ad6-800f-8226-c6fa5f4f3a29"><td class="cell-yxgX"><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EA%B4%80%EB%A6%AC%EC%B2%B4%EA%B3%84%20%EA%B0%9C%EC%84%A0%20%EC%A1%B0%EC%B9%98%20%EC%88%98%EB%A6%BD%201775807b4ad6800f8226c6fa5f4f3a29.html">관리체계 개선 조치 수립</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-green">완료</span></td><td class="cell-ikvv"><span class="selected-value select-value-color-purple">이윤혁</span></td><td class="cell-lmGA"><time>@2025년 1월 27일 → 2025년 2월 21일</time></td><td class="cell-tvdf"></td></tr><tr id="1775807b-4ad6-807b-83d6-f909f2988a43"><td class="cell-yxgX"><span class="selected-value select-value-color-yellow">Audit</span><span class="selected-value select-value-color-default">DevOps</span><span class="selected-value select-value-color-brown">Developer</span><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EA%B4%80%EB%A6%AC%EC%B2%B4%EA%B3%84%20%EA%B0%9C%EC%84%A0%20%EC%A1%B0%EC%B9%98_%EC%A0%84%EC%9E%90%EA%B8%88%EC%9C%B5%EA%B1%B0%EB%9E%98%EB%93%B1(17)%20%EC%A1%B0%EC%B9%98%201775807b4ad6807b83d6f909f2988a43.html">관리체계 개선 조치_전자금융거래등(17) 조치</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-default">지연</span><span class="selected-value select-value-color-blue">진행 중</span></td><td class="cell-ikvv"><span class="selected-value select-value-color-yellow">백지훈</span><span class="selected-value select-value-color-blue">서동진</span><span class="selected-value select-value-color-green">오병권</span><span class="selected-value select-value-color-purple">이윤혁</span><span class="selected-value select-value-color-pink">정보보호 정책 담당자</span></td><td class="cell-lmGA"><time>@2025년 5월 5일 → 2025년 5월 30일</time></td><td class="cell-tvdf">통합로그 시스템 구축 후 SIEM 도입 필요</td></tr><tr id="1765807b-4ad6-802c-b62f-e24f1fe9e8e6"><td class="cell-yxgX"><span class="selected-value select-value-color-yellow">Audit</span><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EA%B4%80%EB%A6%AC%EC%B2%B4%EA%B3%84%20%EA%B0%9C%EC%84%A0%20%EC%A1%B0%EC%B9%98_IT%EB%8F%84%EC%9E%85,%EA%B0%9C%EB%B0%9C(12)_%EB%8B%A8%EA%B8%B0%201765807b4ad6802cb62fe24f1fe9e8e6.html">관리체계 개선 조치_IT도입,개발(12)_단기</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-default">지연</span><span class="selected-value select-value-color-blue">진행 중</span></td><td class="cell-ikvv"><span class="selected-value select-value-color-purple">이윤혁</span></td><td class="cell-lmGA"><time>@2025년 4월 7일 → 2025년 4월 25일</time></td><td class="cell-tvdf">IT 투자 및 비용 관리, 감리 지침 등은 보안 팀 외 업무로 수행되어야 함</td></tr><tr id="1765807b-4ad6-80d2-bebc-c476dfc92b3b"><td class="cell-yxgX"><span class="selected-value select-value-color-default">DevOps</span><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EA%B4%80%EB%A6%AC%EC%B2%B4%EA%B3%84%20%EA%B0%9C%EC%84%A0%20%EC%A1%B0%EC%B9%98_%EC%9A%B4%EC%98%81%EA%B4%80%EB%A6%AC(51)_%EC%A4%91%EA%B8%B0%201765807b4ad680d2bebcc476dfc92b3b.html">관리체계 개선 조치_운영관리(51)_중기</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-green">완료</span></td><td class="cell-ikvv"><span class="selected-value select-value-color-blue">서동진</span><span class="selected-value select-value-color-gray">엔트포인트 보안</span><span class="selected-value select-value-color-purple">이윤혁</span></td><td class="cell-lmGA"><time>@2025년 6월 2일 → 2025년 8월 29일</time></td><td class="cell-tvdf"></td></tr><tr id="1765807b-4ad6-80aa-949f-c6d11edf095e"><td class="cell-yxgX"><span class="selected-value select-value-color-default">DevOps</span><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EA%B4%80%EB%A6%AC%EC%B2%B4%EA%B3%84%20%EA%B0%9C%EC%84%A0%20%EC%A1%B0%EC%B9%98_%EC%9A%B4%EC%98%81%EA%B4%80%EB%A6%AC(51)_%EB%8B%A8%EA%B8%B0%201765807b4ad680aa949fc6d11edf095e.html">관리체계 개선 조치_운영관리(51)_단기</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-green">완료</span></td><td class="cell-ikvv"><span class="selected-value select-value-color-blue">서동진</span><span class="selected-value select-value-color-gray">엔트포인트 보안</span><span class="selected-value select-value-color-purple">이윤혁</span></td><td class="cell-lmGA"><time>@2025년 5월 1일 → 2025년 5월 30일</time></td><td class="cell-tvdf"></td></tr><tr id="1765807b-4ad6-80d6-b836-ef10320dd970"><td class="cell-yxgX"><span class="selected-value select-value-color-default">DevOps</span><span class="selected-value select-value-color-brown">Developer</span><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EA%B4%80%EB%A6%AC%EC%B2%B4%EA%B3%84%20%EA%B0%9C%EC%84%A0%20%EC%A1%B0%EC%B9%98_%EC%A0%91%EA%B7%BC%ED%86%B5%EC%A0%9C(25)_%EC%A4%91%EA%B8%B0%201765807b4ad680d6b836ef10320dd970.html">관리체계 개선 조치_접근통제(25)_중기</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-green">완료</span></td><td class="cell-ikvv"><span class="selected-value select-value-color-yellow">백지훈</span><span class="selected-value select-value-color-blue">서동진</span><span class="selected-value select-value-color-gray">엔트포인트 보안</span><span class="selected-value select-value-color-purple">이윤혁</span></td><td class="cell-lmGA"><time>@2025년 4월 28일 → 2025년 6월 27일</time></td><td class="cell-tvdf"></td></tr><tr id="1765807b-4ad6-804e-af02-c1f991feca98"><td class="cell-yxgX"><span class="selected-value select-value-color-default">DevOps</span><span class="selected-value select-value-color-brown">Developer</span><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EA%B4%80%EB%A6%AC%EC%B2%B4%EA%B3%84%20%EA%B0%9C%EC%84%A0%20%EC%A1%B0%EC%B9%98_%EC%A0%91%EA%B7%BC%ED%86%B5%EC%A0%9C(24)_%EB%8B%A8%EA%B8%B0%201765807b4ad6804eaf02c1f991feca98.html">관리체계 개선 조치_접근통제(24)_단기</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-green">완료</span></td><td class="cell-ikvv"><span class="selected-value select-value-color-yellow">백지훈</span><span class="selected-value select-value-color-blue">서동진</span><span class="selected-value select-value-color-gray">엔트포인트 보안</span><span class="selected-value select-value-color-purple">이윤혁</span></td><td class="cell-lmGA"><time>@2025년 3월 3일 → 2025년 4월 25일</time></td><td class="cell-tvdf"></td></tr><tr id="1765807b-4ad6-80ad-83f1-cf60cf410274"><td class="cell-yxgX"><span class="selected-value select-value-color-brown">Developer</span><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%ED%95%98%EB%B0%98%EA%B8%B0%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80%20%EC%B7%A8%EC%95%BD%EC%A0%90%20%EC%A0%90%EA%B2%80%20%EC%88%98%ED%96%89%20%EB%B0%8F%20%EA%B8%88%EA%B0%90%EC%9B%90%20%EB%B3%B4%EA%B3%A0%201765807b4ad680ad83f1cf60cf410274.html">하반기 홈페이지 취약점 점검 수행 및 금감원 보고</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-green">완료</span></td><td class="cell-ikvv"><span class="selected-value select-value-color-yellow">백지훈</span><span class="selected-value select-value-color-brown">보안 분석 담당자</span><span class="selected-value select-value-color-purple">이윤혁</span></td><td class="cell-lmGA"><time>@2025년 11월 3일 → 2025년 11월 28일</time></td><td class="cell-tvdf"></td></tr><tr id="1765807b-4ad6-8093-9511-da29732c4d82"><td class="cell-yxgX"><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88%20%EC%9C%84%ED%97%98%20%ED%8F%89%EA%B0%80%20%EC%88%98%ED%96%89%201765807b4ad680939511da29732c4d82.html">정보보안 위험 평가 수행</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-green">완료</span></td><td class="cell-ikvv"><span class="selected-value select-value-color-purple">이윤혁</span><span class="selected-value select-value-color-pink">정보보호 정책 담당자</span></td><td class="cell-lmGA"><time>@2025년 6월 13일 → 2025년 7월 30일</time></td><td class="cell-tvdf"></td></tr><tr id="1765807b-4ad6-8093-9dde-fc10ce9f7c31"><td class="cell-yxgX"><span class="selected-value select-value-color-yellow">Audit</span><span class="selected-value select-value-color-default">DevOps</span><span class="selected-value select-value-color-brown">Developer</span><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/SOC2%20%EA%B0%9C%EC%84%A0%20%EC%A1%B0%EC%B9%98%20%EC%82%AC%ED%95%AD%201765807b4ad680939ddefc10ce9f7c31.html">SOC2 개선 조치 사항</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-brown">시작 전</span></td><td class="cell-ikvv"><span class="selected-value select-value-color-yellow">백지훈</span><span class="selected-value select-value-color-brown">보안 분석 담당자</span><span class="selected-value select-value-color-blue">서동진</span><span class="selected-value select-value-color-gray">엔트포인트 보안</span><span class="selected-value select-value-color-green">오병권</span><span class="selected-value select-value-color-purple">이윤혁</span><span class="selected-value select-value-color-pink">정보보호 정책 담당자</span></td><td class="cell-lmGA"><time>@2026년 6월 12일 → 2026년 8월 7일</time></td><td class="cell-tvdf"></td></tr><tr id="1765807b-4ad6-8022-a4b1-cc926d57b78c"><td class="cell-yxgX"><span class="selected-value select-value-color-default">DevOps</span><span class="selected-value select-value-color-brown">Developer</span><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/ISO27001%20%EC%9D%B8%EC%A6%9D%20%EB%8C%80%EB%B9%84%20%EC%9A%B4%EC%98%81%20%EC%A6%9D%EC%A0%81%EC%9E%90%EB%A3%8C%20%EC%A0%95%EB%A6%AC%201765807b4ad68022a4b1cc926d57b78c.html">ISO27001 인증 대비 운영 증적자료 정리</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-green">완료</span></td><td class="cell-ikvv"><span class="selected-value select-value-color-yellow">백지훈</span><span class="selected-value select-value-color-blue">서동진</span><span class="selected-value select-value-color-purple">이윤혁</span><span class="selected-value select-value-color-pink">정보보호 정책 담당자</span></td><td class="cell-lmGA"><time>@2025년 12월 28일 → 2026년 1월 26일</time></td><td class="cell-tvdf"></td></tr><tr id="1765807b-4ad6-80ea-93f3-dd8c6c4d6abe"><td class="cell-yxgX"><span class="selected-value select-value-color-brown">Developer</span><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EC%83%81%EB%B0%98%EA%B8%B0%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80%20%EC%B7%A8%EC%95%BD%EC%A0%90%20%EC%A0%90%EA%B2%80%201765807b4ad680ea93f3dd8c6c4d6abe.html">상반기 홈페이지 취약점 점검</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-green">완료</span></td><td class="cell-ikvv"><span class="selected-value select-value-color-yellow">백지훈</span><span class="selected-value select-value-color-purple">이윤혁</span></td><td class="cell-lmGA"><time>@2025년 5월 5일 → 2025년 5월 16일</time></td><td class="cell-tvdf"></td></tr><tr id="1765807b-4ad6-808c-952f-fee1bb0cc723"><td class="cell-yxgX"><span class="selected-value select-value-color-default">DevOps</span><span class="selected-value select-value-color-brown">Developer</span><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/ISO27001%20%EC%9D%B8%EC%A6%9D%20%EC%B7%A8%EB%93%9D%201765807b4ad6808c952ffee1bb0cc723.html">ISO27001 인증 취득</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-blue">진행 중</span></td><td class="cell-ikvv"><span class="selected-value select-value-color-yellow">백지훈</span><span class="selected-value select-value-color-blue">서동진</span><span class="selected-value select-value-color-purple">이윤혁</span><span class="selected-value select-value-color-pink">정보보호 정책 담당자</span></td><td class="cell-lmGA"><time>@2025년 10월 19일 → 2025년 10월 30일</time></td><td class="cell-tvdf"></td></tr><tr id="1765807b-4ad6-807b-9040-ed6516d283c7"><td class="cell-yxgX"><span class="selected-value select-value-color-default">DevOps</span><span class="selected-value select-value-color-brown">Developer</span><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/ISO27001%20%EA%B2%B0%ED%95%A8%20%EA%B0%9C%EC%84%A0%201765807b4ad6807b9040ed6516d283c7.html">ISO27001 결함 개선 </a></td><td class="cell-{~[h"><span class="selected-value select-value-color-green">완료</span></td><td class="cell-ikvv"><span class="selected-value select-value-color-yellow">백지훈</span><span class="selected-value select-value-color-brown">보안 분석 담당자</span><span class="selected-value select-value-color-blue">서동진</span><span class="selected-value select-value-color-gray">엔트포인트 보안</span><span class="selected-value select-value-color-purple">이윤혁</span><span class="selected-value select-value-color-pink">정보보호 정책 담당자</span></td><td class="cell-lmGA"><time>@2025년 9월 4일 → 2025년 11월 30일</time></td><td class="cell-tvdf"></td></tr><tr id="1765807b-4ad6-8030-9dc1-d628a49fe034"><td class="cell-yxgX"><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/ISO27001%20%EC%9D%B8%EC%A6%9D%20%EC%8B%AC%EC%82%AC%201765807b4ad680309dc1d628a49fe034.html">ISO27001 인증 심사</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-green">완료</span></td><td class="cell-ikvv"><span class="selected-value select-value-color-purple">이윤혁</span><span class="selected-value select-value-color-pink">정보보호 정책 담당자</span></td><td class="cell-lmGA"><time>@2025년 8월 17일 → 2025년 8월 21일</time></td><td class="cell-tvdf"></td></tr><tr id="1765807b-4ad6-804e-adac-c44bebdc3c0b"><td class="cell-yxgX"><span class="selected-value select-value-color-default">DevOps</span><span class="selected-value select-value-color-brown">Developer</span><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EC%A0%84%EC%9E%90%EA%B8%88%EC%9C%B5%20%EA%B8%B0%EB%B0%98%EC%8B%9C%EC%84%A4%20%EC%9D%B8%ED%94%84%EB%9D%BC%20%EC%B7%A8%EC%95%BD%EC%A0%90%20%EC%A1%B0%EC%B9%98_%EC%A4%91%EA%B8%B0%201765807b4ad6804eadacc44bebdc3c0b.html">전자금융 기반시설 인프라 취약점 조치_중기</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-green">완료</span></td><td class="cell-ikvv"><span class="selected-value select-value-color-yellow">백지훈</span><span class="selected-value select-value-color-brown">보안 분석 담당자</span><span class="selected-value select-value-color-blue">서동진</span><span class="selected-value select-value-color-gray">엔트포인트 보안</span><span class="selected-value select-value-color-purple">이윤혁</span></td><td class="cell-lmGA"><time>@2025년 9월 15일 → 2025년 12월 31일</time></td><td class="cell-tvdf"></td></tr><tr id="1765807b-4ad6-80e6-8502-e51690ee1843"><td class="cell-yxgX"><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/2025%EB%85%84%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D%20%EC%88%98%EB%A6%BD%201765807b4ad680e68502e51690ee1843.html">2025년 연간 계획 수립</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-green">완료</span></td><td class="cell-ikvv"><span class="selected-value select-value-color-purple">이윤혁</span><span class="selected-value select-value-color-pink">정보보호 정책 담당자</span></td><td class="cell-lmGA"><time>@2025년 3월 3일 → 2025년 3월 21일</time></td><td class="cell-tvdf"></td></tr><tr id="1765807b-4ad6-808b-b385-df4eb674f8b5"><td class="cell-yxgX"><span class="selected-value select-value-color-default">DevOps</span><span class="selected-value select-value-color-brown">Developer</span><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EC%A0%84%EC%9E%90%EA%B8%88%EC%9C%B5%20%EA%B8%B0%EB%B0%98%EC%8B%9C%EC%84%A4%20%EC%9D%B8%ED%94%84%EB%9D%BC%20%EC%B7%A8%EC%95%BD%EC%A0%90%20%EC%A1%B0%EC%B9%98_%EB%8B%A8%EA%B8%B0%201765807b4ad6808bb385df4eb674f8b5.html">전자금융 기반시설 인프라 취약점 조치_단기</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-green">완료</span></td><td class="cell-ikvv"><span class="selected-value select-value-color-yellow">백지훈</span><span class="selected-value select-value-color-brown">보안 분석 담당자</span><span class="selected-value select-value-color-blue">서동진</span><span class="selected-value select-value-color-gray">엔트포인트 보안</span><span class="selected-value select-value-color-purple">이윤혁</span></td><td class="cell-lmGA"><time>@2025년 5월 16일 → 2025년 6월 14일</time></td><td class="cell-tvdf"></td></tr><tr id="1765807b-4ad6-804e-9e58-e3d1065c4803"><td class="cell-yxgX"><span class="selected-value select-value-color-default">DevOps</span><span class="selected-value select-value-color-brown">Developer</span><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EC%A0%84%EC%9E%90%EA%B8%88%EC%9C%B5%20%EA%B8%B0%EB%B0%98%EC%8B%9C%EC%84%A4%20%EC%9D%B8%ED%94%84%EB%9D%BC%20%EC%B7%A8%EC%95%BD%EC%A0%90%20%EB%B3%B4%EC%95%88%20%EC%A1%B0%EC%B9%98%20%EA%B3%84%ED%9A%8D%20%EC%88%98%EB%A6%BD%201765807b4ad6804e9e58e3d1065c4803.html">전자금융 기반시설 인프라 취약점 보안 조치 계획 수립</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-green">완료</span></td><td class="cell-ikvv"><span class="selected-value select-value-color-yellow">백지훈</span><span class="selected-value select-value-color-blue">서동진</span><span class="selected-value select-value-color-purple">이윤혁</span><span class="selected-value select-value-color-default">주상욱</span></td><td class="cell-lmGA"><time>@2025년 6월 2일 → 2025년 6월 13일</time></td><td class="cell-tvdf"></td></tr><tr id="1765807b-4ad6-8035-b7fe-fee1cad45c66"><td class="cell-yxgX"><span class="selected-value select-value-color-default">DevOps</span><span class="selected-value select-value-color-brown">Developer</span><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EC%9E%90%EC%82%B0%20%EC%8B%9D%EB%B3%84%201765807b4ad68035b7fefee1cad45c66.html">자산 식별</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-green">완료</span></td><td class="cell-ikvv"><span class="selected-value select-value-color-yellow">백지훈</span><span class="selected-value select-value-color-brown">보안 분석 담당자</span><span class="selected-value select-value-color-blue">서동진</span><span class="selected-value select-value-color-gray">엔트포인트 보안</span></td><td class="cell-lmGA"><time>@2025년 3월 3일 → 2025년 5월 28일</time></td><td class="cell-tvdf"></td></tr><tr id="1765807b-4ad6-8034-b9a4-ed875a05be6c"><td class="cell-yxgX"><span class="selected-value select-value-color-default">DevOps</span><span class="selected-value select-value-color-brown">Developer</span><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EC%A0%84%EC%9E%90%EA%B8%88%EC%9C%B5%20%EA%B8%B0%EB%B0%98%EC%8B%9C%EC%84%A4%20%EC%9D%B8%ED%94%84%EB%9D%BC%20%EB%B0%8F%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80%20%EC%B7%A8%EC%95%BD%EC%A0%90%20%EC%A0%90%EA%B2%80%201765807b4ad68034b9a4ed875a05be6c.html">전자금융 기반시설 인프라 및 홈페이지 취약점 점검</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-green">완료</span></td><td class="cell-ikvv"><span class="selected-value select-value-color-yellow">백지훈</span><span class="selected-value select-value-color-brown">보안 분석 담당자</span><span class="selected-value select-value-color-blue">서동진</span><span class="selected-value select-value-color-gray">엔트포인트 보안</span><span class="selected-value select-value-color-purple">이윤혁</span></td><td class="cell-lmGA"><time>@2025년 6월 1일 → 2025년 6월 30일</time></td><td class="cell-tvdf"></td></tr><tr id="1765807b-4ad6-8089-8287-dbc5036d76a7"><td class="cell-yxgX"><span class="selected-value select-value-color-default">DevOps</span><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EB%A7%9D%EB%B6%84%EB%A6%AC%20%EA%B0%9C%EC%84%A0%EB%B0%A9%EC%95%88%20%EC%88%98%EB%A6%BD%201765807b4ad680898287dbc5036d76a7.html">망분리 개선방안 수립</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-green">완료</span></td><td class="cell-ikvv"><span class="selected-value select-value-color-yellow">백지훈</span><span class="selected-value select-value-color-blue">서동진</span></td><td class="cell-lmGA"><time>@2025년 2월 3일 → 2025년 3월 28일</time></td><td class="cell-tvdf"></td></tr><tr id="1765807b-4ad6-8034-b1a2-d9af6dc0d5a3"><td class="cell-yxgX"><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EA%B4%80%EB%A6%AC%EC%B2%B4%EA%B3%84%20%EA%B0%9C%EC%84%A0%20%EC%A1%B0%EC%B9%98%20%EC%A0%95%EC%B1%85%20%EC%A7%80%EC%B9%A8%20%EC%A0%9C%EF%B9%92%EA%B0%9C%EC%A0%95%201%EC%B0%A8%201765807b4ad68034b1a2d9af6dc0d5a3.html">관리체계 개선 조치 정책/지침 제﹒개정 1차</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-green">완료</span></td><td class="cell-ikvv"><span class="selected-value select-value-color-purple">이윤혁</span></td><td class="cell-lmGA"><time>@2025년 2월 14일 → 2025년 3월 14일</time></td><td class="cell-tvdf"></td></tr><tr id="1765807b-4ad6-8081-8512-c21c5510ff54"><td class="cell-yxgX"><span class="selected-value select-value-color-default">DevOps</span><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EB%A7%9D%EB%B6%84%EB%A6%AC%20%EB%8C%80%EC%B1%85%20%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%20%EB%8F%84%EC%9E%85%201765807b4ad680818512c21c5510ff54.html">망분리 대책 보안 솔루션 도입</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-green">완료</span></td><td class="cell-ikvv"><span class="selected-value select-value-color-brown">보안 분석 담당자</span><span class="selected-value select-value-color-gray">엔트포인트 보안</span><span class="selected-value select-value-color-purple">이윤혁</span></td><td class="cell-lmGA"><time>@2025년 3월 12일 → 2025년 6월 29일</time></td><td class="cell-tvdf"></td></tr><tr id="1765807b-4ad6-80ee-a99a-d1e0816e3ec7"><td class="cell-yxgX"><span class="selected-value select-value-color-default">DevOps</span><span class="selected-value select-value-color-brown">Developer</span><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EB%A7%9D%EB%B6%84%EB%A6%AC%20%EB%8C%80%EC%B2%B4%20%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%20%ED%86%B5%EC%A0%9C%20%EC%88%98%EB%A6%BD%201765807b4ad680eea99ad1e0816e3ec7.html">망분리 대체 정보보호 통제 수립</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-green">완료</span></td><td class="cell-ikvv"><span class="selected-value select-value-color-yellow">백지훈</span><span class="selected-value select-value-color-blue">서동진</span><span class="selected-value select-value-color-gray">엔트포인트 보안</span><span class="selected-value select-value-color-purple">이윤혁</span></td><td class="cell-lmGA"><time>@2025년 2월 17일 → 2025년 3월 7일</time></td><td class="cell-tvdf"></td></tr><tr id="1765807b-4ad6-80c6-b549-cdb11581aa3c"><td class="cell-yxgX"><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EC%A0%84%EC%9E%90%EA%B8%88%EC%9C%B5%20%EA%B4%80%EB%A6%AC%EC%B2%B4%EA%B3%84%20%EC%A0%90%EA%B2%80%201765807b4ad680c6b549cdb11581aa3c.html">전자금융 관리체계 점검</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-green">완료</span></td><td class="cell-ikvv"><span class="selected-value select-value-color-purple">이윤혁</span></td><td class="cell-lmGA"><time>@2024년 12월 1일 → 2024년 12월 24일</time></td><td class="cell-tvdf"></td></tr><tr id="1a45807b-4ad6-80f5-ae28-d6040ecdff51"><td class="cell-yxgX"><span class="selected-value select-value-color-purple">Security</span></td><td class="cell-title"><a href="DevSecOps%202025%EB%85%84%20%EC%9D%B8%EB%A0%A5%20%EB%B0%8F%20%EC%97%85%EB%AC%B4%20%EA%B3%84%ED%9A%8D/DevsSecOps%20%EC%97%B0%EA%B0%84%20%EA%B3%84%ED%9A%8D/%EA%B4%80%EB%A6%AC%EC%B2%B4%EA%B3%84%20%EA%B0%9C%EC%84%A0%20%EC%A1%B0%EC%B9%98%20%EC%A0%95%EC%B1%85%20%EC%A7%80%EC%B9%A8%20%EC%A0%9C%EF%B9%92%EA%B0%9C%EC%A0%95%202%EC%B0%A8%201a45807b4ad680f5ae28d6040ecdff51.html">관리체계 개선 조치 정책/지침 제﹒개정 2차</a></td><td class="cell-{~[h"><span class="selected-value select-value-color-green">완료</span></td><td class="cell-ikvv"><span class="selected-value select-value-color-purple">이윤혁</span><span class="selected-value select-value-color-pink">정보보호 정책 담당자</span></td><td class="cell-lmGA"><time>@2025년 4월 30일 → 2025년 5월 30일</time></td><td class="cell-tvdf"></td></tr></tbody></table><br/><br/></div></div><div style="display:contents" dir="auto"><p id="1765807b-4ad6-80cf-8b51-efa59bcdb63a" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
