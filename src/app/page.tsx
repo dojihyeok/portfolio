@@ -653,7 +653,7 @@ export default function Home() {
                             <ul className="list-disc list-inside space-y-1 pl-1">
                                 <li>금융 DT 플랫폼 보안 설계</li>
                                 <li>Pivotal 기반 금융 MSA·DevSecOps 구조 구축</li>
-                                <li>금보원·금감원 CSP 안전성 평가 대응</li>
+                                <li>금보원 CSP 안전성 공동 평가 후 금감원 신고 완료 (국내 최초)</li>
                                 <li>대규모 금융권 개발자 경험(DX) 기반 보안 운영</li>
                             </ul>
                         }
