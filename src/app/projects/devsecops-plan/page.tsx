@@ -1,4 +1,3 @@
-```javascript
 "use client";
 
 import React, { useMemo, useState, useEffect } from "react";
@@ -72,7 +71,7 @@ function layoutTasks(tasks: Task[]): { layout: GanttTask[]; totalRows: number; g
     // Pad global range (1 month buffer)
     const globalStart = new Date(minDate);
     globalStart.setDate(1); // Start of month
-    
+
     // 3. Assign rows (Simple greedy packing)
     const rows: Date[] = []; // End date of the last task in each row
     const layout: GanttTask[] = [];
@@ -80,12 +79,12 @@ function layoutTasks(tasks: Task[]): { layout: GanttTask[]; totalRows: number; g
     parsedTasks.forEach(t => {
         const duration = getDaysDiff(t.startObj, t.endObj) + 1; // Inclusive
         const offset = getDaysDiff(globalStart, t.startObj);
-        
+
         // Find first available row
         let rowIndex = -1;
         for (let i = 0; i < rows.length; i++) {
             // Check if this row is free after the last task (+ gap)
-             // Buffer of 2 days for visual separation
+            // Buffer of 2 days for visual separation
             if (rows[i].getTime() + (2 * DAY_MS) < t.startObj.getTime()) {
                 rowIndex = i;
                 break;
@@ -123,7 +122,7 @@ function StatusBadge({ status }: { status: string }) {
     else if (status === "Not Started") colorClass = "bg-slate-500/90 text-white";
 
     return (
-        <span className={`text - [10px] px - 1.5 py - 0.5 rounded flex items - center gap - 1 shrink - 0 ${ colorClass } `}>
+        <span className={`text-[10px] px-1.5 py-0.5 rounded flex items-center gap-1 shrink-0 ${colorClass}`}>
             {status}
         </span>
     );
@@ -173,7 +172,7 @@ export default function DevSecOpsPlanPage() {
 
             {/* Gantt Scroll Area */}
             <div className="flex-1 overflow-auto relative scrollbar-track-[#191919] scrollbar-thumb-[#333]">
-                <div 
+                <div
                     className="relative"
                     style={{ width: totalWidth, height: containerHeight }}
                 >
@@ -183,8 +182,8 @@ export default function DevSecOpsPlanPage() {
                             const daysInMonth = new Date(m.getFullYear(), m.getMonth() + 1, 0).getDate();
                             const width = daysInMonth * DAY_WIDTH;
                             return (
-                                <div 
-                                    key={i} 
+                                <div
+                                    key={i}
                                     className="flex items-center justify-center border-r border-[#333] text-sm font-medium text-gray-300"
                                     style={{ width }}
                                 >
@@ -197,15 +196,15 @@ export default function DevSecOpsPlanPage() {
                     {/* 2. Grid Background */}
                     <div className="absolute top-[60px] left-0 bottom-0 flex z-0">
                         {months.map((m, i) => {
-                             const daysInMonth = new Date(m.getFullYear(), m.getMonth() + 1, 0).getDate();
-                             // Render day or week lines could be too heavy, just month lines for now
-                             return (
-                                <div 
+                            const daysInMonth = new Date(m.getFullYear(), m.getMonth() + 1, 0).getDate();
+                            // Render day or week lines could be too heavy, just month lines for now
+                            return (
+                                <div
                                     key={i}
                                     className="border-r border-[#2a2a2a] h-full"
                                     style={{ width: new Date(m.getFullYear(), m.getMonth() + 1, 0).getDate() * DAY_WIDTH }}
                                 />
-                             )
+                            )
                         })}
                     </div>
 
@@ -229,7 +228,7 @@ export default function DevSecOpsPlanPage() {
                                     {task.title}
                                 </span>
                                 <StatusBadge status={task.status} />
-                                
+
                                 {/* Tooltip on Hover */}
                                 <div className="hidden group-hover:block absolute top-full left-0 mt-2 p-3 bg-black/90 border border-gray-700 rounded shadow-xl z-[100] w-64 whitespace-normal">
                                     <h4 className="font-bold text-white mb-1">{task.title}</h4>
@@ -249,22 +248,21 @@ export default function DevSecOpsPlanPage() {
                     {/* Optional: Add a red line for Today */}
                 </div>
             </div>
-            
+
             <style jsx global>{`
-                :: -webkit - scrollbar {
-    height: 10px;
-    width: 10px;
-    background: #191919;
-}
-                :: -webkit - scrollbar - thumb {
-    background: #333;
-    border - radius: 5px;
-}
-                :: -webkit - scrollbar - thumb:hover {
-    background: #444;
-}
-`}</style>
+                ::-webkit-scrollbar {
+                    height: 10px;
+                    width: 10px;
+                    background: #191919;
+                }
+                ::-webkit-scrollbar-thumb {
+                    background: #333;
+                    border-radius: 5px;
+                }
+                ::-webkit-scrollbar-thumb:hover {
+                    background: #444;
+                }
+            `}</style>
         </main>
     );
 }
-```
