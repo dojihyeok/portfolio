@@ -583,9 +583,10 @@ export default function Home() {
                         period="2024.11 ~ Present"
                         description={
                             <ul className="list-disc list-inside space-y-1 pl-1">
-                                <li>글로벌 지점 설립을 위한 규제 조사 및 보안 체계 구축</li>
-                                <li>해외 금융 규제 및 전자금융 컴플라이언스 대응</li>
+                                <li>글로벌 지점(싱가포르, 라트비아, 일본 등) 설립을 위한 규제 조사 및 보안 체계 구축</li>
+                                <li>해외 금융 규제(Dora, GDPR 등) 및 전자금융 컴플라이언스 대응</li>
                                 <li>연구 개발망 및 망분리 대체 통제를 위한 ZeroTrust Architecture 설계</li>
+                                <li>전자금융 기반시설 관리체계 자체 점검 후 개선 계획 수립</li>
                                 <li>ISO27001 취득, ISMS 및 VASP ISMS 준비</li>
                                 <li>정보보호 규정 및 지침 제정</li>
                                 <li>신규 보안팀 구성, 전사 거버넌스 설계 및 팀 문화 기반 마련</li>
