@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Github, Linkedin, Award, Book, Terminal, Shield, Users, ArrowDown } from "lucide-react";
+import { Mail, Github, Linkedin, Award, Book, Terminal, Shield, Users, ArrowDown, ExternalLink } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Section } from "@/components/Section";
@@ -729,6 +729,38 @@ export default function Home() {
                         link="https://www.dailysmart.co.kr/news/articleView.html?idxno=23201"
                         tags={["Cloud Security", "Architecture", "Enterprise"]}
                     />
+                </div>
+            </Section>
+
+            {/* Certifications */}
+            <Section title="Certifications">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {[
+                        { name: "ISMS-P 심사원", issuer: "KISA (한국인터넷진흥원)" },
+                        { name: "CBPR 심사원", issuer: "KISA (한국인터넷진흥원)", link: "https://cbpr.kisa.or.kr/gdpr/static/cbpr_info.do" },
+                        { name: "ISO/IEC 27001", issuer: "BSI (심사원보)" },
+                        { name: "정보처리기사", issuer: "한국산업인력공단" },
+                        { name: "CPPG", issuer: "개인정보보호전문가" },
+                        { name: "CCNA", issuer: "Cisco" },
+                        { name: "SCJP", issuer: "Sun Microsystems" },
+                    ].map((cert, idx) => (
+                        <div key={idx} className="flex items-center gap-4 bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-all">
+                            <div className="p-2 bg-indigo-50 dark:bg-slate-800 rounded-lg text-indigo-600 dark:text-indigo-400">
+                                <Award size={24} />
+                            </div>
+                            <div>
+                                <h4 className="font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                                    {cert.name}
+                                    {cert.link && (
+                                        <Link href={cert.link} target="_blank" className="text-slate-400 hover:text-blue-500">
+                                            <ExternalLink size={14} />
+                                        </Link>
+                                    )}
+                                </h4>
+                                <p className="text-xs text-slate-500 dark:text-slate-400">{cert.issuer}</p>
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </Section>
 
