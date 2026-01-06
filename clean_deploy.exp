@@ -1,0 +1,46 @@
+#!/usr/bin/expect
+# Increase timeout for build process
+set timeout 300
+
+# Connect to the server
+spawn ssh -i /Users/yunhyeok/triedit-dev.pem -o StrictHostKeyChecking=no root@49.50.139.88
+expect {
+    "*?assword:*" { 
+        send "R4+r525MP5DiBi\r" 
+        exp_continue
+    }
+    "*?root@*" {}
+}
+
+# Navigate to portfolio directory
+send "cd portfolio\r"
+expect "*?root@*"
+
+# Stop the process first to release any file locks
+send "pm2 stop portfolio\r"
+expect "*?root@*"
+
+# Clean install and build
+send "rm -rf .next\r"
+expect "*?root@*"
+
+send "git pull origin main\r"
+expect "*?root@*"
+
+send "npm install\r"
+expect "*?root@*"
+
+send "npm run build\r"
+expect "*?root@*"
+
+# Start fresh
+send "pm2 restart portfolio --update-env\r"
+expect "*?root@*"
+
+# Verify status
+send "pm2 list\r"
+expect "*?root@*"
+
+# Exit
+send "exit\r"
+expect eof
