@@ -1,0 +1,716 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>전자금융업자 망분리 가이드</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="1755807b-4ad6-80d5-ae10-e18712b0a4a4" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🪩</span></div><h1 class="page-title" dir="auto">전자금융업자 망분리 가이드</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><blockquote id="1755807b-4ad6-80de-ac79-d87ebb5a246d" class="">금융분야 망분리 규제 개선 관련 설명 자료</blockquote></div><div style="display:contents" dir="ltr"><figure id="1755807b-4ad6-8054-a309-f390cb5e1ae5" class="image"><a href="%EC%A0%84%EC%9E%90%EA%B8%88%EC%9C%B5%EC%97%85%EC%9E%90%20%EB%A7%9D%EB%B6%84%EB%A6%AC%20%EA%B0%80%EC%9D%B4%EB%93%9C/image.png"><img style="width:513px" src="%EC%A0%84%EC%9E%90%EA%B8%88%EC%9C%B5%EC%97%85%EC%9E%90%20%EB%A7%9D%EB%B6%84%EB%A6%AC%20%EA%B0%80%EC%9D%B4%EB%93%9C/image.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="1755807b-4ad6-80bf-9dc4-c238138b53ad" class="image"><a href="%EC%A0%84%EC%9E%90%EA%B8%88%EC%9C%B5%EC%97%85%EC%9E%90%20%EB%A7%9D%EB%B6%84%EB%A6%AC%20%EA%B0%80%EC%9D%B4%EB%93%9C/image%201.png"><img style="width:512.9921875px" src="%EC%A0%84%EC%9E%90%EA%B8%88%EC%9C%B5%EC%97%85%EC%9E%90%20%EB%A7%9D%EB%B6%84%EB%A6%AC%20%EA%B0%80%EC%9D%B4%EB%93%9C/image%201.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="1755807b-4ad6-8091-9689-df75ab867525" class="image"><a href="%EC%A0%84%EC%9E%90%EA%B8%88%EC%9C%B5%EC%97%85%EC%9E%90%20%EB%A7%9D%EB%B6%84%EB%A6%AC%20%EA%B0%80%EC%9D%B4%EB%93%9C/image%202.png"><img style="width:512.9921875px" src="%EC%A0%84%EC%9E%90%EA%B8%88%EC%9C%B5%EC%97%85%EC%9E%90%20%EB%A7%9D%EB%B6%84%EB%A6%AC%20%EA%B0%80%EC%9D%B4%EB%93%9C/image%202.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="1755807b-4ad6-80ac-ae2c-f3f1e11a3b95" class="">
+</p></div><div style="display:contents" dir="auto"><blockquote id="1755807b-4ad6-80f5-9a26-dbb133579b4a" class=""><strong>금융회사 망분리 </strong></blockquote></div><div style="display:contents" dir="auto"><ol type="1" id="1755807b-4ad6-80b3-ad3e-da1bf89f1350" class="numbered-list" start="1"><li>논리적 망분리(업무망) : 감독규정 15조 1항 3호<div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="56eea40e-906c-4390-a3ca-78af32dcda3e"><div style="width:100%"><div style="display:contents" dir="auto"><ol type="1" id="4b3ce186-b516-4cdf-8524-70432b2c388d" class="numbered-list" start="1"><li>내부통신망과 연결된 내부 업무용시스템은 인터넷(무선통신망 포함) 등 외부통신망과 분리ㆍ차단 및 접속 금지. 다만, 다음 각 목의 경우에는 그러하지 아니하다. &lt;개정 2013. 12. 3., 2022. 11. 23.&gt;<div style="display:contents" dir="auto"><p id="f4060d57-d57e-449c-95e5-302d3d7ad026" class="">가. 이용자의 고유식별정보 또는 개인신용정보를 처리하지 않는 연구ㆍ개발 목적의 경우(단, 금융회사 또는 전자금융업자가 자체 위험성 평가를 실시한 후 금융감독원장이 정한 망분리 대체 정보보호통제를 적용한 경우에 한한다) &lt;신설 2022. 11. 23.&gt;</p></div><div style="display:contents" dir="auto"><p id="26d78e6d-1353-4272-ab29-a03872c0fb37" class="">나. 업무상 불가피한 경우로서 금융감독원장의 확인을 받은 경우 &lt;신설 2022. 11. 23.&gt;</p></div></li></ol></div></div></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1755807b-4ad6-8057-a22d-e5a5084b329b" class="numbered-list" start="2"><li>물리적 망분리(운영망 또는 전산센터) : 감독규정 15조 1항 3호<div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="31d27c9c-b8af-4ee5-8bc1-4da05438db7e"><div style="width:100%"><div style="display:contents" dir="auto"><ol type="1" id="055940a8-54ee-4c8a-b4d5-867324a297cd" class="numbered-list" start="1"><li>전산실 내에 위치한 정보처리시스템과 해당 정보처리시스템의 운영, 개발, 보안 목적으로 직접 접속하는 단말기에 대해서는 인터넷 등 외부통신망으로부터 물리적으로 분리할 것. 다만, 다음 각 목의 경우에는 그러하지 아니하다.&lt;신설 2013. 12. 3., 개정 2015. 2. 3., 2022. 11. 23.&gt;<div style="display:contents" dir="auto"><p id="37fac53a-7f72-4029-ba5f-92de8d6038fc" class="">가. 이용자의 고유식별정보 또는 개인신용정보를 처리하지 않는 연구ㆍ개발 목적의 경우(단, 금융회사 또는 전자금융업자가 자체 위험성 평가를 실시한 후 금융감독원장이 정한 망분리 대체 정보보호통제를 적용한 경우에 한한다) &lt;신설 2022. 11. 23.&gt;</p></div><div style="display:contents" dir="auto"><p id="1e0c53c7-165f-4ce9-b9ba-335926f5549c" class="">나. 업무상 불가피한 경우로서 금융감독원장이 인정하는 경우 </p></div></li></ol></div></div></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1755807b-4ad6-8083-ad64-ef84dc6afc59" class="numbered-list" start="3"><li>망분리 예외조건 : 시행세칙 제2조의2<div style="display:contents" dir="auto"><p id="61e3dafc-5a9b-4ff6-a7e1-19e5fe48e97e" class="">망분리 예외가 명시 되어 있지 않다면 예외가 될 수 없음</p></div><div style="display:contents" dir="auto"><p id="c7523ba6-0b5a-4928-a6eb-70f007525cf2" class="">3.1 논리적 망분리 예외<div class="indented"><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="2e0b297b-816a-4e68-aaf5-a41dab8294d7"><div style="width:100%"><div style="display:contents" dir="auto"><p id="c2bb9c7f-20e6-4ed3-b9d6-42f26be51ddf" class="">① <a href="https://law.go.kr/admRulSc.do?menuId=5&amp;subMenuId=41&amp;tabMenuId=183&amp;eventGubun=060115#AJAX">규정 제15조제1항제3호나목</a>에서 금융감독원장의 확인을 받은 경우란 다음 각 호와 같다. &lt;개정 2020. 11. 6., 2022. 12. 29.&gt;<div class="indented"><div style="display:contents" dir="auto"><p id="69dab69c-e90d-4c83-beff-7ed37c0e737e" class="">1. 내부 통신망에 연결된 단말기가 업무상 필수적으로 외부기관과 연결해야 하는 경우(다만, 이 경우 필요한 서비스번호(port)에 한하여 특정 외부기관과 연결할 수 있다).</p></div><div style="display:contents" dir="auto"><p id="6817ddf9-5917-4207-82b6-96bcade1b5e1" class="">2. <a href="https://law.go.kr/admRulSc.do?menuId=5&amp;subMenuId=41&amp;tabMenuId=183&amp;eventGubun=060115#AJAX">규정 제12조</a>의 보안대책을 적용한 단말기에서 전용회선과 동등한 보안수준을 갖춘 통신망을 이용하여 외부망으로부터 내부 업무용시스템으로 원격접속 하는 경우</p></div></div></p></div></div></figure></div></div></p></div><div style="display:contents" dir="auto"><p id="da8ed8ff-515f-4f0b-9582-d64f70a0e5c4" class="">3.2. 물리적 망분리 예외<div class="indented"><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="7a9ba317-3470-4c8e-8a13-e195f65ee282"><div style="width:100%"><div style="display:contents" dir="auto"><p id="6d34eddb-4137-435e-a5b5-37035d1e2440" class="">② <a href="https://law.go.kr/admRulSc.do?menuId=5&amp;subMenuId=41&amp;tabMenuId=183&amp;eventGubun=060115#AJAX">규정 제15조제1항제5호나목</a>에서 금융감독원장이 인정하는 경우란 다음 각 호와 같다. &lt;개정 2022. 12. 29.&gt;<div class="indented"><div style="display:contents" dir="auto"><p id="039483f6-957b-4333-8eaf-b59584e200cb" class="">1. <a href="https://law.go.kr/admRulSc.do?menuId=5&amp;subMenuId=41&amp;tabMenuId=183&amp;eventGubun=060115#AJAX">「금융회사의 정보처리 업무 위탁에 관한 규정」</a>에 따라 정보처리 업무를 국외 소재 전산센터에 위탁하여 처리하는 경우(다만, 해당 국외 소재 전산센터에 대해서는 물리적 방식 외의 방법으로 망을 분리하여야 하며, 이 경우에도 국내 소재 전산센터 및 정보처리시스템 등은 물리적으로 망을 분리하여야 한다)</p></div><div style="display:contents" dir="auto"><p id="cf41ec12-0cc0-4bc3-b112-02c3d9506931" class="">2. 업무상 외부통신망과 연결이 불가피한 다음의 정보처리시스템(다만, 필요한 서비스번호(port)에 한하여 연결할 수 있다)<div class="indented"><div style="display:contents" dir="auto"><p id="df4bb2f6-647b-4fc6-ab52-c3abb8401d3b" class="">가. 전자금융업무의 처리를 위하여 특정 외부기관과 데이터를 송수신하는 정보처리시스템</p></div><div style="display:contents" dir="auto"><p id="f2d7b43f-d06e-4e84-afec-3f99881d02a8" class="">나. DMZ구간 내 정보처리시스템과 실시간으로 데이터를 송수신하는 내부통신망의 정보처리시스템</p></div><div style="display:contents" dir="auto"><p id="f9e7a81f-0ce8-48bc-b7ca-b8a4416667e9" class="">다. 다른 계열사(<a href="https://law.go.kr/admRulSc.do?menuId=5&amp;subMenuId=41&amp;tabMenuId=183&amp;eventGubun=060115#AJAX">「금융회사의 정보처리 업무 위탁에 관한 규정」</a> <a href="https://law.go.kr/admRulSc.do?menuId=5&amp;subMenuId=41&amp;tabMenuId=183&amp;eventGubun=060115#AJAX">제2조</a> 제3항의 &quot;계열사&quot;를 말한다)와 공동으로 사용하는 정보처리시스템</p></div></div></p></div><div style="display:contents" dir="auto"><p id="2b42fadd-8476-4312-bd1a-7816999d50b7" class="">3. <a href="https://law.go.kr/admRulSc.do?menuId=5&amp;subMenuId=41&amp;tabMenuId=183&amp;eventGubun=060115#AJAX">규정 제23조</a>의 비상대책에 따라 원격 접속이 필요한 경우</p></div><div style="display:contents" dir="auto"><p id="d00a80f0-e750-4a3e-b1c8-a342c50d97bc" class="">4. 전산실 내에 위치한 정보처리시스템의 운영, 개발, 보안 목적으로 직접 접속하는 단말기와 외부통신망과의 연결 구간, <a href="https://law.go.kr/admRulSc.do?menuId=5&amp;subMenuId=41&amp;tabMenuId=183&amp;eventGubun=060115#AJAX">규정 제15조제1항제3호</a>의 내부 업무용 시스템과의 연결 구간을 각각 차단한 경</p></div></div></p></div></div></figure></div></div></p></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1755807b-4ad6-805e-b458-f26b9bd70a8e" class="numbered-list" start="4"><li>망분리 대체 통제 및 정보보호 위원회 승인 후 적용<div style="display:contents" dir="auto"><p id="20b1c127-3130-42d2-9a24-7499ef84d097" class="">③ 제1항 및 제2항의 규정은 금융회사 또는 전자금융업자가 자체 위험성 평가를 실시한 후 &lt;<a href="https://law.go.kr/admRulSc.do?menuId=5&amp;subMenuId=41&amp;tabMenuId=183&amp;eventGubun=060115#AJAX">별표 7</a>&gt;에서 정한 망분리 대체 정보보호통제를 적용하고 정보보호위원회가 승인한 경우에 한하여 적용한다. </p></div><div style="display:contents" dir="auto"><ul id="aacc009a-bfa8-41f1-8bb1-18e76b6bc1ce" class="bulleted-list"><li style="list-style-type:disc">&lt;별표7&gt; 망분리 대체 정보보호통제</li></ul></div><div style="display:contents" dir="ltr"><figure id="1755807b-4ad6-8082-b746-eee65bb7d02b" class="image"><a href="%EC%A0%84%EC%9E%90%EA%B8%88%EC%9C%B5%EC%97%85%EC%9E%90%20%EB%A7%9D%EB%B6%84%EB%A6%AC%20%EA%B0%80%EC%9D%B4%EB%93%9C/image%203.png"><img style="width:624px" src="%EC%A0%84%EC%9E%90%EA%B8%88%EC%9C%B5%EC%97%85%EC%9E%90%20%EB%A7%9D%EB%B6%84%EB%A6%AC%20%EA%B0%80%EC%9D%B4%EB%93%9C/image%203.png"/></a></figure></div></li></ol></div><div style="display:contents" dir="auto"><p id="1755807b-4ad6-805b-a0a9-cea983865de8" class="">
+</p></div><div style="display:contents" dir="auto"><p id="1755807b-4ad6-80f8-810e-ddce2dfbac66" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

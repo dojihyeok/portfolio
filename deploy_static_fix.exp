@@ -1,0 +1,38 @@
+#!/usr/bin/expect -f
+set timeout 60
+
+# Upload the new unified config
+spawn scp -i /Users/yunhyeok/triedit-dev.pem -o StrictHostKeyChecking=no /Users/yunhyeok/portfolio/unified_nginx_static_fix.conf root@49.50.139.88:/etc/nginx/sites-available/unified_services_static_fix
+expect {
+    "password:" { send "R4+r525MP5DiBi\r"; exp_continue }
+    eof
+}
+
+spawn ssh -i /Users/yunhyeok/triedit-dev.pem -o StrictHostKeyChecking=no root@49.50.139.88
+expect "password:"
+send "R4+r525MP5DiBi\r"
+expect "#"
+
+# Disable old link
+send "rm /etc/nginx/sites-enabled/unified_services_v2\r"
+expect "#"
+
+# Enable new config
+send "ln -sf /etc/nginx/sites-available/unified_services_static_fix /etc/nginx/sites-enabled/\r"
+expect "#"
+
+# Ensure permission for Nginx to read .next
+send "chmod -R 755 /root/portfolio/.next\r"
+expect "#"
+send "chmod 755 /root/portfolio\r"
+expect "#"
+send "chmod 755 /root\r"
+expect "#"
+
+# Test and Reload
+send "nginx -t\r"
+expect "#"
+send "systemctl reload nginx\r"
+expect "#"
+
+send "exit\r"

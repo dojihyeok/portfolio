@@ -1,0 +1,68 @@
+#!/usr/bin/expect -f
+set timeout 1200
+
+# 1. Upload the FINAL Nginx config
+spawn scp -i /Users/yunhyeok/triedit-dev.pem -o StrictHostKeyChecking=no /Users/yunhyeok/portfolio/unified_nginx_final.conf root@49.50.139.88:/etc/nginx/sites-available/unified_services_final
+expect {
+    "password:" { send "R4+r525MP5DiBi\r"; exp_continue }
+    eof
+}
+
+# 2. SSH into server
+spawn ssh -i /Users/yunhyeok/triedit-dev.pem -o StrictHostKeyChecking=no root@49.50.139.88
+expect "password:"
+send "R4+r525MP5DiBi\r"
+expect "#"
+
+# 3. Nginx Setup
+send "rm /etc/nginx/sites-enabled/*\r"
+expect "#"
+send "ln -sf /etc/nginx/sites-available/unified_services_final /etc/nginx/sites-enabled/\r"
+expect "#"
+send "nginx -t\r"
+expect "#"
+send "systemctl reload nginx\r"
+expect "#"
+
+# 4. KILL OLD PROCESSES & PORTS (Nuclear option)
+# Identify and kill whatever is on 3002 specifically
+# Check if fuser exists, if not use kill with lsof or pkill
+send "fuser -k 3002/tcp\r"
+expect "#"
+# Just in case, kill all PM2 to start fresh (user wants to ensure NEW code is applied)
+send "pm2 delete all\r"
+expect "#"
+
+# 5. Clean Build & Restart Portfolio
+send "cd /root/portfolio\r"
+expect "#"
+send "rm -rf .next node_modules/.cache\r"
+expect "#"
+
+# Rebuild
+send "npm run build\r"
+expect "#"
+
+# Start Portfolio explicitly on port 3002 (via package.json script)
+send "pm2 start npm --name portfolio -- start\r"
+expect "#"
+
+# Start other services if needed (Trydit, Honolulu, Auditflow)
+# Trydit (3000) - Assuming path /root/trydit exists as seen in previous runs
+send "cd /root/trydit\r"
+expect "#"
+send "pm2 start npm --name trydit -- start\r"
+expect "#"
+
+# Honolulu (3003) - Assuming path /root/honolulu exists as seen in previous runs
+send "cd /root/honolulu\r"
+expect "#"
+# Honolulu is a static export often? Or dynamic? Assuming Next.js dynamic for now based on port usage.
+send "pm2 start npm --name honolulu -- start\r"
+expect "#"
+
+# Save
+send "pm2 save\r"
+expect "#"
+
+send "exit\r"

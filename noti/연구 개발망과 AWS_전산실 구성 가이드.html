@@ -1,0 +1,717 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>연구 개발망과 AWS_전산실 구성 가이드</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2625807b-4ad6-80e8-a640-e5e7c58e6bb7" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🎍</span></div><h1 class="page-title" dir="auto">연구 개발망과 AWS_전산실 구성 가이드</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="2625807b-4ad6-80dd-bcb5-e9d5346e79ce"><div style="width:100%"><div style="display:contents" dir="auto"><p id="2625807b-4ad6-803a-9f98-f6d4867f7e33" class="">2025년 08월 전자금융 감독규정 해설서 배포에 따라, 금감원 기준으로 정리해 보았습니다.</p></div></div></figure></div><div style="display:contents" dir="auto"><p id="2625807b-4ad6-80fd-ae93-feafb17b29b0" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="2625807b-4ad6-8027-b61f-c3aa28f8af85" class="image"><a href="%EC%97%B0%EA%B5%AC%20%EA%B0%9C%EB%B0%9C%EB%A7%9D%EA%B3%BC%20AWS_%EC%A0%84%EC%82%B0%EC%8B%A4%20%EA%B5%AC%EC%84%B1%20%EA%B0%80%EC%9D%B4%EB%93%9C/image.png"><img style="width:691.9791870117188px" src="%EC%97%B0%EA%B5%AC%20%EA%B0%9C%EB%B0%9C%EB%A7%9D%EA%B3%BC%20AWS_%EC%A0%84%EC%82%B0%EC%8B%A4%20%EA%B5%AC%EC%84%B1%20%EA%B0%80%EC%9D%B4%EB%93%9C/image.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2625807b-4ad6-80fc-930d-eb2968426b94" class="">참고 가이드 : </p></div><div style="display:contents" dir="ltr"><figure id="2625807b-4ad6-8036-b9ca-c303bddb368d"><div class="source"><a href="%EC%97%B0%EA%B5%AC%20%EA%B0%9C%EB%B0%9C%EB%A7%9D%EA%B3%BC%20AWS_%EC%A0%84%EC%82%B0%EC%8B%A4%20%EA%B5%AC%EC%84%B1%20%EA%B0%80%EC%9D%B4%EB%93%9C/(%E1%84%87%E1%85%AE%E1%87%80%E1%84%8B%E1%85%B5%E1%86%B7)_%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%80%E1%85%AE%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF_%E1%84%86%E1%85%A9%E1%86%A8%E1%84%8C%E1%85%A5%E1%86%A8%E1%84%8B%E1%85%B4_%E1%84%86%E1%85%A1%E1%86%BC%E1%84%87%E1%85%AE%E1%86%AB%E1%84%85%E1%85%B5_%E1%84%8B%E1%85%A8%E1%84%8B%E1%85%AC_%E1%84%8C%E1%85%A5%E1%86%A8%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%8B%E1%85%A6_%E1%84%84%E1%85%A1%E1%84%85%E1%85%B3%E1%86%AB_%E1%84%87%E1%85%A9%E1%84%8B%E1%85%A1%E1%86%AB_%E1%84%92%E1%85%A2%E1%84%89%E1%85%A5%E1%86%AF%E1%84%89%E1%85%A5_fn.pdf">(붙임) 연구·개발 목적의 망분리 예외 적용에 따른 보안 해설서 fn.pdf</a></div></figure></div><div style="display:contents" dir="auto"><h3 id="2625807b-4ad6-8090-b550-ede2d43c2b48" class="block-color-orange_background">구성안의 원칙</h3></div><div style="display:contents" dir="auto"><ol type="1" id="2625807b-4ad6-8038-a0a0-ff3866be3e30" class="numbered-list" start="1"><li>AWS 이용 시 업무 연속성 계획 및 안전성 확보조치 방안을 수립 하여야 함.<br/> </li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2625807b-4ad6-803a-bce7-fbd57e7b7131" class="numbered-list" start="2"><li>연구개발망을 위한 별도 AWS  망으로 구분 되어야 함.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2625807b-4ad6-80d9-8928-e5f9a9dcdf4f" class="numbered-list" start="3"><li>연구 개발망 → 전산실 : 소스 코드 배포만 가능</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2625807b-4ad6-8007-a5d9-c8bf5a50280f" class="numbered-list" start="4"><li>연구 개발망 → 업무망 : 논리적 망분리 허용</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2625807b-4ad6-8063-b81a-ca68502f879c" class="numbered-list" start="5"><li>재택근무로 연구 개발망 접속 시 VPN 접속 허용</li></ol></div><div style="display:contents" dir="auto"><h3 id="2625807b-4ad6-802b-9971-dc73405550a9" class="block-color-orange_background">보안 대책 및 정보보호 위원회 심의/의결 사항</h3></div><div style="display:contents" dir="auto"><ol type="1" id="2625807b-4ad6-801f-968c-c495a620644c" class="numbered-list" start="1"><li>자체 위험성 평가</li></ol></div><div style="display:contents" dir="auto"><ul id="2625807b-4ad6-80b5-90bb-e772894ad2b8" class="bulleted-list"><li style="list-style-type:disc">금융회사 등은 자사의 업무 환경 등을 고려하여 연구·개발망구성에 따른 자체 위험성 평가를 실시<div style="display:contents" dir="ltr"><figure id="2625807b-4ad6-8080-8939-d7b184fefb01" class="image"><a href="%EC%97%B0%EA%B5%AC%20%EA%B0%9C%EB%B0%9C%EB%A7%9D%EA%B3%BC%20AWS_%EC%A0%84%EC%82%B0%EC%8B%A4%20%EA%B5%AC%EC%84%B1%20%EA%B0%80%EC%9D%B4%EB%93%9C/image%201.png"><img style="width:653.9896240234375px" src="%EC%97%B0%EA%B5%AC%20%EA%B0%9C%EB%B0%9C%EB%A7%9D%EA%B3%BC%20AWS_%EC%A0%84%EC%82%B0%EC%8B%A4%20%EA%B5%AC%EC%84%B1%20%EA%B0%80%EC%9D%B4%EB%93%9C/image%201.png"/></a></figure></div></li></ul></div><div style="display:contents" dir="auto"><ol type="1" id="2625807b-4ad6-80a6-9d28-f09dbbf33ad3" class="numbered-list" start="2"><li>망분리 대체통제 별첨7 적용<br/> </li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2625807b-4ad6-80b8-a5b4-dd9b94e5b5ab" class="numbered-list" start="3"><li>정보보호 위원회 심의 의결<div style="display:contents" dir="auto"><ul id="2625807b-4ad6-80ea-b632-cf30bae102eb" class="bulleted-list"><li style="list-style-type:disc">자체 위험성 평가 및 망분리 대체 통제 적용 시 </li></ul></div></li></ol></div><div style="display:contents" dir="auto"><h3 id="2625807b-4ad6-8068-a795-c6c15be2ba04" class="block-color-orange_background">2025년 08. 전자금융 감독규정 해설서에 따른 연구 개발망 Q&amp;A</h3></div><div style="display:contents" dir="ltr"><figure id="2625807b-4ad6-802c-8a01-dcdcf94ee409"><div class="source"><a href="%EC%97%B0%EA%B5%AC%20%EA%B0%9C%EB%B0%9C%EB%A7%9D%EA%B3%BC%20AWS_%EC%A0%84%EC%82%B0%EC%8B%A4%20%EA%B5%AC%EC%84%B1%20%EA%B0%80%EC%9D%B4%EB%93%9C/%E1%84%80%E1%85%B3%E1%86%B7%E1%84%8B%E1%85%B2%E1%86%BC%E1%84%87%E1%85%AE%E1%86%AB%E1%84%8B%E1%85%A3_%E1%84%86%E1%85%A1%E1%86%BC%E1%84%87%E1%85%AE%E1%86%AB%E1%84%85%E1%85%B5_%E1%84%80%E1%85%A2%E1%84%89%E1%85%A5%E1%86%AB_%E1%84%85%E1%85%A9%E1%84%83%E1%85%B3%E1%84%86%E1%85%A2%E1%86%B8_%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%80%E1%85%AE_%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF%E1%84%86%E1%85%A1%E1%86%BC_QA.pdf">금융분야 망분리 개선 로드맵 연구 개발망 Q&amp;A.pdf</a></div></figure></div><div style="display:contents" dir="auto"><p id="2625807b-4ad6-8083-8f14-ff58c5ce3c6e" class="">공통 Q&amp;A</p></div><div style="display:contents" dir="auto"><ul id="2625807b-4ad6-80cd-accb-e3d86f01c499" class="bulleted-list"><li style="list-style-type:disc">연구 ･개발망이란?<div style="display:contents" dir="auto"><p id="2625807b-4ad6-8008-9633-ca37d970eeff" class="">프로그램 개발 등 금융서비스의 연구･개발을 할 수 있도록 금융회사 등의 내부업무망, 전산실,<br/>외부망으로부터 독립적으로 구성된 망</p></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2625807b-4ad6-80de-80d7-c8a3cd2c6cfb" class="bulleted-list"><li style="list-style-type:disc">연구 ･개발망의 망분리 예외 적용 방법은?<div style="display:contents" dir="auto"><p id="2625807b-4ad6-80c0-98e1-e4637cdab5b0" class="">금융회사 등의 물적ㆍ인적 요소 및 보안요소*를 고려하여 정보보호위원회 개최 등의 절차를 통해 선정한 업무에 한정하여 연구ㆍ개발망 예외 가능</p></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2625807b-4ad6-80a5-aa90-d1b23768cfda" class="bulleted-list"><li style="list-style-type:disc">연구 ･개발망에서 수행 불가한 업무는?<div style="display:contents" dir="auto"><p id="2625807b-4ad6-8049-97ec-e0b387707bf7" class="">원칙적으로 연구･개발 목적 외 대고객 금융서비스, 임직원 대상 업무 처리 서비스 등 실제 업무를<br/>처리하는 것은 불가<br/>특히, 베타 테스트 등 대고객을 대상으로 대외에 오픈되는 서비스 및 내부 보고서 작성 등<br/>대외보안이 필요한 업무는 연구･개발망에서 수행 불가</p></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2625807b-4ad6-8073-a7a3-f829e3803cd7" class="bulleted-list"><li style="list-style-type:disc">망분리 예외 적용 시 연구 ･ 개발망을 통해 접근 불가한 사이트는?<div style="display:contents" dir="auto"><p id="2625807b-4ad6-8064-8df8-dedf1d20ea79" class=""><em>금융회사 등은 자사의 업무 환경 등을 고려하여 망분리 예외 적용으로 예상되는 보안 위협*을</em><br/><em>자율 판단하여 인터넷 접근통제 대책을 마련 후 적용할 필요</em></p></div></li></ul></div><div style="display:contents" dir="auto"><p id="2625807b-4ad6-8042-bfd8-e573f02d1ae1" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2625807b-4ad6-80ff-b4cd-ccd268078329" class="block-color-orange_background">연구개발망 구성 Q&amp;A</p></div><div style="display:contents" dir="auto"><p id="2625807b-4ad6-8012-8208-fd50fa0ff930" class="">1. 연구 ･ 개발망과 전산실(5호망)은 반드시 물리적 망분리를 해야 하는지?<div class="indented"><div style="display:contents" dir="auto"><p id="2625807b-4ad6-80c6-a894-ed4dbf8d69b8" class="">연구･개발망은 물리적 망분리 예외에 해당하나, 연구･개발 목적 이외 기존과 동일한 망분리 규제가<br/>적용되므로, 전산실에 위치한 정보처리시스템*은 연구･개발망과 물리적으로 분리 필요</p></div></div></p></div><div style="display:contents" dir="auto"><p id="2625807b-4ad6-80b7-930e-e7213b5b0ffc" class="">2. 연구 ･개발망 구성 시 구성 방법에 대한 구체적인 방식이 정해져 있는지?<div class="indented"><div style="display:contents" dir="auto"><p id="2625807b-4ad6-80b6-836d-cb51bb4adf11" class="">연구･개발망은 내부업무망, 전산실, 외부망으로부터 모두 독립적으로 구성된 별도의 네트워크망으로서,</p></div><div style="display:contents" dir="auto"><ul id="2625807b-4ad6-80d4-acca-c5aaa8b96a44" class="bulleted-list"><li style="list-style-type:disc"> 연구･개발망 구성 시 내부업무망, 전산실과 분리는 엄격히 하되, 구체적인망 구성 방식은 금융회사<br/>등이 자율적으로 구성 가능</li></ul></div><div style="display:contents" dir="auto"><ul id="2625807b-4ad6-808b-91ec-f1b037e51c9d" class="bulleted-list"><li style="list-style-type:disc">다만, 클라우드 환경에 연구ㆍ개발망을 구축할 경우 ｢전자금융감독규정｣에서 정한 클라우드<br/>이용 관련 사항 준수 필요</li></ul></div></div></p></div><div style="display:contents" dir="auto"><p id="2625807b-4ad6-80e7-aab9-e8a6cb7913a3" class="">3. 연구 ･개발망에서 외부망의 SaaS 서비스나, Github 등과 직접 통신 및 사용이 가능한 것인지?<div class="indented"><div style="display:contents" dir="auto"><p id="2625807b-4ad6-8040-970f-d5c4f05b0715" class="">연구･개발 목적으로 망분리 예외 적용 시 인터넷 접속이 상시 허용됨에 따라 SaaS, Github를 통한<br/>오픈소스 활용 가능</p></div><div style="display:contents" dir="auto"><ul id="2625807b-4ad6-80b1-a9e3-d3a3aeb01659" class="bulleted-list"><li style="list-style-type:disc"> 다만 중요 소스코드 유출* 등 보안사고 발생에 대한 대응 절차 마련이 필요하며,<br/>* 소스코드 깃허브 등 공유 플랫폼에 무단 게시, 연구･개발망 모니터링 과정에서 유출 사실 확인, 퇴사 직원이 중요 소스코드를 무단 반출 등</li></ul></div><div style="display:contents" dir="auto"><ul id="2625807b-4ad6-8019-9691-f2bfc854bf60" class="bulleted-list"><li style="list-style-type:disc">오픈소스를 통한 악성코드 유입**을 막기 위해 외부망에서 연구･개발망으로 전송되는 자료<br/>대상으로 악성코드 감염 모니터링 등 정보보호통제 적용 필요<br/>** 고의적으로 오픈소스 내부에 악성코드를 삽입하여 오픈소스 적용 시 프로그램의 민감정보를 획득하는 SW 공급망 공격 등</li></ul></div></div></p></div><div style="display:contents" dir="auto"><p id="2625807b-4ad6-808d-890c-dc0eab428b0d" class="">4. 자체 안전성 평가 및 보안대책을 적용한 이후 연구 ･개발망을 무선망으로 구성 가능한지?<div class="indented"><div style="display:contents" dir="auto"><p id="2625807b-4ad6-8091-9dec-e18e5f58d532" class="">｢전자금융감독규정｣ 제15조 제6항 준수 및 사용자 인증 등 보안대책 적용 후 연구ㆍ개발망에서 무선통신망 활용 가능</p></div></div></p></div><div style="display:contents" dir="auto"><p id="2625807b-4ad6-80a2-ba54-eef6a75d3929" class="">5. 연구 ･ 개발망에서 내부업무망의 백신, DLP, DRM 등 보안솔루션, 관리서버를 같이 사용해도 되는지?<div class="indented"><div style="display:contents" dir="auto"><p id="2625807b-4ad6-80b2-ba83-c7ee892bb831" class="">연구･개발망은 전자금융업무 시스템 등이 위치하는 금융회사 등의 내부 업무망과 분리하여 독립된<br/>인프라로 구성･운영되어야 하므로,</p></div><div style="display:contents" dir="auto"><ul id="2625807b-4ad6-801a-91a3-d2fe8f5e43e5" class="bulleted-list"><li style="list-style-type:disc"> 내부 업무망에서 활용 중인 자원을 연구ㆍ개발망과 연동하여 사용 불가</li></ul></div></div></p></div><div style="display:contents" dir="auto"><p id="2695807b-4ad6-80fd-a34a-e8fcd306609e" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2645807b-4ad6-802d-92b4-ec8824afad77" class="">참고 자료</p></div><div style="display:contents" dir="auto"><ol type="1" id="2695807b-4ad6-8068-b5b9-c8a25a9ca55d" class="numbered-list" start="1"><li>별표 2.4 클라우드 이용 시 안전성 확보조치<div style="display:contents" dir="ltr"><figure id="2695807b-4ad6-80b8-a471-d0ee030cc84a"><div class="source"><a href="%EC%97%B0%EA%B5%AC%20%EA%B0%9C%EB%B0%9C%EB%A7%9D%EA%B3%BC%20AWS_%EC%A0%84%EC%82%B0%EC%8B%A4%20%EA%B5%AC%EC%84%B1%20%EA%B0%80%EC%9D%B4%EB%93%9C/%E1%84%87%E1%85%A7%E1%86%AF%E1%84%91%E1%85%AD_2%E1%84%8B%E1%85%B44_%E1%84%8F%E1%85%B3%E1%86%AF%E1%84%85%E1%85%A1%E1%84%8B%E1%85%AE%E1%84%83%E1%85%B3%E1%84%8F%E1%85%A5%E1%86%B7%E1%84%91%E1%85%B2%E1%84%90%E1%85%B5%E1%86%BC%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3_%E1%84%8B%E1%85%B5%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%80%E1%85%AA_%E1%84%80%E1%85%AA%E1%86%AB%E1%84%85%E1%85%A7%E1%86%AB%E1%84%92%E1%85%A1%E1%86%AB_%E1%84%8B%E1%85%A1%E1%86%AB%E1%84%8C%E1%85%A5%E1%86%AB%E1%84%89%E1%85%A5%E1%86%BC_%E1%84%92%E1%85%AA%E1%86%A8%E1%84%87%E1%85%A9%E1%84%8C%E1%85%A9%E1%84%8E%E1%85%B5(%E1%84%8C%E1%85%A614%E1%84%8C%E1%85%A9%E1%84%8B%E1%85%B42_%E1%84%80%E1%85%AA%E1%86%AB%E1%84%85%E1%85%A7%E1%86%AB)(%E1%84%8C%E1%85%A5%E1%86%AB%E1%84%8C%E1%85%A1%E1%84%80%E1%85%B3%E1%86%B7%E1%84%8B%E1%85%B2%E1%86%BC%E1%84%80%E1%85%A1%E1%86%B7%E1%84%83%E1%85%A9%E1%86%A8%E1%84%80%E1%85%B2%E1%84%8C%E1%85%A5%E1%86%BC)_(2).pdf">[별표 2의4] 클라우드컴퓨팅서비스 이용과 관련한 안전성 확보조치(제14조의2 관련)(전자금융감독규정) (2).pdf</a></div></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2695807b-4ad6-80d7-917a-e7769eb68735" class="numbered-list" start="2"><li>금융분야 클라우드 이용 가이드<div style="display:contents" dir="ltr"><figure id="2695807b-4ad6-809e-90cd-d349a9cb8a3a"><div class="source"><a href="%EC%97%B0%EA%B5%AC%20%EA%B0%9C%EB%B0%9C%EB%A7%9D%EA%B3%BC%20AWS_%EC%A0%84%EC%82%B0%EC%8B%A4%20%EA%B5%AC%EC%84%B1%20%EA%B0%80%EC%9D%B4%EB%93%9C/%E1%84%87%E1%85%AE%E1%87%80%E1%84%8B%E1%85%B5%E1%86%B7_%E1%84%80%E1%85%B3%E1%86%B7%E1%84%8B%E1%85%B2%E1%86%BC%E1%84%87%E1%85%AE%E1%86%AB%E1%84%8B%E1%85%A3_%E1%84%8F%E1%85%B3%E1%86%AF%E1%84%85%E1%85%A1%E1%84%8B%E1%85%AE%E1%84%83%E1%85%B3%E1%84%8F%E1%85%A5%E1%86%B7%E1%84%91%E1%85%B2%E1%84%90%E1%85%B5%E1%86%BC%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3_%E1%84%8B%E1%85%B5%E1%84%8B%E1%85%AD%E1%86%BC_%E1%84%80%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%83%E1%85%B3(2025_%E1%84%80%E1%85%A2%E1%84%8C%E1%85%A5%E1%86%BC)_(1).pdf">[붙임] 금융분야 클라우드컴퓨팅서비스 이용 가이드(2025 개정) (1).pdf</a></div></figure></div><div style="display:contents" dir="auto"><p id="2695807b-4ad6-801c-ad6e-edb950d3eac5" class="">
+</p></div></li></ol></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

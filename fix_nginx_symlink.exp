@@ -1,0 +1,21 @@
+#!/usr/bin/expect -f
+set timeout 60
+
+spawn ssh -i /Users/yunhyeok/triedit-dev.pem -o StrictHostKeyChecking=no root@49.50.139.88
+expect "password:"
+send "R4+r525MP5DiBi\r"
+expect "#"
+
+# Fix the symlink loop
+send "rm /etc/nginx/sites-enabled/dojiung.com\r"
+expect "#"
+send "ln -s /etc/nginx/sites-available/dojiung.com /etc/nginx/sites-enabled/\r"
+expect "#"
+
+# Test and Reload
+send "nginx -t\r"
+expect "#"
+send "systemctl reload nginx\r"
+expect "#"
+
+send "exit\r"

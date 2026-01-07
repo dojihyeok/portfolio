@@ -330,6 +330,24 @@ export const TIMELINE_DATA: Task[] = [
         endDate: '2025-08-21',
         assignees: ['이윤혁', '정보보호 정책 담당자'],
     },
+    {
+        id: 't-2025-08-11-1',
+        title: 'FZT 1단계 적용 (~9/12)',
+        teams: ['Security', 'DevOps'],
+        status: 'Done',
+        startDate: '2025-08-11',
+        endDate: '2025-09-12',
+        assignees: ['백지훈', '서동진', '이윤혁'],
+    },
+    {
+        id: 't-2025-08-11-2',
+        title: '망 분리 네트워크 변경',
+        teams: ['Security', 'DevOps'],
+        status: 'Done',
+        startDate: '2025-08-11',
+        endDate: '2025-10-03',
+        assignees: ['백지훈', '서동진', '이윤혁'],
+    },
 
     // 2025 Sep
     {
@@ -340,6 +358,24 @@ export const TIMELINE_DATA: Task[] = [
         startDate: '2025-09-04',
         endDate: '2025-11-30',
         assignees: ['백지훈', '보안 분석 담당자', '서동진', '엔드포인트 보안', '이윤혁', '정보보호 정책 담당자'],
+    },
+    {
+        id: 't-2025-09-13-1',
+        title: 'FZT 2단계 적용 (~10/3)',
+        teams: ['Security', 'DevOps'],
+        status: 'Done',
+        startDate: '2025-09-13',
+        endDate: '2025-10-03',
+        assignees: ['백지훈', '서동진', '이윤혁'],
+    },
+    {
+        id: 't-2025-09-13-2',
+        title: '2단계 : 부서별 업무',
+        teams: ['Security', 'DevOps'],
+        status: 'Done',
+        startDate: '2025-09-13',
+        endDate: '2025-10-03',
+        assignees: ['백지훈', '서동진', '이윤혁'],
     },
     {
         id: 't-2025-09-15-1',

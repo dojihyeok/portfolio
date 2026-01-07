@@ -1,0 +1,7 @@
+#!/usr/bin/expect -f
+set timeout -1
+spawn scp -i /Users/yunhyeok/triedit-dev.pem -o StrictHostKeyChecking=no /Users/yunhyeok/portfolio/src/app/projects/devsecops-plan/page.tsx /Users/yunhyeok/portfolio/src/app/projects/devsecops-plan/GanttChart.tsx /Users/yunhyeok/portfolio/src/app/projects/devsecops-plan/TaskList.tsx root@49.50.139.88:/root/portfolio/src/app/projects/devsecops-plan/
+expect {
+    "password:" { send "R4+r525MP5DiBi\r"; exp_continue }
+    eof
+}

@@ -8,6 +8,20 @@ node_modules
 !clean_deploy.exp
 !hard_restart_pm2.exp
 !deploy_portfolio_only.exp
+!upload_gantt_files.exp
+!manual_deploy.exp
+!full_clean_deploy.exp
+!check_nginx.exp
+!hard_reset_deploy.exp
+!check_nginx_domains.exp
+!update_all_nginx.exp
+!fix_nginx_symlink.exp
+!deploy_unified_nginx.exp
+!deploy_nginx_v2.exp
+!deploy_static_fix.exp
+!nuclear_deploy.exp
+!upload_and_deploy_data.exp
+!upload_zero_trust.exp
 debug_*
 check_*
 verify_*
@@ -16,3 +30,9 @@ temp_*.html
 *.log
 *.txt
 *.py
+
+# New excludes
+*.tar.gz
+/*.html
+~$*
+!noti/*.html

@@ -317,39 +317,39 @@ export default function ZeroTrustPage() {
                             </div>
 
                             {/* Schedule Item: Phase 1 */}
-                            <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm">
+                            <div className="bg-slate-50 dark:bg-slate-900/50 rounded-2xl p-6 border border-slate-200 dark:border-slate-800">
                                 <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
-                                    <Square className="text-slate-400" size={20} /> FZT 1단계 적용 (~9/12)
+                                    <CheckCircle className="text-blue-500" size={20} /> FZT 1단계 적용 (~9/12)
                                 </h4>
                                 <ul className="space-y-3 ml-2 border-l-2 border-slate-200 dark:border-slate-700 pl-4">
                                     <li className="flex items-start gap-2 text-sm text-slate-600 dark:text-slate-400">
-                                        <Square className="text-slate-400 mt-0.5" size={16} /> Slack, Notion 등 주요 서비스 플랜 업그레이드
+                                        <CheckSquare className="text-blue-500 mt-0.5" size={16} /> Slack, Notion 등 주요 서비스 플랜 업그레이드
                                     </li>
                                     <li className="flex items-start gap-2 text-sm text-slate-600 dark:text-slate-400">
-                                        <Square className="text-slate-400 mt-0.5" size={16} /> Okta 연동 및 서비스 마이그레이션
+                                        <CheckSquare className="text-blue-500 mt-0.5" size={16} /> Okta 연동 및 서비스 마이그레이션
                                     </li>
                                 </ul>
                             </div>
 
                             {/* Schedule Item: Phase 2 */}
-                            <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm">
+                            <div className="bg-slate-50 dark:bg-slate-900/50 rounded-2xl p-6 border border-slate-200 dark:border-slate-800">
                                 <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
-                                    <Square className="text-slate-400" size={20} /> FZT 2단계 적용 (~10/3)
+                                    <CheckCircle className="text-blue-500" size={20} /> FZT 2단계 적용 (~10/3)
                                 </h4>
                                 <ul className="space-y-3 ml-2 border-l-2 border-slate-200 dark:border-slate-700 pl-4">
                                     <li className="flex items-start gap-2 text-sm text-slate-600 dark:text-slate-400">
-                                        <Square className="text-slate-400 mt-0.5" size={16} /> 2단계 적용 솔루션 연동 완료
+                                        <CheckSquare className="text-blue-500 mt-0.5" size={16} /> 2단계 적용 솔루션 연동 완료
                                     </li>
                                     <li className="flex items-start gap-2 text-sm text-slate-600 dark:text-slate-400">
-                                        <Square className="text-slate-400 mt-0.5" size={16} /> 백오피스 Core Auth ↔ Okta OIDC 연동
+                                        <CheckSquare className="text-blue-500 mt-0.5" size={16} /> 백오피스 Core Auth ↔ Okta OIDC 연동
                                     </li>
                                 </ul>
                             </div>
 
                             {/* Schedule Item: Network */}
-                            <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm">
+                            <div className="bg-slate-50 dark:bg-slate-900/50 rounded-2xl p-6 border border-slate-200 dark:border-slate-800">
                                 <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
-                                    <Square className="text-slate-400" size={20} /> 망 분리 네트워크 변경
+                                    <CheckCircle className="text-blue-500" size={20} /> 망 분리 네트워크 변경
                                 </h4>
                                 <ul className="space-y-3 ml-2 border-l-2 border-slate-200 dark:border-slate-700 pl-4">
                                     <li className="flex items-start gap-2 text-sm text-slate-600 dark:text-slate-400">
@@ -359,10 +359,10 @@ export default function ZeroTrustPage() {
                                         <CheckSquare className="text-blue-500 mt-0.5" size={16} /> Forti Switch 교체 및 적용
                                     </li>
                                     <li className="flex items-start gap-2 text-sm text-slate-600 dark:text-slate-400">
-                                        <Square className="text-slate-400 mt-0.5" size={16} /> Forti Client (ZTNA Agent) 배포
+                                        <CheckSquare className="text-blue-500 mt-0.5" size={16} /> Forti Client (ZTNA Agent) 배포
                                     </li>
                                     <li className="flex items-start gap-2 text-sm text-slate-600 dark:text-slate-400">
-                                        <Square className="text-slate-400 mt-0.5" size={16} /> Forti ZTNA 구성
+                                        <CheckSquare className="text-blue-500 mt-0.5" size={16} /> Forti ZTNA 구성
                                     </li>
                                 </ul>
                             </div>
@@ -853,11 +853,11 @@ export default function ZeroTrustPage() {
                                     <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-4 relative z-10">준비 단계</h4>
                                     <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-400 relative z-10">
                                         <li className="flex items-start gap-2">
-                                            <CheckCircle size={16} className="text-slate-400 mt-0.5 shrink-0" />
+                                            <CheckCircle size={16} className="text-blue-500 mt-0.5 shrink-0" />
                                             <span>단말기 Okta Verify 설치 (Mobile/Desktop)</span>
                                         </li>
                                         <li className="flex items-start gap-2">
-                                            <CheckCircle size={16} className="text-slate-400 mt-0.5 shrink-0" />
+                                            <CheckCircle size={16} className="text-blue-500 mt-0.5 shrink-0" />
                                             <span>MDM 에이전트 설치 및 기기 등록</span>
                                         </li>
                                     </ul>
@@ -891,11 +891,11 @@ export default function ZeroTrustPage() {
                                     <p className="text-xs text-slate-500 mb-3 relative z-10">Admin, Figma, Grafana 등 전문 SaaS</p>
                                     <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-400 relative z-10">
                                         <li className="flex items-start gap-2">
-                                            <Square size={16} className="text-slate-400 mt-0.5 shrink-0" />
+                                            <CheckCircle size={16} className="text-blue-500 mt-0.5 shrink-0" />
                                             <span>부서별 특화 시스템 연동 확장</span>
                                         </li>
                                         <li className="flex items-start gap-2">
-                                            <Square size={16} className="text-slate-400 mt-0.5 shrink-0" />
+                                            <CheckCircle size={16} className="text-blue-500 mt-0.5 shrink-0" />
                                             <span>민감 데이터 취급 서비스 통제 강화</span>
                                         </li>
                                     </ul>

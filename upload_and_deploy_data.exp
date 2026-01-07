@@ -1,0 +1,32 @@
+#!/usr/bin/expect -f
+set timeout 600
+
+# 1. Upload data.ts
+spawn scp -i /Users/yunhyeok/triedit-dev.pem -o StrictHostKeyChecking=no /Users/yunhyeok/portfolio/src/app/projects/devsecops-plan/data.ts root@49.50.139.88:/root/portfolio/src/app/projects/devsecops-plan/data.ts
+expect {
+    "password:" { send "R4+r525MP5DiBi\r"; exp_continue }
+    eof
+}
+
+# 2. SSH and Rebuild
+spawn ssh -i /Users/yunhyeok/triedit-dev.pem -o StrictHostKeyChecking=no root@49.50.139.88
+expect "password:"
+send "R4+r525MP5DiBi\r"
+expect "#"
+
+send "cd /root/portfolio\r"
+expect "#"
+
+# Clean build artifacts to ensure data is baked in
+send "rm -rf .next\r"
+expect "#"
+
+# Rebuild
+send "npm run build\r"
+expect "#"
+
+# Restart
+send "pm2 restart portfolio\r"
+expect "#"
+
+send "exit\r"

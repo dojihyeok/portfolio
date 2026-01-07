@@ -1,0 +1,42 @@
+#!/usr/bin/expect -f
+set timeout 60
+
+# Upload all configs
+spawn scp -i /Users/yunhyeok/triedit-dev.pem -o StrictHostKeyChecking=no /Users/yunhyeok/portfolio/trydit.conf /Users/yunhyeok/portfolio/auditflow.conf /Users/yunhyeok/portfolio/honolulu.conf /Users/yunhyeok/portfolio/dojiung.conf root@49.50.139.88:/tmp/
+expect {
+    "password:" { send "R4+r525MP5DiBi\r"; exp_continue }
+    eof
+}
+
+spawn ssh -i /Users/yunhyeok/triedit-dev.pem -o StrictHostKeyChecking=no root@49.50.139.88
+expect "password:"
+send "R4+r525MP5DiBi\r"
+expect "#"
+
+# Move and overwrite configs (matching the user's structure)
+send "mv /tmp/trydit.conf /etc/nginx/sites-available/trydit.dojiung.com\r"
+expect "#"
+send "mv /tmp/auditflow.conf /etc/nginx/sites-available/auditflow.dojiung.com\r"
+expect "#"
+send "mv /tmp/honolulu.conf /etc/nginx/sites-available/honolulu\r"
+expect "#"
+send "mv /tmp/dojiung.conf /etc/nginx/sites-available/dojiung.com\r"
+expect "#"
+
+# Link enabled sites if missing (just in case)
+send "ln -sf /etc/nginx/sites-available/trydit.dojiung.com /etc/nginx/sites-enabled/\r"
+expect "#"
+send "ln -sf /etc/nginx/sites-available/auditflow.dojiung.com /etc/nginx/sites-enabled/\r"
+expect "#"
+send "ln -sf /etc/nginx/sites-available/honolulu /etc/nginx/sites-enabled/\r"
+expect "#"
+send "ln -sf /etc/nginx/sites-enabled/dojiung.com /etc/nginx/sites-enabled/dojiung.com\r"
+expect "#" 
+
+# Test and Reload
+send "nginx -t\r"
+expect "#"
+send "systemctl reload nginx\r"
+expect "#"
+
+send "exit\r"

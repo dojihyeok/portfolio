@@ -1,0 +1,49 @@
+#!/usr/bin/expect -f
+set timeout 600
+
+# 1. Upload page.tsx for Zero Trust
+spawn scp -i /Users/yunhyeok/triedit-dev.pem -o StrictHostKeyChecking=no /Users/yunhyeok/portfolio/src/app/projects/zero-trust/page.tsx root@49.50.139.88:/root/portfolio/src/app/projects/zero-trust/page.tsx
+expect {
+    "password:" { send "R4+r525MP5DiBi\r"; exp_continue }
+    eof
+}
+
+# 2. SSH and Rebuild
+spawn ssh -i /Users/yunhyeok/triedit-dev.pem -o StrictHostKeyChecking=no root@49.50.139.88
+expect "password:"
+send "R4+r525MP5DiBi\r"
+expect "#"
+
+send "cd /root/portfolio\r"
+expect "#"
+
+# Clean and Rebuild
+send "rm -rf .next\r"
+expect "#"
+
+# Increase timeout for build
+set timeout 1200
+send "npm run build\r"
+expect {
+    "Compiled successfully" { exp_continue }
+    "Finalizing page optimization" { exp_continue }
+    "Route (app)" { exp_continue }
+    "#" { }
+}
+
+send "pm2 restart portfolio\r"
+expect "#"
+
+send "service nginx restart\r"
+expect "#"
+
+send "pm2 save\r"
+expect "#"
+
+send "pm2 list\r"
+expect "#"
+
+send "tail -n 20 /root/.pm2/logs/portfolio-out.log\r"
+expect "#"
+
+send "exit\r"

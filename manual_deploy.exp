@@ -1,0 +1,14 @@
+#!/usr/bin/expect -f
+set timeout 60
+
+spawn ssh -i /Users/yunhyeok/triedit-dev.pem -o StrictHostKeyChecking=no root@49.50.139.88
+expect "password:"
+send "R4+r525MP5DiBi\r"
+expect "#"
+
+send "cat /etc/nginx/sites-available/* |\r"
+expect "#"
+send "tail -n 100\r"
+expect "#"
+
+send "exit\r"

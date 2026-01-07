@@ -1,0 +1,36 @@
+#!/usr/bin/expect -f
+set timeout 60
+
+# Upload the unified config
+spawn scp -i /Users/yunhyeok/triedit-dev.pem -o StrictHostKeyChecking=no /Users/yunhyeok/portfolio/unified_nginx.conf root@49.50.139.88:/etc/nginx/sites-available/unified_services
+expect {
+    "password:" { send "R4+r525MP5DiBi\r"; exp_continue }
+    eof
+}
+
+spawn ssh -i /Users/yunhyeok/triedit-dev.pem -o StrictHostKeyChecking=no root@49.50.139.88
+expect "password:"
+send "R4+r525MP5DiBi\r"
+expect "#"
+
+# clear existing enabled sites to prevent conflicts
+send "rm /etc/nginx/sites-enabled/*\r"
+expect "#"
+
+# Enable the unified config
+send "ln -s /etc/nginx/sites-available/unified_services /etc/nginx/sites-enabled/\r"
+expect "#"
+
+# Test configuration
+send "nginx -t\r"
+expect "#"
+
+# Reload Nginx
+send "systemctl reload nginx\r"
+expect "#"
+
+# Restart Portfolio PM2 to ensure fresh serving
+send "pm2 restart portfolio\r"
+expect "#"
+
+send "exit\r"

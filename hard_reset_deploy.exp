@@ -1,26 +1,32 @@
-#!/usr/bin/expect
-set timeout 60
-spawn ssh -o StrictHostKeyChecking=no root@49.50.139.88
-expect "*?assword:*"
+#!/usr/bin/expect -f
+set timeout 600
+
+spawn ssh -i /Users/yunhyeok/triedit-dev.pem -o StrictHostKeyChecking=no root@49.50.139.88
+expect "password:"
 send "R4+r525MP5DiBi\r"
-expect "*?root@*"
-# Stop pm2 process
-send "pm2 stop portfolio\r"
-expect "*?root@*"
-# Force kill any process on 3003
-send "fuser -k 3003/tcp\r"
-expect "*?root@*"
-# Double check with lsof
-send "lsof -i :3003 -t | xargs kill -9\r"
-expect "*?root@*"
-# Remove old build artifacts to ensure clean slate
-send "rm -rf portfolio/.next\r"
-expect "*?root@*"
-# Rebuild on the server
-send "cd portfolio && npm run build\r"
-expect "*?root@*"
-# Start pm2 process
-send "pm2 start portfolio --update-env --node-args='--max-old-space-size=4096'\r"
-expect "*?root@*"
+expect "#"
+
+send "cd portfolio\r"
+expect "#"
+
+# Stop and delete existing process to clear any memory/cache
+send "pm2 delete portfolio\r"
+expect "#"
+
+# Remove build artifacts
+send "rm -rf .next\r"
+expect "#"
+
+# Rebuild
+send "npm run build\r"
+expect "#"
+
+# Start fresh process
+send "pm2 start npm --name portfolio -- start\r"
+expect "#"
+
+# Save process list
+send "pm2 save\r"
+expect "#"
+
 send "exit\r"
-expect eof

@@ -1,0 +1,717 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Moin ZeroTrust Security #4 단계별 구현</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2375807b-4ad6-8010-a047-e8088d118bfc" class="page sans"><header><h1 class="page-title" dir="auto">Moin ZeroTrust Security #4 단계별 구현</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><p id="2375807b-4ad6-8043-86a7-e8feb0bd13ed" class="">
+</p></div><div style="display:contents" dir="auto"><h2 id="2375807b-4ad6-80f9-8e00-f432eceadd42" class="block-color-blue">MZT 적용하기 위해 1개의 인증 솔루션을 사용합니다.</h2></div><div style="display:contents" dir="auto"><ul id="2375807b-4ad6-8035-affe-c09b6b11dcda" class="bulleted-list"><li style="list-style-type:disc">우리 SSO인증은 Okta를 사용합니다.[<a href="https://www.notion.so/Okta-2235807b4ad680c696eaed6c41742c5b?pvs=21">Okta란? 그리고 가이드 링크</a>]</li></ul></div><div style="display:contents" dir="auto"><ul id="2375807b-4ad6-80c5-8738-ceb3446de29c" class="bulleted-list"><li style="list-style-type:disc">강력한 인증이 필요한 서비스는 2차 인증을 요구 할 수 있으며, 중간 중간 인증을 요청할겁니다.</li></ul></div><div style="display:contents" dir="auto"><p id="2375807b-4ad6-80a4-b6ea-c3879819e0cd" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2375807b-4ad6-8098-ae7b-fb6b2ad7f496" class="">
+</p></div><div style="display:contents" dir="auto"><h2 id="2375807b-4ad6-802d-bcc5-c572aab657d2" class=""><mark class="highlight-yellow">Okta 적용 단계</mark></h2></div><div style="display:contents" dir="auto"><ul id="2375807b-4ad6-8016-b263-c5236611a5b3" class="bulleted-list"><li style="list-style-type:disc">총 3단계로 <strong>준비단계</strong>에서부터<strong> 1, 2단계</strong>로 적용 할 예정입니다.[<a href="Moin%20ZeroTrust%20Security%20#4%20%EB%8B%A8%EA%B3%84%EB%B3%84%20%EA%B5%AC%ED%98%84/%EC%A0%9C%EB%AA%A9%20%EC%97%86%EC%9D%8C%202375807b4ad68064842ace07e2a87de2.html">단계별 리스트</a> 링크]<div style="display:contents" dir="auto"><ul id="2335807b-4ad6-80a8-8718-f16659ac6c32" class="bulleted-list"><li style="list-style-type:circle">준비단계: 단말기에 SSO인증 프로그램(okta verify) 설치(휴대폰/데스크톱) 및 사용중인 단말기에 MDM을 설치를 해봅니다.<div style="display:contents" dir="ltr"><figure id="2375807b-4ad6-80f6-9256-dfe5e2528702" class="image"><a href="Moin%20ZeroTrust%20Security%20#4%20%EB%8B%A8%EA%B3%84%EB%B3%84%20%EA%B5%AC%ED%98%84/image.png"><img style="width:624px" src="Moin%20ZeroTrust%20Security%20#4%20%EB%8B%A8%EA%B3%84%EB%B3%84%20%EA%B5%AC%ED%98%84/image.png"/></a></figure></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2315807b-4ad6-8072-8312-e0fb730a7c05" class="bulleted-list"><li style="list-style-type:circle">1단계: Slack, 노션, G-mail 등 모두가 사용하는 솔루션에 연동해서 지급된 단말기에서만 사용이 가능할거에요[개인의 노트북이나 타인의 PC에서는 로그인이 안되요.]<div style="display:contents" dir="auto"><ul id="2375807b-4ad6-80cf-a92b-e54de5371004" class="bulleted-list"><li style="list-style-type:square">초기 : okta로 구글로그인 후, 인증<div style="display:contents" dir="ltr"><figure id="2375807b-4ad6-8057-bb75-e91c6f191d54" class="image"><a href="Moin%20ZeroTrust%20Security%20#4%20%EB%8B%A8%EA%B3%84%EB%B3%84%20%EA%B5%AC%ED%98%84/image%201.png"><img style="width:653.96875px" src="Moin%20ZeroTrust%20Security%20#4%20%EB%8B%A8%EA%B3%84%EB%B3%84%20%EA%B5%AC%ED%98%84/image%201.png"/></a></figure></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2375807b-4ad6-80ee-b0ad-deb23d9ef5fe" class="bulleted-list"><li style="list-style-type:square">성숙 : okta로 바로 로그인(이때 서비스의 plan이 변경 될 수 있습니다)<div style="display:contents" dir="ltr"><figure id="2375807b-4ad6-807d-a463-f1c71141822d" class="image"><a href="Moin%20ZeroTrust%20Security%20#4%20%EB%8B%A8%EA%B3%84%EB%B3%84%20%EA%B5%AC%ED%98%84/image%202.png"><img style="width:489.982666015625px" src="Moin%20ZeroTrust%20Security%20#4%20%EB%8B%A8%EA%B3%84%EB%B3%84%20%EA%B5%AC%ED%98%84/image%202.png"/></a></figure></div></li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2315807b-4ad6-802a-af0a-eed13f495e73" class="bulleted-list"><li style="list-style-type:circle">2단계: MA/MBP Admin, 피그마, 그라파냐 등 부서별 업무 웹/서비스로 확장 예정입니다.<div style="display:contents" dir="ltr"><figure id="2375807b-4ad6-80eb-b6f1-d7c7a789bcb1" class="image"><a href="Moin%20ZeroTrust%20Security%20#4%20%EB%8B%A8%EA%B3%84%EB%B3%84%20%EA%B5%AC%ED%98%84/image%203.png"><img style="width:461.97052001953125px" src="Moin%20ZeroTrust%20Security%20#4%20%EB%8B%A8%EA%B3%84%EB%B3%84%20%EA%B5%AC%ED%98%84/image%203.png"/></a></figure></div></li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2375807b-4ad6-80de-9f26-cec2bc600141" class="toggle"><li><details open=""><summary><strong>단계별 적용 대상 리스트</strong></summary><div style="display:contents" dir="ltr"><div id="2375807b-4ad6-8064-842a-ce07e2a87de2" class="collection-content"><h4 class="collection-title">사용중인 서비스 및 sso연동 여부</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><img src="https://www.notion.so/icons/font_gray.svg" style="width:14px;height:14px;display:block"/></span>솔루션 이름</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>현재플랜</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>필요플랜</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>현재 인증 인가 방법</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>SAML가능 여부</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>SCIM가능 여부</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>즉시 Okta연동 가능</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>MZT단계</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>목표일</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>okta적용 여부</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/link_gray.svg" style="width:14px;height:14px;display:block"/></span>URL</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>비고</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>접속망</th></tr></thead><tbody><tr id="1f15807b-4ad6-8099-9768-d5050a2a6b6c"><td class="cell-title"><a href="../Product/2090de3bfb1644f58c70a9f073a1c0da/%EB%B3%B4%EC%95%88/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%20%EC%9A%B4%EC%98%81/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%EB%B3%84%20%EA%B0%80%EC%9D%B4%EB%93%9C/okta%20archive/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%A6%AC%EC%8A%A4%ED%8A%B8(MZT%EC%9A%A9)/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%B0%8F%20sso%EC%97%B0%EB%8F%99%20%EC%97%AC%EB%B6%80/apple(ABM)%201f15807b4ad680999768d5050a2a6b6c.html">apple(ABM)</a></td><td class="cell-XYtK">-</td><td class="cell-XuLp">즉시 가능</td><td class="cell-]W`~"><span class="selected-value select-value-color-orange">local</span></td><td class="cell-o{@:"><span class="selected-value select-value-color-brown">o</span></td><td class="cell-NtGe"><span class="selected-value select-value-color-brown">o</span></td><td class="cell-_QK~"><span class="selected-value select-value-color-yellow">o</span></td><td class="cell-}AmG"><span class="selected-value select-value-color-pink">준비단계</span></td><td class="cell-_na]"><time>@2025년 7월 25일</time></td><td class="cell-Pxua"><span class="selected-value select-value-color-purple">x</span></td><td class="cell-wGcW"><a href="business.apple.com" class="url-value">business.apple.com</a></td><td class="cell-@EcV"><a href="https://help.okta.com/oie/en-us/content/topics/apps/configure-apple-business-manager.htm">https://help.okta.com/oie/en-us/content/topics/apps/configure-apple-business-manager.htm</a><br/>현재 사용중인 @themoin.com의 계정이 있어서 해당 계정을 잠궈서 제거를 해야만 가능함</td><td class="cell-ej;q"><span class="selected-value select-value-color-pink">연구/개발망</span></td></tr><tr id="1f15807b-4ad6-8033-b756-d714ce0b6c0e"><td class="cell-title"><a href="../Product/2090de3bfb1644f58c70a9f073a1c0da/%EB%B3%B4%EC%95%88/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%20%EC%9A%B4%EC%98%81/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%EB%B3%84%20%EA%B0%80%EC%9D%B4%EB%93%9C/okta%20archive/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%A6%AC%EC%8A%A4%ED%8A%B8(MZT%EC%9A%A9)/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%B0%8F%20sso%EC%97%B0%EB%8F%99%20%EC%97%AC%EB%B6%80/windows%20macos%20-%20MDM%20password%20sync%201f15807b4ad68033b756d714ce0b6c0e.html">windows/macos - MDM password sync</a></td><td class="cell-XYtK">-</td><td class="cell-XuLp">즉시 가능</td><td class="cell-]W`~"><span class="selected-value select-value-color-orange">local</span></td><td class="cell-o{@:"><span class="selected-value select-value-color-default">x</span></td><td class="cell-NtGe"><span class="selected-value select-value-color-default">x</span></td><td class="cell-_QK~"><span class="selected-value select-value-color-yellow">o</span></td><td class="cell-}AmG"><span class="selected-value select-value-color-pink">준비단계</span></td><td class="cell-_na]"><time>@2025년 7월 25일</time></td><td class="cell-Pxua"><span class="selected-value select-value-color-orange">o</span></td><td class="cell-wGcW"></td><td class="cell-@EcV"></td><td class="cell-ej;q"><span class="selected-value select-value-color-orange">전체허용</span></td></tr><tr id="1f15807b-4ad6-8078-89e8-cffecf6925ba"><td class="cell-title"><a href="../Product/2090de3bfb1644f58c70a9f073a1c0da/%EB%B3%B4%EC%95%88/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%20%EC%9A%B4%EC%98%81/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%EB%B3%84%20%EA%B0%80%EC%9D%B4%EB%93%9C/okta%20archive/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%A6%AC%EC%8A%A4%ED%8A%B8(MZT%EC%9A%A9)/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%B0%8F%20sso%EC%97%B0%EB%8F%99%20%EC%97%AC%EB%B6%80/kandji(MacOS)%201f15807b4ad6807889e8cffecf6925ba.html">kandji(MacOS)</a></td><td class="cell-XYtK"></td><td class="cell-XuLp">즉시 가능</td><td class="cell-]W`~"><span class="selected-value select-value-color-orange">local</span></td><td class="cell-o{@:"><span class="selected-value select-value-color-brown">o</span></td><td class="cell-NtGe"><span class="selected-value select-value-color-brown">o</span></td><td class="cell-_QK~"><span class="selected-value select-value-color-yellow">o</span></td><td class="cell-}AmG"><span class="selected-value select-value-color-pink">준비단계</span></td><td class="cell-_na]"><time>@2025년 7월 25일</time></td><td class="cell-Pxua"><span class="selected-value select-value-color-orange">o</span></td><td class="cell-wGcW"><a href="themoin.kandji.io" class="url-value">themoin.kandji.io</a></td><td class="cell-@EcV"></td><td class="cell-ej;q"><span class="selected-value select-value-color-pink">연구/개발망</span></td></tr><tr id="1f15807b-4ad6-809a-b34a-fd0c696711cc"><td class="cell-title"><a href="../Product/2090de3bfb1644f58c70a9f073a1c0da/%EB%B3%B4%EC%95%88/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%20%EC%9A%B4%EC%98%81/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%EB%B3%84%20%EA%B0%80%EC%9D%B4%EB%93%9C/okta%20archive/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%A6%AC%EC%8A%A4%ED%8A%B8(MZT%EC%9A%A9)/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%B0%8F%20sso%EC%97%B0%EB%8F%99%20%EC%97%AC%EB%B6%80/intune(Windows)%201f15807b4ad6809ab34afd0c696711cc.html">intune(Windows)</a></td><td class="cell-XYtK">Free</td><td class="cell-XuLp">즉시 가능</td><td class="cell-]W`~"><span class="selected-value select-value-color-orange">local</span></td><td class="cell-o{@:"><span class="selected-value select-value-color-brown">o</span></td><td class="cell-NtGe"><span class="selected-value select-value-color-brown">o</span></td><td class="cell-_QK~"><span class="selected-value select-value-color-yellow">o</span></td><td class="cell-}AmG"><span class="selected-value select-value-color-pink">준비단계</span></td><td class="cell-_na]"><time>@2025년 7월 25일</time></td><td class="cell-Pxua"><span class="selected-value select-value-color-orange">o</span></td><td class="cell-wGcW"><a href="entra.microsoft.com" class="url-value">entra.microsoft.com</a></td><td class="cell-@EcV"></td><td class="cell-ej;q"><span class="selected-value select-value-color-pink">연구/개발망</span></td></tr><tr id="1f15807b-4ad6-80df-aa01-cf2b7f5ef214"><td class="cell-title"><a href="../Product/2090de3bfb1644f58c70a9f073a1c0da/%EB%B3%B4%EC%95%88/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%20%EC%9A%B4%EC%98%81/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%EB%B3%84%20%EA%B0%80%EC%9D%B4%EB%93%9C/okta%20archive/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%A6%AC%EC%8A%A4%ED%8A%B8(MZT%EC%9A%A9)/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%B0%8F%20sso%EC%97%B0%EB%8F%99%20%EC%97%AC%EB%B6%80/forticlient(ZTNA)%201f15807b4ad680dfaa01cf2b7f5ef214.html">forticlient(ZTNA)</a></td><td class="cell-XYtK">ztna edition</td><td class="cell-XuLp">즉시 가능</td><td class="cell-]W`~"><span class="selected-value select-value-color-orange">local</span></td><td class="cell-o{@:"><span class="selected-value select-value-color-brown">o</span></td><td class="cell-NtGe"><span class="selected-value select-value-color-default">x</span></td><td class="cell-_QK~"><span class="selected-value select-value-color-yellow">o</span></td><td class="cell-}AmG"><span class="selected-value select-value-color-red">1단계</span></td><td class="cell-_na]"><time>@2025년 7월 31일</time></td><td class="cell-Pxua"><span class="selected-value select-value-color-purple">x</span></td><td class="cell-wGcW"><a href="support.fortinet.com" class="url-value">support.fortinet.com</a></td><td class="cell-@EcV"></td><td class="cell-ej;q"><span class="selected-value select-value-color-orange">전체허용</span></td></tr><tr id="1f15807b-4ad6-803e-a8f0-cac500ae9f73"><td class="cell-title"><a href="../Product/2090de3bfb1644f58c70a9f073a1c0da/%EB%B3%B4%EC%95%88/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%20%EC%9A%B4%EC%98%81/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%EB%B3%84%20%EA%B0%80%EC%9D%B4%EB%93%9C/okta%20archive/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%A6%AC%EC%8A%A4%ED%8A%B8(MZT%EC%9A%A9)/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%B0%8F%20sso%EC%97%B0%EB%8F%99%20%EC%97%AC%EB%B6%80/google%20workspace(%EA%B5%AC%EA%B8%80)%201f15807b4ad6803ea8f0cac500ae9f73.html">google workspace(구글)</a></td><td class="cell-XYtK">business starter</td><td class="cell-XuLp">즉시 가능</td><td class="cell-]W`~"><span class="selected-value select-value-color-orange">local</span></td><td class="cell-o{@:"><span class="selected-value select-value-color-brown">o</span></td><td class="cell-NtGe"><span class="selected-value select-value-color-brown">o</span></td><td class="cell-_QK~"><span class="selected-value select-value-color-yellow">o</span></td><td class="cell-}AmG"><span class="selected-value select-value-color-red">1단계</span></td><td class="cell-_na]"><time>@2025년 7월 31일</time></td><td class="cell-Pxua"><span class="selected-value select-value-color-purple">x</span></td><td class="cell-wGcW"><a href="admin.google.com" class="url-value">admin.google.com</a></td><td class="cell-@EcV">관리자 권한 필요</td><td class="cell-ej;q"><span class="selected-value select-value-color-pink">연구/개발망</span></td></tr><tr id="1f15807b-4ad6-808d-b366-d74f308d3ea6"><td class="cell-title"><a href="../Product/2090de3bfb1644f58c70a9f073a1c0da/%EB%B3%B4%EC%95%88/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%20%EC%9A%B4%EC%98%81/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%EB%B3%84%20%EA%B0%80%EC%9D%B4%EB%93%9C/okta%20archive/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%A6%AC%EC%8A%A4%ED%8A%B8(MZT%EC%9A%A9)/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%B0%8F%20sso%EC%97%B0%EB%8F%99%20%EC%97%AC%EB%B6%80/notion(%EB%85%B8%EC%85%98)%201f15807b4ad6808db366d74f308d3ea6.html">notion(노션)</a></td><td class="cell-XYtK">플러스</td><td class="cell-XuLp">비지니스</td><td class="cell-]W`~"><span class="selected-value select-value-color-pink">google oauth</span></td><td class="cell-o{@:"><span class="selected-value select-value-color-default">x</span></td><td class="cell-NtGe"><span class="selected-value select-value-color-default">x</span></td><td class="cell-_QK~"><span class="selected-value select-value-color-default">x</span></td><td class="cell-}AmG"><span class="selected-value select-value-color-red">1단계</span></td><td class="cell-_na]"><time>@2025년 8월 15일</time></td><td class="cell-Pxua"><span class="selected-value select-value-color-purple">x</span></td><td class="cell-wGcW"><a href="notion.so" class="url-value">notion.so</a></td><td class="cell-@EcV">saml을 하려면 비즈니스<br/>scim을 하려면 엔터프라이즈 필요<br/>openapi를 제공하기에 scim대신 workflow로 할 수 있을거 같음</td><td class="cell-ej;q"><span class="selected-value select-value-color-pink">연구/개발망</span></td></tr><tr id="1f15807b-4ad6-80fe-a16c-e81e387a09ff"><td class="cell-title"><a href="../Product/2090de3bfb1644f58c70a9f073a1c0da/%EB%B3%B4%EC%95%88/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%20%EC%9A%B4%EC%98%81/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%EB%B3%84%20%EA%B0%80%EC%9D%B4%EB%93%9C/okta%20archive/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%A6%AC%EC%8A%A4%ED%8A%B8(MZT%EC%9A%A9)/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%B0%8F%20sso%EC%97%B0%EB%8F%99%20%EC%97%AC%EB%B6%80/slack(%EC%8A%AC%EB%9E%99)%201f15807b4ad680fea16ce81e387a09ff.html">slack(슬랙)</a></td><td class="cell-XYtK">pro</td><td class="cell-XuLp">business+</td><td class="cell-]W`~"><span class="selected-value select-value-color-pink">google oauth</span></td><td class="cell-o{@:"><span class="selected-value select-value-color-default">x</span></td><td class="cell-NtGe"><span class="selected-value select-value-color-default">x</span></td><td class="cell-_QK~"><span class="selected-value select-value-color-default">x</span></td><td class="cell-}AmG"><span class="selected-value select-value-color-red">1단계</span></td><td class="cell-_na]"><time>@2025년 8월 15일</time></td><td class="cell-Pxua"><span class="selected-value select-value-color-purple">x</span></td><td class="cell-wGcW"><a href="themoin.slack.com" class="url-value">themoin.slack.com</a></td><td class="cell-@EcV">business+이상이어야 saml가능하며, scim도 business+</td><td class="cell-ej;q"><span class="selected-value select-value-color-pink">연구/개발망</span></td></tr><tr id="2325807b-4ad6-801b-bfee-d12d5022102a"><td class="cell-title"><a href="../Product/2090de3bfb1644f58c70a9f073a1c0da/%EB%B3%B4%EC%95%88/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%20%EC%9A%B4%EC%98%81/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%EB%B3%84%20%EA%B0%80%EC%9D%B4%EB%93%9C/okta%20archive/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%A6%AC%EC%8A%A4%ED%8A%B8(MZT%EC%9A%A9)/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%B0%8F%20sso%EC%97%B0%EB%8F%99%20%EC%97%AC%EB%B6%80/MBP%EC%96%B4%EB%93%9C%EB%AF%BC%202325807b4ad6801bbfeed12d5022102a.html">MBP어드민</a></td><td class="cell-XYtK">-</td><td class="cell-XuLp">개발필요</td><td class="cell-]W`~"><span class="selected-value select-value-color-orange">local</span></td><td class="cell-o{@:"><span class="selected-value select-value-color-default">x</span></td><td class="cell-NtGe"><span class="selected-value select-value-color-default">x</span></td><td class="cell-_QK~"><span class="selected-value select-value-color-default">x</span></td><td class="cell-}AmG"><span class="selected-value select-value-color-orange">2단계</span></td><td class="cell-_na]"><time>@2025년 9월 30일</time></td><td class="cell-Pxua"><span class="selected-value select-value-color-purple">x</span></td><td class="cell-wGcW"></td><td class="cell-@EcV"></td><td class="cell-ej;q"><span class="selected-value select-value-color-gray">내부망</span></td></tr><tr id="2105807b-4ad6-805c-907d-c5e52d7dddcc"><td class="cell-title"><a href="../Product/2090de3bfb1644f58c70a9f073a1c0da/%EB%B3%B4%EC%95%88/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%20%EC%9A%B4%EC%98%81/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%EB%B3%84%20%EA%B0%80%EC%9D%B4%EB%93%9C/okta%20archive/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%A6%AC%EC%8A%A4%ED%8A%B8(MZT%EC%9A%A9)/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%B0%8F%20sso%EC%97%B0%EB%8F%99%20%EC%97%AC%EB%B6%80/Grafana%202105807b4ad6805c907dc5e52d7dddcc.html">Grafana</a></td><td class="cell-XYtK"></td><td class="cell-XuLp">즉시 가능</td><td class="cell-]W`~"><span class="selected-value select-value-color-orange">local</span></td><td class="cell-o{@:"><span class="selected-value select-value-color-brown">o</span></td><td class="cell-NtGe"><span class="selected-value select-value-color-brown">o</span></td><td class="cell-_QK~"><span class="selected-value select-value-color-yellow">o</span></td><td class="cell-}AmG"><span class="selected-value select-value-color-orange">2단계</span></td><td class="cell-_na]"><time>@2025년 8월 15일</time></td><td class="cell-Pxua"><span class="selected-value select-value-color-purple">x</span></td><td class="cell-wGcW"></td><td class="cell-@EcV">OIDC는 opensource도 가능: <a href="https://www.jacobbaek.com/1316">https://www.jacobbaek.com/1316</a><br/>scim은 엔터프라이즈만 가능</td><td class="cell-ej;q"><span class="selected-value select-value-color-gray">내부망</span></td></tr><tr id="2105807b-4ad6-8051-a754-f359458d63c3"><td class="cell-title"><a href="../Product/2090de3bfb1644f58c70a9f073a1c0da/%EB%B3%B4%EC%95%88/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%20%EC%9A%B4%EC%98%81/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%EB%B3%84%20%EA%B0%80%EC%9D%B4%EB%93%9C/okta%20archive/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%A6%AC%EC%8A%A4%ED%8A%B8(MZT%EC%9A%A9)/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%B0%8F%20sso%EC%97%B0%EB%8F%99%20%EC%97%AC%EB%B6%80/MA%EC%96%B4%EB%93%9C%EB%AF%BC%202105807b4ad68051a754f359458d63c3.html">MA어드민</a></td><td class="cell-XYtK">-</td><td class="cell-XuLp">개발필요</td><td class="cell-]W`~"><span class="selected-value select-value-color-orange">local</span></td><td class="cell-o{@:"><span class="selected-value select-value-color-default">x</span></td><td class="cell-NtGe"><span class="selected-value select-value-color-default">x</span></td><td class="cell-_QK~"><span class="selected-value select-value-color-default">x</span></td><td class="cell-}AmG"><span class="selected-value select-value-color-orange">2단계</span></td><td class="cell-_na]"><time>@2025년 9월 30일</time></td><td class="cell-Pxua"><span class="selected-value select-value-color-purple">x</span></td><td class="cell-wGcW"></td><td class="cell-@EcV"></td><td class="cell-ej;q"><span class="selected-value select-value-color-gray">내부망</span></td></tr><tr id="2105807b-4ad6-80ba-ba80-f0b7c5d02184"><td class="cell-title"><a href="../Product/2090de3bfb1644f58c70a9f073a1c0da/%EB%B3%B4%EC%95%88/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%20%EC%9A%B4%EC%98%81/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%EB%B3%84%20%EA%B0%80%EC%9D%B4%EB%93%9C/okta%20archive/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%A6%AC%EC%8A%A4%ED%8A%B8(MZT%EC%9A%A9)/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%B0%8F%20sso%EC%97%B0%EB%8F%99%20%EC%97%AC%EB%B6%80/Jetbrain%202105807b4ad680baba80f0b7c5d02184.html">Jetbrain</a></td><td class="cell-XYtK">확인필요</td><td class="cell-XuLp">확인필요</td><td class="cell-]W`~"><span class="selected-value select-value-color-pink">google oauth</span></td><td class="cell-o{@:"></td><td class="cell-NtGe"></td><td class="cell-_QK~"><span class="selected-value select-value-color-default">x</span></td><td class="cell-}AmG"><span class="selected-value select-value-color-orange">2단계</span></td><td class="cell-_na]"><time>@2025년 9월 30일</time></td><td class="cell-Pxua"><span class="selected-value select-value-color-purple">x</span></td><td class="cell-wGcW"><a href="account.jetbrains.com" class="url-value">account.jetbrains.com</a></td><td class="cell-@EcV"></td><td class="cell-ej;q"><span class="selected-value select-value-color-pink">연구/개발망</span></td></tr><tr id="2105807b-4ad6-8082-a287-e2b9d54f4be2"><td class="cell-title"><a href="../Product/2090de3bfb1644f58c70a9f073a1c0da/%EB%B3%B4%EC%95%88/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%20%EC%9A%B4%EC%98%81/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%EB%B3%84%20%EA%B0%80%EC%9D%B4%EB%93%9C/okta%20archive/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%A6%AC%EC%8A%A4%ED%8A%B8(MZT%EC%9A%A9)/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%B0%8F%20sso%EC%97%B0%EB%8F%99%20%EC%97%AC%EB%B6%80/shorebird%202105807b4ad68082a287e2b9d54f4be2.html">shorebird</a></td><td class="cell-XYtK">확인필요</td><td class="cell-XuLp">enterprise</td><td class="cell-]W`~"><span class="selected-value select-value-color-orange">local</span></td><td class="cell-o{@:"><span class="selected-value select-value-color-brown">o</span></td><td class="cell-NtGe"><span class="selected-value select-value-color-default">x</span></td><td class="cell-_QK~"><span class="selected-value select-value-color-default">x</span></td><td class="cell-}AmG"><span class="selected-value select-value-color-orange">2단계</span></td><td class="cell-_na]"><time>@2025년 9월 30일</time></td><td class="cell-Pxua"><span class="selected-value select-value-color-purple">x</span></td><td class="cell-wGcW"><a href="shorebird.dev" class="url-value">shorebird.dev</a></td><td class="cell-@EcV">엔터프라이즈 플랜 이상이어ㅑ 가능</td><td class="cell-ej;q"><span class="selected-value select-value-color-pink">연구/개발망</span></td></tr><tr id="2105807b-4ad6-8032-913b-e2c2b8cdc693"><td class="cell-title"><a href="../Product/2090de3bfb1644f58c70a9f073a1c0da/%EB%B3%B4%EC%95%88/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%20%EC%9A%B4%EC%98%81/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%EB%B3%84%20%EA%B0%80%EC%9D%B4%EB%93%9C/okta%20archive/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%A6%AC%EC%8A%A4%ED%8A%B8(MZT%EC%9A%A9)/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%B0%8F%20sso%EC%97%B0%EB%8F%99%20%EC%97%AC%EB%B6%80/cursor%202105807b4ad68032913be2c2b8cdc693.html">cursor</a></td><td class="cell-XYtK">team plan</td><td class="cell-XuLp">team plan</td><td class="cell-]W`~"><span class="selected-value select-value-color-pink">google oauth</span></td><td class="cell-o{@:"><span class="selected-value select-value-color-brown">o</span></td><td class="cell-NtGe"><span class="selected-value select-value-color-brown">o</span></td><td class="cell-_QK~"><span class="selected-value select-value-color-yellow">o</span></td><td class="cell-}AmG"><span class="selected-value select-value-color-orange">2단계</span></td><td class="cell-_na]"><time>@2025년 8월 15일</time></td><td class="cell-Pxua"><span class="selected-value select-value-color-purple">x</span></td><td class="cell-wGcW"><a href="cursor.com" class="url-value">cursor.com</a></td><td class="cell-@EcV">sso: <a href="https://docs.cursor.com/account/teams/sso">https://docs.cursor.com/account/teams/sso</a><br/>scim은 엔터프라이즈 플랜부터: <a href="https://docs.cursor.com/account/teams/scim">https://docs.cursor.com/account/teams/scim</a></td><td class="cell-ej;q"><span class="selected-value select-value-color-pink">연구/개발망</span></td></tr><tr id="2105807b-4ad6-8048-9fcd-da76e4c470f3"><td class="cell-title"><a href="../Product/2090de3bfb1644f58c70a9f073a1c0da/%EB%B3%B4%EC%95%88/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%20%EC%9A%B4%EC%98%81/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%EB%B3%84%20%EA%B0%80%EC%9D%B4%EB%93%9C/okta%20archive/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%A6%AC%EC%8A%A4%ED%8A%B8(MZT%EC%9A%A9)/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%B0%8F%20sso%EC%97%B0%EB%8F%99%20%EC%97%AC%EB%B6%80/chatgpt%202105807b4ad680489fcdda76e4c470f3.html">chatgpt</a></td><td class="cell-XYtK">확인필요</td><td class="cell-XuLp">team</td><td class="cell-]W`~"><span class="selected-value select-value-color-pink">google oauth</span></td><td class="cell-o{@:"><span class="selected-value select-value-color-brown">o</span></td><td class="cell-NtGe"><span class="selected-value select-value-color-default">x</span></td><td class="cell-_QK~"><span class="selected-value select-value-color-default">x</span></td><td class="cell-}AmG"><span class="selected-value select-value-color-orange">2단계</span></td><td class="cell-_na]"><time>@2025년 9월 30일</time></td><td class="cell-Pxua"><span class="selected-value select-value-color-purple">x</span></td><td class="cell-wGcW"><a href="https://chatgpt.com" class="url-value">https://chatgpt.com</a></td><td class="cell-@EcV">team플랜 이상이어야 가능<br/><a href="https://help.openai.com/en/articles/9534785-configuring-sso-for-chatgpt">https://help.openai.com/en/articles/9534785-configuring-sso-for-chatgpt</a></td><td class="cell-ej;q"><span class="selected-value select-value-color-pink">연구/개발망</span></td></tr><tr id="2105807b-4ad6-8088-bf7c-d459844791b2"><td class="cell-title"><a href="../Product/2090de3bfb1644f58c70a9f073a1c0da/%EB%B3%B4%EC%95%88/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%20%EC%9A%B4%EC%98%81/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%EB%B3%84%20%EA%B0%80%EC%9D%B4%EB%93%9C/okta%20archive/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%A6%AC%EC%8A%A4%ED%8A%B8(MZT%EC%9A%A9)/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%B0%8F%20sso%EC%97%B0%EB%8F%99%20%EC%97%AC%EB%B6%80/claude%20ai%202105807b4ad68088bf7cd459844791b2.html">claude.ai</a></td><td class="cell-XYtK">확인필요</td><td class="cell-XuLp">enterprise</td><td class="cell-]W`~"><span class="selected-value select-value-color-orange">local</span></td><td class="cell-o{@:"><span class="selected-value select-value-color-brown">o</span></td><td class="cell-NtGe"><span class="selected-value select-value-color-brown">o</span></td><td class="cell-_QK~"><span class="selected-value select-value-color-default">x</span></td><td class="cell-}AmG"><span class="selected-value select-value-color-orange">2단계</span></td><td class="cell-_na]"><time>@2025년 9월 30일</time></td><td class="cell-Pxua"><span class="selected-value select-value-color-purple">x</span></td><td class="cell-wGcW"><a href="claude.ai" class="url-value">claude.ai</a></td><td class="cell-@EcV">enterprise 플랜 이상이어야 saml 가능<br/><a href="https://support.anthropic.com/en/articles/9797544-setting-up-single-sign-on-on-the-enterprise-plan#h_57f0a1ec06">https://support.anthropic.com/en/articles/9797544-setting-up-single-sign-on-on-the-enterprise-plan#h_57f0a1ec06</a></td><td class="cell-ej;q"><span class="selected-value select-value-color-pink">연구/개발망</span></td></tr><tr id="1fa5807b-4ad6-80ea-8c3a-d5de5ca8737a"><td class="cell-title"><a href="../Product/2090de3bfb1644f58c70a9f073a1c0da/%EB%B3%B4%EC%95%88/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%20%EC%9A%B4%EC%98%81/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%EB%B3%84%20%EA%B0%80%EC%9D%B4%EB%93%9C/okta%20archive/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%A6%AC%EC%8A%A4%ED%8A%B8(MZT%EC%9A%A9)/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%B0%8F%20sso%EC%97%B0%EB%8F%99%20%EC%97%AC%EB%B6%80/%ED%95%B5%ED%81%B4%201fa5807b4ad680ea8c3ad5de5ca8737a.html">핵클</a></td><td class="cell-XYtK">확인필요</td><td class="cell-XuLp">enterprise</td><td class="cell-]W`~"><span class="selected-value select-value-color-pink">google oauth</span></td><td class="cell-o{@:"><span class="selected-value select-value-color-brown">o</span></td><td class="cell-NtGe"><span class="selected-value select-value-color-default">x</span></td><td class="cell-_QK~"><span class="selected-value select-value-color-default">x</span></td><td class="cell-}AmG"><span class="selected-value select-value-color-orange">2단계</span></td><td class="cell-_na]"><time>@2025년 9월 30일</time></td><td class="cell-Pxua"><span class="selected-value select-value-color-purple">x</span></td><td class="cell-wGcW"><a href="hackle.io" class="url-value">hackle.io</a></td><td class="cell-@EcV">엔터프라이즈 플랜 이상이어야 sso가능</td><td class="cell-ej;q"><span class="selected-value select-value-color-pink">연구/개발망</span></td></tr><tr id="1f95807b-4ad6-8070-a92c-efecb27da1e7"><td class="cell-title"><a href="../Product/2090de3bfb1644f58c70a9f073a1c0da/%EB%B3%B4%EC%95%88/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%20%EC%9A%B4%EC%98%81/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%EB%B3%84%20%EA%B0%80%EC%9D%B4%EB%93%9C/okta%20archive/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%A6%AC%EC%8A%A4%ED%8A%B8(MZT%EC%9A%A9)/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%B0%8F%20sso%EC%97%B0%EB%8F%99%20%EC%97%AC%EB%B6%80/vercel%201f95807b4ad68070a92cefecb27da1e7.html">vercel</a></td><td class="cell-XYtK">확인필요</td><td class="cell-XuLp">enterprise</td><td class="cell-]W`~"><span class="selected-value select-value-color-orange">local</span></td><td class="cell-o{@:"><span class="selected-value select-value-color-brown">o</span></td><td class="cell-NtGe"><span class="selected-value select-value-color-brown">o</span></td><td class="cell-_QK~"><span class="selected-value select-value-color-default">x</span></td><td class="cell-}AmG"><span class="selected-value select-value-color-orange">2단계</span></td><td class="cell-_na]"><time>@2025년 9월 30일</time></td><td class="cell-Pxua"><span class="selected-value select-value-color-purple">x</span></td><td class="cell-wGcW"><a href="vercel.com" class="url-value">vercel.com</a></td><td class="cell-@EcV">saml/scim은 엔터프라이즈 이상 가능<br/><a href="https://vercel.com/docs/saml">https://vercel.com/docs/saml</a></td><td class="cell-ej;q"><span class="selected-value select-value-color-pink">연구/개발망</span></td></tr><tr id="1f95807b-4ad6-806b-bdd5-f15ca0c7a9d8"><td class="cell-title"><a href="../Product/2090de3bfb1644f58c70a9f073a1c0da/%EB%B3%B4%EC%95%88/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%20%EC%9A%B4%EC%98%81/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%EB%B3%84%20%EA%B0%80%EC%9D%B4%EB%93%9C/okta%20archive/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%A6%AC%EC%8A%A4%ED%8A%B8(MZT%EC%9A%A9)/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%B0%8F%20sso%EC%97%B0%EB%8F%99%20%EC%97%AC%EB%B6%80/%EC%A0%A0%ED%82%A8%EC%8A%A4%201f95807b4ad6806bbdd5f15ca0c7a9d8.html">젠킨스</a></td><td class="cell-XYtK"></td><td class="cell-XuLp">plugin필요</td><td class="cell-]W`~"><span class="selected-value select-value-color-orange">local</span></td><td class="cell-o{@:"><span class="selected-value select-value-color-brown">o</span></td><td class="cell-NtGe"><span class="selected-value select-value-color-default">x</span></td><td class="cell-_QK~"><span class="selected-value select-value-color-yellow">o</span></td><td class="cell-}AmG"><span class="selected-value select-value-color-orange">2단계</span></td><td class="cell-_na]"><time>@2025년 8월 15일</time></td><td class="cell-Pxua"><span class="selected-value select-value-color-purple">x</span></td><td class="cell-wGcW"><a href="jenkins.themoin.com" class="url-value">jenkins.themoin.com</a></td><td class="cell-@EcV"><a href="https://medium.com/globant/jenkins-secured-authentication-with-okta-saml-and-authorization-strategy-bc8408fd8d">https://medium.com/globant/jenkins-secured-authentication-with-okta-saml-and-authorization-strategy-bc8408fd8d</a></td><td class="cell-ej;q"><span class="selected-value select-value-color-pink">연구/개발망</span></td></tr><tr id="1f45807b-4ad6-80e4-aaca-ff725925ba24"><td class="cell-title"><a href="../Product/2090de3bfb1644f58c70a9f073a1c0da/%EB%B3%B4%EC%95%88/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%20%EC%9A%B4%EC%98%81/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%EB%B3%84%20%EA%B0%80%EC%9D%B4%EB%93%9C/okta%20archive/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%A6%AC%EC%8A%A4%ED%8A%B8(MZT%EC%9A%A9)/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%B0%8F%20sso%EC%97%B0%EB%8F%99%20%EC%97%AC%EB%B6%80/%ED%8F%AC%EC%8A%A4%ED%8A%B8%EB%A7%A8%201f45807b4ad680e4aacaff725925ba24.html">포스트맨</a></td><td class="cell-XYtK">-</td><td class="cell-XuLp">enterprise</td><td class="cell-]W`~"><span class="selected-value select-value-color-pink">google oauth</span></td><td class="cell-o{@:"><span class="selected-value select-value-color-brown">o</span></td><td class="cell-NtGe"><span class="selected-value select-value-color-brown">o</span></td><td class="cell-_QK~"><span class="selected-value select-value-color-default">x</span></td><td class="cell-}AmG"><span class="selected-value select-value-color-orange">2단계</span></td><td class="cell-_na]"><time>@2025년 9월 30일</time></td><td class="cell-Pxua"><span class="selected-value select-value-color-purple">x</span></td><td class="cell-wGcW"><a href="www.postman.com" class="url-value">www.postman.com</a></td><td class="cell-@EcV">enterprise이상부터 가능<br/><a href="https://learning.postman.com/docs/administration/sso/okta/">https://learning.postman.com/docs/administration/sso/okta/</a><br/><a href="https://learning.postman.com/docs/administration/scim-provisioning/configuring-scim-with-okta/">https://learning.postman.com/docs/administration/scim-provisioning/configuring-scim-with-okta/</a></td><td class="cell-ej;q"><span class="selected-value select-value-color-pink">연구/개발망</span></td></tr><tr id="1f15807b-4ad6-80eb-942e-e293821fca04"><td class="cell-title"><a href="../Product/2090de3bfb1644f58c70a9f073a1c0da/%EB%B3%B4%EC%95%88/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%20%EC%9A%B4%EC%98%81/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%EB%B3%84%20%EA%B0%80%EC%9D%B4%EB%93%9C/okta%20archive/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%A6%AC%EC%8A%A4%ED%8A%B8(MZT%EC%9A%A9)/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%B0%8F%20sso%EC%97%B0%EB%8F%99%20%EC%97%AC%EB%B6%80/%EC%B1%84%EB%84%90%ED%86%A1%201f15807b4ad680eb942ee293821fca04.html">채널톡</a></td><td class="cell-XYtK">그로스</td><td class="cell-XuLp">enterprise</td><td class="cell-]W`~"><span class="selected-value select-value-color-orange">local</span></td><td class="cell-o{@:"><span class="selected-value select-value-color-brown">o</span></td><td class="cell-NtGe"><span class="selected-value select-value-color-default">x</span></td><td class="cell-_QK~"><span class="selected-value select-value-color-default">x</span></td><td class="cell-}AmG"><span class="selected-value select-value-color-orange">2단계</span></td><td class="cell-_na]"><time>@2025년 9월 30일</time></td><td class="cell-Pxua"><span class="selected-value select-value-color-purple">x</span></td><td class="cell-wGcW"><a href="channel.io" class="url-value">channel.io</a></td><td class="cell-@EcV">엔터프라이즈 이상 사용해야 saml가능</td><td class="cell-ej;q"><span class="selected-value select-value-color-pink">연구/개발망</span></td></tr><tr id="1f15807b-4ad6-802d-afbb-e147ef4e4c11"><td class="cell-title"><a href="../Product/2090de3bfb1644f58c70a9f073a1c0da/%EB%B3%B4%EC%95%88/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%20%EC%9A%B4%EC%98%81/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%EB%B3%84%20%EA%B0%80%EC%9D%B4%EB%93%9C/okta%20archive/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%A6%AC%EC%8A%A4%ED%8A%B8(MZT%EC%9A%A9)/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%B0%8F%20sso%EC%97%B0%EB%8F%99%20%EC%97%AC%EB%B6%80/sentry%201f15807b4ad6802dafbbe147ef4e4c11.html">sentry</a></td><td class="cell-XYtK">team</td><td class="cell-XuLp">business</td><td class="cell-]W`~"><span class="selected-value select-value-color-pink">google oauth</span></td><td class="cell-o{@:"><span class="selected-value select-value-color-brown">o</span></td><td class="cell-NtGe"><span class="selected-value select-value-color-brown">o</span></td><td class="cell-_QK~"><span class="selected-value select-value-color-yellow">o</span></td><td class="cell-}AmG"><span class="selected-value select-value-color-orange">2단계</span></td><td class="cell-_na]"><time>@2025년 8월 15일</time></td><td class="cell-Pxua"><span class="selected-value select-value-color-purple">x</span></td><td class="cell-wGcW"><a href="sentry.io" class="url-value">sentry.io</a></td><td class="cell-@EcV"><a href="https://docs.sentry.io/organization/authentication/sso/okta-sso/">https://docs.sentry.io/organization/authentication/sso/okta-sso/</a></td><td class="cell-ej;q"><span class="selected-value select-value-color-pink">연구/개발망</span></td></tr><tr id="1f15807b-4ad6-8031-b5ff-f3974821d8fb"><td class="cell-title"><a href="../Product/2090de3bfb1644f58c70a9f073a1c0da/%EB%B3%B4%EC%95%88/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%20%EC%9A%B4%EC%98%81/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%EB%B3%84%20%EA%B0%80%EC%9D%B4%EB%93%9C/okta%20archive/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%A6%AC%EC%8A%A4%ED%8A%B8(MZT%EC%9A%A9)/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%B0%8F%20sso%EC%97%B0%EB%8F%99%20%EC%97%AC%EB%B6%80/adobe%201f15807b4ad68031b5fff3974821d8fb.html">adobe</a></td><td class="cell-XYtK"></td><td class="cell-XuLp">즉시 가능</td><td class="cell-]W`~"><span class="selected-value select-value-color-orange">local</span></td><td class="cell-o{@:"><span class="selected-value select-value-color-brown">o</span></td><td class="cell-NtGe"><span class="selected-value select-value-color-default">x</span></td><td class="cell-_QK~"><span class="selected-value select-value-color-yellow">o</span></td><td class="cell-}AmG"><span class="selected-value select-value-color-orange">2단계</span></td><td class="cell-_na]"><time>@2025년 8월 15일</time></td><td class="cell-Pxua"><span class="selected-value select-value-color-purple">x</span></td><td class="cell-wGcW"><a href="www.adobe.com" class="url-value">www.adobe.com</a></td><td class="cell-@EcV"><a href="https://helpx.adobe.com/kr/enterprise/kb/configure-okta-with-adobe-sso.html">https://helpx.adobe.com/kr/enterprise/kb/configure-okta-with-adobe-sso.html</a><br/>scim불가: <a href="https://community.adobe.com/t5/enterprise-teams-discussions/please-enable-scim-provisioning-for-okta-for-cc-logins/td-p/13629981">https://community.adobe.com/t5/enterprise-teams-discussions/please-enable-scim-provisioning-for-okta-for-cc-logins/td-p/13629981</a></td><td class="cell-ej;q"><span class="selected-value select-value-color-pink">연구/개발망</span></td></tr><tr id="1f15807b-4ad6-80b5-a5d7-eb5f0fff6cdc"><td class="cell-title"><a href="../Product/2090de3bfb1644f58c70a9f073a1c0da/%EB%B3%B4%EC%95%88/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%20%EC%9A%B4%EC%98%81/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%EB%B3%84%20%EA%B0%80%EC%9D%B4%EB%93%9C/okta%20archive/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%A6%AC%EC%8A%A4%ED%8A%B8(MZT%EC%9A%A9)/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%B0%8F%20sso%EC%97%B0%EB%8F%99%20%EC%97%AC%EB%B6%80/figma%201f15807b4ad680b5a5d7eb5f0fff6cdc.html">figma</a></td><td class="cell-XYtK"></td><td class="cell-XuLp">enterprise</td><td class="cell-]W`~"><span class="selected-value select-value-color-pink">google oauth</span></td><td class="cell-o{@:"><span class="selected-value select-value-color-brown">o</span></td><td class="cell-NtGe"><span class="selected-value select-value-color-brown">o</span></td><td class="cell-_QK~"><span class="selected-value select-value-color-default">x</span></td><td class="cell-}AmG"><span class="selected-value select-value-color-orange">2단계</span></td><td class="cell-_na]"><time>@2025년 9월 30일</time></td><td class="cell-Pxua"><span class="selected-value select-value-color-purple">x</span></td><td class="cell-wGcW"><a href="www.figma.com" class="url-value">www.figma.com</a></td><td class="cell-@EcV">enterprise플랜 이상 가능<br/><a href="https://help.figma.com/hc/en-us/articles/360040532353-SAML-SSO-with-Okta">https://help.figma.com/hc/en-us/articles/360040532353-SAML-SSO-with-Okta</a></td><td class="cell-ej;q"><span class="selected-value select-value-color-pink">연구/개발망</span></td></tr><tr id="1f15807b-4ad6-80a4-98cc-c1e39a6b4f97"><td class="cell-title"><a href="../Product/2090de3bfb1644f58c70a9f073a1c0da/%EB%B3%B4%EC%95%88/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%20%EC%9A%B4%EC%98%81/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%EB%B3%84%20%EA%B0%80%EC%9D%B4%EB%93%9C/okta%20archive/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%A6%AC%EC%8A%A4%ED%8A%B8(MZT%EC%9A%A9)/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%B0%8F%20sso%EC%97%B0%EB%8F%99%20%EC%97%AC%EB%B6%80/github%201f15807b4ad680a498ccc1e39a6b4f97.html">github</a></td><td class="cell-XYtK">team</td><td class="cell-XuLp">enterprise</td><td class="cell-]W`~"><span class="selected-value select-value-color-pink">google oauth</span></td><td class="cell-o{@:"><span class="selected-value select-value-color-brown">o</span></td><td class="cell-NtGe"><span class="selected-value select-value-color-brown">o</span></td><td class="cell-_QK~"><span class="selected-value select-value-color-default">x</span></td><td class="cell-}AmG"><span class="selected-value select-value-color-orange">2단계</span></td><td class="cell-_na]"><time>@2025년 9월 30일</time></td><td class="cell-Pxua"><span class="selected-value select-value-color-purple">x</span></td><td class="cell-wGcW"><a href="github.com" class="url-value">github.com</a></td><td class="cell-@EcV">saml하려면 enterprise를 사용해야 한다<br/><a href="https://docs.github.com/ko/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization">https://docs.github.com/ko/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization</a></td><td class="cell-ej;q"><span class="selected-value select-value-color-pink">연구/개발망</span></td></tr><tr id="1f15807b-4ad6-80fe-aaf1-cbc11a4d57be"><td class="cell-title"><a href="../Product/2090de3bfb1644f58c70a9f073a1c0da/%EB%B3%B4%EC%95%88/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%20%EC%9A%B4%EC%98%81/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%EB%B3%84%20%EA%B0%80%EC%9D%B4%EB%93%9C/okta%20archive/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%A6%AC%EC%8A%A4%ED%8A%B8(MZT%EC%9A%A9)/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%B0%8F%20sso%EC%97%B0%EB%8F%99%20%EC%97%AC%EB%B6%80/aws%20identity%20center(%EC%95%84%EC%9D%B4%EB%8D%B4%ED%8B%B0%ED%8B%B0%20%EC%84%BC%ED%84%B0)%201f15807b4ad680feaaf1cbc11a4d57be.html">aws identity center(아이덴티티 센터)</a></td><td class="cell-XYtK">-</td><td class="cell-XuLp">즉시 가능</td><td class="cell-]W`~"><span class="selected-value select-value-color-orange">local</span></td><td class="cell-o{@:"><span class="selected-value select-value-color-brown">o</span></td><td class="cell-NtGe"><span class="selected-value select-value-color-brown">o</span></td><td class="cell-_QK~"><span class="selected-value select-value-color-yellow">o</span></td><td class="cell-}AmG"><span class="selected-value select-value-color-orange">2단계</span></td><td class="cell-_na]"><time>@2025년 8월 15일</time></td><td class="cell-Pxua"><span class="selected-value select-value-color-orange">o</span></td><td class="cell-wGcW"><a href="https://d-9b67624a58.awsapps.com/start/#/?tab=accounts" class="url-value">https://d-9b67624a58.awsapps.com/start/#/?tab=accounts</a></td><td class="cell-@EcV"></td><td class="cell-ej;q"><span class="selected-value select-value-color-gray">내부망</span><span class="selected-value select-value-color-pink">연구/개발망</span></td></tr><tr id="1f15807b-4ad6-8047-8b29-dcc57092afb2"><td class="cell-title"><a href="../Product/2090de3bfb1644f58c70a9f073a1c0da/%EB%B3%B4%EC%95%88/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%20%EC%9A%B4%EC%98%81/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%EB%B3%84%20%EA%B0%80%EC%9D%B4%EB%93%9C/okta%20archive/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%A6%AC%EC%8A%A4%ED%8A%B8(MZT%EC%9A%A9)/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%B0%8F%20sso%EC%97%B0%EB%8F%99%20%EC%97%AC%EB%B6%80/querypie(%EC%BF%BC%EB%A6%AC%ED%8C%8C%EC%9D%B4)%201f15807b4ad680478b29dcc57092afb2.html">querypie(쿼리파이)</a></td><td class="cell-XYtK">-</td><td class="cell-XuLp">즉시 가능</td><td class="cell-]W`~"><span class="selected-value select-value-color-orange">local</span></td><td class="cell-o{@:"><span class="selected-value select-value-color-brown">o</span></td><td class="cell-NtGe"><span class="selected-value select-value-color-brown">o</span></td><td class="cell-_QK~"><span class="selected-value select-value-color-yellow">o</span></td><td class="cell-}AmG"><span class="selected-value select-value-color-orange">2단계</span></td><td class="cell-_na]"><time>@2025년 8월 15일</time></td><td class="cell-Pxua"><span class="selected-value select-value-color-orange">o</span></td><td class="cell-wGcW"><a href="quetypie.int.themoin.com" class="url-value">quetypie.int.themoin.com</a></td><td class="cell-@EcV"></td><td class="cell-ej;q"><span class="selected-value select-value-color-gray">내부망</span></td></tr><tr id="1f15807b-4ad6-80b3-88ba-c36ec6b17c0a"><td class="cell-title"><a href="../Product/2090de3bfb1644f58c70a9f073a1c0da/%EB%B3%B4%EC%95%88/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%20%EC%9A%B4%EC%98%81/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%EB%B3%84%20%EA%B0%80%EC%9D%B4%EB%93%9C/okta%20archive/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%A6%AC%EC%8A%A4%ED%8A%B8(MZT%EC%9A%A9)/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%B0%8F%20sso%EC%97%B0%EB%8F%99%20%EC%97%AC%EB%B6%80/fortigate(%ED%8F%AC%ED%8B%B0%EA%B2%8C%EC%9D%B4%ED%8A%B8)%201f15807b4ad680b388bac36ec6b17c0a.html">fortigate(포티게이트)</a></td><td class="cell-XYtK">-</td><td class="cell-XuLp">즉시 가능</td><td class="cell-]W`~"><span class="selected-value select-value-color-orange">local</span></td><td class="cell-o{@:"><span class="selected-value select-value-color-brown">o</span></td><td class="cell-NtGe"><span class="selected-value select-value-color-default">x</span></td><td class="cell-_QK~"><span class="selected-value select-value-color-yellow">o</span></td><td class="cell-}AmG"><span class="selected-value select-value-color-orange">2단계</span></td><td class="cell-_na]"><time>@2025년 8월 15일</time></td><td class="cell-Pxua"><span class="selected-value select-value-color-orange">o</span></td><td class="cell-wGcW"><a href="htps://192.168.0.1" class="url-value">htps://192.168.0.1</a></td><td class="cell-@EcV"></td><td class="cell-ej;q"><span class="selected-value select-value-color-gray">내부망</span></td></tr><tr id="1f15807b-4ad6-801e-9db9-ccde0c07f5b7"><td class="cell-title"><a href="../Product/2090de3bfb1644f58c70a9f073a1c0da/%EB%B3%B4%EC%95%88/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%20%EC%9A%B4%EC%98%81/%EB%B3%B4%EC%95%88%20%EC%86%94%EB%A3%A8%EC%85%98%EB%B3%84%20%EA%B0%80%EC%9D%B4%EB%93%9C/okta%20archive/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%A6%AC%EC%8A%A4%ED%8A%B8(MZT%EC%9A%A9)/%EC%82%AC%EC%9A%A9%EC%A4%91%EC%9D%B8%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%B0%8F%20sso%EC%97%B0%EB%8F%99%20%EC%97%AC%EB%B6%80/atlassian(%EC%95%84%ED%8B%80%EB%9D%BC%EC%8B%9C%EC%95%88)%201f15807b4ad6801e9db9ccde0c07f5b7.html">atlassian(아틀라시안)</a></td><td class="cell-XYtK">guard 없음</td><td class="cell-XuLp">guard 추가 구독</td><td class="cell-]W`~"><span class="selected-value select-value-color-pink">google oauth</span></td><td class="cell-o{@:"><span class="selected-value select-value-color-default">x</span></td><td class="cell-NtGe"><span class="selected-value select-value-color-default">x</span></td><td class="cell-_QK~"><span class="selected-value select-value-color-default">x</span></td><td class="cell-}AmG"><span class="selected-value select-value-color-orange">2단계</span></td><td class="cell-_na]"><time>@2025년 9월 30일</time></td><td class="cell-Pxua"><span class="selected-value select-value-color-purple">x</span></td><td class="cell-wGcW"><a href="id.atlassian.com" class="url-value">id.atlassian.com</a></td><td class="cell-@EcV">atlassian은 saml및 scim을 사용하려면 atlassian guard를 구독하면 된다.</td><td class="cell-ej;q"><span class="selected-value select-value-color-pink">연구/개발망</span></td></tr></tbody></table><br/><br/></div></div></details></li></ul></div><div style="display:contents" dir="auto"><p id="2655807b-4ad6-8044-ae33-e2adb8543548" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

@@ -1,0 +1,42 @@
+#!/usr/bin/expect -f
+set timeout 600
+
+# 1. Upload the tarball
+spawn scp -i /Users/yunhyeok/triedit-dev.pem -o StrictHostKeyChecking=no /Users/yunhyeok/portfolio/deploy_package.tar.gz root@49.50.139.88:/root/portfolio/
+expect {
+    "password:" { send "R4+r525MP5DiBi\r"; exp_continue }
+    eof
+}
+
+# 2. SSH and Deploy
+spawn ssh -i /Users/yunhyeok/triedit-dev.pem -o StrictHostKeyChecking=no root@49.50.139.88
+expect "password:"
+send "R4+r525MP5DiBi\r"
+expect "#"
+
+# Go to directory
+send "cd portfolio\r"
+expect "#"
+
+# Extract files (overwrite)
+send "tar -xzf deploy_package.tar.gz\r"
+expect "#"
+
+# Clean install to ensure everything is fresh
+send "rm -rf .next node_modules\r"
+expect "#"
+
+# Install dependencies (increase timeout for install)
+set timeout 1200
+send "npm install\r"
+expect "#"
+
+# Build
+send "npm run build\r"
+expect "#"
+
+# Restart PM2
+send "pm2 restart portfolio\r"
+expect "#"
+
+send "exit\r"
