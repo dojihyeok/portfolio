@@ -356,7 +356,7 @@ export default function DevSecOpsPlan() {
 
 
                 {/* 4. Annual Plan */}
-                <Section title="4. DevSecOps 연간 계획 수립" className="py-8 md:py-12">
+                <Section title="4. DevSecOps 연간 계획 수립" className="py-8 md:py-12 !max-w-none !w-full px-2 md:px-4">
 
                     {/* Toggle Switch */}
                     <div className="flex justify-end mb-6 px-4 md:px-0">

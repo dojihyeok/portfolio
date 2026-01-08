@@ -421,13 +421,5 @@ export const TIMELINE_DATA: Task[] = [
     },
 
     // 2026
-    {
-        id: 't-2026-06-12-1',
-        title: 'SOC2 개선 조치 사항',
-        teams: ['Audit', 'DevOps', 'Developer', 'Security'],
-        status: 'Not Started',
-        startDate: '2026-06-12',
-        endDate: '2026-08-07',
-        assignees: ['백지훈', '보안 분석 담당자', '서동진', '엔드포인트 보안', '오병권', '이윤혁', '정보보호 정책 담당자'],
-    },
+
 ];

@@ -94,7 +94,7 @@ export function GanttChart({ data }: GanttChartProps) {
     }, [months]);
 
     return (
-        <div className="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden shadow-2xl relative">
+        <div className="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden shadow-2xl relative h-[750px]">
             {/* 현재 시점 표시선 (Red Line) - 오늘 날짜 기준 */}
             {(() => {
                 const today = new Date();
@@ -115,8 +115,8 @@ export function GanttChart({ data }: GanttChartProps) {
                 return null;
             })()}
 
-            <div className="overflow-x-auto custom-scrollbar">
-                <div className="min-w-[2000px] p-6 text-slate-300">
+            <div className="overflow-x-auto custom-scrollbar h-full">
+                <div className="min-w-[3000px] p-6 text-slate-300 h-full">
 
                     {/* Header: Years & Months */}
                     <div className="flex border-b border-slate-800 mb-2 pb-2">
@@ -138,7 +138,7 @@ export function GanttChart({ data }: GanttChartProps) {
                     </div>
 
                     {/* Timeline Grid Background */}
-                    <div className="relative min-h-[600px]">
+                    <div className="relative h-[calc(100%-80px)]">
                         {/* Background Lines */}
                         <div className="absolute inset-0 flex">
                             {months.map((_, i) => (
