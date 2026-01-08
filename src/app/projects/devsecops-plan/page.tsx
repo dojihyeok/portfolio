@@ -356,41 +356,43 @@ export default function DevSecOpsPlan() {
 
 
                 {/* 4. Annual Plan */}
-                <Section title="4. DevSecOps 연간 계획 수립" className="py-8 md:py-12 !max-w-none !w-full px-2 md:px-4">
+                <Section title="4. DevSecOps 연간 계획 수립" className="py-8 md:py-12">
 
-                    {/* Toggle Switch */}
-                    <div className="flex justify-end mb-6 px-4 md:px-0">
-                        <div className="bg-slate-100 dark:bg-slate-800 p-1 rounded-lg inline-flex">
-                            <button
-                                onClick={() => setViewMode('gantt')}
-                                className={`flex items-center gap-2 px-3 py-1.5 rounded-md text-sm font-medium transition-all ${viewMode === 'gantt'
-                                    ? "bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm"
-                                    : "text-slate-500 hover:text-slate-900 dark:hover:text-slate-300"
-                                    }`}
-                            >
-                                <BarChart3 size={16} />
-                                <span className="hidden sm:inline">타임라인 (Gantt)</span>
-                            </button>
-                            <button
-                                onClick={() => setViewMode('list')}
-                                className={`flex items-center gap-2 px-3 py-1.5 rounded-md text-sm font-medium transition-all ${viewMode === 'list'
-                                    ? "bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm"
-                                    : "text-slate-500 hover:text-slate-900 dark:hover:text-slate-300"
-                                    }`}
-                            >
-                                <LayoutList size={16} />
-                                <span className="hidden sm:inline">리스트 (Table)</span>
-                            </button>
+                    <div className="relative left-1/2 -translate-x-1/2 w-[95vw] md:w-[150%] md:max-w-[1600px]">
+                        {/* Toggle Switch */}
+                        <div className="flex justify-end mb-6 px-4 md:px-0">
+                            <div className="bg-slate-100 dark:bg-slate-800 p-1 rounded-lg inline-flex">
+                                <button
+                                    onClick={() => setViewMode('gantt')}
+                                    className={`flex items-center gap-2 px-3 py-1.5 rounded-md text-sm font-medium transition-all ${viewMode === 'gantt'
+                                        ? "bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm"
+                                        : "text-slate-500 hover:text-slate-900 dark:hover:text-slate-300"
+                                        }`}
+                                >
+                                    <BarChart3 size={16} />
+                                    <span className="hidden sm:inline">타임라인 (Gantt)</span>
+                                </button>
+                                <button
+                                    onClick={() => setViewMode('list')}
+                                    className={`flex items-center gap-2 px-3 py-1.5 rounded-md text-sm font-medium transition-all ${viewMode === 'list'
+                                        ? "bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm"
+                                        : "text-slate-500 hover:text-slate-900 dark:hover:text-slate-300"
+                                        }`}
+                                >
+                                    <LayoutList size={16} />
+                                    <span className="hidden sm:inline">리스트 (Table)</span>
+                                </button>
+                            </div>
                         </div>
+
+                        {viewMode === 'gantt' ? (
+                            <div className="px-1 md:px-2">
+                                <GanttChart data={TIMELINE_DATA} />
+                            </div>
+                        ) : (
+                            <TaskList data={TIMELINE_DATA} />
+                        )}
                     </div>
-
-                    {viewMode === 'gantt' ? (
-                        <div className="px-1 md:px-2">
-                            <GanttChart data={TIMELINE_DATA} />
-                        </div>
-                    ) : (
-                        <TaskList data={TIMELINE_DATA} />
-                    )}
                 </Section>
             </div>
 

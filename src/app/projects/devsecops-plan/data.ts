@@ -392,7 +392,7 @@ export const TIMELINE_DATA: Task[] = [
         id: 't-2025-10-19-1',
         title: 'ISO27001 인증 취득',
         teams: ['DevOps', 'Developer', 'Security'],
-        status: 'In Progress',
+        status: 'Done',
         startDate: '2025-10-19',
         endDate: '2025-10-30',
         assignees: ['백지훈', '서동진', '이윤혁', '정보보호 정책 담당자'],

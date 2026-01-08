@@ -10,9 +10,9 @@ interface GanttChartProps {
 }
 
 export function GanttChart({ data }: GanttChartProps) {
-    // 날짜 범위 설정 (2024년 11월 ~ 2026년 2월)
-    const startDate = new Date("2024-11-01");
-    const endDate = new Date("2026-02-28");
+    // 날짜 범위 설정 (2024년 12월 ~ 2026년 1월)
+    const startDate = new Date("2024-12-01");
+    const endDate = new Date("2026-01-31");
     const totalMonths = (endDate.getFullYear() - startDate.getFullYear()) * 12 + (endDate.getMonth() - startDate.getMonth()) + 1;
 
     // 월별 헤더 생성
@@ -94,7 +94,7 @@ export function GanttChart({ data }: GanttChartProps) {
     }, [months]);
 
     return (
-        <div className="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden shadow-2xl relative h-[750px]">
+        <div className="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden shadow-2xl relative aspect-video">
             {/* 현재 시점 표시선 (Red Line) - 오늘 날짜 기준 */}
             {(() => {
                 const today = new Date();
@@ -115,8 +115,8 @@ export function GanttChart({ data }: GanttChartProps) {
                 return null;
             })()}
 
-            <div className="overflow-x-auto custom-scrollbar h-full">
-                <div className="min-w-[3000px] p-6 text-slate-300 h-full">
+            <div className="overflow-auto custom-scrollbar h-full">
+                <div className="min-w-[2700px] p-6 text-slate-300 h-full">
 
                     {/* Header: Years & Months */}
                     <div className="flex border-b border-slate-800 mb-2 pb-2">
@@ -152,6 +152,8 @@ export function GanttChart({ data }: GanttChartProps) {
                                 const pos = getTaskPosition(task.startDate, task.endDate);
                                 const isShort = parseFloat(pos.width) < 5; // 태스크가 너무 짧으면 텍스트를 옆으로 뺌
 
+                                const isTopTask = index < 3;
+
                                 return (
                                     <motion.div
                                         key={task.id}
@@ -178,8 +180,8 @@ export function GanttChart({ data }: GanttChartProps) {
                                             </div>
                                         </div>
 
-                                        {/* Hover Tooltip */}
-                                        <div className="hidden group-hover:block absolute bottom-full left-0 mb-2 bg-slate-800 border border-slate-700 p-3 rounded-lg shadow-xl z-50 w-max max-w-[300px]">
+                                        {/* Hover Tooltip - Position adjusted for top items */}
+                                        <div className={`hidden group-hover:block absolute left-0 bg-slate-800 border border-slate-700 p-3 rounded-lg shadow-xl z-50 w-max max-w-[300px] ${isTopTask ? 'top-full mt-2' : 'bottom-full mb-2'}`}>
                                             <div className="font-bold text-white mb-1">{task.title}</div>
                                             <div className="text-xs text-slate-400 mb-2">{task.startDate} ~ {task.endDate}</div>
                                             <div className="flex gap-2 mb-2">
