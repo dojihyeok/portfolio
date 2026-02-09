@@ -1,12 +1,20 @@
 #!/usr/bin/expect
 set timeout 300
-spawn ssh -o StrictHostKeyChecking=no root@49.50.139.88
-expect "*?assword:*"
-send "R4+r525MP5DiBi\r"
-expect "*?root@*"
+spawn ssh -o StrictHostKeyChecking=no -i /Users/yunhyeok/triedit-dev.pem root@49.50.139.88
+expect {
+    "*?passphrase*" { 
+        send "R4+r525MP5DiBi\r" 
+        exp_continue
+    }
+    "*?password:*" {
+        send "R4+r525MP5DiBi\r"
+        exp_continue
+    }
+    "*# " { }
+}
 send "cd portfolio\r"
-expect "*?portfolio*"
-send "git pull\r"
+expect "*portfolio*"
+send "git pull origin main\r"
 expect {
     "Already up to date." { send_user "\nGit pull complete\n" }
     "*?root@*" { send_user "\nGit updated\n" }
