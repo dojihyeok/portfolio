@@ -1,3 +1,19 @@
+# Release Notes - 2026.01.08
+
+## New Features
+- **DevSecOps Plan & Roadmap**:
+  - Implemented a comprehensive **DevSecOps Plan** page (`/projects/devsecops-plan`).
+  - Added **Interactive Gantt Chart** to visualize the 2025 security roadmap (Access Control, DevSecOps, Operations, Compliance, Network).
+  - Developed **Detail Modals** for each core area, providing granular "Action Items" and status tracking.
+  - Integration of **Zero Trust** roadmap status (completed tasks marked).
+
+## Infrastructure & Deployment
+- **Unified Nginx Configuration**:
+  - Consolidated routing for `portfolio`, `trydit`, `auditflow`, and `honolulu` into `unified_nginx.conf`.
+  - Optimized SSL and proxy settings for the multi-app ecosystem.
+- **Automated Deployment Scripts**:
+  - Added `expect` scripts for robust server management and debugging (SSH automation).
+
 # Release Notes - 2025.12.17
 
 ## UI Internal Improvements

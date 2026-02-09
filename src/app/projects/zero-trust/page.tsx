@@ -604,7 +604,7 @@ export default function ZeroTrustPage() {
                                                 <td className="px-4 py-2 border-b border-slate-100 dark:border-slate-800"><span className="font-semibold text-blue-600 dark:text-blue-400">Forti ZTNA(ZPA)</span> (TLS 1.2 + 암호화 통신)</td>
                                             </tr>
                                             <tr>
-                                                <td className="px-4 py-2 border-b border-slate-100 dark:border-slate-800">24. 내부망 접속 시 인터넷 차단</td>
+                                                <td className="px-4 py-2 border-b border-slate-100 dark:border-slate-800">24. 운영망 접속 시 인터넷 차단</td>
                                                 <td className="px-4 py-2 border-b border-slate-100 dark:border-slate-800"><span className="font-semibold text-blue-600 dark:text-blue-400">Forti ZTNA</span> 정책 적용</td>
                                             </tr>
                                             <tr>
@@ -631,7 +631,7 @@ export default function ZeroTrustPage() {
 
                             {/* Office Network */}
                             <div className="space-y-4">
-                                <h4 className="text-lg font-bold text-slate-800 dark:text-slate-200">1. 사무실 연구망(인터넷망) 구성</h4>
+                                <h4 className="text-lg font-bold text-slate-800 dark:text-slate-200">1. 사무실 연구망(업무망) 구성</h4>
                                 <p className="text-sm text-slate-600 dark:text-slate-400">
                                     이용자의 고유식별정보 또는 개인신용정보를 처리하지 않는 연구ㆍ개발 목적의 경우 (자체 위험성 평가 및 금융감독원장 확인 필수)
                                 </p>
@@ -710,7 +710,7 @@ export default function ZeroTrustPage() {
                                     <div>
                                         <h4 className="font-bold text-slate-900 dark:text-white">1인 1모바일 + 1노트북 정책</h4>
                                         <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">
-                                            회사의 업무 시스템은 사전에 등록된 <strong>휴대폰 1대</strong>와 <strong>노트북 1대</strong> (및 내부망 접속 장비)에서만 접속이 가능합니다.
+                                            회사의 업무 시스템은 사전에 등록된 <strong>휴대폰 1대</strong>와 <strong>노트북 1대</strong> (및 운영망 접속 장비)에서만 접속이 가능합니다.
                                         </p>
                                     </div>
                                 </li>
@@ -747,8 +747,13 @@ export default function ZeroTrustPage() {
                                     </div>
                                 </div>
                                 <div className="p-4 bg-slate-50 dark:bg-slate-800/50 rounded-xl border border-slate-100 dark:border-slate-700">
-                                    <div className="font-bold text-slate-900 dark:text-white mb-1">FortiClient (준비중)</div>
-                                    <div className="text-xs text-slate-500 mb-2">비상시 VPN 및 접근 제어</div>
+                                    <div className="font-bold text-slate-900 dark:text-white mb-1">FortiClient</div>
+                                    <div className="text-xs text-slate-500 mb-2">재택 근무 원격접속 및 비상 시 원격 접속</div>
+                                    <div className="flex gap-2 flex-wrap">
+                                        <span className="px-2 py-1 bg-slate-200 dark:bg-slate-700 rounded text-xs">연구개발망</span>
+                                        <span className="px-2 py-1 bg-slate-200 dark:bg-slate-700 rounded text-xs">업무망</span>
+                                        <span className="px-2 py-1 bg-slate-200 dark:bg-slate-700 rounded text-xs">운영망</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -780,7 +785,7 @@ export default function ZeroTrustPage() {
                                         <Globe size={24} className="text-blue-500" />
                                     </div>
                                     <div>
-                                        <h4 className="font-bold text-slate-900 dark:text-white">인터넷망 <span className="text-xs font-normal text-slate-500 px-2 py-0.5 bg-slate-100 dark:bg-slate-800 rounded-full ml-2">유/무선</span></h4>
+                                        <h4 className="font-bold text-slate-900 dark:text-white">업무망 <span className="text-xs font-normal text-slate-500 px-2 py-0.5 bg-slate-100 dark:bg-slate-800 rounded-full ml-2">유/무선</span></h4>
                                         <p className="text-sm text-slate-500">임직원 일반 업무 및 인터넷 검색용 (SaaS 이용)</p>
                                     </div>
                                 </div>
@@ -791,8 +796,8 @@ export default function ZeroTrustPage() {
                                         <Terminal size={24} className="text-purple-500" />
                                     </div>
                                     <div>
-                                        <h4 className="font-bold text-slate-900 dark:text-white">연구/개발망 <span className="text-xs font-normal text-slate-500 px-2 py-0.5 bg-slate-100 dark:bg-slate-800 rounded-full ml-2">FortiClient</span></h4>
-                                        <p className="text-sm text-slate-500">개발 업무 및 클라우드 리소스 접근 (내부망/인터넷망과 분리)</p>
+                                        <h4 className="font-bold text-slate-900 dark:text-white">연구개발망 <span className="text-xs font-normal text-slate-500 px-2 py-0.5 bg-slate-100 dark:bg-slate-800 rounded-full ml-2">FortiClient</span></h4>
+                                        <p className="text-sm text-slate-500">개발 업무 및 클라우드 리소스 접근 (운영망/업무망과 분리)</p>
                                     </div>
                                 </div>
 
@@ -802,7 +807,7 @@ export default function ZeroTrustPage() {
                                         <Server size={24} className="text-red-500" />
                                     </div>
                                     <div>
-                                        <h4 className="font-bold text-slate-900 dark:text-white">내부망 <span className="text-xs font-normal text-slate-500 px-2 py-0.5 bg-slate-100 dark:bg-slate-800 rounded-full ml-2">유선</span></h4>
+                                        <h4 className="font-bold text-slate-900 dark:text-white">운영망 <span className="text-xs font-normal text-slate-500 px-2 py-0.5 bg-slate-100 dark:bg-slate-800 rounded-full ml-2">유선</span></h4>
                                         <p className="text-sm text-slate-500">서버, DB, K8S 시스템 및 관리자 사이트 (최고 수준 보안 통제)</p>
                                     </div>
                                 </div>
@@ -864,11 +869,11 @@ export default function ZeroTrustPage() {
                                 </div>
 
                                 {/* Phase 1 */}
-                                <div className="relative p-6 bg-white dark:bg-slate-900 rounded-2xl border border-blue-200 dark:border-blue-900 shadow-sm ring-1 ring-blue-100 dark:ring-blue-900">
-                                    <div className="absolute top-6 right-6 text-blue-100 dark:text-blue-900">
-                                        <h4 className="text-6xl font-black opacity-30">1</h4>
+                                <div className="relative p-6 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
+                                    <div className="absolute top-6 right-6 text-slate-200 dark:text-slate-700">
+                                        <h4 className="text-6xl font-black opacity-20">1</h4>
                                     </div>
-                                    <h4 className="text-lg font-bold text-blue-600 dark:text-blue-400 mb-4 relative z-10">1단계 : 공용 서비스</h4>
+                                    <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-4 relative z-10">1단계 : 공용 서비스</h4>
                                     <p className="text-xs text-slate-500 mb-3 relative z-10">Slack, Notion, Gmail 등 전사 공용 SaaS</p>
                                     <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-400 relative z-10">
                                         <li className="flex items-start gap-2">
@@ -883,11 +888,11 @@ export default function ZeroTrustPage() {
                                 </div>
 
                                 {/* Phase 2 */}
-                                <div className="relative p-6 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
-                                    <div className="absolute top-6 right-6 text-slate-200 dark:text-slate-700">
-                                        <h4 className="text-6xl font-black opacity-20">2</h4>
+                                <div className="relative p-6 bg-white dark:bg-slate-900 rounded-2xl border border-blue-200 dark:border-blue-900 shadow-sm ring-1 ring-blue-100 dark:ring-blue-900">
+                                    <div className="absolute top-6 right-6 text-blue-100 dark:text-blue-900">
+                                        <h4 className="text-6xl font-black opacity-30">2</h4>
                                     </div>
-                                    <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-4 relative z-10">2단계 : 부서별 업무</h4>
+                                    <h4 className="text-lg font-bold text-blue-600 dark:text-blue-400 mb-4 relative z-10">2단계 : 부서별 업무 (완료)</h4>
                                     <p className="text-xs text-slate-500 mb-3 relative z-10">Admin, Figma, Grafana 등 전문 SaaS</p>
                                     <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-400 relative z-10">
                                         <li className="flex items-start gap-2">
@@ -918,7 +923,7 @@ export default function ZeroTrustPage() {
                                     </ul>
                                 </div>
                                 <div>
-                                    <h5 className="font-bold text-blue-600 dark:text-blue-400 mb-3 border-b border-blue-200 dark:border-blue-900 pb-2">1단계 (Core)</h5>
+                                    <h5 className="font-bold text-slate-700 dark:text-slate-300 mb-3 border-b border-slate-200 dark:border-slate-700 pb-2">1단계 (Core)</h5>
                                     <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-400">
                                         <li>Google Workspace</li>
                                         <li>Slack (Messenger)</li>
@@ -927,7 +932,7 @@ export default function ZeroTrustPage() {
                                     </ul>
                                 </div>
                                 <div>
-                                    <h5 className="font-bold text-slate-700 dark:text-slate-300 mb-3 border-b border-slate-200 dark:border-slate-700 pb-2">2단계 (Expansion)</h5>
+                                    <h5 className="font-bold text-blue-600 dark:text-blue-400 mb-3 border-b border-blue-200 dark:border-blue-900 pb-2">2단계 (Expansion)</h5>
                                     <div className="grid grid-cols-1 gap-x-4 gap-y-2 text-sm text-slate-600 dark:text-slate-400">
                                         <ul className="space-y-2">
                                             <li>AWS Identity Center</li>
