@@ -466,12 +466,12 @@ export default function Home() {
             {/* Projects */}
             <Section title="Key Projects">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <ProjectCard
+{/* <ProjectCard
                         title="AI-Native Security Dashboard"
                         description="Antigravity와 MCP를 활용하여 구축한 실시간 리스크 가시화 플랫폼. EDR, SaaS, CI/CD 등 전사의 파편화된 보안 데이터를 분석하여 위협 우선순위를 도출하고 자동 대응을 지원합니다."
                         link="/projects/security-dashboard"
                         tags={["AI Agents", "MCP", "Antigravity", "Real-time Metrics"]}
-                    />
+                    /> */}
                     <ProjectCard
                         title="Pentest-AI — 모의해킹 플랫폼 (AI-Red Team)"
                         description="전문가 수준의 보안 진단을 수행하는 4계층 AI 에이전트 플랫폼. ShadowGraph를 통한 세션 문맥 유지, Claude Opus/Sonnet 및 Gemini를 활용한 교차 검증을 자동화합니다."
