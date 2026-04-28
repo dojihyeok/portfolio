@@ -13,18 +13,18 @@ interface SectionProps {
 
 export function Section({ children, className, id, title }: SectionProps) {
     return (
-        <section id={id} className={cn("py-6 px-5 md:py-12 md:px-12 max-w-5xl mx-auto", className)}>
+        <section id={id} className={cn("py-6 px-5 md:py-8 md:px-12 max-w-5xl mx-auto", className)}>
             {title && (
                 <motion.h2
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-3xl md:text-4xl font-extrabold mb-6 md:mb-10 text-slate-900 dark:text-slate-100 tracking-tight"
+                    className="text-3xl md:text-4xl font-extrabold mb-6 md:mb-8 text-slate-900 dark:text-slate-100 tracking-tight"
                 >
                     {title}
                 </motion.h2>
             )}
-            <div className="space-y-8">{children}</div>
+            <div className="space-y-6">{children}</div>
         </section>
     );
 }

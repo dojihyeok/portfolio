@@ -100,15 +100,15 @@ export default function Home() {
 
             {/* Security Team Vision */}            <Section title="Security Team Vision">
                 {/* Lead Quote */}
-                <div className="border-l-4 border-slate-900 dark:border-slate-100 pl-6 py-2 mb-12 bg-slate-50 dark:bg-slate-800/30 rounded-r-xl">
+                <div className="border-l-4 border-slate-900 dark:border-slate-100 pl-6 py-2 mb-8 bg-slate-50 dark:bg-slate-800/30 rounded-r-xl">
                     <p className="text-lg md:text-xl text-slate-800 dark:text-slate-100 leading-relaxed font-semibold italic break-keep text-justify">
                         단순히 사고를 막는 통제 조직을 넘어, <span className="text-blue-600 dark:text-blue-400 underline decoration-2 underline-offset-4">고객의 신뢰와 브랜드의 가치를 지키는 비즈니스의 필수 스쿼드</span>를 지향합니다.
                     </p>
                 </div>
 
                 {/* 1. Why do we do this security? */}
-                <div className="mb-16">
-                    <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 mb-8 flex items-center gap-3">
+                <div className="mb-10">
+                    <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 mb-6 flex items-center gap-3">
                         <span className="w-8 h-[2px] bg-blue-600 dark:bg-blue-400"></span>
                         우리는 왜 이 보안을 하는가?
                     </h3>
@@ -140,8 +140,8 @@ export default function Home() {
                 </div>
 
                 {/* 2. Three Core Axes */}
-                <div className="mb-16">
-                    <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 mb-8 flex items-center gap-3">
+                <div className="mb-10">
+                    <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 mb-6 flex items-center gap-3">
                         <span className="w-8 h-[2px] bg-blue-600 dark:bg-blue-400"></span>
                         보안팀의 핵심 3가지 축
                     </h3>
@@ -186,8 +186,8 @@ export default function Home() {
                 </div>
 
                 {/* 3. 우리가 지향하는 보안팀 */}
-                <div className="pt-10 border-t border-slate-200 dark:border-slate-800">
-                    <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 mb-8 flex items-center gap-3">
+                <div className="pt-8 border-t border-slate-200 dark:border-slate-800">
+                    <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 mb-6 flex items-center gap-3">
                         <span className="w-8 h-[2px] bg-blue-600 dark:bg-blue-400"></span>
                         우리가 지향하는 보안팀
                     </h3>
@@ -207,7 +207,7 @@ export default function Home() {
             </Section>
 
             <Section title="Security Division 구성 방안">
-                <div className="space-y-12">
+                <div className="space-y-8">
                     {/* Introduction */}
                     <div className="bg-white dark:bg-slate-900 rounded-3xl p-8 border border-slate-200 dark:border-slate-800 shadow-sm text-justify">
                         <p className="text-lg leading-relaxed text-slate-800 dark:text-slate-200 font-medium break-keep">
@@ -217,7 +217,7 @@ export default function Home() {
 
                     {/* 1. 이중적 정체성 */}
                     <div>
-                        <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 mb-8 flex items-center gap-3">
+                        <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 mb-6 flex items-center gap-3">
                             <span className="w-8 h-[2px] bg-blue-600 dark:bg-blue-400"></span>
                             1. 보안팀의 이중적 정체성
                         </h3>
@@ -245,7 +245,7 @@ export default function Home() {
 
                     {/* 2. 역할 분담 모델 */}
                     <div>
-                        <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 mb-8 flex items-center gap-3">
+                        <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 mb-6 flex items-center gap-3">
                             <span className="w-8 h-[2px] bg-blue-600 dark:bg-blue-400"></span>
                             2. 역할 분담 상세 모델
                         </h3>
