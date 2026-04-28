@@ -12,16 +12,16 @@ export default function Home() {
     return (
         <main className="min-h-screen bg-slate-50 dark:bg-slate-950 overflow-hidden w-full max-w-[100vw]">
             {/* Hero Section */}
-            <section className="h-screen flex flex-col justify-center items-center text-center px-4 relative overflow-hidden">
+            <section className="min-h-[70vh] flex flex-col justify-center items-center text-center px-4 py-20 relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-b from-blue-50/50 to-transparent dark:from-blue-900/10 pointer-events-none" />
 
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
-                    className="z-10 w-full max-w-4xl mx-auto flex flex-col items-center justify-center h-full pb-20"
+                    className="z-10 w-full max-w-4xl mx-auto flex flex-col items-center justify-center h-full"
                 >
-                    <div className="mb-8 relative w-[80vw] h-[80vw] max-w-[350px] max-h-[350px] md:w-72 md:h-72 mx-auto group">
+                    <div className="mb-6 relative w-[60vw] h-[60vw] max-w-[280px] max-h-[280px] md:w-60 md:h-60 mx-auto group">
                         <div className="absolute inset-0 bg-blue-500 rounded-full blur-xl opacity-20 group-hover:opacity-30 transition-opacity"></div>
                         <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white dark:border-slate-800 shadow-2xl">
                             <Image
@@ -40,25 +40,25 @@ export default function Home() {
                     <p className="text-xl md:text-3xl text-slate-600 dark:text-slate-300 mb-6 max-w-2xl mx-auto font-light leading-snug px-4">
                         Security Leadership & <br className="block md:hidden" />Compliance Architecture
                     </p>
-                    <p className="text-base md:text-lg text-slate-500 dark:text-slate-400 max-w-lg mx-auto leading-relaxed px-4 break-keep">
+                    <p className="text-base md:text-lg text-slate-600 dark:text-slate-300 max-w-lg mx-auto leading-relaxed px-4 break-keep font-medium">
                         개발자·기획자·운영자가 안심하고 도전할 수 있는 환경을 만들어 신뢰받는 회사가 되도록 보안 리더십을 실천해 왔습니다.
                     </p>
 
 
-                    <div className="absolute bottom-10 animate-bounce text-slate-400 flex justify-center w-full left-0">
-                        <ArrowDown size={32} />
+                    <div className="mt-12 text-slate-400">
+                        <ArrowDown size={28} className="animate-bounce" />
                     </div>
                 </motion.div>
             </section>
 
             {/* About Me */}
-            <Section title="About Me" className="bg-white dark:bg-slate-900/50 rounded-3xl shadow-sm pt-2 pb-6 md:pt-2 md:pb-12 -mt-8">
-                <p className="text-lg leading-loose text-slate-700 dark:text-slate-300">
-                    보안은 규제를 지키는 업무를 넘어 <span className="font-bold text-blue-600 dark:text-blue-400">팀의 몰입도를 높이고</span>,
-                    <span className="font-bold text-blue-600 dark:text-blue-400"> 제품의 성장 속도를 지키며</span>,
-                    <span className="font-bold text-blue-600 dark:text-blue-400"> 브랜드 신뢰를 설계하는 일</span>이라고 생각합니다.
+            <Section title="About Me" className="bg-white dark:bg-slate-900/50 rounded-3xl shadow-sm">
+                <p className="text-lg leading-loose text-slate-800 dark:text-slate-100 font-medium">
+                    보안은 규제를 지키는 업무를 넘어 <span className="font-bold text-blue-700 dark:text-blue-400 underline decoration-blue-500/30 underline-offset-4">팀의 몰입도를 높이고</span>,
+                    <span className="font-bold text-blue-700 dark:text-blue-400 underline decoration-blue-500/30 underline-offset-4"> 제품의 성장 속도를 지키며</span>,
+                    <span className="font-bold text-blue-700 dark:text-blue-400 underline decoration-blue-500/30 underline-offset-4"> 브랜드 신뢰를 설계하는 일</span>이라고 생각합니다.
                 </p>
-                <p className="text-lg leading-loose text-slate-700 dark:text-slate-300 mt-6">
+                <p className="text-lg leading-loose text-slate-800 dark:text-slate-200 mt-6 font-medium">
                     지난 17년간 정보보호 컨설팅, 금융권 보안, 인터넷은행 인가, 스타트업 보안팀 리더십까지 다양한 환경에서
                     &quot;팀과 기술이 더 잘 성장하도록 돕는 보안 리더십&quot;을 실천해 왔습니다.
                 </p>
@@ -80,7 +80,7 @@ export default function Home() {
             </Section>
 
             {/* Strong Point */}
-            <Section title="Strong Point" className="bg-slate-50 dark:bg-slate-900/30 my-10 rounded-3xl">
+            <Section title="Strong Point" className="bg-slate-50 dark:bg-slate-900/30 rounded-3xl">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {[
                         "규제를 해석에서 끝내지 않고 구조와 시스템으로 바꾸는 것",
@@ -100,447 +100,245 @@ export default function Home() {
                 </div>
             </Section>
 
-            {/* Security Team Building */}
-            <Section title="Security Team Building" className="py-6 md:py-12">
-                <div className="bg-white dark:bg-slate-900/50 rounded-3xl p-6 md:p-12 shadow-sm border border-slate-100 dark:border-slate-800 space-y-12 md:space-y-20">
-                    {/* Header */}
-                    <div>
-                        <h3 className="text-xl md:text-3xl font-bold mb-3 text-slate-800 dark:text-slate-100">
-                            만들고싶은 보안팀 <span className="text-slate-400 font-light mx-2 hidden md:inline">|</span> <br className="md:hidden" /> <span className="text-blue-600 dark:text-blue-400">브랜딩을 추구하는 기업의 정보보안팀</span>
-                        </h3>
-                    </div>
+            {/* Security Team Vision */}
+            <Section title="Security Team Vision">
+                {/* Lead Quote */}
+                <div className="border-l-4 border-slate-900 dark:border-slate-100 pl-6 py-2 mb-8 bg-slate-50 dark:bg-slate-800/30 rounded-r-xl">
+                    <p className="text-lg md:text-xl text-slate-800 dark:text-slate-100 leading-relaxed font-semibold italic">
+                        보안팀은 단순한 감시자가 아닙니다.<br />
+                        기업의 신뢰를 지키고, 비즈니스가 더 과감하게 나아갈 수 있도록 돕는 <span className="text-blue-600 dark:text-blue-400 underline decoration-2 underline-offset-4">전문적인 파트너</span>입니다.
+                    </p>
+                    <p className="text-sm text-slate-500 dark:text-slate-400 mt-3 font-medium">— 우리가 만들고 싶은 보안팀: 함께 뛰며 성장하는 조직</p>
+                </div>
 
-                    {/* Section 1: Intro - Why Essential? */}
-                    <div className="space-y-6 md:space-y-8 text-base md:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
-                        <h4 className="text-lg md:text-2xl font-bold text-slate-900 dark:text-white border-l-4 border-indigo-500 pl-4">브랜딩 기업에게 보안팀은 &#39;필수 전력&#39;</h4>
-                        <p>
-                            브랜딩을 추구하는 기업은 단순히 서비스를 운영하는 조직이 아닙니다.<br className="hidden md:block" />
-                            우리는 <span className="font-semibold text-indigo-600 dark:text-indigo-400">목표가 있는 스포츠 팀</span>에 가깝습니다.
-                        </p>
-                        <ul className="list-disc list-inside space-y-2 md:space-y-3 ml-1 md:ml-4 bg-slate-50 dark:bg-slate-800/50 p-4 md:p-6 rounded-xl">
-                            <li>단기 성과가 아닌 <span className="font-bold text-slate-800 dark:text-slate-100">지속적인 우승</span></li>
-                            <li>기능 완성이 아닌 <span className="font-bold text-slate-800 dark:text-slate-100">신뢰와 정체성</span></li>
-                            <li>일회성 성공이 아닌 <span className="font-bold text-slate-800 dark:text-slate-100">시간이 지날수록 강해지는 팀</span></li>
-                        </ul>
-                        <p className="mt-4 break-keep">
-                            스포츠 팀이 우승하기 위해 뛰어난 선수, 명확한 전술, 그리고 <strong>팀 전체의 신뢰와 몰입</strong>이 필요하듯,<br className="hidden md:block" />
-                            브랜딩을 추구하는 기업에서 정보보안팀은 &#39;있으면 좋은 팀&#39;이 아니라, <span className="font-bold text-blue-600 dark:text-blue-400">우승을 위한 필수 전력</span>입니다.
-                        </p>
-                    </div>
-
-                    {/* Section 2: Comparison - General vs Branding */}
-                    <div className="space-y-6 md:space-y-8">
-                        <h4 className="text-lg md:text-2xl font-bold text-slate-900 dark:text-white border-l-4 border-indigo-500 pl-4">일반 기업의 보안 vs 브랜딩 기업의 보안</h4>
-                        <div className="overflow-x-auto rounded-xl border border-slate-200 dark:border-slate-700">
-                            <table className="w-full text-left text-xs sm:text-sm md:text-base break-keep bg-white dark:bg-slate-900 rounded-xl overflow-hidden">
-                                <thead className="bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-slate-100 font-semibold border-b border-slate-200 dark:border-slate-700">
-                                    <tr>
-                                        <th className="px-2 py-3 md:px-6 md:py-4 w-[20%]">구분</th>
-                                        <th className="px-2 py-3 md:px-6 md:py-4 w-[35%] text-slate-500 dark:text-slate-400">일반 기업</th>
-                                        <th className="px-2 py-3 md:px-6 md:py-4 w-[45%] text-blue-600 dark:text-blue-400">브랜딩 기업</th>
+                {/* Why — Comparison Table */}
+                <div className="mb-6">
+                    <h3 className="text-xs font-semibold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-5">왜 보안팀이 필요한가</h3>
+                    <div className="rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+                        <table className="w-full text-sm">
+                            <thead>
+                                <tr className="bg-slate-100 dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700">
+                                    <th className="px-5 py-4 text-left text-xs font-bold text-slate-600 dark:text-slate-400 w-[24%] uppercase tracking-wider">구분</th>
+                                    <th className="px-5 py-4 text-left text-xs font-bold text-slate-600 dark:text-slate-400 w-[36%] uppercase tracking-wider">일반적인 보안팀</th>
+                                    <th className="px-5 py-4 text-left text-xs font-bold text-blue-600 dark:text-blue-400 w-[40%] uppercase tracking-wider">우리가 만드는 보안팀</th>
+                                </tr>
+                            </thead>
+                            <tbody className="divide-y divide-slate-100 dark:divide-slate-800 bg-white dark:bg-slate-900">
+                                {[
+                                    ["보안의 목적", "규제 대응 및 사고 예방", "브랜드 신뢰 구축 및 비즈니스 보호"],
+                                    ["보안 수준", "주기적 점검", "상시 컨디션 관리 및 기술적 보완"],
+                                    ["보안팀 역할", "사후 대응", "개발팀과 함께 뛰는 파트너"],
+                                    ["보안 문화", "통제와 규칙", "공유와 협업, 투명한 소통"],
+                                ].map(([cat, general, ours], i) => (
+                                    <tr key={i}>
+                                        <td className="px-5 py-4 text-xs font-bold text-slate-700 dark:text-slate-300 bg-slate-50/50 dark:bg-slate-800/20">{cat}</td>
+                                        <td className="px-5 py-4 text-slate-500 dark:text-slate-400">{general}</td>
+                                        <td className="px-5 py-4 font-bold text-slate-900 dark:text-white">{ours}</td>
                                     </tr>
-                                </thead>
-                                <tbody className="divide-y divide-slate-200 dark:divide-slate-700">
-                                    <tr>
-                                        <td className="px-2 py-3 md:px-6 md:py-4 font-medium align-top">보안의 목적</td>
-                                        <td className="px-2 py-3 md:px-6 md:py-4 text-slate-600 dark:text-slate-400 align-top">사고 예방,<br />규제 대응</td>
-                                        <td className="px-2 py-3 md:px-6 md:py-4 font-semibold text-slate-900 dark:text-slate-100 align-top">신뢰 축적,<br />브랜드 보호</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="px-2 py-3 md:px-6 md:py-4 font-medium align-top">보안 수준</td>
-                                        <td className="px-2 py-3 md:px-6 md:py-4 text-slate-600 dark:text-slate-400 align-top">건강검진 수준</td>
-                                        <td className="px-2 py-3 md:px-6 md:py-4 font-semibold text-slate-900 dark:text-slate-100 align-top">컨디션 관리<br />+ 한계 돌파</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="px-2 py-3 md:px-6 md:py-4 font-medium align-top">보안팀 역할</td>
-                                        <td className="px-2 py-3 md:px-6 md:py-4 text-slate-600 dark:text-slate-400 align-top">사후 대응 중심</td>
-                                        <td className="px-2 py-3 md:px-6 md:py-4 font-semibold text-slate-900 dark:text-slate-100 align-top">스쿼드와 서포트<br />모두 수행</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="px-2 py-3 md:px-6 md:py-4 font-medium align-top">보안 문화</td>
-                                        <td className="px-2 py-3 md:px-6 md:py-4 text-slate-600 dark:text-slate-400 align-top">규칙과 통제</td>
-                                        <td className="px-2 py-3 md:px-6 md:py-4 font-semibold text-slate-900 dark:text-slate-100 align-top">신뢰, 협업,<br />투명성</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <p className="text-base md:text-lg text-slate-600 dark:text-slate-300 text-center italic mt-4 px-4">
-                            &quot;브랜딩 기업의 보안팀은 ‘검진 조직’이 아니라 <span className="font-bold not-italic text-indigo-600 dark:text-indigo-400">‘경기력을 끌어올리는 조직’</span>입니다.&quot;
-                        </p>
-                    </div>
-
-                    {/* Section 3: Identity - Squad vs Support */}
-                    <div className="space-y-6 md:space-y-8">
-                        <h4 className="text-lg md:text-2xl font-bold text-slate-900 dark:text-white border-l-4 border-indigo-500 pl-4">보안팀은 스쿼드이면서 동시에 서포트 조직</h4>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
-                            <div className="bg-blue-50 dark:bg-blue-900/20 p-5 md:p-6 rounded-2xl border border-blue-100 dark:border-blue-800">
-                                <h5 className="font-bold text-lg mb-3 flex items-center gap-2 text-blue-700 dark:text-blue-300">
-                                    🏃 Squad로서의 보안팀
-                                </h5>
-                                <ul className="space-y-2 text-slate-700 dark:text-slate-300 text-sm md:text-base">
-                                    <li>• DevSecOps</li>
-                                    <li>• 제품·플랫폼 설계 단계부터 참여</li>
-                                    <li>• 서비스 품질과 사용자 신뢰에 직접 영향</li>
-                                    <li>• 함께 경기장에서 뛰는 팀원</li>
-                                </ul>
-                            </div>
-                            <div className="bg-indigo-50 dark:bg-indigo-900/20 p-5 md:p-6 rounded-2xl border border-indigo-100 dark:border-indigo-800">
-                                <h5 className="font-bold text-lg mb-3 flex items-center gap-2 text-indigo-700 dark:text-indigo-300">
-                                    🛡️ Support로서의 보안팀
-                                </h5>
-                                <ul className="space-y-2 text-slate-700 dark:text-slate-300 text-sm md:text-base">
-                                    <li>• 보안 거버넌스와 기준 수립</li>
-                                    <li>• 컴플라이언스와 리스크 관리</li>
-                                    <li>• 전사를 보호하는 판단과 조율</li>
-                                    <li>• 전술 설계 및 컨디션 관리</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <p className="text-center font-medium text-slate-800 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 p-4 rounded-xl text-sm md:text-base">
-                            👉 우리가 지향하는 형태는 <span className="font-bold text-indigo-600 dark:text-indigo-400">Support 성격을 가진 독립적인 Security Squad</span>입니다.
-                        </p>
-                    </div>
-
-                    {/* Section 4: Immersion Conditions */}
-                    <div className="space-y-6 md:space-y-8">
-                        <h4 className="text-lg md:text-2xl font-bold text-slate-900 dark:text-white border-l-4 border-indigo-500 pl-4">몰입을 만드는 세 가지 조건</h4>
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            <div className="bg-slate-50 dark:bg-slate-800 p-5 rounded-xl text-center">
-                                <div className="text-3xl mb-3">🎯</div>
-                                <h5 className="font-bold mb-2 text-base md:text-lg">1. 같은 목적</h5>
-                                <p className="text-sm md:text-base text-slate-600 dark:text-slate-400 leading-snug">“규제가 아니라 <br /><span className="font-bold text-slate-900 dark:text-white">신뢰와 브랜드를 위해</span>”</p>
-                            </div>
-                            <div className="bg-slate-50 dark:bg-slate-800 p-5 rounded-xl text-center">
-                                <div className="text-3xl mb-3">🤔</div>
-                                <h5 className="font-bold mb-2 text-base md:text-lg">2. 같은 고민</h5>
-                                <p className="text-sm md:text-base text-slate-600 dark:text-slate-400 leading-snug">개발 속도 vs 안전<br /><span className="font-bold text-slate-900 dark:text-white">이상과 현실의 조율</span></p>
-                            </div>
-                            <div className="bg-slate-50 dark:bg-slate-800 p-5 rounded-xl text-center">
-                                <div className="text-3xl mb-3">🏆</div>
-                                <h5 className="font-bold mb-2 text-base md:text-lg">3. 같은 Goal</h5>
-                                <p className="text-sm md:text-base text-slate-600 dark:text-slate-400 leading-snug">신뢰받는 보안팀<br /><span className="font-bold text-slate-900 dark:text-white">브랜드를 지키는 팀</span></p>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Section 5: Three Pillars */}
-                    <div className="space-y-6 md:space-y-8">
-                        <h4 className="text-lg md:text-2xl font-bold text-slate-900 dark:text-white border-l-4 border-indigo-500 pl-4">우리가 생각하는 보안팀의 핵심 3가지 축</h4>
-                        <div className="space-y-4">
-                            <div className="flex flex-col md:flex-row gap-4 bg-gradient-to-r from-slate-50 to-white dark:from-slate-800 dark:to-slate-800/50 p-6 rounded-2xl border border-slate-100 dark:border-slate-700">
-                                <div className="min-w-[40px] text-3xl">1️⃣</div>
-                                <div>
-                                    <h5 className="font-bold text-lg text-slate-900 dark:text-white mb-1">Security Maturity</h5>
-                                    <p className="font-medium text-indigo-600 dark:text-indigo-400 mb-2">성숙도 기반의 현실적인 성장</p>
-                                    <p className="text-slate-600 dark:text-slate-400 text-sm md:text-base leading-relaxed">
-                                        보안은 흑백이 아닙니다. &quot;우리는 어디에 있는가&quot;, &quot;다음 단계는 무엇인가&quot;를 고민하며 조직·전사·DevSecOps 관점의 로드맵을 그려나갑니다.
-                                    </p>
-                                </div>
-                            </div>
-                            <div className="flex flex-col md:flex-row gap-4 bg-gradient-to-r from-slate-50 to-white dark:from-slate-800 dark:to-slate-800/50 p-6 rounded-2xl border border-slate-100 dark:border-slate-700">
-                                <div className="min-w-[40px] text-3xl">2️⃣</div>
-                                <div>
-                                    <h5 className="font-bold text-lg text-slate-900 dark:text-white mb-1">Trust Branding</h5>
-                                    <p className="font-medium text-indigo-600 dark:text-indigo-400 mb-2">내·외부로 신뢰받는 정보보안 문화</p>
-                                    <p className="text-slate-600 dark:text-slate-400 text-sm md:text-base leading-relaxed">
-                                        통제보다 설명을, 규칙보다 이유를 공유합니다. 개발자가 우회하지 않고, 조직이 숨기지 않는 신뢰받는 보안 문화를 만듭니다.
-                                    </p>
-                                </div>
-                            </div>
-                            <div className="flex flex-col md:flex-row gap-4 bg-gradient-to-r from-slate-50 to-white dark:from-slate-800 dark:to-slate-800/50 p-6 rounded-2xl border border-slate-100 dark:border-slate-700">
-                                <div className="min-w-[40px] text-3xl">3️⃣</div>
-                                <div>
-                                    <h5 className="font-bold text-lg text-slate-900 dark:text-white mb-1">몰입할 수 있는 보안팀</h5>
-                                    <p className="font-medium text-indigo-600 dark:text-indigo-400 mb-2">성장을 체감할 수 있는 구조</p>
-                                    <p className="text-slate-600 dark:text-slate-400 text-sm md:text-base leading-relaxed">
-                                        책임은 크고 성과는 잘 보이지 않는 보안팀. 우리는 명확한 미션과 자율적인 판단을 통해 팀원이 오래 깊게 몰입할 수 있는 조직을 만듭니다.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Footer Quote */}
-                    <div className="text-center pt-8 border-t border-slate-100 dark:border-slate-800">
-                        <p className="text-lg md:text-xl font-medium text-slate-800 dark:text-slate-200">
-                            &quot;브랜드를 이해하고, 함께 뛰며, 신뢰를 설계하는 보안팀&quot;
-                        </p>
-                        <p className="text-sm md:text-base text-slate-500 dark:text-slate-400 mt-2">
-                            시간이 지날수록 기업과 함께 더 강해지는 보안팀을 지향합니다.
-                        </p>
+                                ))}
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-            </Section>
 
-            {/* Security Team Plan (New Section) */}
-            <Section title="Security Team Plan (몰입할 수 있는 보안팀)" className="py-6 md:py-12">
-                <div className="bg-white dark:bg-slate-900/50 rounded-3xl p-5 md:p-12 shadow-sm border border-slate-100 dark:border-slate-800 space-y-12 md:space-y-16">
-                    {/* Header */}
-                    <div>
-                        <h3 className="text-2xl md:text-3xl font-bold mb-3 text-slate-800 dark:text-slate-100">
-                            Unit · Role · OKR
-                        </h3>
-                        <p className="text-slate-500 dark:text-slate-400 text-lg">
-                            독립적이면서도 유기적으로 연결된 보안 조직의 구조와 역할 정의
-                        </p>
-                    </div>
-
-                    {/* 1. Security Squad Structure */}
-                    <div className="space-y-6">
-                        <h4 className="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                            <span className="bg-slate-100 dark:bg-slate-800 p-2 rounded-lg text-lg">1️⃣</span> Security Squad 전체 구조
-                        </h4>
-                        <div className="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-6 md:p-8">
-                            <p className="text-lg text-slate-700 dark:text-slate-300 font-medium mb-6">
-                                Security Squad는 <span className="text-indigo-600 dark:text-indigo-400 font-bold">4개의 유닛(Unit)</span>으로 구성되어 있으며, 전사 조직과 긴밀히 연결되는 <span className="text-indigo-600 dark:text-indigo-400 font-bold">허브형 보안 조직</span>입니다.
-                            </p>
-                            <div className="mb-8 bg-indigo-50/50 dark:bg-slate-800/50 p-4 rounded-xl border border-indigo-100 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-base">
-                                <span className="font-bold text-indigo-600 dark:text-indigo-400 mr-1">💡 Unit이란?</span>
-                                보안팀 내에서도 유사한 관심사를 가진 사람들이 모여 토론하고 학습할 수 있는 그룹
+                {/* Working Style */}
+                <div className="mb-10">
+                    <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 mb-6 flex items-center gap-3">
+                        <span className="w-8 h-[2px] bg-blue-600 dark:bg-blue-400"></span>
+                        보안팀이 일하는 방식
+                    </h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div className="p-6 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900">
+                            <div className="flex items-center gap-3 mb-4">
+                                <div className="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 font-bold text-sm">S</div>
+                                <span className="font-semibold text-slate-800 dark:text-slate-100">Squad — 현장에서 함께 뛰는 역할</span>
                             </div>
-                            <div className="bg-white dark:bg-slate-900 rounded-xl p-6 border border-slate-200 dark:border-slate-700">
-                                <div className="font-bold text-xl mb-4 text-slate-800 dark:text-slate-100 border-b pb-2 border-slate-100 dark:border-slate-800">Security Squad</div>
-                                <ul className="space-y-3 pl-4 border-l-2 border-indigo-200 dark:border-indigo-800 ml-2">
-                                    <li className="flex items-center gap-3 text-slate-700 dark:text-slate-300">
-                                        <div className="w-2 h-2 rounded-full bg-indigo-500"></div> Product & Platform Security Unit
-                                    </li>
-                                    <li className="flex items-center gap-3 text-slate-700 dark:text-slate-300">
-                                        <div className="w-2 h-2 rounded-full bg-indigo-500"></div> Cloud & Infrastructure Security Unit
-                                    </li>
-                                    <li className="flex items-center gap-3 text-slate-700 dark:text-slate-300">
-                                        <div className="w-2 h-2 rounded-full bg-indigo-500"></div> Governance · Risk · Compliance (GRC) Unit
-                                    </li>
-                                    <li className="flex items-center gap-3 text-slate-700 dark:text-slate-300">
-                                        <div className="w-2 h-2 rounded-full bg-indigo-500"></div> Security Enablement & Trust Unit
-                                    </li>
-                                </ul>
-                            </div>
-                            <p className="mt-6 text-slate-600 dark:text-slate-400 text-sm">
-                                * 각 Unit은 명확한 책임 영역과 목표(Goal)를 가지며, 제품·개발·플랫폼 조직과 <span className="font-semibold text-slate-800 dark:text-slate-200">Squad-to-Squad</span> 방식으 연결됩니다.
-                            </p>
-                        </div>
-                    </div>
-
-                    {/* 2. Unit Role Definition */}
-                    <div className="space-y-6">
-                        <h4 className="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                            <span className="bg-slate-100 dark:bg-slate-800 p-2 rounded-lg text-lg">2️⃣</span> Unit별 역할 정의 (Role)
-                        </h4>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            {/* Product & Platform Security Unit */}
-                            <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all">
-                                <div className="flex items-center gap-3 mb-4">
-                                    <span className="text-2xl">🧩</span>
-                                    <div>
-                                        <h5 className="font-bold text-lg text-slate-800 dark:text-slate-100">Product & Platform Security Unit</h5>
-                                        <p className="text-sm text-indigo-600 dark:text-indigo-400 font-medium">&quot;제품과 함께 설계되는 보안&quot;</p>
-                                    </div>
-                                </div>
-                                <div className="space-y-4 text-sm text-slate-600 dark:text-slate-400">
-                                    <div>
-                                        <span className="font-bold text-slate-700 dark:text-slate-300 block mb-1">주요 역할</span>
-                                        <ul className="list-disc list-inside space-y-1 pl-1">
-                                            <li>제품·플랫폼 설계 단계 보안 리뷰</li>
-                                            <li>Threat Modeling / Secure Design</li>
-                                            <li>DevSecOps 파이프라인 설계</li>
-                                            <li>인증·인가·데이터 보호 아키텍처 자문</li>
-                                        </ul>
-                                    </div>
-                                    <div className="grid grid-cols-2 gap-4 pt-4 border-t border-slate-100 dark:border-slate-800">
-                                        <div>
-                                            <span className="font-bold text-slate-700 dark:text-slate-300 block mb-1 text-xs">함께 일하는 조직</span>
-                                            Product Squad<br />Backend / Frontend / Mobile 팀
-                                        </div>
-                                        <div>
-                                            <span className="font-bold text-slate-700 dark:text-slate-300 block mb-1 text-xs">성과 지표 예시</span>
-                                            설계 단계 보안 이슈 사전 제거율<br />보안 이슈로 인한 개발 재작업 감소율
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Cloud & Infrastructure Security Unit */}
-                            <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all">
-                                <div className="flex items-center gap-3 mb-4">
-                                    <span className="text-2xl">☁️</span>
-                                    <div>
-                                        <h5 className="font-bold text-lg text-slate-800 dark:text-slate-100">Cloud & Infrastructure Security Unit</h5>
-                                        <p className="text-sm text-indigo-600 dark:text-indigo-400 font-medium">&quot;플랫폼의 안정성과 확장성을 지키는 보안&quot;</p>
-                                    </div>
-                                </div>
-                                <div className="space-y-4 text-sm text-slate-600 dark:text-slate-400">
-                                    <div>
-                                        <span className="font-bold text-slate-700 dark:text-slate-300 block mb-1">주요 역할</span>
-                                        <ul className="list-disc list-inside space-y-1 pl-1">
-                                            <li>Cloud / Kubernetes / Network 보안</li>
-                                            <li>IAM, Secret, Key 관리</li>
-                                            <li>보안 모니터링·탐지 체계 운영</li>
-                                            <li>침해사고 대응 및 포렌식</li>
-                                        </ul>
-                                    </div>
-                                    <div className="grid grid-cols-2 gap-4 pt-4 border-t border-slate-100 dark:border-slate-800">
-                                        <div>
-                                            <span className="font-bold text-slate-700 dark:text-slate-300 block mb-1 text-xs">함께 일하는 조직</span>
-                                            Platform / SRE / Infra 팀
-                                        </div>
-                                        <div>
-                                            <span className="font-bold text-slate-700 dark:text-slate-300 block mb-1 text-xs">성과 지표 예시</span>
-                                            MTTD / MTTR 개선<br />고위험 설정 미준수 감소율
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Governance · Risk · Compliance (GRC) Unit */}
-                            <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all">
-                                <div className="flex items-center gap-3 mb-4">
-                                    <span className="text-2xl">📑</span>
-                                    <div>
-                                        <h5 className="font-bold text-lg text-slate-800 dark:text-slate-100">Governance · Risk · Compliance (GRC) Unit</h5>
-                                        <p className="text-sm text-indigo-600 dark:text-indigo-400 font-medium">&quot;조직이 안전하게 성장할 수 있는 기준을 만드는 보안&quot;</p>
-                                    </div>
-                                </div>
-                                <div className="space-y-4 text-sm text-slate-600 dark:text-slate-400">
-                                    <div>
-                                        <span className="font-bold text-slate-700 dark:text-slate-300 block mb-1">주요 역할</span>
-                                        <ul className="list-disc list-inside space-y-1 pl-1">
-                                            <li>보안 정책·표준·가이드 수립</li>
-                                            <li>ISMS, ISO, SOC2 등 컴플라이언스 대응</li>
-                                            <li>리스크 평가 및 위험 등록부 관리</li>
-                                            <li>보안 성숙도 모델 운영</li>
-                                        </ul>
-                                    </div>
-                                    <div className="grid grid-cols-2 gap-4 pt-4 border-t border-slate-100 dark:border-slate-800">
-                                        <div>
-                                            <span className="font-bold text-slate-700 dark:text-slate-300 block mb-1 text-xs">함께 일하는 조직</span>
-                                            전사 조직<br />법무 / 경영지원 / 감사
-                                        </div>
-                                        <div>
-                                            <span className="font-bold text-slate-700 dark:text-slate-300 block mb-1 text-xs">성과 지표 예시</span>
-                                            리스크 식별 → 개선 전환율<br />인증·감사 대응 리드타임 감소
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Security Enablement & Trust Unit */}
-                            <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all">
-                                <div className="flex items-center gap-3 mb-4">
-                                    <span className="text-2xl">🤝</span>
-                                    <div>
-                                        <h5 className="font-bold text-lg text-slate-800 dark:text-slate-100">Security Enablement & Trust Unit</h5>
-                                        <p className="text-sm text-indigo-600 dark:text-indigo-400 font-medium">&quot;신뢰와 몰입을 만드는 보안&quot;</p>
-                                    </div>
-                                </div>
-                                <div className="space-y-4 text-sm text-slate-600 dark:text-slate-400">
-                                    <div>
-                                        <span className="font-bold text-slate-700 dark:text-slate-300 block mb-1">주요 역할</span>
-                                        <ul className="list-disc list-inside space-y-1 pl-1">
-                                            <li>보안 교육·캠페인·가이드 콘텐츠</li>
-                                            <li>개발자 친화적 보안 도구 제공</li>
-                                            <li>보안 커뮤니케이션 & 문화 설계</li>
-                                            <li>대내·외 신뢰 커뮤니케이션 지원</li>
-                                        </ul>
-                                    </div>
-                                    <div className="grid grid-cols-2 gap-4 pt-4 border-t border-slate-100 dark:border-slate-800">
-                                        <div>
-                                            <span className="font-bold text-slate-700 dark:text-slate-300 block mb-1 text-xs">함께 일하는 조직</span>
-                                            전사 구성원<br />HR / Brand / PR
-                                        </div>
-                                        <div>
-                                            <span className="font-bold text-slate-700 dark:text-slate-300 block mb-1 text-xs">성과 지표 예시</span>
-                                            보안 가이드 활용률<br />보안 이슈 자발적 공유 비율
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* 3. Interface Principles */}
-                    <div className="space-y-6">
-                        <h4 className="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                            <span className="bg-slate-100 dark:bg-slate-800 p-2 rounded-lg text-lg">3️⃣</span> OKR 설계 원칙
-                        </h4>
-                        <p className="text-slate-600 dark:text-slate-400">Security Squad가 조직과 연결되는 방식</p>
-
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                            <div className="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800">
-                                <h5 className="font-bold text-indigo-600 dark:text-indigo-400 mb-2">Squad-to-Squad</h5>
-                                <p className="text-sm text-slate-600 dark:text-slate-400">
-                                    보안팀은 &quot;승인 조직&quot;이 아니라 함께 문제를 푸는 <span className="font-bold text-slate-900 dark:text-slate-100">파트너</span>. 제품/플랫폼 Squad와 동일한 리듬으로 협업.
-                                </p>
-                            </div>
-                            <div className="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800">
-                                <h5 className="font-bold text-indigo-600 dark:text-indigo-400 mb-2">Early Involvement</h5>
-                                <p className="text-sm text-slate-600 dark:text-slate-400">
-                                    설계 완료 후 리뷰 ❌<br />
-                                    <span className="font-bold text-slate-900 dark:text-slate-100">기획·설계 단계부터 참여</span> ⭕
-                                </p>
-                            </div>
-                            <div className="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800">
-                                <h5 className="font-bold text-indigo-600 dark:text-indigo-400 mb-2">Clear Ownership</h5>
-                                <p className="text-sm text-slate-600 dark:text-slate-400">
-                                    보안팀이 모든 보안을 대신하지 않음.<br />
-                                    실행 책임은 각 Squad, 보안팀은 <span className="font-bold text-slate-900 dark:text-slate-100">기준·가이드·의사결정 지원</span>.
-                                </p>
-                            </div>
-                            <div className="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800">
-                                <h5 className="font-bold text-indigo-600 dark:text-indigo-400 mb-2">Transparent Decision</h5>
-                                <p className="text-sm text-slate-600 dark:text-slate-400">
-                                    왜 이 보안이 필요한지 설명하고 <span className="font-bold text-slate-900 dark:text-slate-100">리스크와 선택지를 함께 공유</span>.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* 4. Common Principles */}
-                    <div className="space-y-6">
-                        <h4 className="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                            <span className="bg-slate-100 dark:bg-slate-800 p-2 rounded-lg text-lg">4️⃣</span> Security Squad의 공통 원칙
-                        </h4>
-
-                        <div className="bg-gradient-to-r from-slate-50 to-white dark:from-slate-800 dark:to-slate-900 rounded-2xl p-6 md:p-8 border border-slate-100 dark:border-slate-700">
-                            <ul className="space-y-4 text-base md:text-lg text-slate-700 dark:text-slate-300 break-keep">
-                                <li className="flex items-start gap-3">
-                                    <span className="text-green-500 mt-1 flex-shrink-0">✓</span>
-                                    <span className="leading-relaxed">보안은 속도를 늦추는 역할이 아니라 <span className="font-bold text-slate-900 dark:text-white">방향을 잡아주는 역할</span>이다</span>
-                                </li>
-                                <li className="flex items-start gap-3">
-                                    <span className="text-green-500 mt-1 flex-shrink-0">✓</span>
-                                    <span className="leading-relaxed">통제보다 <span className="font-bold text-slate-900 dark:text-white">설계와 합의</span>를 우선한다</span>
-                                </li>
-                                <li className="flex items-start gap-3">
-                                    <span className="text-green-500 mt-1 flex-shrink-0">✓</span>
-                                    <span className="leading-relaxed">규칙보다 <span className="font-bold text-slate-900 dark:text-white">신뢰와 이해</span>를 중시한다</span>
-                                </li>
-                                <li className="flex items-start gap-3">
-                                    <span className="text-green-500 mt-1 flex-shrink-0">✓</span>
-                                    <span className="leading-relaxed">모든 보안 활동은 <span className="font-bold text-slate-900 dark:text-white">브랜드 신뢰로 귀결</span>되어야 한다</span>
-                                </li>
+                            <ul className="space-y-3 text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
+                                <li className="flex gap-2.5"><span className="text-blue-400 dark:text-blue-600 flex-shrink-0 mt-1">●</span><span><strong className="text-slate-900 dark:text-white font-bold">DevSecOps 실현</strong>: 기획·설계 단계부터 보안을 녹여내어 서비스 완성도를 높입니다.</span></li>
+                                <li className="flex gap-2.5"><span className="text-blue-400 dark:text-blue-600 flex-shrink-0 mt-1">●</span><span>&quot;안 된다&quot;가 아닌 &quot;어떻게 하면 안전하게 할 수 있을지&quot;를 함께 고민하는 팀원.</span></li>
                             </ul>
                         </div>
-
-                        <div className="text-center pt-8 mt-8 border-t border-slate-100 dark:border-slate-800">
-                            <p className="text-xl md:text-2xl font-bold text-slate-800 dark:text-slate-100 mb-4">
-                                우리가 지향하는 Security Squad
-                            </p>
-                            <div className="flex flex-wrap justify-center gap-4 text-slate-600 dark:text-slate-400 font-medium">
-                                <span className="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-full">제품을 이해하는 보안</span>
-                                <span className="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-full">개발을 존중하는 보안</span>
-                                <span className="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-full">브랜드를 보호하는 보안</span>
+                        <div className="p-6 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900">
+                            <div className="flex items-center gap-3 mb-4">
+                                <div className="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 font-bold text-sm">A</div>
+                                <span className="font-semibold text-slate-800 dark:text-slate-100">Architecture — 방향을 제시하는 역할</span>
                             </div>
-                            <p className="text-indigo-600 dark:text-indigo-400 font-bold mt-6 text-lg">
-                                그리고 시간이 지날수록 조직과 함께 더 강해지는 Security Squad
-                            </p>
+                            <ul className="space-y-3 text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
+                                <li className="flex gap-2.5"><span className="text-blue-400 dark:text-blue-600 flex-shrink-0 mt-1">●</span><span><strong className="text-slate-900 dark:text-white font-bold">기준 수립</strong>: 전사가 공감할 수 있는 보안 기준을 세우고 리스크를 관리합니다.</span></li>
+                                <li className="flex gap-2.5"><span className="text-blue-400 dark:text-blue-600 flex-shrink-0 mt-1">●</span><span>팀 전체가 안전하게 나아갈 수 있도록 전체적인 판을 읽고 전술을 설계합니다.</span></li>
+                            </ul>
                         </div>
+                    </div>
+                </div>
+
+                {/* 3 Promises */}
+                <div className="mb-10">
+                    <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 mb-6 flex items-center gap-3">
+                        <span className="w-8 h-[2px] bg-blue-600 dark:bg-blue-400"></span>
+                        몰입을 위한 세 가지 약속
+                    </h3>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+                        {[
+                            { num: "01", title: "명확한 이유", desc: "규제 때문이 아니라 '고객의 신뢰'를 지킨다는 본질에 집중합니다." },
+                            { num: "02", title: "현실적인 결정", desc: "보안과 속도 사이에서 함께 최선의 균형점을 찾아냅니다." },
+                            { num: "03", title: "가시적인 목표", desc: "'비즈니스 성장에 기여하는 전문가'로 인정받는 것을 목표로 합니다." },
+                        ].map((p, i) => (
+                            <div key={i} className="p-6 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 hover:border-blue-500 dark:hover:border-blue-500 transition-all hover:shadow-md group">
+                                <div className="text-3xl font-black text-slate-100 dark:text-slate-800 mb-4 select-none group-hover:text-blue-100 dark:group-hover:text-blue-900 transition-colors">{p.num}</div>
+                                <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-2">{p.title}</h4>
+                                <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed font-medium">{p.desc}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* 3 Key Directions */}
+                <div className="mb-10">
+                    <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 mb-6 flex items-center gap-3">
+                        <span className="w-8 h-[2px] bg-blue-600 dark:bg-blue-400"></span>
+                        세 가지 핵심 방향
+                    </h3>
+                    <div className="space-y-4">
+                        {[
+                            {
+                                num: "1",
+                                title: "투명한 성숙도 관리와 정당한 보상",
+                                items: [
+                                    { title: "단계별 성장", desc: "현재 팀의 기술 수준을 객관적으로 파악하고 다음 단계 기술 스택을 익혀나갑니다." },
+                                    { title: "공정한 성과 측정", desc: "합류 시점과 무관하게 시스템 개선·효율화 기여도에 따라 보상합니다." },
+                                    { title: "지식의 공유", desc: "개인의 노하우를 팀 자산으로 만들어 시간이 갈수록 단단해지는 팀을 만듭니다." },
+                                ],
+                            },
+                            {
+                                num: "2",
+                                title: "AI 기술 도입을 통한 업무 방식의 변화",
+                                items: [
+                                    { title: "자동화 플랫폼 활용", desc: "Pentest-AI 등 도구로 반복적인 점검 업무를 자동화하여 더 중요한 일에 집중합니다." },
+                                    { title: "전문성 강화", desc: "자동화로 확보한 여유를 아키텍처 설계·위협 모델링 등 고부가가치 과업에 재배치합니다." },
+                                    { title: "기술적 성장", desc: "최신 기술을 업무에 직접 적용하고 실험하며 보안 전문가로서 계속 성장합니다." },
+                                ],
+                            },
+                            {
+                                num: "3",
+                                title: "비즈니스를 돕는 기술 서포트",
+                                items: [
+                                    { title: "개발자를 위한 가이드라인", desc: "파이프라인 내 자동화된 보안 장치로 개발팀이 비즈니스 성장에만 집중할 수 있게 돕습니다." },
+                                    { title: "설명이 있는 보안", desc: "통제보다 기술적 근거를 바탕으로 협업 부서와 투명하게 소통하는 문화를 만듭니다." },
+                                    { title: "브랜드 가치 제고", desc: "보안팀의 전문성이 기업 브랜드 신뢰도가 됩니다." },
+                                ],
+                            },
+                        ].map((dir, di) => (
+                            <div key={di} className="rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+                                <div className="px-6 py-4 bg-slate-50 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-700 flex items-center gap-4">
+                                    <span className="w-6 h-6 rounded-full bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 text-xs font-bold flex items-center justify-center flex-shrink-0">{dir.num}</span>
+                                    <span className="font-semibold text-slate-800 dark:text-slate-100 text-sm">{dir.title}</span>
+                                </div>
+                                <div className="p-6 bg-white dark:bg-slate-900 grid grid-cols-1 md:grid-cols-3 gap-6">
+                                    {dir.items.map((item, ii) => (
+                                        <div key={ii}>
+                                            <h5 className="font-bold text-slate-900 dark:text-white text-base mb-2">{item.title}</h5>
+                                            <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-medium">{item.desc}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Vision Tags */}
+                 <div className="flex flex-wrap gap-3 pt-8 border-t border-slate-200 dark:border-slate-700">
+                     {["비즈니스를 이해하는 보안팀", "현장에서 함께 고민하는 보안팀", "기술로 신뢰를 만들어가는 보안팀"].map((tag, i) => (
+                         <span key={i} className="px-4 py-2 text-xs font-bold rounded-full border-2 border-slate-900 dark:border-slate-100 text-slate-900 dark:text-slate-100 bg-white dark:bg-slate-900 shadow-sm">
+                             {tag}
+                         </span>
+                     ))}
+                 </div>
+            </Section>
+
+            {/* Security Squad Project */}
+            <Section title="Security Squad Project">
+                <div className="rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden bg-white dark:bg-slate-900">
+                    {/* Header */}
+                    <div className="px-8 py-8 border-b border-slate-100 dark:border-slate-800">
+                        <div className="inline-block px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wide mb-4">Project</div>
+                        <h3 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-slate-100 mb-3">
+                            비즈니스 성장을 견인하는<br />
+                            <span className="text-slate-500 dark:text-slate-400 font-normal">&apos;보안 스쿼드&apos; 비전 수립</span>
+                        </h3>
+                        <p className="text-base text-slate-700 dark:text-slate-300 leading-relaxed max-w-2xl font-medium">
+                            &quot;보안은 통제가 아니라, 비즈니스가 더 과감하게 달릴 수 있게 돕는 신뢰의 안전장치여야 합니다.&quot; 브랜딩 기업 환경에서 보안팀이 비즈니스의 필수 전력이 되는 철학과 전략을 수립했습니다.
+                        </p>
+                    </div>
+
+                    {/* 3 Strategies */}
+                    <div className="px-8 py-8 border-b border-slate-100 dark:border-slate-800">
+                        <h4 className="text-sm font-bold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 mb-8 flex items-center gap-3">
+                            <span className="w-8 h-[2px] bg-blue-600 dark:bg-blue-400"></span>
+                            3대 핵심 추진 방향
+                        </h4>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            {[
+                                {
+                                    tag: "Maturity & Growth",
+                                    title: "성숙도 기반의 공정한 성장",
+                                    points: ["DevSecOps 성숙도 모델 기반 로드맵 수립", "합류 시점 무관 실질적 성과 기준 보상 체계", "개인 노하우의 팀 자산화로 조직 영속성 확보"],
+                                },
+                                {
+                                    tag: "AI-Powered Security",
+                                    title: "AI 기반의 기술적 혁신",
+                                    points: ["Pentest-AI 등 자동화로 반복 수동 업무 제거", "확보 리소스를 아키텍처 설계·위협 모델링에 재배치", "팀원 기술적 성취감 고취"],
+                                },
+                                {
+                                    tag: "Business Enablement",
+                                    title: "비즈니스 친화적 서포트",
+                                    points: ["개발 파이프라인 내 자동화된 보안 가드레일 구축", "기술적 근거 기반 협업 부서와 투명한 소통 문화", "보안팀 전문성 = 기업 브랜드 신뢰도"],
+                                },
+                            ].map((s, i) => (
+                                <div key={i} className="space-y-3">
+                                    <div>
+                                        <span className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">{s.tag}</span>
+                                        <h5 className="font-bold text-slate-900 dark:text-white text-base mt-2">{s.title}</h5>
+                                    </div>
+                                    <ul className="space-y-2.5">
+                                        {s.points.map((pt, j) => (
+                                            <li key={j} className="flex gap-2 text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
+                                                <span className="text-blue-500 dark:text-blue-400 flex-shrink-0 mt-1">●</span>
+                                                {pt}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Expected Impact */}
+                    <div className="px-8 py-8">
+                        <h4 className="text-sm font-bold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 mb-8 flex items-center gap-3">
+                            <span className="w-8 h-[2px] bg-blue-600 dark:bg-blue-400"></span>
+                            Expected Impact
+                        </h4>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            {[
+                                { label: "내부 조직", desc: "보안을 든든한 파트너로 인식하고 자발적으로 협업하는 문화" },
+                                { label: "고객 가치", desc: "수준 높은 보안 기술력으로 브랜드에 대한 사용자 신뢰도 극대화" },
+                                { label: "팀 빌딩", desc: "명확한 미션과 공정한 보상으로 전문가들이 오래 몰입하는 보안 스쿼드 구축" },
+                            ].map((impact, i) => (
+                                <div key={i}>
+                                    <span className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">{impact.label}</span>
+                                    <p className="text-base text-slate-800 dark:text-slate-200 mt-2 leading-relaxed font-semibold">{impact.desc}</p>
+                                </div>
+                            ))}
+                        </div>
+                        <p className="text-xs text-slate-400 dark:text-slate-500 mt-8 pt-6 border-t border-slate-100 dark:border-slate-800 italic">
+                            &quot;우리는 기업의 성장과 함께하며 시간이 갈수록 더 단단해지는 보안 시스템을 설계합니다.&quot;
+                        </p>
                     </div>
                 </div>
             </Section>
 
-            {/* Focus Areas */}
-            <Section title="Recent Focus" className="py-12 md:py-20">
+            <Section title="Recent Focus">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div className="bg-gradient-to-br from-indigo-500 to-purple-600 p-5 md:p-6 rounded-2xl text-white shadow-lg">
                         <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
@@ -716,6 +514,12 @@ export default function Home() {
             <Section title="Key Projects">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <ProjectCard
+                        title="Pentest-AI — 모의해킹 플랫폼 (AI-Red Team)"
+                        description="전문가 수준의 보안 진단을 수행하는 4계층 AI 에이전트 플랫폼. ShadowGraph를 통한 세션 문맥 유지, Claude Opus/Sonnet 및 Gemini를 활용한 교차 검증, Compliance RAG를 통한 규제 매칭을 자동화합니다."
+                        link="/projects/pentest-ai"
+                        tags={["AI Pentesting", "LLM Agents", "ShadowGraph", "DevSecOps"]}
+                    />
+                    <ProjectCard
                         title="Zero Trust Architecture"
                         description="사용자 경험을 해치지 않는 강력한 보안 아키텍처. Identity, Access, Compliance를 통합한 3단계 제로 트러스트 모델을 설계하고 구현합니다."
                         link="/projects/zero-trust"
@@ -775,8 +579,8 @@ export default function Home() {
             </Section>
 
             {/* Footer */}
-            <footer className="py-12 text-center text-slate-500 dark:text-slate-400 border-t border-slate-100 dark:border-slate-800 mt-20">
-                <p>© 2025 Yunhyeok Lee. All rights reserved.</p>
+            <footer className="py-10 text-center text-slate-700 dark:text-slate-300 border-t border-slate-200 dark:border-slate-700 mt-16">
+                <p className="font-medium">© 2025 Yunhyeok Lee. All rights reserved.</p>
             </footer>
         </main>
     );

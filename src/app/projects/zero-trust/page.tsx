@@ -135,7 +135,7 @@ export default function ZeroTrustPage() {
                     <h1 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 leading-tight">
                         {t.title}
                     </h1>
-                    <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed">
+                    <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed break-keep">
                         {t.summary}
                     </p>
                 </motion.div>
@@ -164,9 +164,9 @@ export default function ZeroTrustPage() {
                     </div>
 
                     <div className="relative w-full rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 p-2 shadow-lg">
-                        <div className="relative aspect-[16/9] w-full">
+                        <div className="relative aspect-[16/10] w-full">
                             <Image
-                                src="/zero-trust-architecture.png"
+                                src="/projects/zero-trust-arch.png"
                                 alt="Zero Trust Architecture Diagram"
                                 fill
                                 className="object-contain"
@@ -196,7 +196,7 @@ export default function ZeroTrustPage() {
                                 Finance ZeroTrust(FZT) Security란?
                             </h2>
                         </div>
-                        <div className="prose dark:prose-invert max-w-none text-slate-600 dark:text-slate-400 leading-relaxed space-y-4">
+                        <div className="prose dark:prose-invert max-w-none text-slate-600 dark:text-slate-400 leading-relaxed space-y-4 break-keep">
                             <p>
                                 Moin은 많은 규제와 인증을 준비해야 하는 전자금융서비스를 제공하고 있습니다.
                                 많은 규제를 적용하다 보면 업무의 효율성과 혁신성이 저하될 수 있습니다.
@@ -475,7 +475,7 @@ export default function ZeroTrustPage() {
                                         <li>[별첨7] 망분리 대체 정보보호 통제 준수</li>
                                     </ul>
                                 </div>
-                                <div className="overflow-x-auto rounded-xl border border-slate-200 dark:border-slate-700 max-h-[600px] overflow-y-auto">
+                                <div className="overflow-x-auto rounded-xl border border-slate-200 dark:border-slate-700 max-h-[800px]">
                                     <table className="w-full text-xs text-left text-slate-600 dark:text-slate-400">
                                         <thead className="text-xs text-slate-700 dark:text-slate-200 uppercase bg-slate-100 dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 sticky top-0 z-10">
                                             <tr>
