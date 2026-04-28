@@ -144,6 +144,8 @@ export default function SecurityDashboardPage() {
                             </div>
                         </div>
                     </div>
+                </section>
+
                 {/* Core Pillars */}
                 <section className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-20">
                     {[
