@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Github, Linkedin, Award, Book, Terminal, Shield, Users, ArrowDown, ExternalLink, Zap } from "lucide-react";
+import { Mail, Github, Linkedin, Award, Book, Terminal, Shield, Users, ArrowDown, ExternalLink, Zap, Activity, Target, Settings, Cpu } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Section } from "@/components/Section";
@@ -238,6 +238,130 @@ export default function Home() {
             </Section>
 
 
+
+            <Section title="Security Division 구성 방안">
+                <div className="space-y-12">
+                    {/* Introduction */}
+                    <div className="bg-white dark:bg-slate-900 rounded-3xl p-8 border border-slate-200 dark:border-slate-800 shadow-sm text-justify">
+                        <p className="text-lg leading-relaxed text-slate-800 dark:text-slate-200 font-medium break-keep">
+                            정보보안은 본질적으로 매우 넓은 스펙트럼을 가진 영역입니다. 우리는 단순히 규제를 준수하는 수준을 넘어, 불필요한 제약을 제거하고 팀의 몰입도를 끌어올려 비즈니스 가치를 극대화하는 <span className="text-blue-600 dark:text-blue-400 font-bold">전략적 파트너</span>를 지향합니다.
+                        </p>
+                    </div>
+
+                    {/* 1. 이중적 정체성 */}
+                    <div>
+                        <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 mb-8 flex items-center gap-3">
+                            <span className="w-8 h-[2px] bg-blue-600 dark:bg-blue-400"></span>
+                            1. 보안팀의 이중적 정체성
+                        </h3>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div className="p-8 rounded-2xl bg-blue-50/50 dark:bg-blue-900/10 border border-blue-100 dark:border-blue-900/30">
+                                <div className="w-12 h-12 rounded-xl bg-blue-600 text-white flex items-center justify-center mb-6 shadow-lg shadow-blue-600/20">
+                                    <Users size={24} />
+                                </div>
+                                <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-4">스쿼드(Squad)의 순간</h4>
+                                <p className="text-slate-700 dark:text-slate-300 leading-relaxed font-medium text-sm break-keep">
+                                    개발 및 제품 팀과 함께 필드 위에서 직접 호흡하며 제품의 안전과 신뢰를 구현하는 든든한 팀원
+                                </p>
+                            </div>
+                            <div className="p-8 rounded-2xl bg-slate-100/50 dark:bg-slate-800/30 border border-slate-200 dark:border-slate-700">
+                                <div className="w-12 h-12 rounded-xl bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 flex items-center justify-center mb-6 shadow-lg">
+                                    <Shield size={24} />
+                                </div>
+                                <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-4">서포트(Support)의 순간</h4>
+                                <p className="text-slate-700 dark:text-slate-300 leading-relaxed font-medium text-sm break-keep">
+                                    전사적인 보안 기준과 전술을 설계하여 팀이 흔들림 없이 승리할 수 있도록 돕는 감독과 코치
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* 2. 역할 분담 모델 */}
+                    <div>
+                        <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 mb-8 flex items-center gap-3">
+                            <span className="w-8 h-[2px] bg-blue-600 dark:bg-blue-400"></span>
+                            2. 역할 분담 상세 모델
+                        </h3>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-0 rounded-3xl border border-slate-200 dark:border-slate-800 overflow-hidden bg-white dark:bg-slate-900 shadow-sm">
+                            <div className="p-8 border-b md:border-b-0 md:border-r border-slate-100 dark:border-slate-800">
+                                <div className="mb-8">
+                                    <span className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest block mb-2">실전 보안 (Squad)</span>
+                                    <h4 className="text-lg font-bold text-slate-900 dark:text-white">&quot;현장에서 함께 뛰며 제품의 신뢰를 구축합니다&quot;</h4>
+                                </div>
+                                <ul className="space-y-6">
+                                    <li className="flex gap-4">
+                                        <div className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center text-xs font-bold mt-1">•</div>
+                                        <div>
+                                            <p className="font-bold text-slate-800 dark:text-slate-200 mb-1">Shift-Left Security</p>
+                                            <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed break-keep text-justify">기획 및 설계 단계부터 깊숙이 참여하여 보안 결함을 사전에 제거하고 제품의 완성도를 극대화합니다.</p>
+                                        </div>
+                                    </li>
+                                    <li className="flex gap-4">
+                                        <div className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center text-xs font-bold mt-1">•</div>
+                                        <div>
+                                            <p className="font-bold text-slate-800 dark:text-slate-200 mb-1">AI-Powered Automation</p>
+                                            <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed break-keep text-justify">AI를 활용해 소모적인 운영 업무와 반복적인 태스크를 압축하고, 개발 속도에 맞춘 빠른 피드백 루프를 제공합니다.</p>
+                                        </div>
+                                    </li>
+                                    <li className="flex gap-4">
+                                        <div className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center text-xs font-bold mt-1">•</div>
+                                        <div>
+                                            <p className="font-bold text-slate-800 dark:text-slate-200 mb-1">Value-Driven Trust</p>
+                                            <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed break-keep text-justify">서비스 품질이 사용자의 실질적인 신뢰로 직결되도록 기술적 안전장치를 제품 아키텍처 내에 직접 구현합니다.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div className="p-8 bg-slate-50/50 dark:bg-slate-800/20">
+                                <div className="mb-8">
+                                    <span className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest block mb-2">전략 보안 (Support)</span>
+                                    <h4 className="text-lg font-bold text-slate-900 dark:text-white">&quot;전술을 설계하고 승리를 위한 환경을 조성합니다&quot;</h4>
+                                </div>
+                                <ul className="space-y-6">
+                                    <li className="flex gap-4">
+                                        <div className="flex-shrink-0 w-6 h-6 rounded-full bg-white dark:bg-slate-800 text-slate-400 flex items-center justify-center text-xs font-bold mt-1">•</div>
+                                        <div>
+                                            <p className="font-bold text-slate-800 dark:text-slate-200 mb-1">거버넌스 및 기준 수립</p>
+                                            <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed break-keep text-justify">팀이 불안함 없이 본연의 업무에만 몰입할 수 있도록 명확하고 유연한 컴플라이언스 가이드라인을 제시합니다.</p>
+                                        </div>
+                                    </li>
+                                    <li className="flex gap-4">
+                                        <div className="flex-shrink-0 w-6 h-6 rounded-full bg-white dark:bg-slate-800 text-slate-400 flex items-center justify-center text-xs font-bold mt-1">•</div>
+                                        <div>
+                                            <p className="font-bold text-slate-800 dark:text-slate-200 mb-1">리스크 관리 및 조율</p>
+                                            <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed break-keep text-justify">성장의 걸림돌을 선제적으로 제거하고, 전사를 보호하는 단호한 판단과 유연한 조율로 비즈니스의 지속 가능성을 확보합니다.</p>
+                                        </div>
+                                    </li>
+                                    <li className="flex gap-4">
+                                        <div className="flex-shrink-0 w-6 h-6 rounded-full bg-white dark:bg-slate-800 text-slate-400 flex items-center justify-center text-xs font-bold mt-1">•</div>
+                                        <div>
+                                            <p className="font-bold text-slate-800 dark:text-slate-200 mb-1">성숙도 및 컨디션 관리</p>
+                                            <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed break-keep text-justify">전사의 보안 성숙도가 데이터와 지표로서 개선되는 과정을 실시간으로 관리하며 흔들리지 않는 신뢰의 기반을 만듭니다.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* 3. 지향점 */}
+                    <div className="bg-slate-900 text-white rounded-3xl p-10 relative overflow-hidden shadow-2xl">
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/20 blur-[100px] rounded-full -mr-32 -mt-32" />
+                        <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-blue-400 mb-6 flex items-center gap-3">
+                            <span className="w-8 h-[2px] bg-blue-400"></span>
+                            3. 조직의 지향점
+                        </h3>
+                        <div className="relative z-10">
+                            <p className="text-xl md:text-2xl font-bold mb-8 leading-tight break-keep">
+                                &quot;전략적 서포트(Support) 역량을 갖추고 기술적 스쿼드(Squad)로 실행하는 독립적인 보안 조직&quot;
+                            </p>
+                            <p className="text-slate-300 leading-relaxed font-medium break-keep text-justify">
+                                우리는 AI로 업무를 압축하여 확보된 리소스를 통해 더 고도화된 아키텍처 설계에 집중합니다. 개선된 보안 지표를 실시간으로 확인하며 느끼는 성취감을 팀 전체의 성장 동력으로 삼아, 비즈니스가 더 과감하게 나아갈 수 있는 신뢰의 토대를 완성합니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </Section>
 
             <Section title="Work Experience" id="experience">
                 <div className="space-y-4">
