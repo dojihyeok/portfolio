@@ -7,7 +7,6 @@ import Link from "next/link";
 import { Section } from "@/components/Section";
 import { ExperienceItem } from "@/components/ExperienceItem";
 import { ProjectCard } from "@/components/ProjectCard";
-import { DashboardWidgets } from "@/components/DashboardWidgets";
 
 export default function Home() {
     return (
@@ -51,10 +50,6 @@ export default function Home() {
                     </div>
                 </motion.div>
 
-                {/* Dashboard Widgets — Visualizing Visible Improvement */}
-                <div className="z-10 w-full max-w-6xl mx-auto px-4 mt-8">
-                    <DashboardWidgets />
-                </div>
             </section>
 
             {/* About Me */}
