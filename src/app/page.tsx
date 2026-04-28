@@ -46,11 +46,11 @@ export default function Home() {
                         개선된 보안 지표를 실시간으로 확인하며 느끼는 즐거움으로 몰입하며 기업의 브랜드 신뢰를 완성합니다.
                     </p>
 
-
-                    <div className="mt-12 text-slate-400">
-                        <ArrowDown size={28} className="animate-bounce" />
-                    </div>
                 </motion.div>
+
+                <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-slate-400 z-10">
+                    <ArrowDown size={28} className="animate-bounce" />
+                </div>
 
             </section>
 
