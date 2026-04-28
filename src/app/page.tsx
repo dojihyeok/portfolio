@@ -469,7 +469,7 @@ export default function Home() {
                     <ProjectCard
                         title="AI-Native Security Dashboard"
                         description="Cursor와 MCP를 활용하여 구축한 실시간 리스크 가시화 플랫폼. 복잡한 보안 지표를 AI로 분석하여 우선순위를 제안하고, 자동화된 대응 조치를 실행합니다."
-                        link="#"
+                        link="/projects/security-dashboard"
                         tags={["AI Agents", "MCP", "Cursor", "Real-time Metrics"]}
                     />
                     <ProjectCard
