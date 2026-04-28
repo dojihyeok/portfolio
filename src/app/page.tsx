@@ -102,7 +102,7 @@ export default function Home() {
                 {/* Lead Quote */}
                 <div className="border-l-4 border-slate-900 dark:border-slate-100 pl-6 py-2 mb-8 bg-slate-50 dark:bg-slate-800/30 rounded-r-xl">
                     <p className="text-lg md:text-xl text-slate-800 dark:text-slate-100 leading-relaxed font-semibold italic break-keep text-justify">
-                        단순히 사고를 막는 통제 조직을 넘어, <span className="text-blue-600 dark:text-blue-400 underline decoration-2 underline-offset-4">고객의 신뢰와 브랜드의 가치를 지키는 비즈니스의 필수 스쿼드</span>를 지향합니다.
+                        AI로 보안의 한계를 압축하고, <span className="text-blue-600 dark:text-blue-400 underline decoration-2 underline-offset-4">데이터로 성장의 확신을 채우는 전략적 신뢰 설계자</span>
                     </p>
                 </div>
 
@@ -143,7 +143,7 @@ export default function Home() {
                 <div className="mb-10">
                     <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 mb-6 flex items-center gap-3">
                         <span className="w-8 h-[2px] bg-blue-600 dark:bg-blue-400"></span>
-                        보안팀의 핵심 3가지 축
+                        보안팀이 몰입할 수 있는 방안
                     </h3>
                     <div className="space-y-6">
                         {[
