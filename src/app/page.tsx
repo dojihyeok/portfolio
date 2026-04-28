@@ -59,7 +59,7 @@ export default function Home() {
                     <span className="font-bold text-blue-700 dark:text-blue-400 underline decoration-blue-500/30 underline-offset-4"> 브랜드 신뢰를 설계하는 일</span>이라고 생각합니다.
                 </p>
                 <p className="text-lg leading-loose text-slate-800 dark:text-slate-200 mt-6 font-medium">
-                    지난 17년간 정보보호 컨설팅, 금융권 보안, 인터넷은행 인가, 스타트업 보안팀 리더십까지 다양한 환경에서
+                    지난 18년간 정보보호 컨설팅, 금융권 보안, 인터넷은행 인가, 스타트업 보안팀 리더십까지 다양한 환경에서
                     &quot;팀과 기술이 더 잘 성장하도록 돕는 보안 리더십&quot;을 실천해 왔습니다.
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
@@ -580,7 +580,7 @@ export default function Home() {
 
             {/* Footer */}
             <footer className="py-10 text-center text-slate-700 dark:text-slate-300 border-t border-slate-200 dark:border-slate-700 mt-16">
-                <p className="font-medium">© 2025 Yunhyeok Lee. All rights reserved.</p>
+                <p className="font-medium">© 2026 Yunhyeok Lee. All rights reserved.</p>
             </footer>
         </main>
     );
