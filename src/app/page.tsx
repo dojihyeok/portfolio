@@ -113,9 +113,6 @@ export default function Home() {
                         <span className="w-8 h-[2px] bg-blue-600 dark:bg-blue-400"></span>
                         브랜드를 추구하는 보안팀
                     </h3>
-                    <p className="text-slate-600 dark:text-slate-400 font-medium mb-8 pl-11 -mt-4">
-                        함께 뛰며 성장하는 조직을 구축합니다.
-                    </p>
                 </div>
 
                 <div className="mb-10">
