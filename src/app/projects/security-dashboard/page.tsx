@@ -38,8 +38,8 @@ export default function SecurityDashboardPage() {
                                 <span className="text-blue-600 dark:text-blue-400">Security Dashboard</span>
                             </h1>
                             <p className="text-xl text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed font-medium break-keep">
-                                Cursor와 MCP(Model Context Protocol)를 활용하여 구축한 실시간 리스크 가시화 플랫폼입니다. 
-                                복잡한 보안 지표를 AI로 분석하여 우선순위를 제안하고, 자동화된 대응 조치를 실행합니다.
+                                Antigravity와 MCP(Model Context Protocol)를 활용하여 구축한 실시간 리스크 가시화 플랫폼입니다. 
+                                EDR, SaaS, CI/CD 등 전사의 파편화된 보안 데이터를 실시간으로 분석하여 위협의 우선순위를 제안하고, 자동화된 대응을 실행합니다.
                             </p>
                         </div>
                         <div className="flex gap-4">
@@ -144,25 +144,23 @@ export default function SecurityDashboardPage() {
                             </div>
                         </div>
                     </div>
-                </section>
-
                 {/* Core Pillars */}
                 <section className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-20">
                     {[
                         {
-                            title: "AI Agent Optimization",
+                            title: "Antigravity AI Optimization",
                             icon: <BarChart3 className="text-blue-600" />,
-                            desc: "Cursor를 활용한 고성능 AI 에이전트 설계로 보안 이벤트를 실시간으로 분류하고, 사람이 개입하기 전 선제적 대응 로직을 수행합니다."
+                            desc: "Antigravity를 활용한 고성능 AI 에이전트로 전사의 보안 이벤트를 실시간 분류합니다. 단순 패턴 매칭이 아닌 AI 추론을 통해 탐지의 정확도를 극대화합니다."
                         },
                         {
-                            title: "MCP Integration",
+                            title: "Context-Aware Prioritization",
                             icon: <Cpu className="text-purple-600" />,
-                            desc: "Model Context Protocol을 통해 다양한 보안 툴과 데이터를 통합합니다. 파편화된 정보를 하나의 컨텍스트로 묶어 AI가 가장 정확한 판단을 내리도록 돕습니다."
+                            desc: "자산 중요도, 사용자 권한, 위협 인텔리전스를 MCP로 결합하여 '가장 먼저 해결해야 할 리스크'를 데이터 기반으로 도출하고 실행 우선순위를 제안합니다."
                         },
                         {
-                            title: "Zero-Latency Insight",
+                            title: "Multi-Source Data Sync",
                             icon: <Zap className="text-orange-600" />,
-                            desc: "지연 없는 데이터 파이프라인을 구축하여 리스크 수치를 실시간으로 시각화합니다. 대시보드를 보는 것만으로 현재 전사 보안 컨디션을 즉각 파악할 수 있습니다."
+                            desc: "EDR, CloudTrail, SaaS(Slack/Jira) 등 흩어진 로그를 실시간 동기화합니다. 파편화된 정보들 사이의 연관 관계를 분석하여 입체적인 보안 가시성을 제공합니다."
                         }
                     ].map((item, i) => (
                         <div key={i} className="group">
@@ -186,7 +184,7 @@ export default function SecurityDashboardPage() {
                             <div className="space-y-6">
                                 {[
                                     { label: "Development", val: "Next.js, Tailwind CSS, Framer Motion" },
-                                    { label: "AI Engine", val: "Claude 3.5 Sonnet, Cursor AI" },
+                                    { label: "AI Engine", val: "Claude 3.5 Sonnet, Antigravity" },
                                     { label: "Protocol", val: "Model Context Protocol (MCP), gRPC" },
                                     { label: "Monitoring", val: "Real-time WebSocket, Prometheus" },
                                 ].map((stack, i) => (
