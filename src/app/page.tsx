@@ -98,37 +98,37 @@ export default function Home() {
                 {/* Lead Quote */}
                 <div className="border-l-4 border-slate-900 dark:border-slate-100 pl-6 py-2 mb-8 bg-slate-50 dark:bg-slate-800/30 rounded-r-xl">
                     <p className="text-lg md:text-xl text-slate-800 dark:text-slate-100 leading-relaxed font-semibold italic break-keep text-justify">
-                        AI로 보안의 한계를 압축하고, <span className="text-blue-600 dark:text-blue-400 underline decoration-2 underline-offset-4">데이터로 성장의 확신을 채우는 전략적 신뢰 설계자</span>
+                        &quot;AI 기반의 지능적 자동화로 업무 효율을 극대화하여 자율형 보안 체계를 구축하고, <span className="text-blue-600 dark:text-blue-400 underline decoration-2 underline-offset-4">투명하게 시각화된 데이터로 비즈니스 신뢰와 성장에 기여하는 보안팀</span>&quot;
                     </p>
                 </div>
 
-                {/* 1. Why do we do this security? */}
+                {/* 1. Trust Architect's Three Promises */}
                 <div className="mb-10">
                     <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 mb-6 flex items-center gap-3">
                         <span className="w-8 h-[2px] bg-blue-600 dark:bg-blue-400"></span>
-                        우리는 왜 이 보안을 하는가?
+                        Trust Architect의 세 가지 약속
                     </h3>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                         {[
                             {
-                                title: "같은 시선",
-                                subtitle: "규제가 아니라 신뢰와 브랜드를 위해",
-                                desc: "규제(Compliance)는 최소한의 허들일 뿐입니다. 우리가 진짜 지키고 싶은 것은 '고객의 신뢰'와 그 신뢰가 모여 만들어진 '브랜드의 가치'입니다."
+                                eyebrow: "BUSINESS-ALIGNED",
+                                title: "비즈니스가 과감해지는 신뢰 설계",
+                                desc: "우리의 첫 번째 고객은 사용자이고, 두 번째 고객은 동료입니다. 단순한 사고 예방을 넘어, 서비스의 브랜드 가치를 높이고 비즈니스가 더 과감하게 나아갈 수 있는 단단한 신뢰를 설계합니다."
                             },
                             {
-                                title: "같은 고민",
-                                subtitle: "개발 속도와 안전의 균형",
-                                desc: "단순히 \"안 됩니다\"라고 말하는 대신, 어떻게 하면 '안전하게' 개발 속도를 유지할 수 있을지 함께 고민하고 이상과 현실 사이의 최적의 접점을 찾습니다."
+                                eyebrow: "AI-POWERED EFFICIENCY",
+                                title: "지능적 자동화와 물리적 시간 압축",
+                                desc: "보안이 비즈니스의 병목이 되지 않도록 비효율을 제거합니다. AI 에이전트를 적극 활용하여 운영 업무를 자동화하고, 팀원들은 더 창의적인 아키텍처 설계에 에너지를 집중합니다."
                             },
                             {
-                                title: "같은 Goal",
-                                subtitle: "브랜드를 지키는 신뢰받는 보안팀",
-                                desc: "사고가 없는 상태는 기본입니다. 우리는 거기서 더 나아가 \"이 서비스는 보안 덕분에 더 믿음직하다\"는 가치를 창출하는 팀이 되고자 합니다."
+                                eyebrow: "VISIBLE IMPROVEMENT",
+                                title: "데이터로 체감하는 성장의 효능감",
+                                desc: "막연한 불안감을 가시적인 데이터로 전환합니다. 취약점 제거 속도와 방어 지표의 개선을 실시간으로 확인하며, 우리 손으로 직접 안전을 일구어내는 즐거움을 동력으로 삼습니다."
                             }
                         ].map((item, i) => (
                             <div key={i} className="p-8 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900/50 shadow-sm hover:shadow-md transition-all">
-                                <div className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-2">{item.title}</div>
-                                <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-4 break-keep">{item.subtitle}</h4>
+                                <div className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-2">{item.eyebrow}</div>
+                                <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-4 break-keep">{item.title}</h4>
                                 <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed font-medium break-keep text-justify">{item.desc}</p>
                             </div>
                         ))}
