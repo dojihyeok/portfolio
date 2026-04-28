@@ -108,8 +108,21 @@ export default function Home() {
                 </div>
 
                 {/* Why — Comparison Table */}
-                <div className="mb-6">
-                    <h3 className="text-xs font-semibold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-5">왜 보안팀이 필요한가</h3>
+                <div className="mb-10">
+                    <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 mb-6 flex items-center gap-3">
+                        <span className="w-8 h-[2px] bg-blue-600 dark:bg-blue-400"></span>
+                        우리가 만들고 싶은 보안팀
+                    </h3>
+                    <p className="text-slate-600 dark:text-slate-400 font-medium mb-8 pl-11 -mt-4">
+                        함께 뛰며 성장하는 조직을 구축합니다.
+                    </p>
+                </div>
+
+                <div className="mb-10">
+                    <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 mb-6 flex items-center gap-3">
+                        <span className="w-8 h-[2px] bg-blue-600 dark:bg-blue-400"></span>
+                        왜 보안팀이 필요한가
+                    </h3>
                     <div className="rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden">
                         <table className="w-full text-sm">
                             <thead>
