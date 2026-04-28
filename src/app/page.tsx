@@ -7,6 +7,7 @@ import Link from "next/link";
 import { Section } from "@/components/Section";
 import { ExperienceItem } from "@/components/ExperienceItem";
 import { ProjectCard } from "@/components/ProjectCard";
+import { DashboardWidgets } from "@/components/DashboardWidgets";
 
 export default function Home() {
     return (
@@ -37,11 +38,11 @@ export default function Home() {
                     <h1 className="text-[12vw] md:text-8xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-400 mb-4 tracking-tight leading-none">
                         이윤혁
                     </h1>
-                    <p className="text-xl md:text-3xl text-slate-600 dark:text-slate-300 mb-6 max-w-2xl mx-auto font-light leading-snug px-4">
-                        Security Leadership & <br className="block md:hidden" />Compliance Architecture
+                    <p className="text-xl md:text-2xl text-blue-600 dark:text-blue-400 mb-6 max-w-2xl mx-auto font-bold leading-tight px-4 break-keep">
+                        &quot;AI로 반복을 해결하고, 실질적인 개선의 성취에 몰입하는 보안 스쿼드&quot;
                     </p>
-                    <p className="text-base md:text-lg text-slate-600 dark:text-slate-300 max-w-lg mx-auto leading-relaxed px-4 break-keep font-medium">
-                        개발자·기획자·운영자가 안심하고 도전할 수 있는 환경을 만들어 신뢰받는 회사가 되도록 보안 리더십을 실천해 왔습니다.
+                    <p className="text-base md:text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed px-4 break-keep font-medium">
+                        보안은 규제라는 틀을 넘어 기술로 리스크를 지워나가는 과정의 즐거움입니다. 우리는 AI를 활용해 단순 업무를 압축하고, 그만큼 확보된 시간으로 시스템의 결함이 사라지는 &apos;눈에 보이는 변화&apos;를 설계합니다. 어제보다 단단해진 보안 체계를 확인하는 과정, 그 자체를 즐깁니다.
                     </p>
 
 
@@ -49,14 +50,19 @@ export default function Home() {
                         <ArrowDown size={28} className="animate-bounce" />
                     </div>
                 </motion.div>
+
+                {/* Dashboard Widgets — Visualizing Visible Improvement */}
+                <div className="z-10 w-full max-w-6xl mx-auto px-4 mt-8">
+                    <DashboardWidgets />
+                </div>
             </section>
 
             {/* About Me */}
             <Section title="About Me" className="bg-white dark:bg-slate-900/50 rounded-3xl shadow-sm">
                 <p className="text-lg leading-loose text-slate-800 dark:text-slate-100 font-medium">
-                    보안은 규제를 지키는 업무를 넘어 <span className="font-bold text-blue-700 dark:text-blue-400 underline decoration-blue-500/30 underline-offset-4">팀의 몰입도를 높이고</span>,
-                    <span className="font-bold text-blue-700 dark:text-blue-400 underline decoration-blue-500/30 underline-offset-4"> 제품의 성장 속도를 지키며</span>,
-                    <span className="font-bold text-blue-700 dark:text-blue-400 underline decoration-blue-500/30 underline-offset-4"> 브랜드 신뢰를 설계하는 일</span>이라고 생각합니다.
+                    보안은 규제를 지키는 업무를 넘어 <span className="font-bold text-blue-700 dark:text-blue-400 underline decoration-blue-500/30 underline-offset-4">팀의 몰입도를 높입니다</span>.
+                    <span className="font-bold text-blue-700 dark:text-blue-400 underline decoration-blue-500/30 underline-offset-4"> 제품의 성장 속도를 지키고</span>,
+                    <span className="font-bold text-blue-700 dark:text-blue-400 underline decoration-blue-500/30 underline-offset-4"> 브랜드 신뢰를 설계합니다</span>.
                 </p>
                 <p className="text-lg leading-loose text-slate-800 dark:text-slate-200 mt-6 font-medium">
                     지난 18년간 정보보호 컨설팅, 금융권 보안, 인터넷은행 인가, 스타트업 보안팀 리더십까지 다양한 환경에서
@@ -106,9 +112,9 @@ export default function Home() {
                 <div className="border-l-4 border-slate-900 dark:border-slate-100 pl-6 py-2 mb-8 bg-slate-50 dark:bg-slate-800/30 rounded-r-xl">
                     <p className="text-lg md:text-xl text-slate-800 dark:text-slate-100 leading-relaxed font-semibold italic">
                         보안팀은 단순한 감시자가 아닙니다.<br />
-                        기업의 신뢰를 지키고, 비즈니스가 더 과감하게 나아갈 수 있도록 돕는 <span className="text-blue-600 dark:text-blue-400 underline decoration-2 underline-offset-4">전문적인 파트너</span>입니다.
+                        기업의 신뢰를 지키고, 비즈니스가 더 과감하게 나아갈 수 있도록 돕는 <span className="text-blue-600 dark:text-blue-400 underline decoration-2 underline-offset-4">전문적인 파트너입니다</span>.
                     </p>
-                    <p className="text-sm text-slate-500 dark:text-slate-400 mt-3 font-medium">— 우리가 만들고 싶은 보안팀: 함께 뛰며 성장하는 조직</p>
+                    <p className="text-sm text-slate-500 dark:text-slate-400 mt-3 font-medium">— 우리가 만들고 싶은 보안팀: 함께 뛰며 성장하는 조직을 구축합니다.</p>
                 </div>
 
                 {/* Why — Comparison Table */}
@@ -181,7 +187,7 @@ export default function Home() {
                         {[
                             { num: "01", title: "명확한 이유", desc: "규제 때문이 아니라 '고객의 신뢰'를 지킨다는 본질에 집중합니다." },
                             { num: "02", title: "현실적인 결정", desc: "보안과 속도 사이에서 함께 최선의 균형점을 찾아냅니다." },
-                            { num: "03", title: "가시적인 목표", desc: "'비즈니스 성장에 기여하는 전문가'로 인정받는 것을 목표로 합니다." },
+                            { num: "03", title: "가시적인 성장의 피드백", desc: "우리는 지표가 나아지는 것을 눈으로 볼 때 가장 크게 몰입합니다. AI 기반의 대시보드로 리스크가 줄어드는 과정을 실시간으로 확인하며, 나의 기여가 서비스의 신뢰로 이어지는 성취감을 즉각적으로 공유합니다." },
                         ].map((p, i) => (
                             <div key={i} className="p-6 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 hover:border-blue-500 dark:hover:border-blue-500 transition-all hover:shadow-md group">
                                 <div className="text-3xl font-black text-slate-100 dark:text-slate-800 mb-4 select-none group-hover:text-blue-100 dark:group-hover:text-blue-900 transition-colors">{p.num}</div>
@@ -202,36 +208,36 @@ export default function Home() {
                         {[
                             {
                                 num: "1",
-                                title: "투명한 성숙도 관리와 정당한 보상",
+                                title: "AI-Native Efficiency (지능적인 가속)",
                                 items: [
-                                    { title: "단계별 성장", desc: "현재 팀의 기술 수준을 객관적으로 파악하고 다음 단계 기술 스택을 익혀나갑니다." },
-                                    { title: "공정한 성과 측정", desc: "합류 시점과 무관하게 시스템 개선·효율화 기여도에 따라 보상합니다." },
-                                    { title: "지식의 공유", desc: "개인의 노하우를 팀 자산으로 만들어 시간이 갈수록 단단해지는 팀을 만듭니다." },
+                                    { title: "지능형 자동화", desc: "AI를 도구 이상의 파트너로 활용하여 보안 운영의 속도를 높입니다." },
+                                    { title: "업무 압축", desc: "반복적인 업무는 자동화로 압축하고, 더 창의적인 방어 전략 설계에 집중합니다." },
+                                    { title: "리소스 재배치", desc: "단순 업무에서 해방된 리소스를 고부가가치 아키텍처 설계에 투입합니다." },
                                 ],
                             },
                             {
                                 num: "2",
-                                title: "AI 기술 도입을 통한 업무 방식의 변화",
+                                title: "Visible Improvement (가시적인 개선)",
                                 items: [
-                                    { title: "자동화 플랫폼 활용", desc: "Pentest-AI 등 도구로 반복적인 점검 업무를 자동화하여 더 중요한 일에 집중합니다." },
-                                    { title: "전문성 강화", desc: "자동화로 확보한 여유를 아키텍처 설계·위협 모델링 등 고부가가치 과업에 재배치합니다." },
-                                    { title: "기술적 성장", desc: "최신 기술을 업무에 직접 적용하고 실험하며 보안 전문가로서 계속 성장합니다." },
+                                    { title: "데이터 증명", desc: "막연한 안전함이 아니라 데이터로 증명되는 보안을 지향합니다." },
+                                    { title: "성장 시각화", desc: "취약점 제거 속도와 인프라의 강도를 시각화하여 팀의 성장을 체감합니다." },
+                                    { title: "피드백 루프", desc: "실시간 개선 지표를 통해 팀의 성취감을 즉각적으로 확보합니다." },
                                 ],
                             },
                             {
                                 num: "3",
-                                title: "비즈니스를 돕는 기술 서포트",
+                                title: "High-Velocity Squad (고속 성장 조직)",
                                 items: [
-                                    { title: "개발자를 위한 가이드라인", desc: "파이프라인 내 자동화된 보안 장치로 개발팀이 비즈니스 성장에만 집중할 수 있게 돕습니다." },
-                                    { title: "설명이 있는 보안", desc: "통제보다 기술적 근거를 바탕으로 협업 부서와 투명하게 소통하는 문화를 만듭니다." },
-                                    { title: "브랜드 가치 제고", desc: "보안팀의 전문성이 기업 브랜드 신뢰도가 됩니다." },
+                                    { title: "비즈니스 싱크", desc: "개발팀과 동일한 속도로 호흡하며 비즈니스 가속을 돕습니다." },
+                                    { title: "빠른 의사결정", desc: "AI 기반의 데이터 분석으로 보안 리스크에 대한 의사결정을 가속합니다." },
+                                    { title: "안전한 질주", desc: "규제가 발목을 잡지 않고, 안전하게 더 빠르게 나아가는 환경을 구축합니다." },
                                 ],
                             },
                         ].map((dir, di) => (
-                            <div key={di} className="rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+                            <div key={di} className="rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                                 <div className="px-6 py-4 bg-slate-50 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-700 flex items-center gap-4">
-                                    <span className="w-6 h-6 rounded-full bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 text-xs font-bold flex items-center justify-center flex-shrink-0">{dir.num}</span>
-                                    <span className="font-semibold text-slate-800 dark:text-slate-100 text-sm">{dir.title}</span>
+                                    <span className="w-8 h-8 rounded-full bg-blue-600 dark:bg-blue-500 text-white text-xs font-bold flex items-center justify-center flex-shrink-0 shadow-lg shadow-blue-500/20">{dir.num}</span>
+                                    <span className="font-bold text-slate-900 dark:text-white text-base">{dir.title}</span>
                                 </div>
                                 <div className="p-6 bg-white dark:bg-slate-900 grid grid-cols-1 md:grid-cols-3 gap-6">
                                     {dir.items.map((item, ii) => (
@@ -280,19 +286,19 @@ export default function Home() {
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                             {[
                                 {
-                                    tag: "Maturity & Growth",
-                                    title: "성숙도 기반의 공정한 성장",
-                                    points: ["DevSecOps 성숙도 모델 기반 로드맵 수립", "합류 시점 무관 실질적 성과 기준 보상 체계", "개인 노하우의 팀 자산화로 조직 영속성 확보"],
+                                    tag: "Governance Unit",
+                                    title: "지능형 거버넌스 자동화",
+                                    points: ["AI 플랫폼을 통해 컴플라이언스 대응을 자동화합니다.", "확보된 리소스로 실질적인 보안 거버넌스를 정교화합니다.", "조직에 꼭 맞는 정책을 설계하는 데 에너지를 쏟습니다."],
                                 },
                                 {
-                                    tag: "AI-Powered Security",
-                                    title: "AI 기반의 기술적 혁신",
-                                    points: ["Pentest-AI 등 자동화로 반복 수동 업무 제거", "확보 리소스를 아키텍처 설계·위협 모델링에 재배치", "팀원 기술적 성취감 고취"],
+                                    tag: "Infrastructure Unit",
+                                    title: "가시적 인프라 보안",
+                                    points: ["클라우드 보안 설정을 실시간으로 모니터링합니다.", "AI로 탐지 정확도를 높이고 취약점을 즉각 해결합니다.", "해결 과정을 지표로 관리하며 기술적 신뢰를 확보합니다."],
                                 },
                                 {
-                                    tag: "Business Enablement",
-                                    title: "비즈니스 친화적 서포트",
-                                    points: ["개발 파이프라인 내 자동화된 보안 가드레일 구축", "기술적 근거 기반 협업 부서와 투명한 소통 문화", "보안팀 전문성 = 기업 브랜드 신뢰도"],
+                                    tag: "Enablement Unit",
+                                    title: "AI 기반 보안 UX",
+                                    points: ["구성원이 보안을 쉽고 빠르게 이해하도록 AI가 돕습니다.", "보안 사고 가능성이 줄어드는 과정을 지표로 공유합니다.", "질문이 해결되는 성취감을 팀의 핵심 성과로 연결합니다."],
                                 },
                             ].map((s, i) => (
                                 <div key={i} className="space-y-3">
@@ -338,36 +344,33 @@ export default function Home() {
                 </div>
             </Section>
 
-            <Section title="Recent Focus">
+            <Section title="AI Power Stack">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div className="bg-gradient-to-br from-indigo-500 to-purple-600 p-5 md:p-6 rounded-2xl text-white shadow-lg">
                         <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
                             <Terminal className="text-indigo-200" size={24} />
-                            몰입하고 성장하는 환경
+                            AI-Driven Workflow
                         </h3>
-                        <p className="opacity-90 leading-relaxed text-sm">
-                            기술 인력이 몰입하고 성장할 수 있는 보안 환경을 설계합니다. 불필요한 제약을 줄이고,
-                            지식 공유 문화를 만들어 개인와 조직이 함께 성장하는 구조를 만듭니다.
+                        <p className="opacity-90 leading-relaxed text-sm font-medium">
+                            Cursor와 MCP(Model Context Protocol)를 활용해 보안 운영 코드를 작성하고 관리합니다. AI를 통해 반복적인 정책 수립과 감사 업무를 압축하고 핵심 아키텍처 설계에 집중합니다.
                         </p>
                     </div>
                     <div className="bg-gradient-to-br from-slate-700 to-slate-900 p-5 md:p-6 rounded-2xl text-white shadow-lg">
                         <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-                            <Award className="text-slate-300" size={24} />
-                            보안·감사 자동화
+                            <Zap className="text-slate-300" size={24} />
+                            Custom AI Agents
                         </h3>
-                        <p className="opacity-90 leading-relaxed text-sm">
-                            감독규정 자율규제 전환에 대응하여 보안 및 감사 프로세스를 자동화합니다.
-                            AuditFlow와 같은 도구를 통해 반복적인 컴플라이언스 업무를 효율화합니다.
+                        <p className="opacity-90 leading-relaxed text-sm font-medium">
+                            Claude 3.5 Sonnet과 Gemini Pro 기반의 커스텀 에이전트를 개발하여 취약점 탐지와 규제 매칭을 자동화합니다. 기술적 결함이 즉각적으로 해결되는 과정을 가속합니다.
                         </p>
                     </div>
                     <div className="bg-gradient-to-br from-blue-600 to-cyan-600 p-5 md:p-6 rounded-2xl text-white shadow-lg">
                         <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
                             <Users className="text-blue-200" size={24} />
-                            브랜딩 기반의 보안팀 구성
+                            AI Strategy Squad
                         </h3>
-                        <p className="opacity-90 leading-relaxed text-sm">
-                            보안팀의 비전과 가치를 명확히 하고 대내외적으로 소통합니다.
-                            단순 통제 조직이 아닌, 제품의 신뢰를 더하는 비즈니스 파트너로서의 정체성을 확립합니다.
+                        <p className="opacity-90 leading-relaxed text-sm font-medium">
+                            단순 통제를 넘어 AI 기반의 의사결정 지원 시스템을 구축합니다. 보안이 비즈니스의 발목을 잡지 않고, 더 안전하고 빠르게 나아가도록 돕는 파트너 역할을 수행합니다.
                         </p>
                     </div>
                 </div>
@@ -514,8 +517,14 @@ export default function Home() {
             <Section title="Key Projects">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <ProjectCard
+                        title="AI-Native Security Dashboard"
+                        description="Cursor와 MCP를 활용하여 구축한 실시간 리스크 가시화 플랫폼. 복잡한 보안 지표를 AI로 분석하여 우선순위를 제안하고, 자동화된 대응 조치를 실행합니다."
+                        link="#"
+                        tags={["AI Agents", "MCP", "Cursor", "Real-time Metrics"]}
+                    />
+                    <ProjectCard
                         title="Pentest-AI — 모의해킹 플랫폼 (AI-Red Team)"
-                        description="전문가 수준의 보안 진단을 수행하는 4계층 AI 에이전트 플랫폼. ShadowGraph를 통한 세션 문맥 유지, Claude Opus/Sonnet 및 Gemini를 활용한 교차 검증, Compliance RAG를 통한 규제 매칭을 자동화합니다."
+                        description="전문가 수준의 보안 진단을 수행하는 4계층 AI 에이전트 플랫폼. ShadowGraph를 통한 세션 문맥 유지, Claude Opus/Sonnet 및 Gemini를 활용한 교차 검증을 자동화합니다."
                         link="/projects/pentest-ai"
                         tags={["AI Pentesting", "LLM Agents", "ShadowGraph", "DevSecOps"]}
                     />
@@ -530,12 +539,6 @@ export default function Home() {
                         description="리걸테크 기반 컴플라이언스 AI 자동화 플랫폼. 전자금융감독규정 준수 현황을 실시간으로 모니터링하고, 금감원 보고서 점검 및 조치 계획 관리를 자동화합니다."
                         link="https://auditflow.dojiung.com"
                         tags={["LegalTech", "Compliance AI", "Automation"]}
-                    />
-                    <ProjectCard
-                        title="토스뱅크 체크카드 OTP"
-                        description="카드번호가 없는 혁신적인 디자인과 내장형 OTP 기술 적용 프로젝트에 주요 기여를 하였습니다."
-                        link="https://smartmlab.com/2025/09/tossbank-mobile-otp/"
-                        tags={["FinTech", "Innovation", "Security Design"]}
                     />
                     <ProjectCard
                         title="금융권 공용 클라우드 보안 아키텍처"
