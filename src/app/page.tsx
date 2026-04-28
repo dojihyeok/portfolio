@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Github, Linkedin, Award, Book, Terminal, Shield, Users, ArrowDown, ExternalLink, Zap } from "lucide-react";
+import { Mail, Github, Linkedin, Award, Book, Terminal, Shield, Users, ArrowDown, ExternalLink } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Section } from "@/components/Section";
