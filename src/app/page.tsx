@@ -12,7 +12,7 @@ export default function Home() {
     return (
         <main className="min-h-screen bg-slate-50 dark:bg-slate-950 overflow-hidden w-full max-w-[100vw]">
             {/* Hero Section */}
-            <section className="min-h-[70vh] flex flex-col justify-center items-center text-center px-4 py-20 relative overflow-hidden">
+             <section className="min-h-[50vh] flex flex-col justify-center items-center text-center px-4 py-10 relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-b from-blue-50/50 to-transparent dark:from-blue-900/10 pointer-events-none" />
 
                 <motion.div
@@ -37,15 +37,11 @@ export default function Home() {
                     <h1 className="text-[12vw] md:text-8xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-400 mb-4 tracking-tight leading-none">
                         이윤혁
                     </h1>
-                    <p className="text-xl md:text-2xl text-blue-600 dark:text-blue-400 mb-6 max-w-2xl mx-auto font-bold leading-tight px-4 break-keep">
+                    <p className="text-xl md:text-2xl text-blue-600 dark:text-blue-400 mb-0 max-w-2xl mx-auto font-bold leading-tight px-4 break-keep">
                         &quot;적극적인 AI 활용하여 실질적 개선의 즐거움으로 몰입하는 보안팀&quot;
                     </p>
 
                 </motion.div>
-
-                <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-slate-400 z-10">
-                    <ArrowDown size={28} className="animate-bounce" />
-                </div>
 
             </section>
 
