@@ -122,7 +122,7 @@ export default function Home() {
                                 <tr className="bg-slate-100 dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700">
                                     <th className="px-5 py-4 text-left text-xs font-bold text-slate-600 dark:text-slate-400 w-[24%] uppercase tracking-wider">구분</th>
                                     <th className="px-5 py-4 text-left text-xs font-bold text-slate-600 dark:text-slate-400 w-[36%] uppercase tracking-wider">일반적인 보안팀</th>
-                                    <th className="px-5 py-4 text-left text-xs font-bold text-blue-600 dark:text-blue-400 w-[40%] uppercase tracking-wider">우리가 만드는 보안팀</th>
+                                    <th className="px-5 py-4 text-left text-xs font-bold text-blue-600 dark:text-blue-400 w-[40%] uppercase tracking-wider">브랜드를 추구하는 보안팀</th>
                                 </tr>
                             </thead>
                             <tbody className="divide-y divide-slate-100 dark:divide-slate-800 bg-white dark:bg-slate-900">
