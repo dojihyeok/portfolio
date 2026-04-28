@@ -98,146 +98,113 @@ export default function Home() {
                 </div>
             </Section>
 
-            {/* Security Team Vision */}
-            <Section title="Security Team Vision">
+            {/* Security Team Vision */}            <Section title="Security Team Vision">
                 {/* Lead Quote */}
-                <div className="border-l-4 border-slate-900 dark:border-slate-100 pl-6 py-2 mb-8 bg-slate-50 dark:bg-slate-800/30 rounded-r-xl">
-                    <p className="text-lg md:text-xl text-slate-800 dark:text-slate-100 leading-relaxed font-semibold italic">
-                        기업의 신뢰를 설계하는 아키텍트이자, 비즈니스가 더 과감하게 나아갈 수 있도록 <span className="text-blue-600 dark:text-blue-400 underline decoration-2 underline-offset-4">안전의 토대를 다지는 성장의 파트너</span>
+                <div className="border-l-4 border-slate-900 dark:border-slate-100 pl-6 py-2 mb-12 bg-slate-50 dark:bg-slate-800/30 rounded-r-xl">
+                    <p className="text-lg md:text-xl text-slate-800 dark:text-slate-100 leading-relaxed font-semibold italic break-keep text-justify">
+                        단순히 사고를 막는 통제 조직을 넘어, <span className="text-blue-600 dark:text-blue-400 underline decoration-2 underline-offset-4">고객의 신뢰와 브랜드의 가치를 지키는 비즈니스의 필수 스쿼드</span>를 지향합니다.
                     </p>
                 </div>
 
-                {/* Why — Comparison Table */}
-                <div className="mb-10">
-                    <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 mb-6 flex items-center gap-3">
+                {/* 1. Why do we do this security? */}
+                <div className="mb-16">
+                    <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 mb-8 flex items-center gap-3">
                         <span className="w-8 h-[2px] bg-blue-600 dark:bg-blue-400"></span>
-                        브랜드를 추구하는 보안팀
+                        우리는 왜 이 보안을 하는가?
                     </h3>
-                </div>
-
-                <div className="mb-10">
-                    <div className="rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden">
-                        <table className="w-full text-sm">
-                            <thead>
-                                <tr className="bg-slate-100 dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700">
-                                    <th className="px-5 py-4 text-left text-xs font-bold text-slate-600 dark:text-slate-400 w-[24%] uppercase tracking-wider">구분</th>
-                                    <th className="px-5 py-4 text-left text-xs font-bold text-slate-600 dark:text-slate-400 w-[36%] uppercase tracking-wider">일반적인 보안팀</th>
-                                    <th className="px-5 py-4 text-left text-xs font-bold text-blue-600 dark:text-blue-400 w-[40%] uppercase tracking-wider">브랜드를 추구하는 보안팀</th>
-                                </tr>
-                            </thead>
-                            <tbody className="divide-y divide-slate-100 dark:divide-slate-800 bg-white dark:bg-slate-900">
-                                {[
-                                    ["보안의 목적", "규제 대응 및 사고 예방", "브랜드 신뢰 구축 및 비즈니스 보호"],
-                                    ["보안 수준", "주기적 점검", "상시 컨디션 관리 및 기술적 보완"],
-                                    ["보안팀 역할", "사후 대응", "개발팀과 함께 뛰는 파트너"],
-                                    ["보안 문화", "통제와 규칙", "공유와 협업, 투명한 소통"],
-                                ].map(([cat, general, ours], i) => (
-                                    <tr key={i}>
-                                        <td className="px-5 py-4 text-xs font-bold text-slate-700 dark:text-slate-300 bg-slate-50/50 dark:bg-slate-800/20">{cat}</td>
-                                        <td className="px-5 py-4 text-slate-500 dark:text-slate-400">{general}</td>
-                                        <td className="px-5 py-4 font-bold text-slate-900 dark:text-white">{ours}</td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                {/* Common Principles */}
-                <div className="mb-10">
-                    <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 mb-6 flex items-center gap-3">
-                        <span className="w-8 h-[2px] bg-blue-600 dark:bg-blue-400"></span>
-                        공통 원칙 (Common Principles)
-                    </h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                         {[
-                            { title: "Squad-to-Squad", desc: "보안팀은 문제를 함께 해결하는 가장 든든한 파트너입니다." },
-                            { title: "Early Involvement", desc: "기획과 설계의 시작점에서 함께 호흡하며 보안의 가치를 더합니다." },
-                            { title: "Clear Ownership", desc: "각 스쿼드가 자율적으로 보안을 실천하도록 명확한 기준과 도구를 제공합니다." },
-                            { title: "Transparent Decision", desc: "리스크와 선택지를 투명하게 공유하여 최선의 의사결정을 지원합니다." }
-                        ].map((principle, idx) => (
-                            <div key={idx} className="p-6 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900">
-                                <div className="flex items-center gap-3 mb-3">
-                                    <div className="w-8 h-8 rounded-lg bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center text-blue-600 dark:text-blue-400 font-bold text-sm">{idx + 1}</div>
-                                    <span className="font-semibold text-slate-800 dark:text-slate-100">{principle.title}</span>
-                                </div>
-                                <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
-                                    {principle.desc}
-                                </p>
+                            {
+                                title: "같은 시선",
+                                subtitle: "규제가 아니라 신뢰와 브랜드를 위해",
+                                desc: "규제(Compliance)는 최소한의 허들일 뿐입니다. 우리가 진짜 지키고 싶은 것은 '고객의 신뢰'와 그 신뢰가 모여 만들어진 '브랜드의 가치'입니다."
+                            },
+                            {
+                                title: "같은 고민",
+                                subtitle: "개발 속도와 안전의 균형",
+                                desc: "단순히 \"안 됩니다\"라고 말하는 대신, 어떻게 하면 '안전하게' 개발 속도를 유지할 수 있을지 함께 고민하고 이상과 현실 사이의 최적의 접점을 찾습니다."
+                            },
+                            {
+                                title: "같은 Goal",
+                                subtitle: "브랜드를 지키는 신뢰받는 보안팀",
+                                desc: "사고가 없는 상태는 기본입니다. 우리는 거기서 더 나아가 \"이 서비스는 보안 덕분에 더 믿음직하다\"는 가치를 창출하는 팀이 되고자 합니다."
+                            }
+                        ].map((item, i) => (
+                            <div key={i} className="p-8 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900/50 shadow-sm hover:shadow-md transition-all">
+                                <div className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-2">{item.title}</div>
+                                <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-4 break-keep">{item.subtitle}</h4>
+                                <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed font-medium break-keep text-justify">{item.desc}</p>
                             </div>
                         ))}
                     </div>
                 </div>
 
-                {/* 3 Promises */}
-                <div className="mb-10">
-                    <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 mb-6 flex items-center gap-3">
+                {/* 2. Three Core Axes */}
+                <div className="mb-16">
+                    <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 mb-8 flex items-center gap-3">
                         <span className="w-8 h-[2px] bg-blue-600 dark:bg-blue-400"></span>
-                        몰입을 위한 세 가지 약속
+                        보안팀의 핵심 3가지 축
                     </h3>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-                        {[
-                            { num: "01", title: "같은 목적", desc: "규제가 아닌, 비즈니스의 지속 가능한 신뢰와 브랜드를 위해 함께 뜁니다." },
-                            { num: "02", title: "같은 고민", desc: "속도와 안전 사이의 균형점을 찾고, 기술적 이상을 현실적인 시스템으로 구현합니다." },
-                            { num: "03", title: "가시적인 개선의 성취", desc: "우리는 지표가 나아지는 것을 눈으로 볼 때 가장 크게 몰입합니다. 리스크가 줄어드는 과정을 데이터로 시각화하고, 개선의 효능감을 팀 전체가 공유하며 성장의 동력을 얻습니다." },
-                        ].map((p, i) => (
-                            <div key={i} className="p-6 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 hover:border-blue-500 dark:hover:border-blue-500 transition-all hover:shadow-md group">
-                                <div className="text-3xl font-black text-slate-100 dark:text-slate-800 mb-4 select-none group-hover:text-blue-100 dark:group-hover:text-blue-900 transition-colors">{p.num}</div>
-                                <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-2">{p.title}</h4>
-                                <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed font-medium">{p.desc}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                {/* 3 Key Directions */}
-                <div className="mb-10">
-                    <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 mb-6 flex items-center gap-3">
-                        <span className="w-8 h-[2px] bg-blue-600 dark:bg-blue-400"></span>
-                        세 가지 핵심 방향
-                    </h3>
-                    <div className="space-y-4">
+                    <div className="space-y-6">
                         {[
                             {
-                                num: "1",
-                                title: "AI-Native Efficiency (지능적 가속)",
-                                desc: "AI를 통해 보안 운영의 물리적 시간을 압축합니다. 단순 탐지와 문서화는 지능형 에이전트에게 맡기고, 팀원은 더 고도화된 위협 모델링과 창의적인 보안 설계에 집중합니다.",
+                                title: "Security Maturity",
+                                subtitle: "성숙도 기반의 현실적인 성장",
+                                desc: "보안은 흑백으로 평가할 수 없습니다. 조직·전사·DevSecOps 관점의 보안 성숙도 모델을 기반으로 기술, 조직, 문화가 함께 성장하는 단계적 목표를 설정합니다.",
+                                icon: <Activity size={24} />
                             },
                             {
-                                num: "2",
-                                title: "Visible Feedback Loop (가시적 피드백)",
-                                desc: "보안의 성과를 투명하게 시각화합니다. 패치 속도, 위협 제거율 등 실질적인 개선 지표를 실시간으로 확인하며, 우리 손으로 직접 안전을 일구어가는 즐거움을 확인합니다.",
+                                title: "Trust Branding",
+                                subtitle: "내·외부로 신뢰받는 정보보안 문화",
+                                desc: "보안팀이 신뢰를 잃으면 조직은 숨기게 됩니다. 통제보다 설명을, 규칙보다 이유를 공유하며 문제를 함께 해결하는 '브랜드 신뢰의 주체'로서의 보안팀을 지향합니다.",
+                                icon: <Target size={24} />
                             },
                             {
-                                num: "3",
-                                title: "High-Velocity Security (고속 보안 구현)",
-                                desc: "개발팀의 리듬에 맞춰 보안을 구현합니다. AI 기반의 빠른 의사결정 지원으로 비즈니스의 병목을 해결하고, 신뢰라는 토대 위에서 제품이 더 빠르게 시장으로 나아가도록 돕습니다.",
-                            },
-                        ].map((dir, di) => (
-                            <div key={di} className="rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                                <div className="px-6 py-4 bg-slate-50 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-700 flex items-center gap-4">
-                                    <span className="w-8 h-8 rounded-full bg-blue-600 dark:bg-blue-500 text-white text-xs font-bold flex items-center justify-center flex-shrink-0 shadow-lg shadow-blue-500/20">{dir.num}</span>
-                                    <span className="font-bold text-slate-900 dark:text-white text-base">{dir.title}</span>
+                                title: "Immersion",
+                                subtitle: "몰입할 수 있는 보안팀",
+                                desc: "높은 책임 속에서도 지속적인 몰입이 가능하도록 '명확한 미션', '자율적인 판단', '성장을 체감할 수 있는 구조'라는 세 가지 조건을 구축합니다.",
+                                icon: <Zap size={24} />
+                            }
+                        ].map((axis, i) => (
+                            <div key={i} className="flex flex-col md:flex-row gap-6 p-8 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 shadow-sm hover:border-blue-500/50 transition-colors">
+                                <div className="w-14 h-14 rounded-xl bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center flex-shrink-0">
+                                    {axis.icon}
                                 </div>
-                                <div className="p-6 bg-white dark:bg-slate-900">
-                                    <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-medium">{dir.desc}</p>
+                                <div>
+                                    <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4 mb-3">
+                                        <h4 className="text-xl font-bold text-slate-900 dark:text-white">{axis.title}</h4>
+                                        <span className="text-sm font-bold text-slate-400 dark:text-slate-500 hidden md:block">|</span>
+                                        <span className="text-sm font-bold text-blue-600 dark:text-blue-400">{axis.subtitle}</span>
+                                    </div>
+                                    <p className="text-slate-600 dark:text-slate-300 leading-relaxed font-medium break-keep text-justify">
+                                        {axis.desc}
+                                    </p>
                                 </div>
                             </div>
                         ))}
                     </div>
                 </div>
 
-                {/* Vision Tags */}
-                 <div className="flex flex-wrap gap-3 pt-8 border-t border-slate-200 dark:border-slate-700">
-                     {["비즈니스를 이해하는 보안팀", "현장에서 함께 고민하는 보안팀", "기술로 신뢰를 만들어가는 보안팀"].map((tag, i) => (
-                         <span key={i} className="px-4 py-2 text-xs font-bold rounded-full border-2 border-slate-900 dark:border-slate-100 text-slate-900 dark:text-slate-100 bg-white dark:bg-slate-900 shadow-sm">
-                             {tag}
-                         </span>
-                     ))}
-                 </div>
+                {/* 3. 우리가 지향하는 보안팀 */}
+                <div className="pt-10 border-t border-slate-200 dark:border-slate-800">
+                    <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 mb-8 flex items-center gap-3">
+                        <span className="w-8 h-[2px] bg-blue-600 dark:bg-blue-400"></span>
+                        우리가 지향하는 보안팀
+                    </h3>
+                    <div className="flex flex-wrap gap-4">
+                        {[
+                            "브랜드를 이해하는 보안팀",
+                            "함께 뛰는 보안팀",
+                            "신뢰를 설계하는 보안팀",
+                            "시간이 지날수록 기업과 함께 더 강해지는 보안팀"
+                        ].map((tag, i) => (
+                            <span key={i} className="px-6 py-3 text-sm font-bold rounded-xl border-2 border-slate-900 dark:border-slate-100 text-slate-900 dark:text-slate-100 bg-white dark:bg-slate-900 shadow-sm hover:bg-slate-900 hover:text-white dark:hover:bg-white dark:hover:text-slate-900 transition-all cursor-default">
+                                {tag}
+                            </span>
+                        ))}
+                    </div>
+                </div>
             </Section>
-
-
 
             <Section title="Security Division 구성 방안">
                 <div className="space-y-12">
