@@ -119,10 +119,6 @@ export default function Home() {
                 </div>
 
                 <div className="mb-10">
-                    <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 mb-6 flex items-center gap-3">
-                        <span className="w-8 h-[2px] bg-blue-600 dark:bg-blue-400"></span>
-                        왜 보안팀이 필요한가
-                    </h3>
                     <div className="rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden">
                         <table className="w-full text-sm">
                             <thead>
