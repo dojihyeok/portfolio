@@ -38,10 +38,10 @@ export default function Home() {
                         이윤혁
                     </h1>
                     <p className="text-xl md:text-2xl text-blue-600 dark:text-blue-400 mb-6 max-w-2xl mx-auto font-bold leading-tight px-4 break-keep">
-                        &quot;AI로 반복을 해결하고, 실질적인 개선의 성취에 몰입하는 보안 스쿼드&quot;
+                        &quot;AI로 지루함을 압축하고, 실질적 개선의 즐거움에 몰입하는 보안 스쿼드&quot;
                     </p>
                     <p className="text-base md:text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed px-4 break-keep font-medium">
-                        보안은 규제라는 틀을 넘어 기술로 리스크를 지워나가는 과정의 즐거움입니다. 우리는 AI를 활용해 단순 업무를 압축하고, 그만큼 확보된 시간으로 시스템의 결함이 사라지는 &apos;눈에 보이는 변화&apos;를 설계합니다. 어제보다 단단해진 보안 체계를 확인하는 과정, 그 자체를 즐깁니다.
+                        보안은 단순한 방어를 넘어 시스템의 결함을 하나씩 해결해 나가는 &apos;성취의 과정&apos;입니다. 우리는 AI를 활용해 반복적인 태스크를 압축하고, 그렇게 확보된 시간으로 더 단단한 아키텍처를 설계합니다. 어제보다 안전해진 지표를 실시간으로 확인하며 느끼는 몰입, 그것이 우리가 신뢰를 만드는 방식입니다.
                     </p>
 
 
@@ -142,33 +142,29 @@ export default function Home() {
                     </div>
                 </div>
 
-                {/* Working Style */}
+                {/* Common Principles */}
                 <div className="mb-10">
                     <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 mb-6 flex items-center gap-3">
                         <span className="w-8 h-[2px] bg-blue-600 dark:bg-blue-400"></span>
-                        보안팀이 일하는 방식
+                        공통 원칙 (Common Principles)
                     </h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                        <div className="p-6 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900">
-                            <div className="flex items-center gap-3 mb-4">
-                                <div className="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 font-bold text-sm">S</div>
-                                <span className="font-semibold text-slate-800 dark:text-slate-100">Squad — 현장에서 함께 뛰는 역할</span>
+                        {[
+                            { title: "Squad-to-Squad", desc: "보안팀은 문제를 함께 해결하는 가장 든든한 파트너입니다." },
+                            { title: "Early Involvement", desc: "기획과 설계의 시작점에서 함께 호흡하며 보안의 가치를 더합니다." },
+                            { title: "Clear Ownership", desc: "각 스쿼드가 자율적으로 보안을 실천하도록 명확한 기준과 도구를 제공합니다." },
+                            { title: "Transparent Decision", desc: "리스크와 선택지를 투명하게 공유하여 최선의 의사결정을 지원합니다." }
+                        ].map((principle, idx) => (
+                            <div key={idx} className="p-6 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900">
+                                <div className="flex items-center gap-3 mb-3">
+                                    <div className="w-8 h-8 rounded-lg bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center text-blue-600 dark:text-blue-400 font-bold text-sm">{idx + 1}</div>
+                                    <span className="font-semibold text-slate-800 dark:text-slate-100">{principle.title}</span>
+                                </div>
+                                <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
+                                    {principle.desc}
+                                </p>
                             </div>
-                            <ul className="space-y-3 text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
-                                <li className="flex gap-2.5"><span className="text-blue-400 dark:text-blue-600 flex-shrink-0 mt-1">●</span><span><strong className="text-slate-900 dark:text-white font-bold">DevSecOps 실현</strong>: 기획·설계 단계부터 보안을 녹여내어 서비스 완성도를 높입니다.</span></li>
-                                <li className="flex gap-2.5"><span className="text-blue-400 dark:text-blue-600 flex-shrink-0 mt-1">●</span><span>&quot;안 된다&quot;가 아닌 &quot;어떻게 하면 안전하게 할 수 있을지&quot;를 함께 고민하는 팀원.</span></li>
-                            </ul>
-                        </div>
-                        <div className="p-6 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900">
-                            <div className="flex items-center gap-3 mb-4">
-                                <div className="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 font-bold text-sm">A</div>
-                                <span className="font-semibold text-slate-800 dark:text-slate-100">Architecture — 방향을 제시하는 역할</span>
-                            </div>
-                            <ul className="space-y-3 text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
-                                <li className="flex gap-2.5"><span className="text-blue-400 dark:text-blue-600 flex-shrink-0 mt-1">●</span><span><strong className="text-slate-900 dark:text-white font-bold">기준 수립</strong>: 전사가 공감할 수 있는 보안 기준을 세우고 리스크를 관리합니다.</span></li>
-                                <li className="flex gap-2.5"><span className="text-blue-400 dark:text-blue-600 flex-shrink-0 mt-1">●</span><span>팀 전체가 안전하게 나아갈 수 있도록 전체적인 판을 읽고 전술을 설계합니다.</span></li>
-                            </ul>
-                        </div>
+                        ))}
                     </div>
                 </div>
 
@@ -180,9 +176,9 @@ export default function Home() {
                     </h3>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                         {[
-                            { num: "01", title: "명확한 이유", desc: "규제 때문이 아니라 '고객의 신뢰'를 지킨다는 본질에 집중합니다." },
-                            { num: "02", title: "현실적인 결정", desc: "보안과 속도 사이에서 함께 최선의 균형점을 찾아냅니다." },
-                            { num: "03", title: "가시적인 성장의 피드백", desc: "우리는 지표가 나아지는 것을 눈으로 볼 때 가장 크게 몰입합니다. AI 기반의 대시보드로 리스크가 줄어드는 과정을 실시간으로 확인하며, 나의 기여가 서비스의 신뢰로 이어지는 성취감을 즉각적으로 공유합니다." },
+                            { num: "01", title: "같은 목적", desc: "규제가 아닌, 비즈니스의 지속 가능한 신뢰와 브랜드를 위해 함께 뜁니다." },
+                            { num: "02", title: "같은 고민", desc: "속도와 안전 사이의 균형점을 찾고, 기술적 이상을 현실적인 시스템으로 구현합니다." },
+                            { num: "03", title: "가시적인 개선의 성취", desc: "우리는 지표가 나아지는 것을 눈으로 볼 때 가장 크게 몰입합니다. 리스크가 줄어드는 과정을 데이터로 시각화하고, 개선의 효능감을 팀 전체가 공유하며 성장의 동력을 얻습니다." },
                         ].map((p, i) => (
                             <div key={i} className="p-6 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 hover:border-blue-500 dark:hover:border-blue-500 transition-all hover:shadow-md group">
                                 <div className="text-3xl font-black text-slate-100 dark:text-slate-800 mb-4 select-none group-hover:text-blue-100 dark:group-hover:text-blue-900 transition-colors">{p.num}</div>
@@ -203,30 +199,18 @@ export default function Home() {
                         {[
                             {
                                 num: "1",
-                                title: "AI-Native Efficiency (지능적인 가속)",
-                                items: [
-                                    { title: "지능형 자동화", desc: "AI를 도구 이상의 파트너로 활용하여 보안 운영의 속도를 높입니다." },
-                                    { title: "업무 압축", desc: "반복적인 업무는 자동화로 압축하고, 더 창의적인 방어 전략 설계에 집중합니다." },
-                                    { title: "리소스 재배치", desc: "단순 업무에서 해방된 리소스를 고부가가치 아키텍처 설계에 투입합니다." },
-                                ],
+                                title: "AI-Native Efficiency (지능적 가속)",
+                                desc: "AI를 통해 보안 운영의 물리적 시간을 압축합니다. 단순 탐지와 문서화는 지능형 에이전트에게 맡기고, 팀원은 더 고도화된 위협 모델링과 창의적인 보안 설계에 집중합니다.",
                             },
                             {
                                 num: "2",
-                                title: "Visible Improvement (가시적인 개선)",
-                                items: [
-                                    { title: "데이터 증명", desc: "막연한 안전함이 아니라 데이터로 증명되는 보안을 지향합니다." },
-                                    { title: "성장 시각화", desc: "취약점 제거 속도와 인프라의 강도를 시각화하여 팀의 성장을 체감합니다." },
-                                    { title: "피드백 루프", desc: "실시간 개선 지표를 통해 팀의 성취감을 즉각적으로 확보합니다." },
-                                ],
+                                title: "Visible Feedback Loop (가시적 피드백)",
+                                desc: "보안의 성과를 투명하게 시각화합니다. 패치 속도, 위협 제거율 등 실질적인 개선 지표를 실시간으로 확인하며, 우리 손으로 직접 안전을 일구어가는 즐거움을 확인합니다.",
                             },
                             {
                                 num: "3",
-                                title: "High-Velocity Squad (고속 성장 조직)",
-                                items: [
-                                    { title: "비즈니스 싱크", desc: "개발팀과 동일한 속도로 호흡하며 비즈니스 가속을 돕습니다." },
-                                    { title: "빠른 의사결정", desc: "AI 기반의 데이터 분석으로 보안 리스크에 대한 의사결정을 가속합니다." },
-                                    { title: "안전한 질주", desc: "규제가 발목을 잡지 않고, 안전하게 더 빠르게 나아가는 환경을 구축합니다." },
-                                ],
+                                title: "High-Velocity Security (고속 보안 구현)",
+                                desc: "개발팀의 리듬에 맞춰 보안을 구현합니다. AI 기반의 빠른 의사결정 지원으로 비즈니스의 병목을 해결하고, 신뢰라는 토대 위에서 제품이 더 빠르게 시장으로 나아가도록 돕습니다.",
                             },
                         ].map((dir, di) => (
                             <div key={di} className="rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden shadow-sm hover:shadow-md transition-shadow">
@@ -234,13 +218,8 @@ export default function Home() {
                                     <span className="w-8 h-8 rounded-full bg-blue-600 dark:bg-blue-500 text-white text-xs font-bold flex items-center justify-center flex-shrink-0 shadow-lg shadow-blue-500/20">{dir.num}</span>
                                     <span className="font-bold text-slate-900 dark:text-white text-base">{dir.title}</span>
                                 </div>
-                                <div className="p-6 bg-white dark:bg-slate-900 grid grid-cols-1 md:grid-cols-3 gap-6">
-                                    {dir.items.map((item, ii) => (
-                                        <div key={ii}>
-                                            <h5 className="font-bold text-slate-900 dark:text-white text-base mb-2">{item.title}</h5>
-                                            <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-medium">{item.desc}</p>
-                                        </div>
-                                    ))}
+                                <div className="p-6 bg-white dark:bg-slate-900">
+                                    <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-medium">{dir.desc}</p>
                                 </div>
                             </div>
                         ))}
@@ -281,19 +260,19 @@ export default function Home() {
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                             {[
                                 {
-                                    tag: "Governance Unit",
-                                    title: "지능형 거버넌스 자동화",
-                                    points: ["AI 플랫폼을 통해 컴플라이언스 대응을 자동화합니다.", "확보된 리소스로 실질적인 보안 거버넌스를 정교화합니다.", "조직에 꼭 맞는 정책을 설계하는 데 에너지를 쏟습니다."],
+                                    tag: "Product & Platform Security Unit",
+                                    title: "안전한 캔버스 제공",
+                                    desc: "제품 설계 단계부터 참여하여 보안 UX를 개선합니다. AI 기반 코드 리뷰로 취약점을 사전에 차단하고, 개발자가 오직 제품의 가치에만 집중할 수 있는 안전한 캔버스를 제공합니다.",
                                 },
                                 {
-                                    tag: "Infrastructure Unit",
-                                    title: "가시적 인프라 보안",
-                                    points: ["클라우드 보안 설정을 실시간으로 모니터링합니다.", "AI로 탐지 정확도를 높이고 취약점을 즉각 해결합니다.", "해결 과정을 지표로 관리하며 기술적 신뢰를 확보합니다."],
+                                    tag: "Governance · Risk · Compliance (GRC) Unit",
+                                    title: "성장 가속형 거버넌스",
+                                    desc: "AI로 컴플라이언스 대응 프로세스를 자동화합니다. 확보된 리소스를 활용해 조직의 성장을 가속하는 실질적인 보안 가이드를 수립하고 리스크를 선제적으로 관리합니다.",
                                 },
                                 {
-                                    tag: "Enablement Unit",
-                                    title: "AI 기반 보안 UX",
-                                    points: ["구성원이 보안을 쉽고 빠르게 이해하도록 AI가 돕습니다.", "보안 사고 가능성이 줄어드는 과정을 지표로 공유합니다.", "질문이 해결되는 성취감을 팀의 핵심 성과로 연결합니다."],
+                                    tag: "Security Enablement & Trust Unit",
+                                    title: "보안 문화 내재화",
+                                    desc: "보안을 조직의 자연스러운 문화로 내재화합니다. AI 헬프데스크를 통해 구성원의 궁금증을 즉시 해결하고, 보안 사고 예방률이 드라마틱하게 개선되는 과정을 전사와 공유합니다.",
                                 },
                             ].map((s, i) => (
                                 <div key={i} className="space-y-3">
@@ -301,14 +280,9 @@ export default function Home() {
                                         <span className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">{s.tag}</span>
                                         <h5 className="font-bold text-slate-900 dark:text-white text-base mt-2">{s.title}</h5>
                                     </div>
-                                    <ul className="space-y-2.5">
-                                        {s.points.map((pt, j) => (
-                                            <li key={j} className="flex gap-2 text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
-                                                <span className="text-blue-500 dark:text-blue-400 flex-shrink-0 mt-1">●</span>
-                                                {pt}
-                                            </li>
-                                        ))}
-                                    </ul>
+                                    <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
+                                        {s.desc}
+                                    </p>
                                 </div>
                             ))}
                         </div>
