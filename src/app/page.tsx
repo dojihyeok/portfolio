@@ -539,7 +539,7 @@ export default function Home() {
                     />
                     <ProjectCard
                         title="금융권 공용 클라우드 보안 아키텍처"
-                        description="하나금융TI에서 그룹사 전체가 사용할 수 있는 안전하고 효율적인 클라우드 보안 아키텍처를 설계하였습니다."
+                        description="KB국민은행에서 그룹사 전체가 사용할 수 있는 안전하고 효율적인 클라우드 보안 아키텍처를 설계하였습니다."
                         link="https://www.dailysmart.co.kr/news/articleView.html?idxno=23201"
                         tags={["Cloud Security", "Architecture", "Enterprise"]}
                     />
