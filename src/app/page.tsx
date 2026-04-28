@@ -247,7 +247,8 @@ export default function Home() {
                             <span className="text-slate-500 dark:text-slate-400 font-normal">&apos;보안 스쿼드&apos; 비전 수립</span>
                         </h3>
                         <p className="text-base text-slate-700 dark:text-slate-300 leading-relaxed max-w-2xl font-medium">
-                            &quot;보안은 통제가 아니라, 비즈니스가 더 과감하게 달릴 수 있게 돕는 신뢰의 안전장치여야 합니다.&quot; 브랜딩 기업 환경에서 보안팀이 비즈니스의 필수 전력이 되는 철학과 전략을 수립했습니다.
+                            &quot;보안은 통제가 아니라, 비즈니스가 더 과감하게 달릴 수 있게 돕는 신뢰의 안전장치여야 합니다.&quot;<br />
+                            브랜딩 기업 환경에서 보안팀이 비즈니스의 필수 전력이 되는 철학과 전략을 수립했습니다.
                         </p>
                     </div>
 
