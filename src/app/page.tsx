@@ -55,9 +55,9 @@ export default function Home() {
             {/* About Me */}
             <Section title="About Me" className="bg-white dark:bg-slate-900/50 rounded-3xl shadow-sm">
                 <p className="text-lg leading-loose text-slate-800 dark:text-slate-100 font-medium">
-                    보안은 규제를 지키는 업무를 넘어 <span className="font-bold text-blue-700 dark:text-blue-400 underline decoration-blue-500/30 underline-offset-4">팀의 몰입도를 높입니다</span>.
-                    <span className="font-bold text-blue-700 dark:text-blue-400 underline decoration-blue-500/30 underline-offset-4"> 제품의 성장 속도를 지키고</span>,
-                    <span className="font-bold text-blue-700 dark:text-blue-400 underline decoration-blue-500/30 underline-offset-4"> 브랜드 신뢰를 설계합니다</span>.
+                    탄탄한 컴플라이언스를 기반으로 불필요한 제약을 제거하여 <span className="font-bold text-blue-700 dark:text-blue-400 underline decoration-blue-500/30 underline-offset-4">팀이 몰입할 수 있는 환경을 구축합니다</span>.
+                    이를 통해 <span className="font-bold text-blue-700 dark:text-blue-400 underline decoration-blue-500/30 underline-offset-4">제품의 성장 속도를 보호</span>하고,
+                    <span className="font-bold text-blue-700 dark:text-blue-400 underline decoration-blue-500/30 underline-offset-4"> 브랜드의 단단한 신뢰를 설계합니다</span>.
                 </p>
                 <p className="text-lg leading-loose text-slate-800 dark:text-slate-200 mt-6 font-medium">
                     지난 18년간 정보보호 컨설팅, 금융권 보안, 인터넷은행 인가, 스타트업 보안팀 리더십까지 다양한 환경에서
