@@ -38,7 +38,7 @@ export default function Home() {
                         이윤혁
                     </h1>
                     <p className="text-xl md:text-2xl text-blue-600 dark:text-blue-400 mb-6 max-w-2xl mx-auto font-bold leading-tight px-4 break-keep">
-                        &quot;AI로 지루함을 압축하고, 실질적 개선의 즐거움에 몰입하는 보안 스쿼드&quot;
+                        &quot;적극적인 AI 활용하여 실질적 개선의 즐거움으로 몰입하는 보안팀&quot;
                     </p>
                     <p className="text-base md:text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed px-4 break-keep font-medium">
                         보안은 단순한 방어를 넘어 시스템의 결함을 하나씩 해결해 나가는 &apos;성취의 과정&apos;입니다. 우리는 AI를 활용해 반복적인 태스크를 압축하고, 그렇게 확보된 시간으로 더 단단한 아키텍처를 설계합니다. 어제보다 안전해진 지표를 실시간으로 확인하며 느끼는 몰입, 그것이 우리가 신뢰를 만드는 방식입니다.
@@ -107,7 +107,7 @@ export default function Home() {
                 <div className="border-l-4 border-slate-900 dark:border-slate-100 pl-6 py-2 mb-8 bg-slate-50 dark:bg-slate-800/30 rounded-r-xl">
                     <p className="text-lg md:text-xl text-slate-800 dark:text-slate-100 leading-relaxed font-semibold italic">
                         보안팀은 단순한 감시자가 아닙니다.<br />
-                        기업의 신뢰를 지키고, 비즈니스가 더 과감하게 나아갈 수 있도록 돕는 <span className="text-blue-600 dark:text-blue-400 underline decoration-2 underline-offset-4">전문적인 파트너입니다</span>.
+                        기업의 신뢰를 설계하는 아키텍트이자, 비즈니스가 더 과감하게 나아갈 수 있도록 <span className="text-blue-600 dark:text-blue-400 underline decoration-2 underline-offset-4">안전의 토대를 다지는 성장의 파트너입니다.</span>
                     </p>
                     <p className="text-sm text-slate-500 dark:text-slate-400 mt-3 font-medium">— 우리가 만들고 싶은 보안팀: 함께 뛰며 성장하는 조직을 구축합니다.</p>
                 </div>
