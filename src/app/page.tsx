@@ -105,7 +105,6 @@ export default function Home() {
                     <p className="text-lg md:text-xl text-slate-800 dark:text-slate-100 leading-relaxed font-semibold italic">
                         기업의 신뢰를 설계하는 아키텍트이자, 비즈니스가 더 과감하게 나아갈 수 있도록 <span className="text-blue-600 dark:text-blue-400 underline decoration-2 underline-offset-4">안전의 토대를 다지는 성장의 파트너</span>
                     </p>
-                    <p className="text-sm text-slate-500 dark:text-slate-400 mt-3 font-medium">— 우리가 만들고 싶은 보안팀: 함께 뛰며 성장하는 조직을 구축합니다.</p>
                 </div>
 
                 {/* Why — Comparison Table */}
