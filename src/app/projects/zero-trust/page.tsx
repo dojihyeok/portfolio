@@ -198,7 +198,7 @@ export default function ZeroTrustPage() {
                         </div>
                         <div className="prose dark:prose-invert max-w-none text-slate-600 dark:text-slate-400 leading-relaxed space-y-4 break-keep">
                             <p>
-                                Moin은 많은 규제와 인증을 준비해야 하는 전자금융서비스를 제공하고 있습니다.
+                                해당 금융 서비스는 많은 규제와 인증을 준비해야 하는 전자금융서비스를 제공하고 있습니다.
                                 많은 규제를 적용하다 보면 업무의 효율성과 혁신성이 저하될 수 있습니다.
                             </p>
                             <p>
@@ -214,7 +214,7 @@ export default function ZeroTrustPage() {
                             Finance ZeroTrust(FZT) Security 원칙
                         </h3>
                         <p className="text-slate-600 dark:text-slate-400">
-                            FZT는 팀원들의 신뢰를 기반으로 구성하고 있습니다. 아래 원칙에 따라 점층적으로 보안을 강화하여 Moin fit security를 완성해 나갑니다.
+                            FZT는 팀원들의 신뢰를 기반으로 구성하고 있습니다. 아래 원칙에 따라 점층적으로 보안을 강화하여 금융권 최적화 보안(Finance-fit security)을 완성해 나갑니다.
                         </p>
 
                         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -225,10 +225,10 @@ export default function ZeroTrustPage() {
                                     원칙 1. 정보 자산 보호
                                 </h4>
                                 <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
-                                    고객 정보와 Moin 정보 자산의 보호가 최우선입니다. 등록된 기기에서만 업무 시스템 접속이 가능합니다.
+                                    고객 정보와 금융 정보 자산의 보호가 최우선입니다. 등록된 기기에서만 업무 시스템 접속이 가능합니다.
                                 </p>
                                 <ul className="text-xs text-slate-500 space-y-2 list-disc pl-4">
-                                    <li>Moin 제공 노트북/휴대폰 사용 필수</li>
+                                    <li>회사에서 지급한 노트북/휴대폰 사용 필수</li>
                                     <li>SAML, SCIM 연동을 통한 계정 관리</li>
                                     <li>구글 로그인 → Okta 순차 적용</li>
                                 </ul>
@@ -481,7 +481,7 @@ export default function ZeroTrustPage() {
                                             <tr>
                                                 <th scope="col" className="px-4 py-3 min-w-[80px]">구분</th>
                                                 <th scope="col" className="px-4 py-3 min-w-[250px]">통제 사항 (전자금융감독규정 [별표7])</th>
-                                                <th scope="col" className="px-4 py-3 min-w-[200px]">Moin 적용 방안 (Solution)</th>
+                                                <th scope="col" className="px-4 py-3 min-w-[200px]">금융권 적용 방안 (Solution)</th>
                                             </tr>
                                         </thead>
                                         <tbody className="divide-y divide-slate-200 dark:divide-slate-700 bg-white dark:bg-slate-900">
