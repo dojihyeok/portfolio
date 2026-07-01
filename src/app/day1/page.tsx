@@ -18,8 +18,7 @@ export default function Day1Page() {
         <section className={styles.hero}>
           <span className={styles.hero_tag}>이윤혁 · CISO 지원자</span>
           <h1 className={styles.hero_title}>
-            보안의 책임을 지키면서,<br/>
-            새로운 도전도 끝까지 실행하는 사람
+            보안의 책임을 지키면서, 새로운 도전도 끝까지 실행하는 사람
           </h1>
           <div className={styles.hero_body}>
             <p>저는 중요한 보안 문제를 우선순위의 가장 앞에 두고 해결하는 사람입니다.</p>
@@ -39,8 +38,7 @@ export default function Day1Page() {
           <div className={styles.section_head}>
             <h2 className={styles.section_title}>나는 어떤 사람인가</h2>
             <p className={styles.section_desc}>
-              저는 문제를 발견하면 끝까지 구조화하고,<br/>
-              실제로 작동하는 해결책으로 만드는 사람입니다.
+              저는 문제를 발견하면 끝까지 구조화하고, 실제로 작동하는 해결책으로 만드는 사람입니다.
             </p>
           </div>
           <div className={styles.grid_2}>
@@ -68,8 +66,7 @@ export default function Day1Page() {
           <div className={styles.section_head}>
             <h2 className={styles.section_title}>CISO 역할에 대한 관점</h2>
             <p className={styles.section_desc}>
-              CISO는 보안을 막는 사람이 아니라,<br/>
-              회사가 더 안전하게 빠르게 움직이도록 돕는 사람이라고 생각합니다.
+              CISO는 보안을 막는 사람이 아니라, 회사가 더 안전하게 빠르게 움직이도록 돕는 사람이라고 생각합니다.
             </p>
           </div>
           <div className={styles.text_block} style={{ marginBottom: '32px' }}>
@@ -117,8 +114,7 @@ export default function Day1Page() {
           <div className={styles.section_head}>
             <h2 className={styles.section_title}>Day1 Company와 맞는 이유</h2>
             <p className={styles.section_desc}>
-              Day1 Company의 이름처럼,<br/>
-              저도 매번 Day 1의 태도로 문제를 봅니다.
+              Day1 Company의 이름처럼, 저도 매번 Day 1의 태도로 문제를 봅니다.
             </p>
           </div>
           <div className={styles.text_block}>
@@ -164,12 +160,10 @@ export default function Day1Page() {
           </h2>
           <div className={styles.cta_body}>
             <p style={{ marginBottom: '16px' }}>
-              중요한 보안 문제를 해결하고,<br/>
-              Day1 Company가 더 안전하게 성장할 수 있는 기반을 만들겠습니다.
+              중요한 보안 문제를 해결하고, Day1 Company가 더 안전하게 성장할 수 있는 기반을 만들겠습니다.
             </p>
             <p style={{ color: '#4F46E5', fontWeight: '800' }}>
-              그리고 그 기반 위에서,<br/>
-              새로운 도전도 함께 해내고 싶습니다.
+              그리고 그 기반 위에서, 새로운 도전도 함께 해내고 싶습니다.
             </p>
           </div>
         </section>
