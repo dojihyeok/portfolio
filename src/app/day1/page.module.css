@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+
 .global_reset {
   --day1-bg: #FCFCFE;
   --day1-text: #334155;
@@ -8,13 +10,28 @@
   --day1-card-bg: #FFFFFF;
   --day1-radius: 24px;
   
-  font-family: var(--font-sans), 'Noto Sans KR', sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
   color: var(--day1-text);
   background: var(--day1-bg);
   min-height: 100vh;
   word-break: keep-all;
   line-height: 1.6;
 }
+
+.global_reset * {
+  box-sizing: border-box;
+}
+
+.global_reset h1, .global_reset h2, .global_reset h3, .global_reset p, .global_reset dl, .global_reset dt, .global_reset dd {
+  margin: 0;
+  padding: 0;
+}
+
+.global_reset a {
+  text-decoration: none;
+  color: inherit;
+}
+
 
 .shell {
   max-width: 896px; /* Tailwind max-w-4xl is ~896px */
