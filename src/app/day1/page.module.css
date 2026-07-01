@@ -17,7 +17,7 @@
 }
 
 .shell {
-  max-w-4xl; /* Tailwind max-w-4xl is ~896px */
+  max-width: 896px; /* Tailwind max-w-4xl is ~896px */
   margin: 0 auto;
   padding: 0 24px;
 }
