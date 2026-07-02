@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './page.module.css';
 
 export default function Day1Page() {
@@ -8,166 +7,239 @@ export default function Day1Page() {
         
         {/* Header */}
         <header className={styles.header}>
-          <a href="/day1" className={styles.brand}>
-            <div className={styles.brand_icon}>D1</div>
-            <span>Day1 Company CISO Interview</span>
-          </a>
+          <div className={styles.brand}>
+            <div className={styles.brand_icon}>D</div>
+            <span>Day1 Interview</span>
+          </div>
         </header>
 
-        {/* 1. Hero */}
-        <section className={styles.hero}>
-          <span className={styles.hero_tag}>이윤혁 · CISO 지원자</span>
-          <h1 className={styles.hero_title}>
-            보안의 책임을 지키면서, 새로운 도전도 끝까지 실행하는 사람
-          </h1>
-          <div className={styles.hero_body}>
-            <p>저는 중요한 보안 문제를 우선순위의 가장 앞에 두고 해결하는 사람입니다.</p>
-            <p>동시에 기술, 제품, 사업을 연결해 새로운 기회를 만들고 실행하는 데 강점이 있습니다.</p>
-            <p>Day1 Company가 추구하는 빠른 실행, 높은 책임감, 새로운 도전의 문화와 제 일하는 방식이 잘 맞는다고 생각합니다.</p>
-          </div>
-          <div className={styles.tags_wrap}>
-            <span className={styles.tag_item}>Security</span>
-            <span className={styles.tag_item}>Product</span>
-            <span className={styles.tag_item}>Business</span>
-            <span className={styles.tag_item}>Execution</span>
-          </div>
-        </section>
+        <main>
+          {/* 1. Hero */}
+          <section className={`${styles.hero} ${styles.fade_in}`}>
+            <span className={styles.hero_tag}>이윤혁 · CISO 지원자</span>
+            <h1 className={styles.hero_title}>
+              끊임없이 도전하는 CISO, 그리고 새로운 팀을 꿈꾸는 사람
+            </h1>
+            <div className={styles.hero_body}>
+              <p>저는 중요한 보안 문제를 먼저 해결하는 사람입니다.</p>
+              <p>동시에 AI 시대에 맞는 보안팀을 만들고, 기술과 사업이 함께 성장할 수 있는 새로운 도전을 계속하고 싶습니다.</p>
+              <p>DAY1 COMPANY가 끊임없이 도전하고 실패하며 성장하는 회사라면, 저 역시 그 방식과 잘 맞는 사람이라고 생각합니다.</p>
+            </div>
+            <div className={styles.tags_wrap}>
+              <span className={styles.tag_item}>CISO</span>
+              <span className={styles.tag_item}>AX Security</span>
+              <span className={styles.tag_item}>T-Rive</span>
+              <span className={styles.tag_item}>BLOODSTAR</span>
+              <span className={styles.tag_item}>MONO</span>
+            </div>
+          </section>
 
-        {/* 2. 나는 어떤 사람인가 */}
-        <section className={styles.section}>
-          <div className={styles.section_head}>
-            <h2 className={styles.section_title}>나는 어떤 사람인가</h2>
-            <p className={styles.section_desc}>
-              저는 문제를 발견하면 끝까지 구조화하고, 실제로 작동하는 해결책으로 만드는 사람입니다.
-            </p>
-          </div>
-          <div className={styles.grid_2}>
-            <article className={styles.card}>
-              <h3 className={styles.card_title}>책임감</h3>
-              <p className={styles.card_body}>중요한 문제를 미루지 않고 우선순위를 정해 해결합니다.</p>
-            </article>
-            <article className={styles.card}>
-              <h3 className={styles.card_title}>실행력</h3>
-              <p className={styles.card_body}>아이디어를 문서, 제품, 운영 구조로 빠르게 전환합니다.</p>
-            </article>
-            <article className={styles.card}>
-              <h3 className={styles.card_title}>보안 중심 사고</h3>
-              <p className={styles.card_body}>리스크를 먼저 보고, 안정적으로 운영될 수 있는 구조를 설계합니다.</p>
-            </article>
-            <article className={styles.card}>
-              <h3 className={styles.card_title}>사업 감각</h3>
-              <p className={styles.card_body}>기술을 기능이 아니라 고객 가치와 비즈니스 모델로 연결합니다.</p>
-            </article>
-          </div>
-        </section>
+          {/* 2. Day1 Company와 맞는 이유 */}
+          <section className={`${styles.section} ${styles.fade_in}`} style={{ animationDelay: '0.1s' }}>
+            <div className={styles.section_head}>
+              <h2 className={styles.section_title}>Day1 Company와 맞는 이유</h2>
+              <p className={styles.section_desc}>
+                Day1 Company는 도전을 멈추지 않는 회사입니다. 저도 실패를 피하기보다, 실패에서 배우며 다음 실행으로 넘어가는 사람입니다.
+              </p>
+            </div>
+            <div className={styles.text_block}>
+              <p>저는 완성된 답을 기다리기보다, 먼저 문제를 구조화하고 빠르게 실행하며 배웁니다.</p>
+              <p>보안에서도 마찬가지입니다. 위험을 발견하면 우선순위를 정하고, 반복되는 문제는 시스템과 프로세스로 해결하려고 합니다.</p>
+              <p>DAY1 COMPANY의 도전 문화 안에서 보안의 책임과 새로운 성장 기회를 함께 만들어가고 싶습니다.</p>
+            </div>
+          </section>
 
-        {/* 3. CISO 역할에 대한 관점 */}
-        <section className={styles.section}>
-          <div className={styles.section_head}>
-            <h2 className={styles.section_title}>CISO 역할에 대한 관점</h2>
-            <p className={styles.section_desc}>
-              CISO는 보안을 막는 사람이 아니라, 회사가 더 안전하게 빠르게 움직이도록 돕는 사람이라고 생각합니다.
-            </p>
-          </div>
-          <div className={styles.text_block} style={{ marginBottom: '32px' }}>
-            <p>보안은 속도를 늦추는 장치가 아니라, 회사가 더 큰 신뢰를 얻기 위한 기반입니다.</p>
-            <p>저는 중요한 보안 이슈를 우선 해결하고, 반복되는 위험은 프로세스와 시스템으로 줄이는 방식으로 일하고 싶습니다.</p>
-            <p>Day1 Company에서 CISO 역할을 맡는다면, 기술적 보안뿐 아니라 조직이 안전하게 실행할 수 있는 기준과 문화를 함께 만들겠습니다.</p>
-          </div>
-          <div className={styles.table_list}>
-            <dl className={styles.table_item}>
-              <dt>보안 리스크 관리</dt>
-              <dd>중요한 취약점과 운영 리스크를 우선순위화</dd>
-            </dl>
-            <dl className={styles.table_item}>
-              <dt>보안 프로세스</dt>
-              <dd>반복 가능한 점검, 대응, 개선 체계 구축</dd>
-            </dl>
-            <dl className={styles.table_item}>
-              <dt>개발 조직 협업</dt>
-              <dd>개발 속도를 막기보다 안전한 실행 기준 제공</dd>
-            </dl>
-            <dl className={styles.table_item}>
-              <dt>신뢰 구축</dt>
-              <dd>고객, 파트너, 내부 구성원이 신뢰할 수 있는 보안 체계</dd>
-            </dl>
-          </div>
-        </section>
+          {/* 3. CISO로서 먼저 집중할 일 */}
+          <section className={`${styles.section} ${styles.fade_in}`} style={{ animationDelay: '0.2s' }}>
+            <div className={styles.section_head}>
+              <h2 className={styles.section_title}>CISO로서 먼저 집중할 일</h2>
+              <p className={styles.section_desc}>
+                새로운 도전보다 먼저 중요한 것은 책임입니다. 가장 먼저 해야 할 일은 보안 문제 해결입니다.
+              </p>
+            </div>
+            <div className={styles.text_block} style={{ marginBottom: '40px' }}>
+              <p>DAY1 COMPANY에 합류한다면, 우선 회사가 지금 마주한 보안 이슈를 정확히 파악하고, 위험도가 높은 문제부터 빠르게 해결하겠습니다.</p>
+              <p>보안은 비즈니스 속도를 늦추는 장치가 아니라, 회사가 더 빠르게 성장하기 위한 신뢰 기반이라고 생각합니다.</p>
+            </div>
+            <div className={styles.grid_2}>
+              <article className={styles.card}>
+                <h3 className={styles.card_title}>Risk</h3>
+                <p className={styles.card_body}>중요한 보안 리스크를 우선순위화합니다.</p>
+              </article>
+              <article className={styles.card}>
+                <h3 className={styles.card_title}>Process</h3>
+                <p className={styles.card_body}>반복되는 문제는 프로세스로 줄입니다.</p>
+              </article>
+              <article className={styles.card}>
+                <h3 className={styles.card_title}>Culture</h3>
+                <p className={styles.card_body}>개발과 사업이 함께 지킬 수 있는 보안 기준을 만듭니다.</p>
+              </article>
+              <article className={styles.card}>
+                <h3 className={styles.card_title}>Trust</h3>
+                <p className={styles.card_body}>고객과 구성원이 신뢰할 수 있는 환경을 만듭니다.</p>
+              </article>
+            </div>
+          </section>
 
-        {/* 4. 새로운 도전에 대한 관점 */}
-        <section className={styles.section}>
-          <div className={styles.section_head}>
-            <h2 className={styles.section_title}>새로운 도전에 대한 관점</h2>
-            <p className={styles.section_desc}>
-              저는 안정적인 운영과 새로운 도전이 충돌한다고 생각하지 않습니다.
-            </p>
-          </div>
-          <div className={styles.text_block}>
-            <p>중요한 보안 문제를 먼저 해결하는 것은 기본입니다.</p>
-            <p>그 기반 위에서 새로운 제품, 사업, 브랜드, 조직 실험을 함께 만들어갈 수 있다고 생각합니다.</p>
-            <p>저는 MONO를 준비하며 전략, MVP, 데이터 구조, 사업계획, 투자 관점까지 직접 설계하고 실행해왔습니다. 이 경험은 Day1 Company 안에서도 새로운 기회를 발견하고 구체적인 실행으로 옮기는 데 도움이 될 수 있습니다.</p>
-          </div>
-        </section>
+          {/* 4. AI 시대의 AX 보안팀 */}
+          <section className={`${styles.section} ${styles.fade_in}`}>
+            <div className={styles.section_head}>
+              <h2 className={styles.section_title}>AI 시대의 AX 보안팀</h2>
+              <p className={styles.section_desc}>
+                AI 시대의 보안팀은 막는 팀이 아니라, 안전한 성장을 가능하게 하는 팀이어야 합니다.
+              </p>
+            </div>
+            <div className={styles.text_block}>
+              <p>AI가 개발, 운영, 고객 대응, 콘텐츠 제작까지 바꾸고 있습니다. 그만큼 보안팀의 역할도 달라져야 합니다.</p>
+              <p>저는 DAY1 COMPANY 안에서 AI를 활용해 더 빠르게 탐지하고, 더 정확하게 판단하며, 더 적은 반복 업무로 더 큰 안전성을 만드는 AX 보안팀을 만들고 싶습니다.</p>
+              <p>AX 보안팀은 보안 자동화, 정책 정리, 위협 대응, 개인정보 보호, AI 도구 사용 기준을 함께 다루며 회사의 빠른 비즈니스 성장을 지원하는 팀이 될 수 있습니다.</p>
+            </div>
+          </section>
 
-        {/* 5. Day1 Company와 맞는 이유 */}
-        <section className={styles.section}>
-          <div className={styles.section_head}>
-            <h2 className={styles.section_title}>Day1 Company와 맞는 이유</h2>
-            <p className={styles.section_desc}>
-              Day1 Company의 이름처럼, 저도 매번 Day 1의 태도로 문제를 봅니다.
-            </p>
-          </div>
-          <div className={styles.text_block}>
-            <p>완성된 답을 기다리기보다, 빠르게 가설을 세우고 실행하며 배우는 방식이 저에게 잘 맞습니다.</p>
-            <p>새로운 문제를 두려워하기보다 구조화하고, 필요한 사람과 도구를 연결해 실제 결과로 만드는 과정에서 강점을 발휘합니다.</p>
-            <p>Day1 Company가 빠른 실행, 높은 기준, 책임 있는 도전을 중요하게 본다면, 저는 그 방식 안에서 충분히 기여할 수 있다고 생각합니다.</p>
-          </div>
-        </section>
+          {/* 5. BLOODSTAR로 확장하고 싶은 이유 */}
+          <section className={`${styles.section} ${styles.fade_in}`}>
+            <div className={styles.section_head}>
+              <h2 className={styles.section_title}>BLOODSTAR로 확장하고 싶은 이유</h2>
+              <p className={styles.section_desc}>
+                AX 보안팀의 경험은 장기적으로 BLOODSTAR로 확장될 수 있습니다.
+              </p>
+            </div>
+            <div className={styles.text_block}>
+              <p>DAY1 COMPANY에서 실제 보안 문제를 해결하고, AI 기반 보안 운영 체계를 만들 수 있다면, 그 경험은 하나의 강한 보안 조직 모델이 될 수 있습니다.</p>
+              <p>저는 장기적으로 BLOODSTAR를 스타트업과 성장 기업을 위한 신뢰 기반 보안·기술 조직으로 확장하고 싶습니다.</p>
+              <p style={{ color: '#4F46E5', fontWeight: '800' }}>하지만 그 출발점은 명확합니다. 지금은 DAY1 COMPANY의 보안 문제를 제대로 해결하는 것이 우선입니다.</p>
+            </div>
+          </section>
 
-        {/* 6. 내가 기여할 수 있는 것 */}
-        <section className={styles.section}>
-          <div className={styles.section_head}>
-            <h2 className={styles.section_title}>내가 기여할 수 있는 것</h2>
-          </div>
-          <div className={styles.table_list}>
-            <dl className={styles.table_item}>
-              <dt>CISO 역할</dt>
-              <dd>보안 리스크 관리, 정책, 프로세스, 대응 체계 구축</dd>
-            </dl>
-            <dl className={styles.table_item}>
-              <dt>제품·사업 감각</dt>
-              <dd>기술을 고객 가치와 사업 구조로 연결</dd>
-            </dl>
-            <dl className={styles.table_item}>
-              <dt>AI 기반 실행</dt>
-              <dd>AI 도구를 활용한 빠른 문서화, 개발, 전략 수립</dd>
-            </dl>
-            <dl className={styles.table_item}>
-              <dt>조직 협업</dt>
-              <dd>개발, 운영, 비즈니스가 같은 기준으로 움직이도록 정리</dd>
-            </dl>
-            <dl className={styles.table_item}>
-              <dt>새로운 도전</dt>
-              <dd>신규 서비스, MVP, 전략 프로젝트를 빠르게 구조화하고 실행</dd>
-            </dl>
-          </div>
-        </section>
+          {/* 6. T-Rive를 만든 이유 */}
+          <section className={`${styles.section} ${styles.fade_in}`}>
+            <div className={styles.section_head}>
+              <h2 className={styles.section_title}>T-Rive를 만든 이유</h2>
+              <p className={styles.section_desc}>
+                내가 팀을 만든다면 어떤 팀을 만들까. T-Rive는 그 질문에서 시작했습니다.
+              </p>
+            </div>
+            <div className={styles.text_block} style={{ marginBottom: '40px' }}>
+              <p>T-Rive는 Tech를 기반으로 Try하고, 서로 Trust하며, Tribe로 함께 성장하는 팀을 상상하며 만든 조직 철학입니다.</p>
+              <p>좋은 팀은 사람을 많이 모으는 것이 아니라, 목표에 맞는 역할을 정확히 연결하는 데서 시작한다고 생각합니다.</p>
+              <p>T-Rive는 프로젝트의 목적에 따라 팀을 구성하고, 각자의 강점이 가장 잘 드러나는 방식으로 함께 실행하는 팀을 지향합니다.</p>
+            </div>
+            <a href="https://dojiung.com/trive_organization" target="_blank" rel="noreferrer" className={styles.link_card}>
+              <div className={styles.link_card_content}>
+                <h3>T-Rive Team Organization</h3>
+                <p>https://dojiung.com/trive_organization</p>
+              </div>
+              <div className={styles.link_card_arrow}>→</div>
+            </a>
+          </section>
 
-        {/* 7. 마무리 메시지 */}
-        <section className={styles.cta_section}>
-          <h2 className={styles.cta_title}>
-            저는 CISO의 책임을 우선으로 하겠습니다.
-          </h2>
-          <div className={styles.cta_body}>
-            <p style={{ marginBottom: '16px' }}>
-              중요한 보안 문제를 해결하고, Day1 Company가 더 안전하게 성장할 수 있는 기반을 만들겠습니다.
-            </p>
-            <p style={{ color: '#4F46E5', fontWeight: '800' }}>
-              그리고 그 기반 위에서, 새로운 도전도 함께 해내고 싶습니다.
-            </p>
-          </div>
-        </section>
+          {/* 7. 첫 번째 도전, MONO */}
+          <section className={`${styles.section} ${styles.fade_in}`}>
+            <div className={styles.section_head}>
+              <h2 className={styles.section_title}>첫 번째 도전, MONO</h2>
+              <p className={styles.section_desc}>
+                MONO는 T-Rive의 첫 번째 도전입니다.
+              </p>
+            </div>
+            <div className={styles.text_block} style={{ marginBottom: '40px' }}>
+              <p>MONO는 현장 일용직과 기술자가 더 좋은 현장을 찾고, 자신의 경험을 신뢰 프로필로 쌓아갈 수 있도록 설계한 프로젝트입니다.</p>
+              <p>단순히 일자리를 연결하는 것을 넘어, 일용직 근로자가 교육과 현장 경험을 통해 전문 기술자로 성장할 수 있는 구조를 고민하고 있습니다.</p>
+              <p>현장 경험, 경력, 자격, 안전교육, 장비 사용 이력이 쌓이면 기술자는 더 나은 기회를 얻고, 기업은 믿을 수 있는 사람과 팀을 찾을 수 있습니다.</p>
+            </div>
+            <a href="https://mono.dojiung.com/strategy" target="_blank" rel="noreferrer" className={styles.link_card}>
+              <div className={styles.link_card_content}>
+                <h3>MONO Strategy</h3>
+                <p>https://mono.dojiung.com/strategy</p>
+              </div>
+              <div className={styles.link_card_arrow}>→</div>
+            </a>
+          </section>
 
+          {/* 8. Coloso와의 시너지 */}
+          <section className={`${styles.section} ${styles.fade_in}`}>
+            <div className={styles.section_head}>
+              <h2 className={styles.section_title}>Coloso와의 시너지</h2>
+              <p className={styles.section_desc}>
+                MONO의 방향은 Coloso와도 연결될 수 있다고 생각합니다.
+              </p>
+            </div>
+            <div className={styles.text_block} style={{ marginBottom: '40px' }}>
+              <p>Coloso가 전문가의 지식과 교육 콘텐츠를 통해 사람의 성장을 돕는 플랫폼이라면, MONO는 현장 기술자의 경험과 교육, 자격, 실제 일자리를 연결하는 방향으로 확장될 수 있습니다.</p>
+              <p>현장에서 일하는 사람이 더 나은 기술을 배우고, 그 기술로 더 좋은 현장에 연결되는 구조는 교육과 커리어 성장이 함께 작동하는 모델이 될 수 있습니다.</p>
+              <p>이 점에서 MONO는 Coloso의 교육 철학과도 시너지를 만들 수 있다고 생각합니다.</p>
+            </div>
+            <a href="https://coloso.co.kr" target="_blank" rel="noreferrer" className={styles.link_card}>
+              <div className={styles.link_card_content}>
+                <h3>Coloso</h3>
+                <p>https://coloso.co.kr</p>
+              </div>
+              <div className={styles.link_card_arrow}>→</div>
+            </a>
+          </section>
+
+          {/* 9. 마무리 메시지 */}
+          <section className={`${styles.cta_section} ${styles.fade_in}`}>
+            <h2 className={styles.cta_title}>
+              저는 DAY1 COMPANY에서 먼저 보안의 책임을 다하고 싶습니다.
+            </h2>
+            <div className={styles.cta_body}>
+              <p style={{ marginBottom: '16px' }}>
+                중요한 보안 문제를 해결하고, AI 시대에 맞는 AX 보안팀을 만들고, 그 경험을 바탕으로 더 큰 도전까지 이어가고 싶습니다.
+              </p>
+              <p style={{ color: '#4F46E5', fontWeight: '800' }}>
+                DAY1 COMPANY가 끊임없이 도전하고 성장하는 회사라면, 저 역시 그 안에서 계속 도전하며 성장하고 싶습니다.
+              </p>
+            </div>
+          </section>
+
+          {/* 10. 관련 링크 */}
+          <section className={`${styles.section} ${styles.fade_in}`} style={{ paddingBottom: '120px' }}>
+            <div className={styles.section_head}>
+              <h2 className={styles.section_title}>관련 링크</h2>
+              <p className={styles.section_desc}>
+                인터뷰 중이나 이후에 참고하실 수 있는 상세 자료들입니다.
+              </p>
+            </div>
+            <div className={styles.links_list}>
+              <a href="https://day1company.ninehire.site/10times" target="_blank" rel="noreferrer" className={styles.link_card}>
+                <div className={styles.link_card_content}>
+                  <h3>Day1 Company 채용·문화 참고</h3>
+                  <p>https://day1company.ninehire.site/10times</p>
+                </div>
+                <div className={styles.link_card_arrow}>→</div>
+              </a>
+              <a href="https://dojiung.com/trive_organization" target="_blank" rel="noreferrer" className={styles.link_card}>
+                <div className={styles.link_card_content}>
+                  <h3>내가 생각하는 팀 구조 (T-Rive)</h3>
+                  <p>https://dojiung.com/trive_organization</p>
+                </div>
+                <div className={styles.link_card_arrow}>→</div>
+              </a>
+              <a href="https://mono.dojiung.com/strategy" target="_blank" rel="noreferrer" className={styles.link_card}>
+                <div className={styles.link_card_content}>
+                  <h3>T-Rive의 첫 번째 도전 프로젝트 (MONO)</h3>
+                  <p>https://mono.dojiung.com/strategy</p>
+                </div>
+                <div className={styles.link_card_arrow}>→</div>
+              </a>
+              <a href="https://coloso.co.kr" target="_blank" rel="noreferrer" className={styles.link_card}>
+                <div className={styles.link_card_content}>
+                  <h3>MONO와 시너지가 가능한 교육 플랫폼 방향 (Coloso)</h3>
+                  <p>https://coloso.co.kr</p>
+                </div>
+                <div className={styles.link_card_arrow}>→</div>
+              </a>
+              <a href="https://dojiung.com/creator/" target="_blank" rel="noreferrer" className={styles.link_card}>
+                <div className={styles.link_card_content}>
+                  <h3>개인/팀 소개 페이지</h3>
+                  <p>https://dojiung.com/creator/</p>
+                </div>
+                <div className={styles.link_card_arrow}>→</div>
+              </a>
+            </div>
+          </section>
+
+        </main>
       </div>
     </div>
   );
