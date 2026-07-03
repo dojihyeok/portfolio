@@ -94,6 +94,13 @@ export default function Day1Page() {
               <p>그렇게 확보한 시간과 리소스는 AI 도구 사용 기준, 데이터 보호, 클라우드 보안, 보안성 검수 자동화, 그리고 전사 AX 보안 챔피언 프로그램으로 확장할 수 있습니다.</p>
               <p>저는 Day1에 합류하면 먼저 CISO의 책임을 다하고, 그 기반 위에서 Day1의 빠른 실험과 성장을 안전하게 지원하는 AX 보안팀을 만들고 싶습니다.</p>
             </div>
+            <a href="/ax.html" target="_blank" rel="noreferrer" className={styles.link_card}>
+              <div className={styles.link_card_content}>
+                <h3>AX 보안 조직 아키텍처 대시보드</h3>
+                <p>https://dojiung.com/ax.html</p>
+              </div>
+              <div className={styles.link_card_arrow}>→</div>
+            </a>
           </section>
 
           {/* 5. BLOODSTAR로 확장하고 싶은 이유 */}
@@ -178,11 +185,11 @@ export default function Day1Page() {
           </section>
 
           {/* 9. 마무리 메시지 */}
-          <section className={`${styles.cta_section} ${styles.fade_in}`}>
-            <h2 className={styles.cta_title}>
+          <section className={`${styles.cta_section} ${styles.fade_in}`} style={{ textAlign: 'left' }}>
+            <h2 className={styles.cta_title} style={{ textAlign: 'left' }}>
               저는 DAY1 COMPANY에서 먼저 보안의 책임을 다하고 싶습니다.
             </h2>
-            <div className={styles.cta_body}>
+            <div className={styles.cta_body} style={{ textAlign: 'left' }}>
               <p style={{ marginBottom: '16px' }}>
                 중요한 보안 문제를 해결하고, AI 시대에 맞는 AX 보안팀을 만들고, 그 경험을 바탕으로 더 큰 도전까지 이어가고 싶습니다.
               </p>
@@ -201,6 +208,13 @@ export default function Day1Page() {
               </p>
             </div>
             <div className={styles.links_list}>
+              <a href="/ax.html" target="_blank" rel="noreferrer" className={styles.link_card}>
+                <div className={styles.link_card_content}>
+                  <h3>AX 보안 조직 아키텍처 대시보드</h3>
+                  <p>https://dojiung.com/ax.html</p>
+                </div>
+                <div className={styles.link_card_arrow}>→</div>
+              </a>
               <a href="https://day1company.ninehire.site/10times" target="_blank" rel="noreferrer" className={styles.link_card}>
                 <div className={styles.link_card_content}>
                   <h3>Day1 Company 채용·문화 참고</h3>
