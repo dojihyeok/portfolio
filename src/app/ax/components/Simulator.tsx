@@ -38,7 +38,7 @@ export default function Simulator() {
                                 <button 
                                     key={dept.id}
                                     onClick={() => setCurrentDept(dept.id)} 
-                                    className={`w-full px-4 py-3 rounded-xl text-left font-medium transition-all flex items-center justify-between ${currentDept === dept.id ? 'bg-indigo-600/20 text-indigo-300 border border-indigo-500/30 hover:bg-indigo-600/30' : 'bg-slate-50 text-slate-600 border border-slate-200 hover:bg-slate-100'}`}
+                                    className={`w-full px-4 py-3 rounded-xl text-left font-medium transition-all flex items-center justify-between ${currentDept === dept.id ? 'bg-indigo-50 text-indigo-700 border border-indigo-300' : 'bg-slate-50 text-slate-600 border border-slate-200 hover:bg-slate-100'}`}
                                 >
                                     <span>{dept.label}</span>
                                     <span className={`text-xs px-2 py-0.5 rounded ${currentDept === dept.id ? 'bg-indigo-500/20' : 'bg-slate-100'} ${dept.id === 'mkt' ? 'font-mono' : ''}`}>{dept.badge}</span>
@@ -91,9 +91,9 @@ export default function Simulator() {
                         </AnimatePresence>
 
                         {/* Footer CTA inside Simulator */}
-                        <div className="mt-6 pt-4 border-t border-slate-900 flex flex-col sm:flex-row justify-between items-center bg-white/40 p-3 rounded-xl gap-3 sm:gap-0">
-                            <span className="text-xs text-slate-600">보안 챔피언십 활동은 인사 고과 연계 포상을 제공합니다.</span>
-                            <button onClick={handleApply} className="bg-indigo-600 hover:bg-indigo-500 text-slate-900 text-xs px-3.5 py-2 rounded-lg font-semibold transition-all w-full sm:w-auto">
+                        <div className="mt-6 pt-4 border-t border-slate-200 flex flex-col sm:flex-row justify-between items-center bg-slate-50 p-3 rounded-xl gap-3 sm:gap-0">
+                            <span className="text-xs text-slate-600">보안 챔피온십 활동은 인사 고과 연계 포상을 제공합니다.</span>
+                            <button onClick={handleApply} className="bg-indigo-600 hover:bg-indigo-700 text-white text-xs px-3.5 py-2 rounded-lg font-semibold transition-all w-full sm:w-auto">
                                 챔피언 지원 신청하기
                             </button>
                         </div>
@@ -109,7 +109,7 @@ export default function Simulator() {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 10 }}
-                        className="absolute bottom-6 right-6 z-50 bg-white border border-indigo-500 text-indigo-200 text-xs px-4 py-3 rounded-xl shadow-xl flex items-center space-x-2"
+                        className="absolute bottom-6 right-6 z-50 bg-white border border-indigo-400 text-slate-700 text-xs px-4 py-3 rounded-xl shadow-xl flex items-center space-x-2"
                     >
                         <span className="text-indigo-400">🔔</span>
                         <span>보안 챔피언 지원 시뮬레이션이 성공적으로 처리되었습니다.</span>

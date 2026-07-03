@@ -34,21 +34,21 @@ export default function Roadmap() {
                 </div>
 
                 {/* Step 2 Card */}
-                <div className="bg-indigo-950/20 border border-indigo-500/30 rounded-2xl p-6 relative flex flex-col justify-between shadow-xl shadow-indigo-950/30">
+                <div className="bg-indigo-600 border border-indigo-500 rounded-2xl p-6 relative flex flex-col justify-between shadow-xl shadow-indigo-300/30">
                     <div>
                         <div className="flex justify-between items-center mb-4">
-                            <span className="text-xs font-bold text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded border border-emerald-500/20">Phase 2 : 빌드업</span>
-                            <span className="text-sm font-semibold text-indigo-400">4~6개월</span>
+                            <span className="text-xs font-bold text-emerald-300 bg-emerald-500/20 px-2.5 py-1 rounded border border-emerald-400/30">Phase 2 : 빌드업</span>
+                            <span className="text-sm font-semibold text-indigo-200">4~6개월</span>
                         </div>
-                        <h4 className="text-base font-bold text-slate-900 mb-2">AX 전담 신설팀 가동 및 챔피언 선발</h4>
-                        <p className="text-xs text-slate-700 leading-relaxed mb-4">
+                        <h4 className="text-base font-bold text-white mb-2">AX 전담 신설팀 가동 및 챔피언 선발</h4>
+                        <p className="text-xs text-indigo-100 leading-relaxed mb-4">
                             독자적인 AX 보안팀 조직을 출범하고 정책/개인정보/클라우드 가드레일을 통합 설계합니다. 사내 주요 개발 및 비즈니스 실무 핵심 인재를 선별하여 1기 AX 보안 챔피언을 위촉합니다.
                         </p>
                     </div>
-                    <ul className="space-y-2 text-xs text-slate-700 pt-4 border-t border-slate-200">
+                    <ul className="space-y-2 text-xs text-white pt-4 border-t border-indigo-500/50">
                         <li className="flex items-center space-x-2">
                             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                            <span>가명화 알고리즘 & 자동 패치 에이전트 결합</span>
+                            <span>가명화 알고리즘 &amp; 자동 패치 에이전트 결합</span>
                         </li>
                         <li className="flex items-center space-x-2">
                             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>

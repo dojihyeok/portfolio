@@ -182,9 +182,9 @@ export default function Sandbox() {
                                         <button 
                                             key={feat.id}
                                             onClick={() => toggleFeature(feat.id as keyof typeof features)}
-                                            className={`px-3 py-2 rounded-lg text-xs text-left transition-all flex items-center space-x-2 ${active ? 'bg-indigo-950/30 border-indigo-500/50 text-indigo-200 border' : 'bg-slate-50 border-slate-200 text-slate-600 border hover:bg-slate-100'}`}
+                                            className={`px-3 py-2 rounded-lg text-xs text-left transition-all flex items-center space-x-2 ${active ? 'bg-indigo-50 border-indigo-300 text-indigo-700 border' : 'bg-slate-50 border-slate-200 text-slate-600 border hover:bg-slate-100'}`}
                                         >
-                                            <span className={`w-2 h-2 rounded-full transition-all ${active ? 'bg-indigo-400 shadow-md shadow-indigo-500/50' : 'bg-slate-600'}`}></span>
+                                            <span className={`w-2 h-2 rounded-full transition-all ${active ? 'bg-indigo-600 shadow-sm shadow-indigo-400' : 'bg-slate-400'}`}></span>
                                             <span>{feat.label}</span>
                                         </button>
                                     );
@@ -305,7 +305,7 @@ export default function Sandbox() {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 10 }}
-                        className="absolute bottom-6 right-6 z-50 bg-white border border-indigo-500 text-indigo-200 text-xs px-4 py-3 rounded-xl shadow-xl flex items-center space-x-2"
+                        className="absolute bottom-6 right-6 z-50 bg-white border border-indigo-400 text-slate-700 text-xs px-4 py-3 rounded-xl shadow-xl flex items-center space-x-2"
                     >
                         <span className="text-indigo-400">🔔</span>
                         <span>AX AI 보안성 자가 분석이 완료되었습니다!</span>
