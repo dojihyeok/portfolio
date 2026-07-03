@@ -1,6 +1,9 @@
-#!/usr/bin/expect
-set timeout 20
-spawn ssh -o StrictHostKeyChecking=no root@49.50.139.88 "pm2 list"
-expect "*?assword:*"
+#!/usr/bin/expect -f
+set timeout 10
+spawn ssh -i /Users/yunhyeok/triedit-dev.pem -o StrictHostKeyChecking=no root@49.50.139.88
+expect "password:"
 send "R4+r525MP5DiBi\r"
-expect eof
+expect "#"
+send "pm2 status\r"
+expect "#"
+send "exit\r"

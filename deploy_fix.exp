@@ -1,26 +1,19 @@
-#!/usr/bin/expect
-set timeout 300
+#!/usr/bin/expect -f
+set timeout -1
 spawn ssh -o StrictHostKeyChecking=no root@49.50.139.88
-expect "*?assword:*"
+expect "password:"
 send "R4+r525MP5DiBi\r"
-expect "*?root@*"
-send "cd portfolio\r"
-expect "*?portfolio*"
 
-# Force Git to sync with origin/main
-send "git fetch --all\r"
-expect "*?root@*"
-send "git reset --hard origin/main\r"
-expect "*?root@*"
+expect "# "
+send "cd /root/portfolio && git pull origin main\r"
 
-# Rebuild and Deploy
-send "npm install\r"
-expect "*?root@*"
-send "rm -rf .next\r"
-expect "*?root@*"
-send "npm run build\r"
-expect "*?root@*"
-send "pm2 restart portfolio\r"
-expect "*?root@*"
+expect "# "
+send "cp /root/portfolio/index.html /var/www/creator/index.html\r"
+
+expect "# "
+send "cp /root/portfolio/public/trive_organization.html /var/www/creator/trive_organization.html\r"
+
+expect "# "
 send "exit\r"
+
 expect eof
