@@ -18,12 +18,12 @@ export default function Day1Page() {
           <section className={`${styles.hero} ${styles.fade_in}`}>
             <span className={styles.hero_tag}>이윤혁 · CISO 지원자</span>
             <h1 className={styles.hero_title}>
-              끊임없이 도전하는 CISO, 그리고 새로운 팀을 꿈꾸는 사람
+              Day1의 도전을 더 안전하게 만드는 CISO
             </h1>
             <div className={styles.hero_body}>
-              <p>저는 중요한 보안 문제를 먼저 해결하는 사람입니다.</p>
-              <p>동시에 AI 시대에 맞는 보안팀을 만들고, 기술과 사업이 함께 성장할 수 있는 새로운 도전을 계속하고 싶습니다.</p>
-              <p>DAY1 COMPANY가 끊임없이 도전하고 실패하며 성장하는 회사라면, 저 역시 그 방식과 잘 맞는 사람이라고 생각합니다.</p>
+              <p>저는 Day1에 합류해 먼저 중요한 보안 이슈를 책임 있게 해결하고 싶습니다.</p>
+              <p>그 다음 AI 시대에 맞는 AX 보안팀을 구성해, 반복되는 보안 업무는 자동화하고, 구성원이 안전하게 AI와 데이터를 활용할 수 있는 가드레일을 만들고 싶습니다.</p>
+              <p>Day1이 계속 도전하고 실패에서 배우며 성장하는 회사라면, 저 역시 그 방식과 잘 맞는 사람이라고 생각합니다.</p>
             </div>
             <div className={styles.tags_wrap}>
               <span className={styles.tag_item}>CISO</span>
@@ -86,13 +86,13 @@ export default function Day1Page() {
             <div className={styles.section_head}>
               <h2 className={styles.section_title}>AI 시대의 AX 보안팀</h2>
               <p className={styles.section_desc}>
-                AI 시대의 보안팀은 막는 팀이 아니라, 안전한 성장을 가능하게 하는 팀이어야 합니다.
+                제가 Day1에서 만들고 싶은 AX 보안팀은 보안을 막는 조직이 아니라, 비즈니스가 더 빠르고 안전하게 움직이도록 돕는 조직입니다.
               </p>
             </div>
             <div className={styles.text_block}>
-              <p>AI가 개발, 운영, 고객 대응, 콘텐츠 제작까지 바꾸고 있습니다. 그만큼 보안팀의 역할도 달라져야 합니다.</p>
-              <p>저는 DAY1 COMPANY 안에서 AI를 활용해 더 빠르게 탐지하고, 더 정확하게 판단하며, 더 적은 반복 업무로 더 큰 안전성을 만드는 AX 보안팀을 만들고 싶습니다.</p>
-              <p>AX 보안팀은 보안 자동화, 정책 정리, 위협 대응, 개인정보 보호, AI 도구 사용 기준을 함께 다루며 회사의 빠른 비즈니스 성장을 지원하는 팀이 될 수 있습니다.</p>
+              <p>기존 보안팀이 반드시 해결해야 할 취약점, 권한, 로그, 정책, 사고 대응을 안정적으로 관리하면서, 반복되는 보안 업무는 AI 에이전트와 자동화로 줄이고 싶습니다.</p>
+              <p>그렇게 확보한 시간과 리소스는 AI 도구 사용 기준, 데이터 보호, 클라우드 보안, 보안성 검수 자동화, 그리고 전사 AX 보안 챔피언 프로그램으로 확장할 수 있습니다.</p>
+              <p>저는 Day1에 합류하면 먼저 CISO의 책임을 다하고, 그 기반 위에서 Day1의 빠른 실험과 성장을 안전하게 지원하는 AX 보안팀을 만들고 싶습니다.</p>
             </div>
           </section>
 
