@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLOODSTAR (블러드스타) | 스타트업 비즈니스 영속성을 위한 IT 파운데이션 혈맹</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans KR"', 'sans-serif'],
+                        outfit: ['"Outfit"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+KR:wght@300;400;500;700;900&family=Outfit:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #FCFCFE; /* slate-950 */
+            color: #cbd5e1; /* slate-100 */
+            -webkit-font-smoothing: antialiased;
+        }
+        .bg-dot-grid {
+            background-image: radial-gradient(rgba(79, 70, 229, 0.15) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #FCFCFE; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+        /* Flywheel Positioning */
+        #visual-fw-0 { transform: translate(0px, -120px); }
+        #visual-fw-1 { transform: translate(120px, 0px); }
+        #visual-fw-2 { transform: translate(0px, 120px); }
+        #visual-fw-3 { transform: translate(-120px, 0px); }
+    </style>
+</head>
+<body class="font-sans antialiased overflow-x-hidden selection:bg-indigo-600 selection:text-slate-950 bg-white text-slate-800">
+    <div class="bg-gradient-to-r from-blue-600 via-indigo-600 to-amber-500 py-3 px-4 text-center text-xs font-black tracking-wider text-slate-950 flex items-center justify-center gap-2.5 shadow-lg relative z-20">
+        <i class="fa-solid fa-wand-magic-sparkles animate-spin text-slate-950"></i>
+        <span>좋은 핵심 인재 얼라이언스(DevOps, 보안, AI 등 6개 직군)를 원스톱 인프라로 즉시 공급받아 창업 팀의 성공 확률을 극대화하십시오.</span>
+    </div>
+
+    <nav class="sticky top-0 bg-white/80 backdrop-blur-md border-b border-slate-200 z-40 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="flex items-center justify-center w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 shadow-lg shadow-indigo-500/30">
+                    <span class="text-slate-900 font-black text-xl tracking-tighter">B★</span>
+                </div>
+                <div>
+                    <span class="text-lg font-black tracking-tight text-slate-900">BLOODSTAR</span>
+                    <span class="hidden sm:inline-block ml-2 text-[10px] px-1.5 py-0.5 bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 rounded font-semibold uppercase tracking-wider">Engineering Alliance</span>
+                </div>
+            </div>
+            <div class="hidden lg:flex items-center gap-8 text-xs font-bold text-slate-600 uppercase tracking-widest">
+                <a href="#simulator" class="hover:text-indigo-500 transition-colors">얼라이언스 시뮬레이터</a>
+                <a href="#painpoints" class="hover:text-indigo-500 transition-colors">스타트업 병목</a>
+                <a href="#ecosystem" class="hover:text-indigo-500 transition-colors">에코시스템 역량</a>
+                <a href="#roi-calculator" class="hover:text-indigo-500 transition-colors">ROI 가치 계산</a>
+                <a href="#flywheel" class="hover:text-indigo-500 transition-colors">선순환 플라이휠</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <a href="#roi-calculator" class="text-xs font-bold text-slate-700 bg-white border border-slate-300 px-4 py-2 rounded-lg hover:border-slate-400 transition-all">비용 진단</a>
+                <a href="mailto:contact@bloodstar.io" class="bg-gradient-to-r from-blue-600 to-indigo-600 hover:opacity-90 text-slate-900 font-extrabold text-xs px-4 py-2 rounded-lg transition-all shadow-md shadow-indigo-500/20">협력 문의</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="relative pt-16 pb-24 px-6 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-slate-50/50 to-transparent pointer-events-none"></div>
+        <div class="absolute top-20 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-gradient-to-tr from-blue-500/10 via-indigo-500/10 to-amber-500/5 rounded-full blur-[120px] pointer-events-none -z-10"></div>
+
+        <div class="max-w-7xl mx-auto relative z-10 pt-8">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-slate-300 text-xs text-slate-700 animate-fade-in">
+                    <span class="flex h-2 w-2 rounded-full bg-emerald-500"></span>
+                    <span class="font-extrabold text-slate-900">For Founders & VCs:</span>
+                    <span>좋은 인력 셰어링을 통한 스타트업 폭발 성장의 영토</span>
+                </div>
+                <h1 class="text-4xl sm:text-6xl font-black tracking-tight leading-[1.1] text-slate-900 mt-8 mb-6">
+                    스타트업의 폭발적인 성장을 위한 <br />
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-indigo-500">BLOODSTAR</span> Engineering Alliance
+                </h1>
+                <p class="max-w-2xl mx-auto text-base sm:text-lg text-slate-600 leading-relaxed mb-10">
+                    좋은 인재는 비싸고 쉽게 나갑니다.<br />
+                    블러드스타는 검증된 시니어 팀을 10분의 1의 합리적 비용으로 즉시 공급하여,<br />창업자가 제품 가치와 고유 고객 획득에만 온전히 집중하도록 돕는 강력한 기술 우군입니다.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-16">
+                    <a href="#roi-calculator" id="hero-saved-cost-btn" class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-slate-900 font-extrabold rounded-xl text-sm shadow-xl shadow-indigo-500/30 hover:scale-[1.01] transition-transform">
+                        연간 ₩1억 2,400만원 절감 효과 계산기
+                    </a>
+                    <a href="#simulator" class="w-full sm:w-auto px-8 py-4 bg-white border border-slate-300 text-slate-800 hover:border-slate-400 font-bold rounded-xl text-sm transition-all">
+                        공유 아키텍처 라이브 데모
+                    </a>
+                </div>
+            </div>
+
+            <div class="max-w-5xl mx-auto w-full px-4 sm:px-0">
+                <div class="relative rounded-3xl overflow-hidden shadow-2xl shadow-indigo-500/10 border border-slate-200 bg-white">
+                    <img src="./assets/bloodstar_infogra.png" alt="핵심 인재 엔지니어링 얼라이언스 아키텍처 다이어그램" class="w-full h-auto object-cover" />
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+    <!-- PAIN POINTS -->
+    <section id="painpoints" class="py-20 px-6 border-t border-slate-200 bg-slate-50 relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-xs text-indigo-600 font-black uppercase tracking-widest">THE STARTUP BOTTLENECK</span>
+                <h2 class="text-3xl sm:text-4xl font-black mt-2 text-slate-900">성장은 빨라지는데, 왜 운영과 고정비가 스타트업의 발목을 잡을까요?</h2>
+                <p class="text-slate-600 max-w-3xl mx-auto mt-4 text-xs sm:text-sm sm:whitespace-nowrap">우수한 창업 아이템을 가진 대다수 스타트업이 초기 기술 부채와 규제, 기회 비용의 블랙홀에 직면합니다.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+                <div class="p-5 rounded-2xl bg-white border border-slate-200 transition-all duration-300 flex flex-col justify-between border-red-500/20 hover:border-red-500/50">
+                    <div>
+                        <div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-indigo-500 mb-6"><i class="fa-solid fa-users w-5 h-5 flex items-center justify-center text-lg"></i></div>
+                        <span class="text-[10px] font-extrabold uppercase text-slate-500">CASE 01</span>
+                        <h3 class="text-base font-black text-slate-900 mt-1 mb-2">핵심 인재 채용 난이도</h3>
+                        <p class="text-xs text-indigo-600 font-bold mb-3">좋은 인재는 비싸고, 구하기 어렵다</p>
+                        <p class="text-[11px] text-slate-600 leading-relaxed">국내 리드급 DevOps, 보안 아키텍트 연봉은 이미 1억 원을 웃돌며 채용 시 평균 4개월 이상의 리드 타임이 소요됩니다.</p>
+                    </div>
+                    <div class="h-1 w-full bg-white mt-6 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-amber-500 to-orange-500 w-1/3"></div></div>
+                </div>
+                <div class="p-5 rounded-2xl bg-white border border-slate-200 transition-all duration-300 flex flex-col justify-between border-orange-500/20 hover:border-orange-500/50">
+                    <div>
+                        <div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-indigo-500 mb-6"><i class="fa-solid fa-triangle-exclamation w-5 h-5 flex items-center justify-center text-lg"></i></div>
+                        <span class="text-[10px] font-extrabold uppercase text-slate-500">CASE 02</span>
+                        <h3 class="text-base font-black text-slate-900 mt-1 mb-2">인력 이탈 & 지식 단절</h3>
+                        <p class="text-xs text-indigo-600 font-bold mb-3">6개월~1년 사이 이탈, 노하우가 남지 않는다</p>
+                        <p class="text-[11px] text-slate-600 leading-relaxed">초기 스타트업 특성상 핵심 개발자 이탈율은 35%에 육박하며, 인계되지 않은 암묵지는 서비스 장애와 시스템 파편화로 직결됩니다.</p>
+                    </div>
+                    <div class="h-1 w-full bg-white mt-6 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-amber-500 to-orange-500 w-1/3"></div></div>
+                </div>
+                <div class="p-5 rounded-2xl bg-white border border-slate-200 transition-all duration-300 flex flex-col justify-between border-indigo-600/20 hover:border-indigo-600/50">
+                    <div>
+                        <div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-indigo-500 mb-6"><i class="fa-solid fa-layer-group w-5 h-5 flex items-center justify-center text-lg"></i></div>
+                        <span class="text-[10px] font-extrabold uppercase text-slate-500">CASE 03</span>
+                        <h3 class="text-base font-black text-slate-900 mt-1 mb-2">기술 부채 & 장애 리스크</h3>
+                        <p class="text-xs text-indigo-600 font-bold mb-3">인프라·보안·데이터의 문제는 성장할수록 커진다</p>
+                        <p class="text-[11px] text-slate-600 leading-relaxed">빠른 런칭에 급급해 방치해둔 오토스케일링 부재, 스파게티 쿼리, 보안 구멍은 대규모 마케팅 폭증 시 서비스 마비를 유발합니다.</p>
+                    </div>
+                    <div class="h-1 w-full bg-white mt-6 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-amber-500 to-orange-500 w-1/3"></div></div>
+                </div>
+                <div class="p-5 rounded-2xl bg-white border border-slate-200 transition-all duration-300 flex flex-col justify-between border-indigo-500/20 hover:border-indigo-500/50">
+                    <div>
+                        <div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-indigo-500 mb-6"><i class="fa-solid fa-shield-halved w-5 h-5 flex items-center justify-center text-lg"></i></div>
+                        <span class="text-[10px] font-extrabold uppercase text-slate-500">CASE 04</span>
+                        <h3 class="text-base font-black text-slate-900 mt-1 mb-2">컴플라이언스 부담</h3>
+                        <p class="text-xs text-indigo-600 font-bold mb-3">투자·실사·규제 대응이 벽처럼 느껴진다</p>
+                        <p class="text-[11px] text-slate-600 leading-relaxed">기관 투자 및 대기업 협업 시 요구되는 ISMS-P 가이드라인, 개인정보 보호 및 컴플라이언스 체계 구축은 창업가에게 큰 벽입니다.</p>
+                    </div>
+                    <div class="h-1 w-full bg-white mt-6 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-amber-500 to-orange-500 w-1/3"></div></div>
+                </div>
+                <div class="p-5 rounded-2xl bg-white border border-slate-200 transition-all duration-300 flex flex-col justify-between border-purple-500/20 hover:border-purple-500/50">
+                    <div>
+                        <div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-indigo-500 mb-6"><i class="fa-solid fa-chart-line w-5 h-5 flex items-center justify-center text-lg"></i></div>
+                        <span class="text-[10px] font-extrabold uppercase text-slate-500">CASE 05</span>
+                        <h3 class="text-base font-black text-slate-900 mt-1 mb-2">데이터 기반 의사결정 부족</h3>
+                        <p class="text-xs text-indigo-600 font-bold mb-3">정확한 데이터가 없어 성장의 방향이 흔들린다</p>
+                        <p class="text-[11px] text-slate-600 leading-relaxed">마케팅 태깅 오류, 깨진 빅데이터 파이프라인으로 인해 가짜 지표에 현혹되어 자본을 낭비하는 현상이 빈번합니다.</p>
+                    </div>
+                    <div class="h-1 w-full bg-white mt-6 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-amber-500 to-orange-500 w-1/3"></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SIMULATOR -->
+    <section id="simulator" class="py-24 px-6 border-y border-slate-200 bg-white relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-xs text-indigo-400 font-black uppercase tracking-widest">LIVE ALLIANCE ROUTER DEMO</span>
+                <h2 class="text-3xl sm:text-4xl font-black mt-2 text-slate-900">10개의 스타트업이 함께, 1개의 정예 전문가 팀을 공유합니다.</h2>
+                <p class="text-slate-600 max-w-2xl mx-auto mt-4 text-xs sm:text-sm">각 스타트업을 클릭하여 활성화하거나 해제해 보세요. 참여하는 스타트업이 늘어날수록 **개별 부담 비용이 10분의 1로 동적 하락**하며, 리소스가 완벽히 균등 배분되는 구조입니다.</p>
+            </div>
+            <div class="grid grid-cols-1 xl:grid-cols-12 gap-8 items-stretch relative">
+                <div class="xl:col-span-3 bg-white shadow-xl shadow-slate-200/50 border border-slate-200 p-6 rounded-3xl flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-sm font-extrabold text-slate-900 mb-4 uppercase tracking-wider flex items-center justify-between">
+                            <span>참여 스타트업군 (A-J)</span>
+                            <span class="text-[10px] text-slate-500">클릭 시 토글</span>
+                        </h3>
+                        <div class="grid grid-cols-2 gap-2" id="startup-toggles">
+                            <!-- JS injected toggles -->
+                        </div>
+                    </div>
+                    <div class="mt-8 p-4 bg-white rounded-2xl border border-slate-300">
+                        <span class="text-[9px] text-slate-500 font-extrabold uppercase block">ACTIVE CO-SHARING RATIO</span>
+                        <div class="flex items-baseline justify-between mt-1">
+                            <span class="text-2xl font-black text-indigo-500" id="sharing-active-count"></span>
+                            <span class="text-xs text-slate-600" id="sharing-multiplier"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="xl:col-span-6 bg-white shadow-xl shadow-slate-200/50 border border-slate-200 p-6 rounded-3xl flex flex-col justify-between relative">
+                    <div>
+                        <div class="flex justify-between items-center mb-6">
+                            <div>
+                                <span class="text-[9px] text-indigo-600 font-black uppercase tracking-widest block">BLOODSTAR CORE</span>
+                                <h3 class="text-base font-black text-slate-900">Alliance Engineering Team (1개 팀 = 10명 내외)</h3>
+                            </div>
+                            <span class="text-[10px] px-2.5 py-1 bg-white border border-slate-300 text-slate-600 rounded-lg">공유 지식 허브 & Best Practice</span>
+                        </div>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6" id="pillar-tabs">
+                            <!-- JS injected tabs -->
+                        </div>
+                        <div class="p-5 bg-white rounded-2xl border border-slate-300/80 transition-all duration-300" id="spec-container">
+                            <div class="flex items-center justify-between mb-2">
+                                <h4 class="text-sm font-black text-slate-900" id="spec-title"></h4>
+                                <div class="flex gap-1.5" id="spec-tools"></div>
+                            </div>
+                            <p class="text-xs text-slate-600 leading-relaxed mb-4" id="spec-desc"></p>
+                            <div class="grid grid-cols-2 gap-2" id="spec-items"></div>
+                        </div>
+                    </div>
+                    <div class="mt-6 p-4 bg-white rounded-2xl border border-slate-300 text-center">
+                        <span class="text-[10px] text-slate-500 font-extrabold uppercase tracking-widest block mb-1">ALLIANCE CO-WORKING PHILOSOPHY</span>
+                        <p class="text-xs text-slate-700 leading-relaxed font-bold">"참여사간의 모든 프로젝트 경험, 난제 해결 라이브러리는 암묵지가 아닌 공유 시스템으로 지속 축적되어 전체에 수평 전파됩니다."</p>
+                    </div>
+                </div>
+
+                <div class="xl:col-span-3 bg-white shadow-xl shadow-slate-200/50 border border-slate-200 p-6 rounded-3xl flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-2.5 mb-4">
+                            <div class="w-7 h-7 rounded-lg bg-indigo-500/10 flex items-center justify-center text-indigo-400">
+                                <i class="fa-solid fa-cpu text-sm w-4 h-4 flex items-center justify-center"></i>
+                            </div>
+                            <h3 class="text-sm font-black text-slate-900">AI Agent Platform</h3>
+                        </div>
+                        <p class="text-[11px] text-slate-600 leading-relaxed mb-6">사람 엔지니어가 부재한 야간이나 주말에도 최첨단 AI 에이전트 관제 체인이 시스템을 상시 가드로 지킵니다.</p>
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-2.5 text-xs text-slate-700 bg-white p-2.5 rounded-xl border border-slate-200"><span class="w-1.5 h-1.5 bg-indigo-400 rounded-full animate-ping"></span><span>실시간 모니터링 & 알림</span></div>
+                            <div class="flex items-center gap-2.5 text-xs text-slate-700 bg-white p-2.5 rounded-xl border border-slate-200"><span class="w-1.5 h-1.5 bg-indigo-400 rounded-full animate-ping"></span><span>이상 징후 상시 탐지</span></div>
+                            <div class="flex items-center gap-2.5 text-xs text-slate-700 bg-white p-2.5 rounded-xl border border-slate-200"><span class="w-1.5 h-1.5 bg-indigo-400 rounded-full animate-ping"></span><span>반복 업무 자동 처리</span></div>
+                            <div class="flex items-center gap-2.5 text-xs text-slate-700 bg-white p-2.5 rounded-xl border border-slate-200"><span class="w-1.5 h-1.5 bg-indigo-400 rounded-full animate-ping"></span><span>운영 리포트 자동 생성</span></div>
+                            <div class="flex items-center gap-2.5 text-xs text-slate-700 bg-white p-2.5 rounded-xl border border-slate-200"><span class="w-1.5 h-1.5 bg-indigo-400 rounded-full animate-ping"></span><span>장애 선제 차단 & 대응</span></div>
+                            <div class="flex items-center gap-2.5 text-xs text-slate-700 bg-white p-2.5 rounded-xl border border-slate-200"><span class="w-1.5 h-1.5 bg-indigo-400 rounded-full animate-ping"></span><span>공유 지식 검색 & 추천</span></div>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-indigo-500/10 border border-indigo-500/20 rounded-2xl text-center mt-6">
+                        <span class="text-[9px] text-indigo-400 font-black block uppercase tracking-widest">CO-OPERATIVE SYNERGY</span>
+                        <span class="text-xs text-slate-900 font-bold block mt-1">"AI와 사람의 완벽한 역할 분담"</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ECOSYSTEM -->
+    <section id="ecosystem" class="py-24 px-6 border-b border-slate-200 bg-slate-50 relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-xs text-indigo-600 font-black uppercase tracking-widest">ALLIANCE ECOSYSTEM CAPABILITY</span>
+                <h2 class="text-3xl sm:text-4xl font-black mt-2 text-slate-900">사업 고성장과 글로벌 진출을 위한 종합 엔지니어링 풀</h2>
+                <p class="text-slate-600 max-w-2xl mx-auto mt-4 text-xs sm:text-sm">6대 핵심 기술 도메인의 검증된 시니어 전문가 풀을 원스톱 공급하며, 스타트업의 지연율(Latancy)을 영점에 수렴하게 만듭니다.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="ecosystem-container"></div>
+        </div>
+    </section>
+
+    <!-- ROI CALCULATOR -->
+    <section id="roi-calculator" class="py-24 px-6 bg-white relative">
+        <div class="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-transparent pointer-events-none"></div>
+        <div class="max-w-5xl mx-auto relative z-10">
+            <div class="text-center mb-16">
+                <span class="text-xs text-indigo-600 font-black uppercase tracking-widest">STARTUP RUNWAY SIMULATOR</span>
+                <h2 class="text-3xl sm:text-4xl font-black mt-2 text-slate-900">우리는 과연 얼마의 예산과 시간을 아낄 수 있을까요?</h2>
+                <p class="text-slate-600 max-w-2xl mx-auto mt-4 text-xs sm:text-sm">현재 스타트업의 규모와 인프라 복잡도를 세팅해 보세요. BLOODSTAR 얼라이언스를 활용했을 때 즉각 연장되는 생존 활주로(Runway)를 실시간 계산해 보여드립니다.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 bg-white shadow-2xl shadow-slate-200/50 p-8 rounded-3xl border border-slate-200 backdrop-blur-xl">
+                <div class="space-y-6">
+                    <h3 class="text-lg font-extrabold text-slate-900 flex items-center gap-2">
+                        <i class="fa-solid fa-sliders text-indigo-600 w-5 h-5 flex items-center justify-center"></i>
+                        스타트업 조건 및 채용 규모 세팅
+                    </h3>
+                    <div class="h-[1px] bg-slate-100"></div>
+
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 uppercase tracking-wider block mb-2">
+                            활성 엔지니어링 인력 규모: <span class="text-indigo-500 font-black" id="active-team-label">82명</span> (기존 채용 대비 셰어링 효율)
+                        </label>
+                        <input type="range" min="3" max="100" value="82" disabled class="w-full accent-amber-500 bg-slate-100 rounded-lg appearance-none h-2 opacity-80 cursor-not-allowed" id="team-range-input" />
+                        <div class="flex justify-between text-[10px] text-slate-500 mt-1"><span>3명 (초기 MVP)</span><span>100명 (엔터프라이즈)</span></div>
+                    </div>
+
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 uppercase tracking-wider block mb-2">
+                            자체 채용 시 DevOps 엔지니어 연봉: <span class="text-indigo-500 font-black" id="custom-salary-label">8,500만원</span>
+                        </label>
+                        <input type="range" min="5000" max="15000" step="500" value="8500" id="custom-salary-input" oninput="handleCustomSalaryChange(this.value)" class="w-full accent-amber-500 bg-slate-100 rounded-lg appearance-none h-2" />
+                        <div class="flex justify-between text-[10px] text-slate-500 mt-1"><span>5,000만원</span><span>15,000만원</span></div>
+                    </div>
+
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 uppercase tracking-wider block mb-2">
+                            BLOODSTAR 서비스 월 이용료: <span class="text-indigo-500 font-black" id="bloodstar-cost-label">900만원</span>
+                        </label>
+                        <input type="range" min="300" max="2000" step="50" value="900" id="bloodstar-cost-input" oninput="handleBloodstarCostChange(this.value)" class="w-full accent-amber-500 bg-slate-100 rounded-lg appearance-none h-2" />
+                        <div class="flex justify-between text-[10px] text-slate-500 mt-1"><span>300만원</span><span>2,000만원</span></div>
+                    </div>
+
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 uppercase tracking-wider block mb-2">클라우드 인프라 아키텍처 복잡도</label>
+                        <div class="grid grid-cols-3 gap-2">
+                            <button onclick="updateComplexity('low')" id="calc-low" class="p-3 rounded-xl border text-xs font-black transition-all bg-white border-slate-300 text-slate-600 hover:border-slate-400">MVP / 초기 서비스</button>
+                            <button onclick="updateComplexity('medium')" id="calc-medium" class="p-3 rounded-xl border text-xs font-black transition-all bg-indigo-600 border-indigo-600 text-slate-950 font-bold">트래픽 폭발 대응</button>
+                            <button onclick="updateComplexity('high')" id="calc-high" class="p-3 rounded-xl border text-xs font-black transition-all bg-white border-slate-300 text-slate-600 hover:border-slate-400">금융/인허가 규제</button>
+                        </div>
+                    </div>
+
+                    <div class="p-4 bg-white rounded-xl border border-slate-300">
+                        <span class="text-[10px] font-bold text-slate-500 uppercase block mb-1">매칭 가이드라인</span>
+                        <p class="text-[11px] text-slate-600 leading-relaxed" id="complexity-guide">✔️ 트래픽 폭증이 예상되는 시점입니다. 시니어 DB 전문가 및 SRE 전문가의 아키텍처 오버홀이 즉시 투입되어야 합니다.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-300 flex flex-col justify-between">
+                    <div>
+                        <span class="text-[10px] font-black tracking-widest text-indigo-600 uppercase block mb-1">ESTIMATED RUNWAY VALUE SAVED</span>
+                        <h4 class="text-xl font-bold text-slate-900">BLOODSTAR 협업 시 누적 절감액</h4>
+                        <div class="mt-8 space-y-6">
+                            <div>
+                                <span class="text-xs text-slate-500">인재 영입 및 세팅 실패비 절감 규모</span>
+                                <div class="text-3xl sm:text-4xl font-black text-indigo-500 mt-1" id="saved-cost-display">약 ₩1억 2,800만원</div>
+                                <span class="text-xs text-slate-600 block mt-1" id="saved-cost-subtitle">(₩8.2억 / 년 기준)</span>
+                            </div>
+                            <div>
+                                <span class="text-xs text-slate-500 font-bold">인프라 아키텍처 단축 확보 기간</span>
+                                <div class="text-2xl font-black text-slate-900 mt-1" id="saved-months-display">평균 <span class="text-indigo-600">4개월</span></div>
+                            </div>
+                        </div>
+                        <div class="h-[1px] bg-slate-100 my-6"></div>
+                        <ul class="text-xs text-slate-600 space-y-2">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500 shrink-0"></i><span>불필요한 채용 수수료 및 오버헤드 완벽 제거</span></li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500 shrink-0"></i><span>초기 설계 오류로 인한 아키텍처 재공사 리스크 원천 제어</span></li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500 shrink-0"></i><span>보안 컴플라이언스 즉각 통과로 비즈니스 리드 타임 최소화</span></li>
+                        </ul>
+                    </div>
+                    <div class="mt-8">
+                        <button class="w-full py-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-slate-900 font-black rounded-xl text-xs uppercase tracking-widest shadow-lg shadow-blue-500/10 transition-all">투자 절감 인포 리포트 무료 받아보기</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FLYWHEEL -->
+    <section id="flywheel" class="py-24 px-6 bg-slate-50 border-t border-slate-200 relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6 space-y-8">
+                    <div class="space-y-4">
+                        <span class="text-xs text-indigo-400 font-black uppercase tracking-widest">CO-GROWTH FLYWHEEL</span>
+                        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 leading-tight">성장의 선순환 구조가 작동할 때,<br class="hidden sm:inline" /> 비즈니스의 격은 달라집니다.</h2>
+                        <p class="text-sm text-slate-600 leading-relaxed">프로젝트가 실행될수록 쌓이는 값비싼 경험과 솔루션 모듈은 다시 블러드스타 지식 아카이브에 영구 귀속되어, 연동된 모든 스타트업의 공통 기술력으로 공유 전파됩니다. 이것이 우리가 단순 공급 외주사가 아닌 '혈맹(Alliance)'이라 불리는 유일한 근거입니다.</p>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-white border border-slate-300">
+                        <h4 class="text-sm font-black text-slate-900 flex items-center gap-2"><i class="fa-solid fa-award text-indigo-600"></i>우리는 단순한 협력사가 아닙니다. 우리는 혈맹(Alliance)입니다.</h4>
+                        <p class="text-xs text-slate-600 mt-2 leading-relaxed">더 큰 비즈니스 임팩트와 목표 달성을 향해 정예 인적 자원을 공유하며 결성된 운명 공동체처럼 폭발적으로 확장하고 동반 고속 주행합니다.</p>
+                    </div>
+                </div>
+                <div class="lg:col-span-6 flex items-center justify-center">
+                    <div class="relative w-72 h-72 sm:w-96 sm:h-96 flex items-center justify-center">
+                        <div class="absolute w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-white border border-slate-300 shadow-2xl flex flex-col items-center justify-center p-3 z-10 text-center">
+                            <span class="text-[9px] text-indigo-600 font-black uppercase tracking-wider">BLOODSTAR</span>
+                            <span class="text-xs font-black text-slate-900 mt-0.5">FLYWHEEL</span>
+                            <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-2 animate-ping"></div>
+                        </div>
+                        <svg class="absolute w-full h-full -rotate-90 animate-[spin_30s_linear_infinite]" viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="40" fill="none" stroke="rgba(79, 70, 229, 0.08)" stroke-width="2" />
+                            <circle cx="50" cy="50" r="40" fill="none" stroke="rgba(245, 158, 11, 0.4)" stroke-width="2" stroke-dasharray="30 150" />
+                        </svg>
+                        
+                        <!-- Step 1: Top -->
+                        <div id="visual-fw-0" class="absolute p-2.5 rounded-xl border transition-all duration-500 w-28 sm:w-36 text-center shadow-lg z-20 bg-indigo-600 border-indigo-500 text-white font-black shadow-indigo-500/30" style="left:50%;top:-1rem;transform:translateX(-50%);">
+                            <h5 class="text-[10px] uppercase font-bold">STEP 01</h5>
+                            <p class="text-[9px] font-black mt-0.5 leading-tight">프로젝트 수행</p>
+                        </div>
+                        <!-- Step 2: Right -->
+                        <div id="visual-fw-1" class="absolute p-2.5 rounded-xl border transition-all duration-500 w-28 sm:w-36 text-center shadow-lg z-20 bg-white border-slate-300 text-slate-600 opacity-70" style="right:-1rem;top:50%;transform:translateY(-50%);">
+                            <h5 class="text-[10px] uppercase font-bold">STEP 02</h5>
+                            <p class="text-[9px] font-black mt-0.5 leading-tight">경험 자산화</p>
+                        </div>
+                        <!-- Step 3: Bottom -->
+                        <div id="visual-fw-2" class="absolute p-2.5 rounded-xl border transition-all duration-500 w-28 sm:w-36 text-center shadow-lg z-20 bg-white border-slate-300 text-slate-600 opacity-70" style="left:50%;bottom:-1rem;transform:translateX(-50%);">
+                            <h5 class="text-[10px] uppercase font-bold">STEP 03</h5>
+                            <p class="text-[9px] font-black mt-0.5 leading-tight">동맹 기반 평판 증명</p>
+                        </div>
+                        <!-- Step 4: Left -->
+                        <div id="visual-fw-3" class="absolute p-2.5 rounded-xl border transition-all duration-500 w-28 sm:w-36 text-center shadow-lg z-20 bg-white border-slate-300 text-slate-600 opacity-70" style="left:-1rem;top:50%;transform:translateY(-50%);">
+                            <h5 class="text-[10px] uppercase font-bold">STEP 04</h5>
+                            <p class="text-[9px] font-black mt-0.5 leading-tight">더 큰 기회 &amp; 투자</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-16 px-6 bg-white border-t border-slate-200 text-slate-500 text-xs">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-8 mb-12">
+                <div class="flex items-center gap-3">
+                    <div class="flex items-center justify-center w-8 h-8 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 text-slate-900 font-black text-sm">B★</div>
+                    <div>
+                        <span class="font-extrabold text-slate-700 block text-sm">BLOODSTAR</span>
+                        <span class="text-[10px] text-slate-600">The Ultimate Engineering Alliance for Startups</span>
+                    </div>
+                </div>
+                <div class="flex flex-wrap justify-center gap-6 text-slate-600 font-bold uppercase tracking-wider">
+                    <a href="#simulator" class="hover:text-indigo-500 transition-all">얼라이언스 시뮬레이터</a>
+                    <a href="#painpoints" class="hover:text-indigo-500 transition-all">스타트업 병목</a>
+                    <a href="#ecosystem" class="hover:text-indigo-500 transition-all">에코시스템 역량</a>
+                    <a href="#roi-calculator" class="hover:text-indigo-500 transition-all">ROI 비용 계산</a>
+                    <a href="#flywheel" class="hover:text-indigo-500 transition-all">선순환 플라이휠</a>
+                </div>
+            </div>
+            <div class="h-[1px] bg-white my-8"></div>
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] text-slate-600">
+                <p>© 2026 BLOODSTAR & MONO Alliance Ecosystem. All rights reserved.</p>
+                <p>본 페이지는 "모두의창업" 데모 피칭 발표 및 핵심 인재/스타트업 얼라이언스 모집용 특별 대화형 포털입니다.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LOGIC SCRIPT -->
+    <script>
+        // Startups Share States
+        const activeStartups = {
+            A: true, B: true, C: false, D: true, E: false, 
+            F: true, G: false, H: true, I: false, J: true
+        };
+
+        const pillars = {
+            devops: {
+                title: "DevOps / SRE",
+                desc: "대규모 마케팅 유입 시에도 완벽 가용성을 보장하는 무결점 클라우드 토양을 매설합니다.",
+                tools: ["Terraform", "AWS", "K8s", "Github Actions"],
+                items: ["클라우드 아키텍처 설계", "CI/CD 자동화", "장애 모니터링/대응", "비용 최적화"]
+            },
+            database: {
+                title: "Database",
+                desc: "시스템 병목의 근본 원인을 해체하고 데이터 정규화 및 분산 파티셔닝으로 응답 속도를 20배 향상합니다.",
+                tools: ["PostgreSQL", "MySQL", "Redis", "DynamoDB"],
+                items: ["DB 설계/튜닝", "데이터 분산/샤딩", "성능 튜닝/이중화", "쿼리 최적화"]
+            },
+            security: {
+                title: "Security",
+                desc: "금융권 수준의 강력한 보안 가이드라인 및 컴플라이언스 선제 대응으로 실사 벽을 철폐합니다.",
+                tools: ["ZeroTrust", "ISMS-P", "Zero-day Prevent", "WAF"],
+                items: ["보안 아키텍처", "접근 권한 제어", "위협 탐지/대응", "컴플라이언스 대응"]
+            },
+            admin: {
+                title: "Admin & Internal",
+                desc: "수작업 정산이나 반복 승인 단계를 완전 무결한 자동 어드민 시스템으로 완벽 이관합니다.",
+                tools: ["Retool", "Slack Connect", "React", "Node.js"],
+                items: ["관리자 페이지", "내부 시스템 구축", "워크플로우 자동화", "운영 효율화"]
+            },
+            internaldev: {
+                title: "Internal Dev",
+                desc: "핵심 도메인 로직이 유연하게 뻗어나갈 수 있도록 고가용성 마이크로서비스 아키텍처를 적용합니다.",
+                tools: ["NestJS", "FastAPI", "Go", "Jest"],
+                items: ["백엔드 서비스 개발", "API 설계/개발", "시스템 연동", "품질/테스트"]
+            },
+            martech: {
+                title: "Marketing Tech",
+                desc: "어떤 채널에서 고객 유입이 극대화되는지 명확한 팩트 지표를 추출하는 그로스 파이프라인을 매설합니다.",
+                tools: ["Amplitude", "Braze", "Google Tags", "GA4"],
+                items: ["데이터 파이프라인", "마케팅 분석/ GA4", "캠페인 자동화", "메시징/SMS 연동"]
+            }
+        };
+
+        function renderStartups() {
+            const container = document.getElementById('startup-toggles');
+            container.innerHTML = Object.keys(activeStartups).map(key => {
+                const active = activeStartups[key];
+                return `
+                    <button onclick="toggleStartup('${key}')" id="node-${key}" class="py-3 px-3 rounded-xl border text-xs font-black transition-all flex items-center justify-between ${
+                        active 
+                        ? 'bg-gradient-to-r from-blue-600 to-indigo-600 border-indigo-400 text-slate-900 shadow-md shadow-indigo-500/20' 
+                        : 'bg-white border-slate-300 text-slate-500 hover:border-slate-400'
+                    }">
+                        <span>스타트업 ${key}</span>
+                        <span class="w-2.5 h-2.5 rounded-full ${active ? 'bg-emerald-500 animate-pulse' : 'bg-slate-100'}"></span>
+                    </button>
+                `;
+            }).join('');
+        }
+
+        function toggleStartup(id) {
+            activeStartups[id] = !activeStartups[id];
+            renderStartups();
+            updateShareRatio();
+        }
+
+        function updateShareRatio() {
+            const activeCount = Object.values(activeStartups).filter(Boolean).length;
+            const calculatedShareRatio = activeCount > 0 ? (10 / activeCount) : 10.0;
+            
+            document.getElementById('sharing-active-count').innerText = `${activeCount} / 10 개사`;
+            document.getElementById('sharing-multiplier').innerText = `비용 부담 ${calculatedShareRatio.toFixed(1)}배 감소`;
+            
+            const totalEng = Math.round(calculatedShareRatio * 10);
+            const slider = document.getElementById('team-range-input');
+            if (slider) slider.value = totalEng;
+            document.getElementById('active-team-label').innerText = `${(calculatedShareRatio * 10).toFixed(1)}명`;
+            
+            updateCalculations();
+        }
+
+        let selectedPillar = 'devops';
+
+        function renderPillars() {
+            const container = document.getElementById('pillar-tabs');
+            container.innerHTML = Object.keys(pillars).map(key => {
+                const active = key === selectedPillar;
+                return `
+                    <button onclick="selectPillar('${key}')" class="p-3 rounded-xl border text-left transition-all relative overflow-hidden group ${
+                        active ? 'bg-white border-indigo-600 shadow-lg' : 'bg-white/40 border-slate-200 hover:border-slate-300'
+                    }">
+                        <span class="text-[9px] text-slate-500 uppercase tracking-wider block">PILLAR</span>
+                        <span class="text-xs font-black block mt-1 ${active ? 'text-indigo-500' : 'text-slate-700'}">${pillars[key].title}</span>
+                    </button>
+                `;
+            }).join('');
+        }
+
+        function selectPillar(id) {
+            selectedPillar = id;
+            renderPillars();
+            
+            const data = pillars[id];
+            const specBox = document.getElementById('spec-container');
+            specBox.style.opacity = 0;
+            
+            setTimeout(() => {
+                document.getElementById('spec-title').innerHTML = `${data.title}<br><span class="text-slate-500 font-semibold text-sm">전문 역량</span>`;
+                document.getElementById('spec-desc').innerText = data.desc;
+                document.getElementById('spec-tools').innerHTML = data.tools.map(t => `<span class="text-[9px] px-2 py-0.5 bg-white text-slate-600 rounded border border-slate-300 font-mono">${t}</span>`).join('');
+                document.getElementById('spec-items').innerHTML = data.items.map(item => `
+                    <div class="flex items-center gap-2 text-xs text-slate-700 bg-white shadow-2xl shadow-slate-200/50 p-2 rounded-lg border border-slate-300/50">
+                        <i class="fa-solid fa-circle-check text-emerald-500 shrink-0"></i><span>${item}</span>
+                    </div>`).join('');
+                specBox.style.opacity = 1;
+            }, 100);
+        }
+
+        let selectedComplexity = 'medium';
+        let customDevopsSalary = 8500;
+        let bloodstarCost = 900;
+
+        function handleCustomSalaryChange(val) {
+            customDevopsSalary = parseInt(val);
+            document.getElementById('custom-salary-label').innerText = `${customDevopsSalary.toLocaleString()}만원`;
+            updateCalculations();
+        }
+
+        function handleBloodstarCostChange(val) {
+            bloodstarCost = parseInt(val);
+            document.getElementById('bloodstar-cost-label').innerText = `${bloodstarCost.toLocaleString()}만원`;
+            updateCalculations();
+        }
+
+        function updateComplexity(level) {
+            selectedComplexity = level;
+            const levels = ['low', 'medium', 'high'];
+            levels.forEach(l => {
+                const btn = document.getElementById(`calc-${l}`);
+                if (l === level) {
+                    btn.className = "p-3 rounded-xl border text-xs font-black transition-all bg-indigo-600 border-indigo-600 text-slate-950 font-bold";
+                } else {
+                    btn.className = "p-3 rounded-xl border text-xs font-black transition-all bg-white border-slate-300 text-slate-500 hover:border-slate-400 hover:bg-slate-50";
+                }
+            });
+            updateCalculations();
+        }
+
+        function updateCalculations() {
+            const activeCount = Object.values(activeStartups).filter(Boolean).length;
+            const calculatedShareRatio = activeCount > 0 ? (10 / activeCount) : 10.0;
+            const engineerCount = calculatedShareRatio * 10;
+            
+            let baseSalary = customDevopsSalary * 10000;
+            let setupMonths = 0;
+
+            if (selectedComplexity === 'low') {
+                setupMonths = 2;
+                document.getElementById('complexity-guide').innerText = "✔️ 초기 MVP 단계에서는 무리한 시니어 채용보다, 검증된 DevOps 셰어링을 통해 운영 마진을 최적화할 것을 권고합니다.";
+            } else if (selectedComplexity === 'medium') {
+                setupMonths = 4;
+                document.getElementById('complexity-guide').innerText = "✔️ 트래픽 폭증이 예상되는 시점입니다. 시니어 DB 전문가 및 SRE 전문가의 아키텍처 오버홀이 즉시 투입되어야 합니다.";
+            } else {
+                setupMonths = 6;
+                document.getElementById('complexity-guide').innerText = "✔️ 보안 심사 대응 및 클라우드 망분리가 필수입니다. 보안 컴플라이언스 전문가와 AI 에이전트 자율 관제를 즉시 투입하여, 보안 리스크로 인한 서비스 정지 확률을 완벽하게 제어합니다.";
+            }
+
+            const recruitmentSaved = (baseSalary * 0.15) * Math.round(engineerCount / 10 || 1);
+            const salarySaved = (baseSalary / 12) * Math.round(engineerCount / 10 || 1) * setupMonths;
+            const cloudOptimizeSaved = selectedComplexity === 'high' ? 15000000 : selectedComplexity === 'medium' ? 8000000 : 3000000;
+
+            // Updated saving logic factoring bloodstarCost too
+            const bloodstarAnnualCost = bloodstarCost * 10000 * 12;
+            const totalSavedRaw = (recruitmentSaved + salarySaved + cloudOptimizeSaved) * (1 + (calculatedShareRatio / 10));
+            const totalSaved = Math.max(0, totalSavedRaw - bloodstarAnnualCost);
+
+            const formattedSaved = totalSaved >= 100000000 
+                ? `약 ₩${(totalSaved / 100000000).toFixed(1)}억 ${(Math.round(totalSaved % 100000000 / 10000) > 0 ? Math.round(totalSaved % 100000000 / 10000) + '만' : '')}원`
+                : `약 ₩${(Math.round(totalSaved / 10000)).toLocaleString()}만원`;
+
+            document.getElementById('saved-cost-display').innerText = formattedSaved;
+            document.getElementById('saved-months-display').innerHTML = `평균 <span class="text-indigo-600">${setupMonths}개월</span>`;
+            document.getElementById('saved-cost-subtitle').innerText = `(₩${engineerCount.toFixed(1)}억 / 년 기준)`;
+
+            const heroSavedBtn = document.getElementById('hero-saved-cost-btn');
+            if (heroSavedBtn) {
+                heroSavedBtn.innerText = `연간 ₩${Math.round(totalSaved / 10000).toLocaleString()}만원 절감 효과 계산기`;
+            }
+        }
+
+        // Ecosystem renderer
+        function renderEcosystem() {
+            const container = document.getElementById('ecosystem-container');
+            container.innerHTML = Object.keys(pillars).map(key => {
+                const p = pillars[key];
+                return `
+                    <div class="p-6 rounded-2xl bg-white border border-slate-200 hover:border-indigo-600/40 transition-all group">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-lg font-black text-slate-900">${p.title}<br><span class="text-slate-500 font-semibold text-sm">전문 역량</span></h3>
+                            <div class="flex gap-1.5">
+                                ${p.tools.slice(0, 3).map(t => `<span class="text-[9px] px-2 py-0.5 bg-white text-slate-600 rounded border border-slate-300 font-mono">${t}</span>`).join('')}
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed mb-6 group-hover:text-slate-700 transition-colors">${p.desc}</p>
+                        <div class="space-y-2">
+                            ${p.items.map(item => `
+                                <div class="flex items-center gap-2 text-xs text-slate-700">
+                                    <i class="fa-solid fa-circle-check text-emerald-500 shrink-0"></i>
+                                    <span>${item}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        let flywheelStep = 0;
+        const flywheelStepsData = [
+            { title: "프로젝트 수행" },
+            { title: "경험 자산화" },
+            { title: "동맹 기반 평판 증명" },
+            { title: "더 큰 기회 & 투자" }
+        ];
+
+        function rotateFlywheel() {
+            // Un-highlight previous
+            const prevVisual = document.getElementById(`visual-fw-${flywheelStep}`);
+            if (prevVisual) {
+                prevVisual.classList.remove('bg-indigo-600','border-indigo-500','text-white','font-black','shadow-indigo-500/30','scale-105');
+                prevVisual.classList.add('bg-white','border-slate-300','text-slate-600','opacity-70');
+            }
+            
+            flywheelStep = (flywheelStep + 1) % 4;
+            
+            // Highlight current
+            const nextVisual = document.getElementById(`visual-fw-${flywheelStep}`);
+            if (nextVisual) {
+                nextVisual.classList.remove('bg-white','border-slate-300','text-slate-600','opacity-70');
+                nextVisual.classList.add('bg-indigo-600','border-indigo-500','text-white','font-black','shadow-indigo-500/30','scale-105');
+            }
+        }
+
+        setInterval(rotateFlywheel, 3500);
+
+        // Initialize everything
+        renderStartups();
+        renderPillars();
+        selectPillar('devops');
+        updateShareRatio();
+        renderEcosystem();
+    </script>
+</body>
+</html>
