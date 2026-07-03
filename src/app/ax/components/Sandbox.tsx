@@ -143,23 +143,23 @@ export default function Sandbox() {
         <section id="autoportal" className="space-y-6 relative">
             <div className="text-center max-w-2xl mx-auto space-y-2">
                 <span className="text-xs font-bold uppercase text-emerald-400 tracking-widest">Self-Assessment Service</span>
-                <h3 className="text-2xl font-bold text-white">AI 보안 자율 가선성 가이드 시뮬레이터</h3>
-                <p className="text-slate-400 text-sm">현업 부서에서 새로운 AI 서비스나 가공 데이터를 도입할 때, AX 보안 가드레일을 실시간 자가 테스트하는 지능형 모듈입니다.</p>
+                <h3 className="text-2xl font-bold text-slate-900">AI 보안 자율 가선성 가이드 시뮬레이터</h3>
+                <p className="text-slate-600 text-sm">현업 부서에서 새로운 AI 서비스나 가공 데이터를 도입할 때, AX 보안 가드레일을 실시간 자가 테스트하는 지능형 모듈입니다.</p>
             </div>
 
             <div className="grid lg:grid-cols-12 gap-6 relative z-10">
                 {/* Sandbox Control Panel */}
-                <div className="lg:col-span-5 bg-slate-900 border border-slate-800 rounded-3xl p-6 space-y-4">
-                    <h4 className="text-base font-bold text-white">가상 AI 서비스 신청서 작성</h4>
+                <div className="lg:col-span-5 bg-white border border-slate-200 rounded-3xl p-6 space-y-4">
+                    <h4 className="text-base font-bold text-slate-900">가상 AI 서비스 신청서 작성</h4>
                     
                     <div className="space-y-3 text-sm">
                         {/* AI Tool Type */}
                         <div className="space-y-1">
-                            <label className="block text-xs font-semibold text-slate-400">1. 도입하고자 하는 AI 솔루션 모델</label>
+                            <label className="block text-xs font-semibold text-slate-600">1. 도입하고자 하는 AI 솔루션 모델</label>
                             <select 
                                 value={toolType}
                                 onChange={(e) => setToolType(e.target.value)}
-                                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2.5 text-slate-300 focus:outline-none focus:border-indigo-500"
+                                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-slate-700 focus:outline-none focus:border-indigo-500"
                             >
                                 <option value="public">외부 Generative AI (Public SaaS API - 예: ChatGPT Pro)</option>
                                 <option value="private">사내 구축형 거대언어모델 (On-Premise Private LLM)</option>
@@ -169,7 +169,7 @@ export default function Sandbox() {
 
                         {/* Data Type Toggles */}
                         <div className="space-y-2">
-                            <label className="block text-xs font-semibold text-slate-400">2. 처리할 기밀 정보 유형 (복수 선택)</label>
+                            <label className="block text-xs font-semibold text-slate-600">2. 처리할 기밀 정보 유형 (복수 선택)</label>
                             <div className="grid grid-cols-2 gap-2">
                                 {[
                                     { id: 'privacy', label: '개인 식별 데이터 (PII)' },
@@ -182,7 +182,7 @@ export default function Sandbox() {
                                         <button 
                                             key={feat.id}
                                             onClick={() => toggleFeature(feat.id as keyof typeof features)}
-                                            className={`px-3 py-2 rounded-lg text-xs text-left transition-all flex items-center space-x-2 ${active ? 'bg-indigo-950/30 border-indigo-500/50 text-indigo-200 border' : 'bg-slate-950 border-slate-800 text-slate-400 border hover:bg-slate-800'}`}
+                                            className={`px-3 py-2 rounded-lg text-xs text-left transition-all flex items-center space-x-2 ${active ? 'bg-indigo-950/30 border-indigo-500/50 text-indigo-200 border' : 'bg-slate-50 border-slate-200 text-slate-600 border hover:bg-slate-100'}`}
                                         >
                                             <span className={`w-2 h-2 rounded-full transition-all ${active ? 'bg-indigo-400 shadow-md shadow-indigo-500/50' : 'bg-slate-600'}`}></span>
                                             <span>{feat.label}</span>
@@ -194,11 +194,11 @@ export default function Sandbox() {
 
                         {/* Security Infrastructure Option */}
                         <div className="space-y-1">
-                            <label className="block text-xs font-semibold text-slate-400">3. 접근 제어 및 배치 형태</label>
+                            <label className="block text-xs font-semibold text-slate-600">3. 접근 제어 및 배치 형태</label>
                             <select 
                                 value={deployType}
                                 onChange={(e) => setDeployType(e.target.value)}
-                                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2.5 text-slate-300 focus:outline-none focus:border-indigo-500"
+                                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-slate-700 focus:outline-none focus:border-indigo-500"
                             >
                                 <option value="cloud">일반 오픈 인터넷 멀티 테넌트 클라우드</option>
                                 <option value="vpc">사내 전용 VPC 기반 프라이빗 클라우드</option>
@@ -210,7 +210,7 @@ export default function Sandbox() {
                     {/* Run Button */}
                     <button 
                         onClick={runAutoAssessment} 
-                        className="w-full bg-gradient-to-r from-emerald-500 to-indigo-600 hover:from-emerald-400 hover:to-indigo-500 text-white font-bold py-3 rounded-xl transition-all shadow-md shadow-emerald-900/30 flex items-center justify-center space-x-2"
+                        className="w-full bg-gradient-to-r from-emerald-500 to-indigo-600 hover:from-emerald-400 hover:to-indigo-500 text-slate-900 font-bold py-3 rounded-xl transition-all shadow-md shadow-emerald-900/30 flex items-center justify-center space-x-2"
                     >
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
                         <span>AX 인공지능 자율성 검사 가동</span>
@@ -218,10 +218,10 @@ export default function Sandbox() {
                 </div>
 
                 {/* Simulation Output Dashboard */}
-                <div className="lg:col-span-7 bg-slate-900 border border-slate-800 rounded-3xl p-6 flex flex-col justify-between">
+                <div className="lg:col-span-7 bg-white border border-slate-200 rounded-3xl p-6 flex flex-col justify-between">
                     <div>
-                        <div className="flex justify-between items-center mb-4 pb-2 border-b border-slate-800">
-                            <h4 className="text-base font-bold text-white">가드레일 자가 분석 레포트</h4>
+                        <div className="flex justify-between items-center mb-4 pb-2 border-b border-slate-200">
+                            <h4 className="text-base font-bold text-slate-900">가드레일 자가 분석 레포트</h4>
                             <span className="text-xs text-slate-500 font-mono">ID: AX-SEC-9293</span>
                         </div>
 
@@ -232,20 +232,20 @@ export default function Sandbox() {
                                 animate={{ opacity: 1, scale: 1 }}
                                 className="flex items-center space-x-6 mb-6"
                             >
-                                <div className={`relative w-24 h-24 flex items-center justify-center bg-slate-950 rounded-full border-4 flex-shrink-0 ${getGradeColorClass(result.gradeColor, 'border')} ${getGradeColorClass(result.gradeColor, 'shadow')}`}>
+                                <div className={`relative w-24 h-24 flex items-center justify-center bg-slate-50 rounded-full border-4 flex-shrink-0 ${getGradeColorClass(result.gradeColor, 'border')} ${getGradeColorClass(result.gradeColor, 'shadow')}`}>
                                     <div className="text-center">
-                                        <span className="text-3xl font-black text-white">{result.score}</span>
+                                        <span className="text-3xl font-black text-slate-900">{result.score}</span>
                                         <span className="text-slate-500 text-xs block">/ 100</span>
                                     </div>
                                 </div>
                                 <div className="space-y-1">
                                     <div className={`text-lg font-bold ${getGradeColorClass(result.gradeColor, 'text')}`}>{result.grade}</div>
-                                    <p className="text-xs text-slate-400 leading-relaxed">{result.summary}</p>
+                                    <p className="text-xs text-slate-600 leading-relaxed">{result.summary}</p>
                                 </div>
                             </motion.div>
                         ) : (
                             <div className="flex items-center space-x-6 mb-6 opacity-50">
-                                <div className="relative w-24 h-24 flex items-center justify-center bg-slate-950 rounded-full border-4 border-slate-800 flex-shrink-0">
+                                <div className="relative w-24 h-24 flex items-center justify-center bg-slate-50 rounded-full border-4 border-slate-200 flex-shrink-0">
                                     <div className="text-center">
                                         <span className="text-3xl font-black text-slate-600">-</span>
                                     </div>
@@ -265,7 +265,7 @@ export default function Sandbox() {
                                 { id: 'eng', label: '보안 엔지니어링 (Eng)', data: result?.eng },
                                 { id: 'cloud', label: '클라우드 가드 (Cloud)', data: result?.cloud }
                             ].map((pillar) => (
-                                <div key={pillar.id} className="p-3 bg-slate-950 rounded-xl border border-slate-800 flex items-start space-x-3">
+                                <div key={pillar.id} className="p-3 bg-slate-50 rounded-xl border border-slate-200 flex items-start space-x-3">
                                     {pillar.data ? (
                                         <div className={`p-1.5 rounded mt-0.5 ${pillar.data.ok ? 'bg-emerald-500/10 text-emerald-400' : 'bg-rose-500/10 text-rose-400 animate-pulse'}`}>
                                             {pillar.data.ok ? (
@@ -275,12 +275,12 @@ export default function Sandbox() {
                                             )}
                                         </div>
                                     ) : (
-                                        <div className="p-1.5 rounded bg-slate-800 text-slate-600 mt-0.5">
+                                        <div className="p-1.5 rounded bg-slate-100 text-slate-600 mt-0.5">
                                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
                                         </div>
                                     )}
                                     <div className="space-y-0.5">
-                                        <div className="text-xs text-slate-400 font-bold">{pillar.label}</div>
+                                        <div className="text-xs text-slate-600 font-bold">{pillar.label}</div>
                                         <p className="text-[11px] text-slate-500 leading-tight">
                                             {pillar.data ? pillar.data.desc : "대기중..."}
                                         </p>
@@ -291,8 +291,8 @@ export default function Sandbox() {
                     </div>
 
                     {/* Bottom Warning & Info */}
-                    <div className="mt-6 p-4 bg-slate-950 rounded-xl border border-slate-800 flex items-center justify-between text-xs">
-                        <span className="text-slate-400">자가 테스트 결과에 따라 정식 승인 티켓이 AX 보안팀에 자동 인계됩니다.</span>
+                    <div className="mt-6 p-4 bg-slate-50 rounded-xl border border-slate-200 flex items-center justify-between text-xs">
+                        <span className="text-slate-600">자가 테스트 결과에 따라 정식 승인 티켓이 AX 보안팀에 자동 인계됩니다.</span>
                         <span className="font-bold text-indigo-400">AX 스마트 심사 {result ? '완료' : '연결중'}</span>
                     </div>
                 </div>
@@ -305,7 +305,7 @@ export default function Sandbox() {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 10 }}
-                        className="absolute bottom-6 right-6 z-50 bg-slate-900 border border-indigo-500 text-indigo-200 text-xs px-4 py-3 rounded-xl shadow-xl flex items-center space-x-2"
+                        className="absolute bottom-6 right-6 z-50 bg-white border border-indigo-500 text-indigo-200 text-xs px-4 py-3 rounded-xl shadow-xl flex items-center space-x-2"
                     >
                         <span className="text-indigo-400">🔔</span>
                         <span>AX AI 보안성 자가 분석이 완료되었습니다!</span>
