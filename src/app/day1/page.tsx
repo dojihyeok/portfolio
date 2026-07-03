@@ -185,8 +185,8 @@ export default function Day1Page() {
           </section>
 
           {/* 9. 마무리 메시지 */}
-          <section className={`${styles.cta_section} ${styles.fade_in}`} style={{ textAlign: 'left' }}>
-            <h2 className={styles.cta_title} style={{ textAlign: 'left' }}>
+          <section className={`${styles.cta_section} ${styles.fade_in}`}>
+            <h2 className={styles.cta_title} style={{ textAlign: 'left', wordBreak: 'keep-all' }}>
               저는 DAY1 COMPANY에서 먼저 보안의 책임을 다하고 싶습니다.
             </h2>
             <div className={styles.cta_body} style={{ textAlign: 'left' }}>
