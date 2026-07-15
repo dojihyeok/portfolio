@@ -349,6 +349,12 @@ export default function Home() {
                                     </Link>
                                 </li>
                                 <li>
+                                    <Link href="https://isms.dojiung.com" target="_blank" className="inline-flex items-center gap-2 hover:text-blue-500 hover:underline transition-colors group">
+                                        정보보호 관리체계 및 인증 관리 시스템 구축
+                                        <ExternalLink size={16} className="text-slate-400 group-hover:text-blue-500 transition-colors" />
+                                    </Link>
+                                </li>
+                                <li>
                                     <Link href="/projects/litellm" className="inline-flex items-center gap-2 hover:text-blue-500 hover:underline transition-colors group">
                                         LiteLLM 구축을 통한 GenAI API 키 관리 PoC
                                         <ExternalLink size={16} className="text-slate-400 group-hover:text-blue-500 transition-colors" />
