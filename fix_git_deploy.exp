@@ -1,9 +1,15 @@
 #!/usr/bin/expect -f
 set timeout -1
 spawn ssh -i /Users/yunhyeok/triedit-dev.pem -o StrictHostKeyChecking=no root@49.50.139.88
-expect "password:"
-send "R4+r525MP5DiBi\r"
-expect "#"
+expect {
+    "password:" {
+        send "R4+r525MP5DiBi\r"
+        expect "#"
+    }
+    "#" {
+        # already logged in
+    }
+}
 send "cd /root/portfolio && git clean -fd && git reset --hard && git pull origin main\r"
 expect "#"
 send "rm -rf .next && npm run build\r"

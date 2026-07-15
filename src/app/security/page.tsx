@@ -348,6 +348,24 @@ export default function Home() {
                                         <ExternalLink size={16} className="text-slate-400 group-hover:text-blue-500 transition-colors" />
                                     </Link>
                                 </li>
+                                <li>
+                                    <Link href="/projects/litellm" className="inline-flex items-center gap-2 hover:text-blue-500 hover:underline transition-colors group">
+                                        LiteLLM 구축을 통한 GenAI API 키 관리 PoC
+                                        <ExternalLink size={16} className="text-slate-400 group-hover:text-blue-500 transition-colors" />
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/projects/trufflehog" className="inline-flex items-center gap-2 hover:text-blue-500 hover:underline transition-colors group">
+                                        TruffleHog를 통한 개발 환경 (단말기 및 Github 등)에 존재하는 중요 키(AWS 패스키 포함) 점검
+                                        <ExternalLink size={16} className="text-slate-400 group-hover:text-blue-500 transition-colors" />
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/projects/aws-asset-automation" className="inline-flex items-center gap-2 hover:text-blue-500 hover:underline transition-colors group">
+                                        AWS API를 활용한 자산관리대장 자동화
+                                        <ExternalLink size={16} className="text-slate-400 group-hover:text-blue-500 transition-colors" />
+                                    </Link>
+                                </li>
                                 <li>ISO27001 취득, ISMS 및 VASP ISMS 준비</li>
                                 <li>정보보호 규정 및 지침 제정</li>
                                 <li>신규 보안팀 구성, 전사 거버넌스 설계 및 팀 문화 기반 마련</li>
@@ -483,6 +501,24 @@ export default function Home() {
                         description="사용자 경험을 해치지 않는 강력한 보안 아키텍처. Identity, Access, Compliance를 통합한 3단계 제로 트러스트 모델을 설계하고 구현합니다."
                         link="/projects/zero-trust"
                         tags={["Zero Trust", "Okta", "AWS", "Terraform"]}
+                    />
+                    <ProjectCard
+                        title="LiteLLM 구축을 통한 GenAI API 키 관리 PoC"
+                        description="AI API 키 발급, 수명관리 및 사용로그 감사 체계 구축. 개발팀 Claude Code 및 API 업무 활용에 대한 모니터링 체계를 지원합니다."
+                        link="/projects/litellm"
+                        tags={["LiteLLM", "AI Governance", "Security", "PoC"]}
+                    />
+                    <ProjectCard
+                        title="TruffleHog를 통한 중요 키 점검"
+                        description="GitHub 리포지토리 및 개발 환경 중요 키 노출 탐지 및 점검 자동화. AWS Access Key 등 하드코딩된 시크릿을 전수 탐지합니다."
+                        link="/projects/trufflehog"
+                        tags={["TruffleHog", "Secret Scanning", "Security"]}
+                    />
+                    <ProjectCard
+                        title="AWS API를 활용한 자산관리대장 자동화"
+                        description="AWS Boto3 API를 활용하여 EC2 등의 자산 정보를 자동으로 수집하고 기존 엑셀 자산관리대장에 기입을 자동화하여 ISMS-P 심사 리소스를 절감합니다."
+                        link="/projects/aws-asset-automation"
+                        tags={["AWS API", "Boto3", "Openpyxl", "Automation"]}
                     />
                     <ProjectCard
                         title="AuditFlow"
