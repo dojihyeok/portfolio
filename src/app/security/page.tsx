@@ -372,6 +372,12 @@ export default function Home() {
                                         <ExternalLink size={16} className="text-slate-400 group-hover:text-blue-500 transition-colors" />
                                     </Link>
                                 </li>
+                                <li>
+                                    <Link href="/projects/pentest-ai" className="inline-flex items-center gap-2 hover:text-blue-500 hover:underline transition-colors group">
+                                        Pentest-AI — AI 모의해킹 플랫폼 (AI-Red Team) 구축
+                                        <ExternalLink size={16} className="text-slate-400 group-hover:text-blue-500 transition-colors" />
+                                    </Link>
+                                </li>
                                 <li>ISO27001 취득, ISMS 및 VASP ISMS 준비</li>
                                 <li>정보보호 규정 및 지침 제정</li>
                                 <li>신규 보안팀 구성, 전사 거버넌스 설계 및 팀 문화 기반 마련</li>
