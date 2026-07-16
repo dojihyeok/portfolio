@@ -379,6 +379,25 @@ export default function Home() {
                         }
                     />
                     <ExperienceItem
+                        company="MONO (T-Rive)"
+                        role="공동 창업자 및 보안/아키텍처 기술 리더"
+                        period="2024.11 ~ Present"
+                        description={
+                            <ul className="list-disc space-y-1 pl-5">
+                                <li>현장 근로자 경력 관리 및 핀테크 슈퍼앱 <strong>MONO</strong> 서비스 설계 및 개발 리드</li>
+                                <li>에스크로 정산 시스템 및 스마트 노무 SaaS(출퇴근 인증, 안전 교육 이수 실시간 로깅) 보안 아키텍처 설계</li>
+                                <li>중대재해처벌법 등 건설/핀테크 안전 규제 준수를 위한 컴플라이언스 자동화 인프라 구축</li>
+                                <li>
+                                    <Link href="https://mono.dojiung.com/strategy" target="_blank" className="inline-flex items-center gap-2 hover:text-blue-500 hover:underline transition-colors group">
+                                        MONO 서비스 전략 및 동반 성장 비즈니스 모델(대안 신용평가 ACS 연동) 수립
+                                        <ExternalLink size={16} className="text-slate-400 group-hover:text-blue-500 transition-colors" />
+                                    </Link>
+                                </li>
+                                <li>다중 독립 서비스(Worker App, Partner App 등)의 Monorepo / Multi-Binary 통합 빌드 및 배포 자동화 파이프라인 구축</li>
+                            </ul>
+                        }
+                    />
+                    <ExperienceItem
                         company="Levvels"
                         role="CISO/CPO"
                         period="2022.10 ~ 2024.11"
