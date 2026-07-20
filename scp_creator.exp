@@ -1,7 +1,7 @@
 #!/usr/bin/expect -f
 set timeout 60
 
-spawn scp -i /Users/yunhyeok/triedit-dev.pem -o StrictHostKeyChecking=no /Users/yunhyeok/portfolio/index.html /Users/yunhyeok/portfolio/public/trive_organization.html root@49.50.139.88:/var/www/creator/
+spawn scp -i /Users/yunhyeok/triedit-dev.pem -o StrictHostKeyChecking=no /Users/yunhyeok/portfolio/index.html /Users/yunhyeok/portfolio/bloodstar.html /Users/yunhyeok/portfolio/blooduniverse.html /Users/yunhyeok/portfolio/public/trive_organization.html root@49.50.139.88:/var/www/creator/
 expect {
     "password:" { send "R4+r525MP5DiBi\r"; exp_continue }
     eof
