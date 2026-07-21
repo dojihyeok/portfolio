@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>T-Rive (트라이브) - 함께 성장하는 Creator Team을 만드는 브랜드</title>
-    <meta name="description" content="좋은 크리에이터는 좋은 팀에서 시작됩니다. T-Rive는 기획, 브랜딩, 디자인, 개발, 운영, 크리에이터가 함께 성장하는 Creator Team 문화를 구축합니다.">
+    <title>T-Rive (트라이브) - 좋아하는 일에 오래 몰입할 수 있는 환경</title>
+    <meta name="description" content="T-Rive는 사람들이 자신의 경험을 신뢰와 기회로 전환하고, 좋아하는 일에 오래 몰입할 수 있는 환경을 설계하는 브랜드입니다.">
     <meta name="keywords" content="Creator Team, Team Culture, Creative Collaboration, Brand Partnership, T-Rive, 트라이브">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
@@ -36,15 +36,6 @@
         ::-webkit-scrollbar { width: 0px; background: transparent; }
         #mobile-menu { transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out; }
         #mobile-menu.hidden { opacity: 0; visibility: hidden; display: block; }
-
-        /* Animation classes */
-        .chain-arrow {
-            animation: pulse-down 2s ease-in-out infinite;
-        }
-        @keyframes pulse-down {
-            0%, 100% { opacity: 0.4; transform: translateY(0); }
-            50% { opacity: 1; transform: translateY(4px); }
-        }
 
         .fade-in-section {
             opacity: 0;
@@ -81,16 +72,16 @@
             <span class="font-bold text-lg tracking-wider text-slate-900">T-Rive</span>
         </div>
         <nav class="hidden lg:flex space-x-7 text-sm font-bold text-slate-600">
-            <a href="#hero" class="hover:text-indigo-600 transition">소개</a>
+            <a href="#ecosystem" class="hover:text-indigo-600 transition">Ecosystem ⭐</a>
+            <a href="#growth-philosophy" class="hover:text-indigo-600 transition">성장 철학</a>
             <a href="#why-trive" class="hover:text-indigo-600 transition">Why T-Rive</a>
-            <a href="#team-philosophy" class="hover:text-indigo-600 transition">Team Philosophy</a>
-            <a href="#creator-team" class="hover:text-indigo-600 transition">Creator Team</a>
+            <a href="#founder" class="hover:text-indigo-600 transition">Founder</a>
             <a href="#team-culture" class="hover:text-indigo-600 transition">팀 문화</a>
-            <a href="#projects" class="hover:text-indigo-600 transition">프로젝트</a>
+            <a href="#join-trive" class="hover:text-indigo-600 transition">Join T-Rive</a>
         </nav>
         <div class="hidden lg:block">
-            <a href="#apply-portal" class="px-5 py-2.5 rounded-xl bg-indigo-600 text-white hover:bg-indigo-500 text-sm font-semibold transition inline-flex items-center gap-2 shadow-sm">
-                Creator Team 합류하기 <i class="fa-solid fa-arrow-right text-xs"></i>
+            <a href="#join-trive" class="px-5 py-2.5 rounded-xl bg-indigo-600 text-white hover:bg-indigo-500 text-sm font-semibold transition inline-flex items-center gap-2 shadow-sm">
+                Join T-Rive <i class="fa-solid fa-arrow-right text-xs"></i>
             </a>
         </div>
         <div class="lg:hidden">
@@ -109,13 +100,12 @@
         </button>
     </div>
     <div class="flex flex-col items-center justify-center h-full space-y-7 pb-20">
-        <a href="#hero" class="mobile-link text-2xl font-bold text-slate-600 hover:text-indigo-600 transition">T-Rive 소개</a>
+        <a href="#ecosystem" class="mobile-link text-2xl font-bold text-slate-600 hover:text-indigo-600 transition">Ecosystem ⭐</a>
+        <a href="#growth-philosophy" class="mobile-link text-2xl font-bold text-slate-600 hover:text-indigo-600 transition">성장 철학</a>
         <a href="#why-trive" class="mobile-link text-2xl font-bold text-slate-600 hover:text-indigo-600 transition">Why T-Rive</a>
-        <a href="#team-philosophy" class="mobile-link text-2xl font-bold text-slate-600 hover:text-indigo-600 transition">Team Philosophy</a>
-        <a href="#creator-team" class="mobile-link text-2xl font-bold text-slate-600 hover:text-indigo-600 transition">Creator Team</a>
+        <a href="#founder" class="mobile-link text-2xl font-bold text-slate-600 hover:text-indigo-600 transition">Founder</a>
         <a href="#team-culture" class="mobile-link text-2xl font-bold text-slate-600 hover:text-indigo-600 transition">팀 문화</a>
-        <a href="#projects" class="mobile-link text-2xl font-bold text-slate-600 hover:text-indigo-600 transition">프로젝트</a>
-        <a href="#apply-portal" class="mobile-link text-2xl font-bold text-indigo-600 transition">Creator Team 합류하기</a>
+        <a href="#join-trive" class="mobile-link text-2xl font-bold text-indigo-600 transition">Join T-Rive</a>
     </div>
 </div>
 
@@ -130,526 +120,65 @@
         </div>
 
         <h1 class="text-[32px] sm:text-[44px] md:text-[56px] font-black text-slate-900 tracking-tight leading-[1.2] mb-10 w-full">
-            좋은 크리에이터는 좋은 팀에서 시작됩니다.
+            좋아하는 일에 오래 몰입할 수 있는 환경
         </h1>
 
-        <div class="space-y-6 text-slate-600 font-medium text-[16px] sm:text-[18px] leading-[1.8] w-full mb-20 editorial-text">
+        <div class="space-y-6 text-slate-600 font-medium text-[16px] sm:text-[18px] leading-[1.8] w-full mb-16 editorial-text">
             <p>
-                T-Rive는 혼자가 아닌, 함께 성장하는 Creator Team을 만드는 브랜드입니다. 크리에이터가 자신의 개성과 가치를 온전히 발휘할 수 있도록 단단한 팀 구조와 환경을 지원합니다.
+                T-Rive는 혼자가 아닌, 함께 성장하는 Creator Team을 만드는 브랜드입니다. 사람들이 자신의 경험을 신뢰와 기회로 전환하고, 좋아하는 일에 오래 몰입할 수 있는 환경을 설계합니다.
             </p>
             <p>
-                우리는 뛰어난 기획, 디자인, 개발, 운영 역량이 유기적으로 연결될 때 비로소 지속 가능한 영향력과 위대한 결과물이 만들어진다고 믿습니다.
-            </p>
-            <p class="text-slate-400 text-sm">
-                MONO, Blood Star, Trydit는 하나의 Creator Team 철학 아래 연결된 프로젝트입니다.
+                우리는 뛰어난 기획, 브랜딩, 디자인, 개발, 운영 역량이 유기적으로 연결될 때 비로소 지속 가능한 영향력과 위대한 결과물이 완성된다고 믿습니다.
             </p>
         </div>
 
-        <!-- T-Rive 의미 -->
-        <div class="border-t border-slate-200/60 pt-16 mb-12">
-            <div class="inline-flex items-center px-5 py-2 rounded-full border border-indigo-100 text-xs sm:text-sm font-bold text-indigo-600 mb-6 tracking-wide bg-indigo-50/50">
-                <span>T-Rive의 의미</span>
-            </div>
-            <p class="text-slate-500 text-base sm:text-lg font-medium leading-relaxed mb-12 w-full">
-                T-Rive는 기술(Tech)과 도전(Try), 신뢰(Trust)와 공동체(Tribe)를 바탕으로 사람들이 자신의 분야에서 함께 성장(Thrive)하는 미래를 설계합니다.
-            </p>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="p-6 sm:p-8 rounded-[24px] bg-white border border-slate-100 flex flex-col hover:border-indigo-200 hover:shadow-md transition duration-300 group shadow-sm">
-                    <div class="w-12 h-12 rounded-lg bg-indigo-50 flex items-center justify-center text-indigo-600 text-xl group-hover:bg-indigo-600 group-hover:text-white transition duration-300 mb-6">
-                        <i class="fa-solid fa-microchip"></i>
-                    </div>
-                    <div>
-                        <h3 class="text-slate-900 font-bold text-[20px] mb-3 tracking-tight group-hover:text-indigo-600 transition">Tech</h3>
-                        <p class="text-slate-600 text-[16px] leading-relaxed font-medium">기술로 더 나은 기회와 시스템을 만듭니다.</p>
-                    </div>
-                </div>
-                <div class="p-6 sm:p-8 rounded-[24px] bg-white border border-slate-100 flex flex-col hover:border-indigo-200 hover:shadow-md transition duration-300 group shadow-sm">
-                    <div class="w-12 h-12 rounded-lg bg-indigo-50 flex items-center justify-center text-indigo-600 text-xl group-hover:bg-indigo-600 group-hover:text-white transition duration-300 mb-6">
-                        <i class="fa-solid fa-rocket"></i>
-                    </div>
-                    <div>
-                        <h3 class="text-slate-900 font-bold text-[20px] mb-3 tracking-tight group-hover:text-indigo-600 transition">Try</h3>
-                        <p class="text-slate-600 text-[16px] leading-relaxed font-medium">대담한 도전을 통해 새로운 가능성을 엽니다.</p>
-                    </div>
-                </div>
-                <div class="p-6 sm:p-8 rounded-[24px] bg-white border border-slate-100 flex flex-col hover:border-indigo-200 hover:shadow-md transition duration-300 group shadow-sm">
-                    <div class="w-12 h-12 rounded-lg bg-indigo-50 flex items-center justify-center text-indigo-600 text-xl group-hover:bg-indigo-600 group-hover:text-white transition duration-300 mb-6">
-                        <i class="fa-solid fa-handshake"></i>
-                    </div>
-                    <div>
-                        <h3 class="text-slate-900 font-bold text-[20px] mb-3 tracking-tight group-hover:text-indigo-600 transition">Trust</h3>
-                        <p class="text-slate-600 text-[16px] leading-relaxed font-medium">상호 신뢰를 바탕으로 지치지 않는 성장을 이룹니다.</p>
-                    </div>
-                </div>
-                <div class="p-6 sm:p-8 rounded-[24px] bg-white border border-slate-100 flex flex-col hover:border-indigo-200 hover:shadow-md transition duration-300 group shadow-sm">
-                    <div class="w-12 h-12 rounded-lg bg-indigo-50 flex items-center justify-center text-indigo-600 text-xl group-hover:bg-indigo-600 group-hover:text-white transition duration-300 mb-6">
-                        <i class="fa-solid fa-users"></i>
-                    </div>
-                    <div>
-                        <h3 class="text-slate-900 font-bold text-[20px] mb-3 tracking-tight group-hover:text-indigo-600 transition">Tribe</h3>
-                        <p class="text-slate-600 text-[16px] leading-relaxed font-medium">함께 배우고 나아가는 Creator Team 공동체입니다.</p>
-                    </div>
-                </div>
-
-                <!-- Thrive -->
-                <div class="md:col-span-2 p-8 rounded-[28px] bg-gradient-to-r from-indigo-50/50 via-white to-white border-2 border-indigo-100/60 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 hover:border-indigo-300 transition duration-300 group shadow-sm shadow-indigo-100/10">
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 rounded-xl bg-indigo-50 flex items-center justify-center text-indigo-600 text-2xl flex-shrink-0 group-hover:bg-indigo-600 group-hover:text-white transition duration-300">
-                            <i class="fa-solid fa-seedling"></i>
-                        </div>
-                        <h3 class="text-slate-900 font-black text-2xl tracking-tight group-hover:text-indigo-600 transition">Thrive</h3>
-                    </div>
-                    <div class="flex-1 sm:pl-6 border-t sm:border-t-0 sm:border-l border-slate-100 pt-4 sm:pt-0">
-                        <p class="text-slate-600 text-[15px] sm:text-base leading-relaxed font-medium">크리에이터와 팀원 모두가 자신의 일에 오래 몰입하고 함께 성공합니다.</p>
-                    </div>
-                </div>
-            </div>
+        <div class="flex flex-col sm:flex-row items-center gap-4">
+            <a href="#ecosystem" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-indigo-600 text-white hover:bg-indigo-500 text-sm font-semibold transition inline-flex items-center justify-center gap-2 shadow-sm">
+                T-Rive Ecosystem 탐색 <i class="fa-solid fa-arrow-down text-xs"></i>
+            </a>
+            <a href="#join-trive" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 text-sm font-semibold transition inline-flex items-center justify-center gap-2 shadow-sm">
+                Join T-Rive 신청
+            </a>
         </div>
     </div>
 </section>
 
-<!-- Section 2: Why T-Rive (신규) -->
-<section id="why-trive" class="py-24 bg-[#F8FAFC] border-t border-slate-200/60">
+<!-- Section 2: T-Rive Ecosystem ⭐ -->
+<section id="ecosystem" class="py-24 bg-[#F8FAFC] border-t border-slate-200/60">
     <div class="max-w-6xl mx-auto px-6 sm:px-8 fade-in-section">
         <div class="inline-flex items-center px-5 py-2 rounded-full border border-indigo-100 text-xs sm:text-sm font-bold text-indigo-600 mb-8 tracking-wide bg-indigo-50/50">
-            <span>Why T-Rive</span>
+            <span>T-RIVE ECOSYSTEM ⭐</span>
         </div>
         <h2 class="text-[30px] sm:text-[40px] md:text-[48px] font-black text-slate-900 tracking-tight leading-[1.2] mb-8 w-full">
-            왜 우리는 팀을 이야기할까요?
+            하나의 철학 아래 연결된 4단계 프로젝트 생태계
         </h2>
-        <div class="text-slate-600 font-medium text-[16px] sm:text-[18px] leading-[1.8] w-full mb-16 editorial-text space-y-4">
-            <p>
-                대한민국에는 이미 뛰어난 역량을 갖춘 크리에이터가 많습니다. 하지만 위대한 임팩트를 가진 콘텐츠와 브랜드는 결코 크리에이터 한 사람의 힘만으로 완성되지 않습니다.
-            </p>
-            <p>
-                기획, 브랜딩, 디자인, 개발, 운영, 그리고 크리에이터. 각자의 전문성과 역할이 단단하게 모일 때 하나의 완벽한 결과물이 완성됩니다. T-Rive는 그 가치 있는 연결을 만드는 팀입니다.
-            </p>
-        </div>
+        <p class="text-slate-600 font-medium text-[16px] sm:text-[18px] leading-[1.8] w-full mb-16 editorial-text">
+            MONO에서 시작하여 Blood Star, Blood Universe, Trydit으로 이어지는 T-Rive의 프로젝트는 경험을 자산화하고 기업 운영 인프라를 혁신합니다.
+        </p>
 
-        <!-- 6대 역할 유기적 구성 카드 그리드 -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-4">
-            <!-- 1. 기획 -->
-            <div class="p-8 rounded-[24px] bg-white border border-slate-100 hover:border-indigo-300 hover:shadow-lg transition duration-300 group shadow-sm flex flex-col justify-between">
-                <div>
-                    <div class="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl mb-6 group-hover:bg-indigo-600 group-hover:text-white transition">
-                        <i class="fa-solid fa-compass"></i>
-                    </div>
-                    <h3 class="text-slate-900 font-bold text-xl mb-3 group-hover:text-indigo-600 transition">기획 (Planning)</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed font-medium editorial-text">
-                        콘텐츠와 서비스의 방향성을 설계하고, 시장과 대중이 진정으로 필요로 하는 핵심 가치를 구체화합니다.
-                    </p>
-                </div>
-                <div class="mt-6 pt-4 border-t border-slate-100 text-xs font-bold text-indigo-500 flex items-center justify-between">
-                    <span>방향성 & 전략</span>
-                    <i class="fa-solid fa-arrow-right"></i>
-                </div>
-            </div>
-
-            <!-- 2. 브랜딩 -->
-            <div class="p-8 rounded-[24px] bg-white border border-slate-100 hover:border-indigo-300 hover:shadow-lg transition duration-300 group shadow-sm flex flex-col justify-between">
-                <div>
-                    <div class="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl mb-6 group-hover:bg-indigo-600 group-hover:text-white transition">
-                        <i class="fa-solid fa-gem"></i>
-                    </div>
-                    <h3 class="text-slate-900 font-bold text-xl mb-3 group-hover:text-indigo-600 transition">브랜딩 (Branding)</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed font-medium editorial-text">
-                        독창적인 스토리와 브랜드 정체성을 부여하여, 오래도록 사랑받고 독보적인 존재감을 가진 팬덤을 만듭니다.
-                    </p>
-                </div>
-                <div class="mt-6 pt-4 border-t border-slate-100 text-xs font-bold text-indigo-500 flex items-center justify-between">
-                    <span>정체성 & 스토리</span>
-                    <i class="fa-solid fa-arrow-right"></i>
-                </div>
-            </div>
-
-            <!-- 3. 디자인 -->
-            <div class="p-8 rounded-[24px] bg-white border border-slate-100 hover:border-indigo-300 hover:shadow-lg transition duration-300 group shadow-sm flex flex-col justify-between">
-                <div>
-                    <div class="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl mb-6 group-hover:bg-indigo-600 group-hover:text-white transition">
-                        <i class="fa-solid fa-palette"></i>
-                    </div>
-                    <h3 class="text-slate-900 font-bold text-xl mb-3 group-hover:text-indigo-600 transition">디자인 (Design)</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed font-medium editorial-text">
-                        시각적 아름다움과 직관적인 사용자 경험(UX)을 구현하여 메시지가 직관적으로 상호작용하도록 돕습니다.
-                    </p>
-                </div>
-                <div class="mt-6 pt-4 border-t border-slate-100 text-xs font-bold text-indigo-500 flex items-center justify-between">
-                    <span>시각화 & 경험</span>
-                    <i class="fa-solid fa-arrow-right"></i>
-                </div>
-            </div>
-
-            <!-- 4. 개발 -->
-            <div class="p-8 rounded-[24px] bg-white border border-slate-100 hover:border-indigo-300 hover:shadow-lg transition duration-300 group shadow-sm flex flex-col justify-between">
-                <div>
-                    <div class="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl mb-6 group-hover:bg-indigo-600 group-hover:text-white transition">
-                        <i class="fa-solid fa-code"></i>
-                    </div>
-                    <h3 class="text-slate-900 font-bold text-xl mb-3 group-hover:text-indigo-600 transition">개발 (Development)</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed font-medium editorial-text">
-                        안정적인 기술 인프라와 플랫폼을 구축하여 수많은 사용자가 흔들림 없이 아이디어를 이용할 수 있게 만듭니다.
-                    </p>
-                </div>
-                <div class="mt-6 pt-4 border-t border-slate-100 text-xs font-bold text-indigo-500 flex items-center justify-between">
-                    <span>시스템 & 플랫폼</span>
-                    <i class="fa-solid fa-arrow-right"></i>
-                </div>
-            </div>
-
-            <!-- 5. 운영 -->
-            <div class="p-8 rounded-[24px] bg-white border border-slate-100 hover:border-indigo-300 hover:shadow-lg transition duration-300 group shadow-sm flex flex-col justify-between">
-                <div>
-                    <div class="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl mb-6 group-hover:bg-indigo-600 group-hover:text-white transition">
-                        <i class="fa-solid fa-sliders"></i>
-                    </div>
-                    <h3 class="text-slate-900 font-bold text-xl mb-3 group-hover:text-indigo-600 transition">운영 (Operation)</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed font-medium editorial-text">
-                        지속 가능한 시스템, 라이프사이클 관리, 안전망을 지켜 팀 전체가 지치지 않고 오랫동안 달릴 환경을 지킵니다.
-                    </p>
-                </div>
-                <div class="mt-6 pt-4 border-t border-slate-100 text-xs font-bold text-indigo-500 flex items-center justify-between">
-                    <span>안전망 & 리소스</span>
-                    <i class="fa-solid fa-arrow-right"></i>
-                </div>
-            </div>
-
-            <!-- 6. 크리에이터 -->
-            <div class="p-8 rounded-[24px] bg-gradient-to-br from-indigo-600 to-blue-600 text-white hover:shadow-xl transition duration-300 group flex flex-col justify-between">
-                <div>
-                    <div class="w-12 h-12 rounded-xl bg-white/20 text-white flex items-center justify-center text-xl mb-6">
-                        <i class="fa-solid fa-star"></i>
-                    </div>
-                    <h3 class="font-bold text-xl mb-3">크리에이터 (Creator)</h3>
-                    <p class="text-indigo-100 text-sm leading-relaxed font-medium editorial-text">
-                        세상을 향해 대담하게 도전하고 통찰을 전달하는 주인공으로, 팀의 조력 속에서 온전히 몰입하고 영향력을 펼칩니다.
-                    </p>
-                </div>
-                <div class="mt-6 pt-4 border-t border-white/20 text-xs font-bold text-white flex items-center justify-between">
-                    <span>창의성 & 몰입</span>
-                    <i class="fa-solid fa-bolt"></i>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Section 3: Team Philosophy (신규 - 축구 비유 스토리텔링) -->
-<section id="team-philosophy" class="py-24 bg-[#FCFCFE] bg-dot-grid border-t border-slate-200/60">
-    <div class="max-w-6xl mx-auto px-6 sm:px-8 fade-in-section">
-        <div class="inline-flex items-center px-5 py-2 rounded-full border border-indigo-100 text-xs sm:text-sm font-bold text-indigo-600 mb-8 tracking-wide bg-indigo-50/50">
-            <span>Team Philosophy</span>
-        </div>
-        <h2 class="text-[30px] sm:text-[40px] md:text-[48px] font-black text-slate-900 tracking-tight leading-[1.2] mb-10 w-full">
-            모든 팀은 공격수만으로 우승할 수 없습니다.
-        </h2>
-
-        <!-- Quote Block Card -->
-        <div class="p-8 sm:p-12 rounded-3xl bg-white border-2 border-indigo-100 shadow-xl shadow-indigo-500/5 mb-16 relative overflow-hidden">
-            <div class="absolute -top-6 -left-6 text-indigo-500/10 text-9xl font-serif pointer-events-none">“</div>
-            <div class="relative z-10 space-y-6 text-slate-700 text-lg sm:text-xl font-medium leading-[1.8] editorial-text">
-                <p>
-                    좋은 공격수가 아무리 화려하게 골을 넣어도, 뒷문을 지키는 수비가 무너지면 결코 우승할 수 없습니다.
-                </p>
-                <p>
-                    명감독의 뛰어난 전술이 있어도, 중원에서 경기를 연결해주는 미드필더가 없으면 경기는 풀리지 않습니다.
-                </p>
-                <p>
-                    콘텐츠와 브랜드도 마찬가지입니다. 세상을 향해 대담하게 도전하는 크리에이터 뒤에는 수많은 팀원의 정교한 역할과 든든한 조력이 존재합니다.
-                </p>
-                <p class="text-indigo-600 font-bold text-xl sm:text-2xl pt-4 border-t border-slate-100">
-                    우리는 골을 넣는 사람보다, 그 골을 함께 만들어낸 팀의 가치를 더 중요하게 생각합니다.
-                </p>
-            </div>
-        </div>
-
-        <!-- 축구 비유 역할 인포그래픽 카드 -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
-            <div class="p-8 rounded-2xl bg-white border border-slate-100 shadow-sm flex flex-col justify-between">
-                <div>
-                    <div class="text-xs font-bold text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full w-fit mb-4">전방 · 공격수</div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-2">Creator</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed font-medium editorial-text">
-                        최전방에서 골을 노리며 무대를 장악하듯, 뛰어난 스토리와 메시지로 세상을 설득하고 대중과의 접점을 만듭니다.
-                    </p>
-                </div>
-            </div>
-
-            <div class="p-8 rounded-2xl bg-white border border-slate-100 shadow-sm flex flex-col justify-between">
-                <div>
-                    <div class="text-xs font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full w-fit mb-4">중원 · 미드필더</div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-2">Planning & Branding</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed font-medium editorial-text">
-                        공수를 유기적으로 연결하고 템포를 조율하듯, 기획과 브랜딩으로 크리에이터와 대중 사이의 깊은 공감대를 형성합니다.
-                    </p>
-                </div>
-            </div>
-
-            <div class="p-8 rounded-2xl bg-white border border-slate-100 shadow-sm flex flex-col justify-between">
-                <div>
-                    <div class="text-xs font-bold text-slate-600 bg-slate-100 px-3 py-1 rounded-full w-fit mb-4">후방 · 수비수 & 스태프</div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-2">Dev & Operation</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed font-medium editorial-text">
-                        골문을 단단히 잠그고 팀을 원활히 지원하듯, 개발 인프라와 운영 프로세스로 흔들리지 않는 최상의 환경을 구축합니다.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Section 4: Creator Leader 소개 -->
-<section id="creator" class="py-24 bg-[#F8FAFC] border-t border-slate-200/60">
-    <div class="max-w-6xl mx-auto px-6 sm:px-8 fade-in-section">
-        <div class="text-left mb-16">
-            <div class="inline-flex items-center px-5 py-2 rounded-full border border-indigo-100 text-xs sm:text-sm font-bold text-indigo-600 mb-8 tracking-wide bg-indigo-50/50">
-                <span>Team Leader</span>
-            </div>
-            <h2 class="text-[26px] sm:text-[36px] md:text-[44px] font-black text-slate-900 tracking-tight w-full">
-                좋아하는 일에 오래 몰입할 수 있는 환경을 만들고 있습니다
-            </h2>
-        </div>
-
-        <div class="p-8 sm:p-12 rounded-3xl bg-white border border-slate-100 flex flex-col md:flex-row items-center md:items-stretch gap-12 shadow-sm">
-            <div class="flex-shrink-0 flex flex-col items-center text-center md:w-[240px] justify-center">
-                <div class="w-48 h-48 rounded-[36px] overflow-hidden bg-slate-100 border border-slate-200 mb-6 shadow-md flex-shrink-0">
-                    <img src="https://dojiung.com/profile.png" alt="이윤혁" class="w-full h-full object-cover">
-                </div>
-                <strong class="block text-slate-900 text-2xl font-black tracking-tight">이윤혁</strong>
-                <span class="inline-block text-[11px] text-indigo-600 bg-indigo-50 border border-indigo-100/50 px-2.5 py-0.5 rounded font-bold uppercase tracking-wider mt-2">Founder</span>
-            </div>
-            <div class="flex-1 space-y-6 flex flex-col justify-center border-t md:border-t-0 md:border-l border-slate-100 pt-8 md:pt-0 md:pl-12">
-                <div class="space-y-4 text-slate-700 text-[15px] sm:text-[16px] font-medium leading-[1.8] editorial-text">
-                    <p>저는 기술이 사람의 가능성을 확장하고, 신뢰가 더 큰 기회로 이어질 수 있다고 믿습니다.</p>
-                    <p>다양한 조직과 산업의 변화를 경험하며 사람과 조직이 성장하는 과정에는 공통점이 있다는 것을 발견했습니다.</p>
-                    <div class="font-bold text-indigo-600 pl-4 border-l-2 border-indigo-100/80 space-y-1 my-6 bg-indigo-50/30 py-3 pr-4 rounded-r-xl">
-                        <p>새로운 도전(Try)은 경험이 되고,</p>
-                        <p>경험은 신뢰(Trust)가 되며,</p>
-                        <p>신뢰는 더 큰 기회와 성장(Thrive)으로 이어집니다.</p>
-                    </div>
-                    <p>하지만 많은 사람들의 경험은 기록되지 못한 채 사라지고, 그 가치는 충분히 인정받지 못합니다.</p>
-                    <p>그 결과 자신이 좋아하는 일에 몰입하고 싶어도 성장의 기회를 얻지 못하거나, 현실적인 이유로 포기하게 되는 경우가 많습니다.</p>
-                    <p class="font-bold text-slate-900">그래서 T-Rive를 만들고 있습니다.</p>
-                    <p class="font-semibold text-slate-800 bg-slate-50/50 p-4 rounded-xl border border-slate-100/80 leading-relaxed mt-6">
-                        T-Rive는 기술(Tech), 도전(Try), 신뢰(Trust), 공동체(Tribe)의 가치를 바탕으로 사람들이 자신의 경험을 성장의 자산으로 만들고, 더 많은 기회를 얻으며, 좋아하는 일에 오래 몰입할 수 있는 미래(Thrive)를 만들어가고 있습니다.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Section 5: Creator Team -->
-<section id="creator-team" class="py-24 bg-[#FCFCFE] bg-dot-grid border-t border-slate-200/60">
-    <div class="max-w-6xl mx-auto px-6 sm:px-8 fade-in-section">
-        <div class="text-left mb-16">
-            <div class="inline-flex items-center px-5 py-2 rounded-full border border-indigo-100 text-xs sm:text-sm font-bold text-indigo-600 mb-8 tracking-wide bg-indigo-50/50">
-                <span>Creator Team</span>
-            </div>
-            <h2 class="text-[26px] sm:text-[36px] md:text-[44px] font-black text-slate-900 tracking-tight mb-4 w-full">
-                우리는 함께 성장합니다.
-            </h2>
-            <p class="text-slate-600 text-base sm:text-lg font-medium leading-relaxed w-full">
-                T-Rive Creator Team은 각자의 전문적인 영역에서 팀의 성장과 크리에이터의 가치를 함께 만들어가는 6가지 핵심 역할로 구성되어 있습니다.
-            </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Card 1: Creator -->
-            <div class="p-8 rounded-3xl bg-white border border-slate-200/80 hover:border-indigo-300 hover:shadow-xl transition duration-300 group shadow-sm flex flex-col justify-between">
-                <div>
-                    <div class="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl mb-6 group-hover:bg-indigo-600 group-hover:text-white transition">
-                        <i class="fa-solid fa-pen-nib"></i>
-                    </div>
-                    <span class="text-xs font-bold text-indigo-500 uppercase tracking-wider">Role 01</span>
-                    <h3 class="text-xl font-bold text-slate-900 my-2 group-hover:text-indigo-600 transition">Creator</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed font-medium editorial-text">
-                        영향력 있는 스토리와 콘텐츠로 대중과 깊게 소통하며 세상에 새로운 인사이트와 가치를 전달합니다.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Card 2: Designer -->
-            <div class="p-8 rounded-3xl bg-white border border-slate-200/80 hover:border-indigo-300 hover:shadow-xl transition duration-300 group shadow-sm flex flex-col justify-between">
-                <div>
-                    <div class="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl mb-6 group-hover:bg-indigo-600 group-hover:text-white transition">
-                        <i class="fa-solid fa-wand-magic-sparkles"></i>
-                    </div>
-                    <span class="text-xs font-bold text-indigo-500 uppercase tracking-wider">Role 02</span>
-                    <h3 class="text-xl font-bold text-slate-900 my-2 group-hover:text-indigo-600 transition">Designer</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed font-medium editorial-text">
-                        메시지와 서비스를 직관적이고 아름다운 UX/UI 비주얼로 승화시켜 완성도 높은 인터랙션을 제공합니다.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Card 3: Developer -->
-            <div class="p-8 rounded-3xl bg-white border border-slate-200/80 hover:border-indigo-300 hover:shadow-xl transition duration-300 group shadow-sm flex flex-col justify-between">
-                <div>
-                    <div class="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl mb-6 group-hover:bg-indigo-600 group-hover:text-white transition">
-                        <i class="fa-solid fa-terminal"></i>
-                    </div>
-                    <span class="text-xs font-bold text-indigo-500 uppercase tracking-wider">Role 03</span>
-                    <h3 class="text-xl font-bold text-slate-900 my-2 group-hover:text-indigo-600 transition">Developer</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed font-medium editorial-text">
-                        단단한 아키텍처와 플랫폼을 구축하여 수많은 사용자가 안정적으로 서비스를 경험할 기술적 기반을 만듭니다.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Card 4: Brand -->
-            <div class="p-8 rounded-3xl bg-white border border-slate-200/80 hover:border-indigo-300 hover:shadow-xl transition duration-300 group shadow-sm flex flex-col justify-between">
-                <div>
-                    <div class="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl mb-6 group-hover:bg-indigo-600 group-hover:text-white transition">
-                        <i class="fa-solid fa-shield"></i>
-                    </div>
-                    <span class="text-xs font-bold text-indigo-500 uppercase tracking-wider">Role 04</span>
-                    <h3 class="text-xl font-bold text-slate-900 my-2 group-hover:text-indigo-600 transition">Brand</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed font-medium editorial-text">
-                        팀과 크리에이터가 지향하는 핵심 철학을 일관되게 정립하고 대내외적인 브랜딩 일관성을 관리합니다.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Card 5: Marketing -->
-            <div class="p-8 rounded-3xl bg-white border border-slate-200/80 hover:border-indigo-300 hover:shadow-xl transition duration-300 group shadow-sm flex flex-col justify-between">
-                <div>
-                    <div class="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl mb-6 group-hover:bg-indigo-600 group-hover:text-white transition">
-                        <i class="fa-solid fa-chart-line"></i>
-                    </div>
-                    <span class="text-xs font-bold text-indigo-500 uppercase tracking-wider">Role 05</span>
-                    <h3 class="text-xl font-bold text-slate-900 my-2 group-hover:text-indigo-600 transition">Marketing</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed font-medium editorial-text">
-                        타깃 시장에 메시지를 정확히 전달하고 충성도 높은 팬덤과 타깃 커뮤니티의 폭발적 성장을 이끌어냅니다.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Card 6: Operation -->
-            <div class="p-8 rounded-3xl bg-white border border-slate-200/80 hover:border-indigo-300 hover:shadow-xl transition duration-300 group shadow-sm flex flex-col justify-between">
-                <div>
-                    <div class="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl mb-6 group-hover:bg-indigo-600 group-hover:text-white transition">
-                        <i class="fa-solid fa-gears"></i>
-                    </div>
-                    <span class="text-xs font-bold text-indigo-500 uppercase tracking-wider">Role 06</span>
-                    <h3 class="text-xl font-bold text-slate-900 my-2 group-hover:text-indigo-600 transition">Operation</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed font-medium editorial-text">
-                        지속 가능한 프로세스와 자산을 케어하여 팀 구성원 모두가 오랫동안 업무에 몰입할 수 있도록 돕습니다.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Section 6: T-Rive Culture (브랜드 컬처 정리) -->
-<section id="team-culture" class="py-24 bg-[#F8FAFC] border-t border-b border-slate-200/60">
-    <div class="max-w-6xl mx-auto px-6 sm:px-8 fade-in-section">
-        <div class="text-left mb-16">
-            <div class="inline-flex items-center px-5 py-2 rounded-full border border-indigo-100 text-xs sm:text-sm font-bold text-indigo-600 mb-8 tracking-wide bg-indigo-50/50">
-                <span>Brand Culture</span>
-            </div>
-            <h2 class="text-[26px] sm:text-[36px] md:text-[44px] font-black text-slate-900 tracking-tight mb-4 w-full">
-                T-Rive 컬처 스펙트럼
-            </h2>
-            <p class="text-slate-600 text-base sm:text-lg font-medium leading-relaxed w-full">
-                우리는 더 좋은 팀을 만들기 위해 3가지 확고한 브랜드 신념을 지켜나갑니다.
-            </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
-            <!-- Culture Card 1 -->
-            <div class="p-8 sm:p-10 rounded-3xl bg-white border border-slate-100 shadow-sm hover:border-indigo-300 hover:shadow-xl transition duration-300 flex flex-col justify-between">
-                <div>
-                    <div class="w-14 h-14 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-2xl mb-8">
-                        <i class="fa-solid fa-seedling"></i>
-                    </div>
-                    <span class="text-xs font-bold text-indigo-600 uppercase tracking-widest block mb-2">Culture 01</span>
-                    <h3 class="text-xl sm:text-2xl font-black text-slate-900 mb-4 leading-snug">
-                        우리는 혼자 잘하는 사람보다 함께 성장하는 사람을 좋아합니다.
-                    </h3>
-                    <p class="text-slate-500 text-sm leading-relaxed font-medium editorial-text">
-                        개인의 일시적인 뛰어남보다 팀과 함께 지식을 공유하고 동반 성장하는 시너지를 우선시합니다.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Culture Card 2 -->
-            <div class="p-8 sm:p-10 rounded-3xl bg-white border border-slate-100 shadow-sm hover:border-indigo-300 hover:shadow-xl transition duration-300 flex flex-col justify-between">
-                <div>
-                    <div class="w-14 h-14 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-2xl mb-8">
-                        <i class="fa-solid fa-handshake-simple"></i>
-                    </div>
-                    <span class="text-xs font-bold text-indigo-600 uppercase tracking-widest block mb-2">Culture 02</span>
-                    <h3 class="text-xl sm:text-2xl font-black text-slate-900 mb-4 leading-snug">
-                        우리는 성과보다 신뢰를 중요하게 생각합니다.
-                    </h3>
-                    <p class="text-slate-500 text-sm leading-relaxed font-medium editorial-text">
-                        단기적인 숫자의 성과보다 서로 간의 단단한 믿음과 지속 가능한 약속을 더 깊이 존중합니다.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Culture Card 3 -->
-            <div class="p-8 sm:p-10 rounded-3xl bg-white border border-slate-100 shadow-sm hover:border-indigo-300 hover:shadow-xl transition duration-300 flex flex-col justify-between">
-                <div>
-                    <div class="w-14 h-14 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-2xl mb-8">
-                        <i class="fa-solid fa-people-group"></i>
-                    </div>
-                    <span class="text-xs font-bold text-indigo-600 uppercase tracking-widest block mb-2">Culture 03</span>
-                    <h3 class="text-xl sm:text-2xl font-black text-slate-900 mb-4 leading-snug">
-                        우리는 경쟁보다 팀워크를 믿습니다.
-                    </h3>
-                    <p class="text-slate-500 text-sm leading-relaxed font-medium editorial-text">
-                        소모적인 내부 경쟁 대신, 하나의 목표를 향해 서로의 부족함을 채워주는 위대한 팀워크를 지향합니다.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Section: Projects (연결 유지) -->
-<section id="projects" class="py-24 bg-[#FCFCFE] border-t border-slate-200/60">
-    <div class="max-w-6xl mx-auto px-6 sm:px-8 fade-in-section">
-        <div class="text-left mb-6">
-            <div class="inline-flex items-center px-5 py-2 rounded-full border border-indigo-100 text-xs sm:text-sm font-bold text-indigo-600 mb-8 tracking-wide bg-indigo-50/50">
-                <span>Team Project</span>
-            </div>
-            <h2 class="text-[26px] sm:text-[36px] md:text-[42px] font-black text-slate-900 tracking-tight mb-4 w-full">
-                하나의 서비스가 아니라 하나의 비전을 향해 나아갑니다.
-            </h2>
-            <p class="text-slate-500 text-base sm:text-lg font-medium leading-relaxed w-full">
-                T-Rive의 프로젝트들은 크리에이터와 팀이 함께 성장할 수 있는 생태계를 단계적으로 실현하고 있습니다.
-            </p>
-        </div>
-
-        <div class="space-y-8">
+        <!-- Project Cards Grid -->
+        <div class="space-y-12">
             <!-- MONO -->
-            <div class="project-card project-mono relative p-8 md:p-12 rounded-3xl bg-white border-2 border-indigo-200/80 shadow-md shadow-indigo-100/10 overflow-hidden text-left">
-                <span class="relative md:absolute top-auto right-auto md:top-8 md:right-8 inline-block mb-4 md:mb-0 text-[11px] font-bold text-white px-3 py-1 rounded bg-indigo-600 tracking-widest font-mono w-fit">Phase 1 · 현재 진행</span>
+            <div class="project-card project-mono relative p-8 md:p-12 rounded-3xl bg-white border border-slate-100 hover:border-indigo-200 hover:shadow-xl transition text-left shadow-sm overflow-hidden">
+                <span class="relative md:absolute top-auto right-auto md:top-8 md:right-8 inline-block mb-4 md:mb-0 text-[11px] font-bold text-white px-3 py-1 rounded bg-indigo-600 tracking-widest font-mono w-fit">Phase 1</span>
                 <div class="mb-3">
-                    <span class="text-[11px] font-bold text-indigo-400 uppercase tracking-widest">현장 기술자의 경험을 자산으로</span>
+                    <span class="text-[11px] font-bold text-indigo-500 uppercase tracking-widest">좋아하는 일로 자립할 수 있는 환경</span>
                 </div>
-                <h3 class="text-2xl sm:text-3xl font-black text-slate-900 mb-2 tracking-tight">MONO</h3>
-                <p class="text-indigo-600 text-base font-bold mb-2">현장 기술자의 경험과 신뢰를 자산으로 전환합니다.</p>
-                <p class="text-slate-600 text-[15px] sm:text-lg font-medium leading-relaxed mb-10 pb-10 border-b border-slate-100 editorial-text">
-                    <a href="https://mono.dojiung.com/strategy" target="_blank" class="block text-indigo-500 hover:text-indigo-700 text-sm font-bold mb-4 transition">
-                        MONO 서비스 소개 보기 <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-                    </a>
-                    우리는 이 비전을 가장 먼저 현장 기술자 영역에서 시작하고 있습니다. 기술자들은 사회와 산업을 움직이는 핵심 역할을 수행하지만 금융, 경력 관리, 기술 가치 인정에서 큰 제약을 겪고 있습니다.
+                <h3 class="text-2xl sm:text-3xl font-black text-slate-900 mb-2 flex items-center gap-3 tracking-tight">
+                    MONO <span class="text-[12px] font-bold text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded border border-indigo-100 mt-1">가칭</span>
+                </h3>
+                <p class="text-indigo-600 text-base font-bold mb-6">현장의 경험과 신뢰를 데이터 자산으로 전환합니다.</p>
+                <p class="text-slate-600 text-[15px] sm:text-lg font-medium leading-relaxed mb-8 pb-8 border-b border-slate-100 editorial-text">
+                    자신이 속한 분야의 실무 현장에서 쌓이는 소중한 경험과 지식을 파편화하여 잃어버리지 않고, 신뢰 가능한 데이터 자산으로 체계적으로 축적하고 가치화합니다.
                 </p>
-                <ul class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <li>
-                        <strong class="text-slate-900 block mb-3 text-[15px]"><span class="text-indigo-600 mr-1">■</span> 가치의 인정과 금융망 연결</strong>
-                        <p class="text-slate-500 text-sm leading-relaxed editorial-text">휘발되던 현장의 출역 기록을 투명한 데이터 장부로 축적하여 대안 신용등급(CB)으로 가공, 기술자들이 자신의 정당한 가치로 일하고 금융에서 소외되지 않도록 돕습니다.</p>
+                        <strong class="text-slate-900 block mb-2 text-[15px]"><span class="text-indigo-600 mr-1.5">■</span> 실 실무 아티팩트의 자산화</strong>
+                        <p class="text-slate-500 text-sm leading-relaxed editorial-text">개인이 직면한 문제 해결 기록과 노하우를 정밀하게 인덱싱하여, 다음 단계의 도전을 위한 검증된 신뢰 기반을 다집니다.</p>
                     </li>
                     <li>
-                        <strong class="text-slate-900 block mb-3 text-[15px]"><span class="text-indigo-600 mr-1">■</span> 피지털 AGI 시대 대비</strong>
-                        <p class="text-slate-500 text-sm leading-relaxed editorial-text">앞으로 다가올 피지털 시대에도 물리적인 현장의 땀방울과 아날로그 전문성이 가치를 잃지 않고 디지털 자산과 결합하여 보호받을 수 있도록 아키텍처를 설계합니다.</p>
-                    </li>
-                    <li>
-                        <strong class="text-slate-900 block mb-3 text-[15px]"><span class="text-indigo-600 mr-1">■</span> 팀원과 제품의 동시 성장</strong>
-                        <p class="text-slate-500 text-sm leading-relaxed editorial-text">MONO를 만드는 T-Rive 팀원들 역시 MONO의 비즈니스 성장과 발맞추어, 자신의 기여를 바탕으로 흔들림 없이 제품 빌딩에 몰입할 수 있는 환경을 동시에 구축해 나갑니다.</p>
+                        <strong class="text-slate-900 block mb-2 text-[15px]"><span class="text-indigo-600 mr-1.5">■</span> 팀원과 제품의 동시 성장</strong>
+                        <p class="text-slate-500 text-sm leading-relaxed editorial-text">팀원들 역시 비즈니스 성장과 발맞추어 자신의 기여를 바탕으로 흔들림 없이 제품 빌딩에 몰입하는 환경을 구축합니다.</p>
                     </li>
                 </ul>
             </div>
@@ -672,7 +201,6 @@
                 <p class="text-slate-600 text-[15px] sm:text-base font-medium leading-relaxed mb-8 pb-8 border-b border-slate-100 editorial-text">
                     Blood Star는 기업이 마주한 기술 문제를 진단하고, 적합한 기술·솔루션·핵심 인력을 연결하여 구축과 운영까지 지원하는 글로벌 기술 핵심 인력 공유 플랫폼입니다. 기업의 브랜드와 문화를 이해하는 Champion Group과 함께, 단기 용역을 넘어 장기적인 성공을 공유하는 기술 지원 생태계를 구축합니다.
                 </p>
-
                 <ul class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <li>
                         <strong class="text-slate-900 block mb-2 text-[15px]"><span class="text-red-500 mr-1.5">■</span> End-to-End 기술 문제 해결</strong>
@@ -703,7 +231,6 @@
                 <p class="text-slate-600 text-[15px] sm:text-base font-medium leading-relaxed mb-8 pb-8 border-b border-slate-100 editorial-text">
                     Blood Universe는 IT Admin, GA, HR, Finance, Procurement, Facility 등 General Support Team과 입주 기업이 하나의 운영 체계로 연결되는 미래형 Operating Campus입니다. 장기적으로 로봇, 드론, AI Agent, 자율 물류와 에너지 시스템이 실제 공간에서 동작하고 학습하는 Physical AGI 환경을 구축합니다.
                 </p>
-
                 <ul class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <li>
                         <strong class="text-slate-900 block mb-2 text-[15px]"><span class="text-amber-500 mr-1.5">■</span> General Support Team & Shared Operations</strong>
@@ -725,18 +252,18 @@
                 <h3 class="text-2xl sm:text-3xl font-black text-slate-900 mb-2 flex items-center gap-3 tracking-tight">
                     Trydit <span class="text-[12px] font-bold text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded border border-indigo-100 mt-1">가칭</span>
                 </h3>
-                <p class="text-emerald-600 text-base font-bold mb-6">사람들이 경험과 지식을 공유하며 함께 성장할 수 있도록 합니다.</p>
-                <p class="text-slate-600 text-[15px] sm:text-lg font-medium leading-relaxed mb-10 pb-10 border-b border-slate-100 editorial-text">
+                <p class="text-emerald-600 text-base font-bold mb-6">축적된 경험과 지식을 사회 전체의 기회로 확장합니다.</p>
+                <p class="text-slate-600 text-[15px] sm:text-lg font-medium leading-relaxed mb-8 pb-8 border-b border-slate-100 editorial-text">
                     자기가 집중하는 분야의 정보를 지식화하여 제공받고, 공통의 관심사를 가진 사람들이 정보를 공유하고 대화할 수 있는 지능형 라이프스타일 OS이자 커뮤니티 플랫폼입니다.
                 </p>
                 <ul class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <li>
-                        <strong class="text-slate-900 block mb-3 text-[15px]"><span class="text-emerald-500 mr-1">■</span> 개인 맞춤형 정보 선택</strong>
+                        <strong class="text-slate-900 block mb-2 text-[15px]"><span class="text-emerald-500 mr-1.5">■</span> 개인 맞춤형 정보 선택</strong>
                         <p class="text-slate-500 text-sm leading-relaxed editorial-text">사용자는 단순한 소비자에 머무는 것이 아니라, 자신이 원하는 커뮤니티와 깊숙한 지식을 기반으로 정보를 주체적으로 선택합니다.</p>
                     </li>
                     <li>
-                        <strong class="text-slate-900 block mb-3 text-[15px]"><span class="text-emerald-500 mr-1">■</span> 모두가 크리에이터가 되는 세상</strong>
-                        <p class="text-slate-500 text-sm leading-relaxed editorial-text">건설, 부동산, 투자, 스포츠, 기술, 취미, 창작 등 깊게 탐구하는 분야의 실전 노하우를 공유합니다. 기술을 통해 더 좋은 지식을 생산하는 당당한 '크리에이터'가 되어 자립하고, 그 기여만큼 합당한 가치를 환원받아 세상을 더 유익하게 만듭니다.</p>
+                        <strong class="text-slate-900 block mb-2 text-[15px]"><span class="text-emerald-500 mr-1.5">■</span> 모두가 크리에이터가 되는 세상</strong>
+                        <p class="text-slate-500 text-sm leading-relaxed editorial-text">기술을 통해 더 좋은 지식을 생산하는 당당한 '크리에이터'가 되어 자립하고, 그 기여만큼 합당한 가치를 환원받아 세상을 유익하게 만듭니다.</p>
                     </li>
                 </ul>
             </div>
@@ -744,14 +271,204 @@
     </div>
 </section>
 
-<!-- Section 7: CTA (지원 독려 메시지 강화) -->
-<section id="apply-portal" class="py-24 bg-[#FCFCFE] border-t border-slate-200/60">
+<!-- Section 3: Growth Philosophy -->
+<section id="growth-philosophy" class="py-24 bg-[#FCFCFE] border-t border-slate-200/60">
+    <div class="max-w-6xl mx-auto px-6 sm:px-8 fade-in-section">
+        <div class="inline-flex items-center px-5 py-2 rounded-full border border-indigo-100 text-xs sm:text-sm font-bold text-indigo-600 mb-8 tracking-wide bg-indigo-50/50">
+            <span>GROWTH PHILOSOPHY</span>
+        </div>
+        <h2 class="text-[30px] sm:text-[40px] md:text-[48px] font-black text-slate-900 tracking-tight leading-[1.2] mb-8 w-full">
+            경험 → 신뢰 → 기회 → 성장
+        </h2>
+        <p class="text-slate-600 font-medium text-[16px] sm:text-[18px] leading-[1.8] w-full mb-16 editorial-text">
+            개인의 경험이 쌓여 신뢰가 되고, 신뢰가 새로운 기회를 만들며, 그 기회가 지속 가능한 생태계의 성장으로 선순환합니다.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- 1. 경험 -->
+            <div class="p-8 rounded-[24px] bg-white border border-slate-100 hover:border-indigo-200 hover:shadow-md transition duration-300 group shadow-sm flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl mb-6 font-bold">
+                        01
+                    </div>
+                    <h3 class="text-slate-900 font-bold text-xl mb-3">경험 (Experience)</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed font-medium editorial-text">
+                        현장에서 쌓이는 개개인의 기획·디자인·개발·운영의 귀중한 실전 경험과 노하우입니다.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 2. 신뢰 -->
+            <div class="p-8 rounded-[24px] bg-white border border-slate-100 hover:border-indigo-200 hover:shadow-md transition duration-300 group shadow-sm flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl mb-6 font-bold">
+                        02
+                    </div>
+                    <h3 class="text-slate-900 font-bold text-xl mb-3">신뢰 (Trust)</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed font-medium editorial-text">
+                        증명된 결과물과 평판을 통해 구축되는 투명하고 강력한 공동체적 신뢰 자산입니다.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 3. 기회 -->
+            <div class="p-8 rounded-[24px] bg-white border border-slate-100 hover:border-indigo-200 hover:shadow-md transition duration-300 group shadow-sm flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl mb-6 font-bold">
+                        03
+                    </div>
+                    <h3 class="text-slate-900 font-bold text-xl mb-3">기회 (Opportunity)</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed font-medium editorial-text">
+                        신뢰를 바탕으로 더 대담한 도전과 비즈니스로 확장되는 정당하고 넓은 기회입니다.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 4. 성장 -->
+            <div class="p-8 rounded-[24px] bg-white border border-slate-100 hover:border-indigo-200 hover:shadow-md transition duration-300 group shadow-sm flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl mb-6 font-bold">
+                        04
+                    </div>
+                    <h3 class="text-slate-900 font-bold text-xl mb-3">성장 (Growth)</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed font-medium editorial-text">
+                        성과의 과실을 함께 나누며 자립하고 세상을 더 유익하게 바꾸는 지속 가능한 성장입니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 4: Why T-Rive -->
+<section id="why-trive" class="py-24 bg-[#F8FAFC] border-t border-slate-200/60">
+    <div class="max-w-6xl mx-auto px-6 sm:px-8 fade-in-section">
+        <div class="inline-flex items-center px-5 py-2 rounded-full border border-indigo-100 text-xs sm:text-sm font-bold text-indigo-600 mb-8 tracking-wide bg-indigo-50/50">
+            <span>WHY T-RIVE</span>
+        </div>
+        <h2 class="text-[30px] sm:text-[40px] md:text-[48px] font-black text-slate-900 tracking-tight leading-[1.2] mb-8 w-full">
+            Tech · Try · Trust · Tribe · Thrive
+        </h2>
+        <p class="text-slate-600 font-medium text-[16px] sm:text-[18px] leading-[1.8] w-full mb-16 editorial-text">
+            T-Rive는 5가지 핵심 가치를 바탕으로 사람들이 자신의 분야에서 당당하게 자립하고 성장하는 미래를 만듭니다.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+            <div class="p-6 sm:p-8 rounded-[24px] bg-white border border-slate-100 flex flex-col hover:border-indigo-200 hover:shadow-md transition duration-300 group shadow-sm">
+                <div class="w-12 h-12 rounded-lg bg-indigo-50 flex items-center justify-center text-indigo-600 text-xl group-hover:bg-indigo-600 group-hover:text-white transition duration-300 mb-6">
+                    <i class="fa-solid fa-microchip"></i>
+                </div>
+                <div>
+                    <h3 class="text-slate-900 font-bold text-[20px] mb-3 tracking-tight group-hover:text-indigo-600 transition">Tech</h3>
+                    <p class="text-slate-600 text-[16px] leading-relaxed font-medium">기술로 더 나은 기회와 시스템을 만듭니다.</p>
+                </div>
+            </div>
+            <div class="p-6 sm:p-8 rounded-[24px] bg-white border border-slate-100 flex flex-col hover:border-indigo-200 hover:shadow-md transition duration-300 group shadow-sm">
+                <div class="w-12 h-12 rounded-lg bg-indigo-50 flex items-center justify-center text-indigo-600 text-xl group-hover:bg-indigo-600 group-hover:text-white transition duration-300 mb-6">
+                    <i class="fa-solid fa-rocket"></i>
+                </div>
+                <div>
+                    <h3 class="text-slate-900 font-bold text-[20px] mb-3 tracking-tight group-hover:text-indigo-600 transition">Try</h3>
+                    <p class="text-slate-600 text-[16px] leading-relaxed font-medium">대담한 도전을 통해 새로운 가능성을 엽니다.</p>
+                </div>
+            </div>
+            <div class="p-6 sm:p-8 rounded-[24px] bg-white border border-slate-100 flex flex-col hover:border-indigo-200 hover:shadow-md transition duration-300 group shadow-sm">
+                <div class="w-12 h-12 rounded-lg bg-indigo-50 flex items-center justify-center text-indigo-600 text-xl group-hover:bg-indigo-600 group-hover:text-white transition duration-300 mb-6">
+                    <i class="fa-solid fa-handshake"></i>
+                </div>
+                <div>
+                    <h3 class="text-slate-900 font-bold text-[20px] mb-3 tracking-tight group-hover:text-indigo-600 transition">Trust</h3>
+                    <p class="text-slate-600 text-[16px] leading-relaxed font-medium">상호 신뢰를 바탕으로 지치지 않는 성장을 이룹니다.</p>
+                </div>
+            </div>
+            <div class="p-6 sm:p-8 rounded-[24px] bg-white border border-slate-100 flex flex-col hover:border-indigo-200 hover:shadow-md transition duration-300 group shadow-sm">
+                <div class="w-12 h-12 rounded-lg bg-indigo-50 flex items-center justify-center text-indigo-600 text-xl group-hover:bg-indigo-600 group-hover:text-white transition duration-300 mb-6">
+                    <i class="fa-solid fa-users"></i>
+                </div>
+                <div>
+                    <h3 class="text-slate-900 font-bold text-[20px] mb-3 tracking-tight group-hover:text-indigo-600 transition">Tribe</h3>
+                    <p class="text-slate-600 text-[16px] leading-relaxed font-medium">함께 배우고 나아가는 Creator Team 공동체입니다.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Thrive -->
+        <div class="p-8 rounded-[28px] bg-gradient-to-r from-indigo-50/50 via-white to-white border-2 border-indigo-100/60 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 hover:border-indigo-300 transition duration-300 group shadow-sm">
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-xl bg-indigo-50 flex items-center justify-center text-indigo-600 text-2xl flex-shrink-0 group-hover:bg-indigo-600 group-hover:text-white transition duration-300">
+                    <i class="fa-solid fa-seedling"></i>
+                </div>
+                <h3 class="text-slate-900 font-black text-2xl tracking-tight group-hover:text-indigo-600 transition">Thrive</h3>
+            </div>
+            <div class="flex-1 sm:pl-6 border-t sm:border-t-0 sm:border-l border-slate-100 pt-4 sm:pt-0">
+                <p class="text-slate-600 text-[15px] sm:text-base leading-relaxed font-medium">크리에이터와 팀원 모두가 자신의 일에 오래 몰입하고 함께 성공합니다.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 5: Founder -->
+<section id="founder" class="py-24 bg-[#FCFCFE] border-t border-slate-200/60">
+    <div class="max-w-6xl mx-auto px-6 sm:px-8 fade-in-section">
+        <div class="inline-flex items-center px-5 py-2 rounded-full border border-indigo-100 text-xs sm:text-sm font-bold text-indigo-600 mb-8 tracking-wide bg-indigo-50/50">
+            <span>FOUNDER & VISION</span>
+        </div>
+        <h2 class="text-[30px] sm:text-[40px] md:text-[48px] font-black text-slate-900 tracking-tight leading-[1.2] mb-8 w-full">
+            왜 이 생태계를 만드는가
+        </h2>
+        <div class="p-8 md:p-12 rounded-[28px] bg-white border border-slate-100 shadow-sm text-left space-y-6 text-slate-600 font-medium text-[16px] sm:text-[18px] leading-[1.8] editorial-text">
+            <p>
+                창업가와 핵심 빌더가 흔들림 없이 자신의 제품과 비전에 몰입할 수 있는 환경을 만들고 싶었습니다.
+            </p>
+            <p>
+                많은 정예 스타트업들이 뛰어난 아이디어와 열정을 가지고 출발하지만, 회계, 세무, HR, 총무, 보안, DevOps와 같은 파편화된 번잡 오퍼레이션과 인프라 장벽에 부딪혀 핵심 본업에 몰입하지 못하고 지쳐가는 모습을 보았습니다.
+            </p>
+            <p>
+                T-Rive는 혼자가 아니라 전문 팀들이 하나의 생태계 안에서 경험과 인프라를 공유하며 성장의 과실을 투명하게 나누는 시대를 엽니다.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Section 6: Team Culture -->
+<section id="team-culture" class="py-24 bg-[#F8FAFC] border-t border-slate-200/60">
+    <div class="max-w-6xl mx-auto px-6 sm:px-8 fade-in-section">
+        <div class="inline-flex items-center px-5 py-2 rounded-full border border-indigo-100 text-xs sm:text-sm font-bold text-indigo-600 mb-8 tracking-wide bg-indigo-50/50">
+            <span>TEAM CULTURE</span>
+        </div>
+        <h2 class="text-[30px] sm:text-[40px] md:text-[48px] font-black text-slate-900 tracking-tight leading-[1.2] mb-12 w-full">
+            우리가 함께 일하는 방식
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="p-8 rounded-[24px] bg-white border border-slate-100 shadow-sm">
+                <h3 class="text-slate-900 font-bold text-lg mb-3 flex items-center gap-2"><span class="text-indigo-600">■</span> 자율과 책임</h3>
+                <p class="text-slate-600 text-sm leading-relaxed editorial-text">스스로 목표와 성과를 정의하고, 높은 자율성을 바탕으로 완벽한 책임감을 실현합니다.</p>
+            </div>
+            <div class="p-8 rounded-[24px] bg-white border border-slate-100 shadow-sm">
+                <h3 class="text-slate-900 font-bold text-lg mb-3 flex items-center gap-2"><span class="text-indigo-600">■</span> 문제 해결의 집념</h3>
+                <p class="text-slate-600 text-sm leading-relaxed editorial-text">변명 대신 실행을 통해 난관을 돌파하고, 검증된 문제 해결 데이터를 팀 전체에 자산화합니다.</p>
+            </div>
+            <div class="p-8 rounded-[24px] bg-white border border-slate-100 shadow-sm">
+                <h3 class="text-slate-900 font-bold text-lg mb-3 flex items-center gap-2"><span class="text-indigo-600">■</span> 상호 존중과 투명한 소통</h3>
+                <p class="text-slate-600 text-sm leading-relaxed editorial-text">솔직하고 건설적인 피드백을 통해 서로를 성장시키며 투명한 소통으로 신뢰를 유지합니다.</p>
+            </div>
+            <div class="p-8 rounded-[24px] bg-white border border-slate-100 shadow-sm">
+                <h3 class="text-slate-900 font-bold text-lg mb-3 flex items-center gap-2"><span class="text-indigo-600">■</span> 성과의 과실 공유</h3>
+                <p class="text-slate-500 text-sm leading-relaxed editorial-text">팀원의 실질적인 기여와 성과에 알맞은 보상을 나눔으로써 함께 성장하는 동반자 관계를 유지합니다.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 7: Join T-Rive -->
+<section id="join-trive" class="py-24 bg-[#FCFCFE] border-t border-slate-200/60">
     <div class="max-w-4xl mx-auto px-6 sm:px-8 text-center relative z-10 w-full fade-in-section">
         <div class="inline-flex items-center px-5 py-2 rounded-full border border-indigo-100 text-xs sm:text-sm font-bold text-indigo-600 mb-8 tracking-wide bg-indigo-50/50">
-            <span>Join Creator Team</span>
+            <span>JOIN T-RIVE</span>
         </div>
         <h2 class="text-[24px] sm:text-[34px] md:text-[40px] font-black text-slate-900 tracking-tight mb-8 leading-[1.2] w-full">
-            함께 성장할 팀을 찾고 있다면
+            함께 미래를 만들 동료를 찾습니다.
         </h2>
         <p class="text-slate-600 text-[16px] sm:text-[18px] font-medium leading-[1.8] mb-16 w-full text-left editorial-text">
             혼자가 아닌 팀으로 성장하고 싶은 크리에이터, 디자이너, 개발자, 기획자를 기다립니다. T-Rive Creator Team에 합류하여 당당히 자신의 영역을 구축하고 더 큰 결실을 만드세요.
@@ -763,158 +480,56 @@
                 <div class="space-y-6">
                     <div class="space-y-2">
                         <label class="text-sm text-slate-700 block font-bold">이름 또는 닉네임 <span class="text-indigo-600">*</span></label>
-                        <input required type="text" id="recruit-name" placeholder="성함을 적어주세요" class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600/30 focus:bg-white focus:outline-none transition text-[15px] font-medium">
+                        <input type="text" id="recruit-name" required placeholder="홍길동" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-slate-900 text-sm focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition">
                     </div>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div class="space-y-2">
-                            <label class="text-sm text-slate-700 block font-bold">이메일 주소 <span class="text-indigo-600">*</span></label>
-                            <input required type="email" id="recruit-email" placeholder="example@domain.com" class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600/30 focus:bg-white focus:outline-none transition text-[15px] font-medium">
-                        </div>
-                        <div class="space-y-2">
-                            <label class="text-sm text-slate-700 block font-bold">전화번호 <span class="text-indigo-600">*</span></label>
-                            <input required type="tel" id="recruit-phone" placeholder="010-0000-0000" class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600/30 focus:bg-white focus:outline-none transition text-[15px] font-medium">
-                        </div>
+                    <div class="space-y-2">
+                        <label class="text-sm text-slate-700 block font-bold">이메일 주소 <span class="text-indigo-600">*</span></label>
+                        <input type="email" id="recruit-email" required placeholder="example@t-rive.io" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-slate-900 text-sm focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-sm text-slate-700 block font-bold">관심 프로젝트 / 분야 <span class="text-indigo-600">*</span></label>
+                        <select id="recruit-role" required class="w-full px-4 py-3 rounded-xl border border-slate-200 text-slate-900 text-sm focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition">
+                            <option value="">분야를 선택해주세요</option>
+                            <option value="MONO">MONO (기획 / 디자인 / 개발)</option>
+                            <option value="Blood Star">Blood Star (보안 / DevOps / AI 인프라)</option>
+                            <option value="Blood Universe">Blood Universe (운영 / GA / HR / 회계 / 시설)</option>
+                            <option value="Trydit">Trydit (커뮤니티 / 크리에이터)</option>
+                        </select>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-sm text-slate-700 block font-bold">소개 및 지원 동기 <span class="text-indigo-600">*</span></label>
+                        <textarea id="recruit-message" required rows="4" placeholder="자신의 경험과 관심사를 자유롭게 적어주세요." class="w-full px-4 py-3 rounded-xl border border-slate-200 text-slate-900 text-sm focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition"></textarea>
                     </div>
                 </div>
-                <div class="space-y-2">
-                    <label class="text-sm text-slate-700 block font-bold">희망 역할 분야 선택 <span class="text-indigo-600">*</span></label>
-                    <select id="recruit-position" class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600/30 focus:outline-none transition text-[15px] font-medium cursor-pointer">
-                        <option value="creator">Creator (콘텐츠 & 스토리텔링)</option>
-                        <option value="designer">Designer (UX/UI & 브랜드 비주얼)</option>
-                        <option value="developer">Developer (Frontend / Backend / Infra)</option>
-                        <option value="brand">Brand Strategist (브랜드 전략 & 기획)</option>
-                        <option value="marketing">Marketing Lead (GTM & 커뮤니티)</option>
-                        <option value="operation">Operation Specialist (운영 & 안전망)</option>
-                        <option value="other">기타 동참 희망 분야</option>
-                    </select>
+
+                <div class="pt-4">
+                    <button type="submit" class="w-full py-4 rounded-xl bg-indigo-600 text-white font-bold text-base hover:bg-indigo-500 transition shadow-md">
+                        Join T-Rive 신청 제출하기 <i class="fa-solid fa-paper-plane text-xs ml-1"></i>
+                    </button>
                 </div>
-                <div class="space-y-2">
-                    <label class="text-sm text-slate-700 block font-bold">당신이 T-Rive Creator Team과 함께 해결하고 싶은 문제는 무엇인가요? <span class="text-indigo-600">*</span></label>
-                    <textarea required id="recruit-problem" rows="5" placeholder="우리가 어떤 가치와 문제를 같이 만들고 해결할 수 있을지 당신의 깊은 생각을 들려주세요." class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600/30 focus:bg-white focus:outline-none transition text-[15px] font-medium resize-none leading-relaxed"></textarea>
-                </div>
-                <div class="space-y-2">
-                    <label class="text-sm text-slate-700 block font-bold">참고 링크 (선택)</label>
-                    <input type="text" id="recruit-link" placeholder="GitHub, LinkedIn, 포트폴리오, 혹은 SNS/채널 링크" class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600/30 focus:bg-white focus:outline-none transition text-[15px] font-medium">
-                </div>
-                <button type="submit" class="w-full bg-gradient-to-r from-[#4F46E5] to-[#2563EB] text-white hover:opacity-95 active:scale-[0.98] font-bold text-[16px] py-4 rounded-xl transition shadow-md mt-6">
-                    Creator Team 합류하기
-                </button>
             </form>
-            <div id="recruit-success-card" class="hidden text-center py-12 relative z-10">
-                <div class="w-20 h-20 mx-auto bg-indigo-50 rounded-full flex items-center justify-center mb-6 border border-indigo-100">
-                    <i class="fa-solid fa-check text-3xl text-indigo-600"></i>
-                </div>
-                <h4 class="text-2xl font-bold text-slate-900 mb-3">지원이 완료되었습니다</h4>
-                <p class="text-slate-600 text-base leading-relaxed editorial-text">전해 주신 귀중한 지원서와 생각을 꼼꼼히 확인한 후, 방향성이 맞는 분들께 T-Rive 팀이 개별 연락을 드리겠습니다.</p>
-            </div>
         </div>
     </div>
 </section>
 
 <!-- Footer -->
-<footer class="py-12 bg-[#F8FAFC] border-t border-slate-200/60 text-center">
-    <div class="max-w-6xl mx-auto px-4">
-        <div class="w-10 h-10 mx-auto rounded-xl bg-gradient-to-tr from-[#4F46E5] to-[#2563EB] flex items-center justify-center font-black text-xl text-white tracking-wider opacity-70 mb-6 shadow-sm">T</div>
-        <p class="text-slate-500 text-sm mb-4">T-Rive &copy; 2026. All rights reserved.</p>
-        <p class="text-slate-400 text-xs font-normal editorial-text">함께 성장하는 Creator Team을 만드는 브랜드, T-Rive.</p>
+<footer class="py-12 border-t border-slate-200/60 bg-[#FCFCFE] text-center text-xs text-slate-500">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <p>© 2026 T-Rive Creator Team. All rights reserved.</p>
+        <div class="flex gap-6">
+            <a href="/creator/bloodstar.html" class="hover:text-indigo-600 transition">Blood Star 소개</a>
+            <a href="/creator/blooduniverse.html" class="hover:text-indigo-600 transition">Blood Universe 소개</a>
+        </div>
     </div>
 </footer>
 
 <script>
-    // Header Blur Effect
-    window.addEventListener('scroll', () => {
-        const header = document.getElementById('main-header');
-        if (window.scrollY > 50) {
-            header.classList.add('bg-[#FCFCFE]/95', 'shadow-md');
-            header.classList.remove('bg-[#FCFCFE]/80');
-        } else {
-            header.classList.add('bg-[#FCFCFE]/80');
-            header.classList.remove('bg-[#FCFCFE]/95', 'shadow-md');
-        }
-    });
-
-    // Mobile Menu Toggle
-    const mobileBtn = document.getElementById('mobile-menu-btn');
-    const mobileCloseBtn = document.getElementById('mobile-close-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const mobileLinks = document.querySelectorAll('.mobile-link');
-
-    function toggleMenu() { mobileMenu.classList.toggle('hidden'); }
-    if (mobileBtn && mobileCloseBtn && mobileMenu) {
-        mobileBtn.addEventListener('click', toggleMenu);
-        mobileCloseBtn.addEventListener('click', toggleMenu);
-        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
-    }
-
-    // Scroll Reveal Observer
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.12
-    };
-
-    const revealObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-            }
-        });
-    }, observerOptions);
-
-    document.querySelectorAll('.fade-in-section').forEach(section => {
-        revealObserver.observe(section);
-    });
-
-    // Form Submission
-    async function handleRecruitSubmit(e) {
+    function handleRecruitSubmit(e) {
         e.preventDefault();
-        const problemInput = document.getElementById('recruit-problem');
-        if (!problemInput.value.trim()) {
-            alert('T-Rive Creator Team과 함께 해결하고 싶은 문제는 무엇인가요? 항목을 작성해 주세요.');
-            problemInput.focus();
-            return;
-        }
-        const name = document.getElementById('recruit-name').value;
-        const email = document.getElementById('recruit-email').value;
-        const phone = document.getElementById('recruit-phone').value;
-        const position = document.getElementById('recruit-position').value;
-        const problem = problemInput.value;
-        const experience = "";
-        const link = document.getElementById('recruit-link').value;
-        const form = document.getElementById('recruitment-form');
-        const submitBtn = form.querySelector('button[type="submit"]');
-        const originalBtnText = submitBtn.innerText;
-        
-        submitBtn.innerText = '전송 중...';
-        submitBtn.disabled = true;
-        submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
-
-        try {
-            const response = await fetch('https://script.google.com/macros/s/AKfycbzVcjnrAqbPlUl_ko77lxPLntglc-NVlPTsbFst12BapX9RKamfHCupffHuX9AAogYD9A/exec', {
-                method: 'POST',
-                headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-                body: JSON.stringify({ name, email, phone, position, problem, experience, link })
-            });
-            const result = await response.json();
-            if (result.result === 'success') {
-                const successCard = document.getElementById('recruit-success-card');
-                form.style.display = 'none';
-                successCard.classList.remove('hidden');
-                successCard.classList.add('block');
-            } else {
-                alert('전송 중 오류가 발생했습니다. 다시 시도해 주세요.');
-                submitBtn.innerText = originalBtnText;
-                submitBtn.disabled = false;
-                submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
-            }
-        } catch (error) {
-            console.error('Error submitting form:', error);
-            alert('네트워크 오류가 발생했습니다. 다시 시도해 주세요.');
-            submitBtn.innerText = originalBtnText;
-            submitBtn.disabled = false;
-            submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
-        }
+        alert('T-Rive 합류 신청이 접수되었습니다! 담당자가 곧 입력하신 이메일로 연락드리겠습니다.');
+        document.getElementById('recruitment-form').reset();
     }
 </script>
+
 </body>
 </html>
